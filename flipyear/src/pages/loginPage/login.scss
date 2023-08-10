@@ -1,0 +1,156 @@
+    .main {
+        img {
+            width: 55%;
+        }
+
+        .DetailsInside {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 150px;
+            left: 175px;
+            width: 400px;
+            height: 360px;
+            background-color: #081820;
+            box-shadow: 0  0 0  6px #0818206c;
+            align-items: center;
+            h2{
+                text-align: center;
+                font-size: 25px;
+                width: 250px;
+                margin-bottom: -4px;
+                color: #429B56;
+            }
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            label{
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: #fff;
+                font-size: 9.5px;
+            }
+            input{
+                padding: 7px 80px;
+                background-color: #CDF1B5;
+                margin-top: 5px;
+                border: none;
+            }
+            h6{
+                margin-top: -3px;
+                font-size: 7px;
+                color: #00FF57;
+                letter-spacing: 1.3px;
+                padding: 5px;
+                margin-bottom: 2px;
+            }
+        }
+        color: #fff;
+        .entrarButton{
+            text-decoration: none;
+            animation: piscarButton linear infinite 900ms;
+            font-size: 14px;
+        }
+
+        @keyframes piscarButton {
+            0%{
+                color: black;
+            }
+            25%{
+                color: #fff;
+            }
+            50%{
+                color: black;
+            }
+            75%{
+                color: #fff;
+            }
+            100%{
+                color: black;    
+            }                
+        }
+        
+        .linha{
+            width: 300px;
+            height: 2em;
+            margin: 10px;
+            margin-bottom: -10px;
+        }
+
+        .entrarCom{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-top: 15px;
+            .redes{
+                display: flex;
+                flex-direction: row;
+
+                img{
+                    width: 76px;
+                    height: 50px;
+                }
+                margin-bottom: -13px;
+            }
+            p{
+                font-size: 9px;
+            }
+            h6{
+                font-size: 8.5px;
+                letter-spacing: 1px;
+                a{
+                    color: #00FF57;
+                }
+            }
+        }
+
+        .recuperação{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .voltar{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                width: 375px;
+                h5{
+                    font-size: 7px;
+                    padding: 10px 10px;
+                    border: #00FF57 solid;
+                }
+            }
+            .inputsRec{
+                display: flex;
+                flex-direction: column;
+                font-size: 9px;
+                input{
+                    padding: 8px 10px;
+                    width: 250px;
+                    margin-top: 5px;
+             
+                }
+                label{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 15px;
+                }
+                
+            }
+            button{
+                background-color: #429B56;
+                box-shadow: 0 0 0 6px #429b5579;
+                border: none;
+                padding: 12px 50px;
+                font: 12px 'flipFont';
+                letter-spacing: 1px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+        }
+    }
