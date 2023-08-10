@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './login.scss'
-import gameFrame from '../../assets/GAMEBOY_FRAME 1.png'
-import googleLogo from '../../assets/google 1.png'
-import FacebookeLogo from '../../assets/face 1.png'
+import gameFrame from '../../assets/images/imagesLogin/GAMEBOY_FRAME 1.png'
+import googleLogo from '../../assets/images/imagesLogin/google 1.png'
+import FacebookeLogo from '../../assets/images/imagesLogin/face 1.png'
 import { Link } from 'react-router-dom'
 function Login() {
   const [hide, setHide] = useState(true)
@@ -48,7 +48,7 @@ function Login() {
             <img src={FacebookeLogo} alt="" />
             <img src={googleLogo} alt="" />
           </div>
-        <h6>Ainda não tem uma conta? <a href='<cadastro/>' >Cadastre-se</a> </h6>  
+        <h6>Ainda não tem uma conta? <Link to='/cadastro'> <a >Cadastre-se</a></Link> </h6>  
       </div>
       </>
       )}      
@@ -75,7 +75,7 @@ function Login() {
         </div>
         
         <div>
-          <Link to='/cadastro'>
+          <Link to='/'>
         <button>enviar</button>
           </Link>
         </div>
