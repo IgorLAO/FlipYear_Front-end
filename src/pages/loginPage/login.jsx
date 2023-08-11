@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import { RecupararSenha } from '../../ui/components/recuperarSenhaComponets/recuperar_senha'
 import './login.scss'
+
 import gameFrame from '../../assets/images/imagesLogin/GAMEBOY_FRAME 1.png'
 import googleLogo from '../../assets/images/imagesLogin/google 1.png'
 import FacebookeLogo from '../../assets/images/imagesLogin/face 1.png'
-import { Link } from 'react-router-dom'
-function Login() {
+
+function Login(props2) {
   const [hide, setHide] = useState(true)
   const [reveal, setReveal] = useState(false)
 
@@ -54,32 +58,7 @@ function Login() {
       )}      
 
     {reveal && (
-      <div className='recuperação'>
-        <div className='voltar'>
-          <h5 onClick={hideReveal2}> --Voltar </h5>
-        </div>
-
-        <h1>Recuperar conta</h1>
-        
-        <div className='inputsRec'>
-
-        <label htmlFor="email1">
-          email de recuperação
-        <input type="text" id='email1' />
-        </label>
-
-        <label htmlFor="email2">
-          digite novamente
-        <input type="text"  id='email2'/>
-        </label>
-        </div>
-        
-        <div>
-          <Link to='/'>
-        <button>enviar</button>
-          </Link>
-        </div>
-      </div>
+      <RecupararSenha hideReveal2={hideReveal2} />
     )}
     </div>
 

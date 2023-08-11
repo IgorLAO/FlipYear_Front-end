@@ -110,47 +110,5 @@
             }
         }
 
-        .recuperação{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .voltar{
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                width: 375px;
-                h5{
-                    font-size: 7px;
-                    padding: 10px 10px;
-                    border: #00FF57 solid;
-                }
-            }
-            .inputsRec{
-                display: flex;
-                flex-direction: column;
-                font-size: 9px;
-                input{
-                    padding: 8px 10px;
-                    width: 250px;
-                    margin-top: 5px;
-             
-                }
-                label{
-                    display: flex;
-                    flex-direction: column;
-                    margin: 15px;
-                }
-                
-            }
-            button{
-                background-color: #429B56;
-                box-shadow: 0 0 0 6px #429b5579;
-                border: none;
-                padding: 12px 50px;
-                font: 12px 'flipFont';
-                letter-spacing: 1px;
-                cursor: pointer;
-                margin-top: 20px;
-            }
-        }
+        
     }
