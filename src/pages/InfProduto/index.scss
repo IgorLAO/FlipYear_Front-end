@@ -1,0 +1,96 @@
+.pagina-produto{
+    color: #fff;
+    .infos{
+        background-color: #081820;
+        padding: 10px;
+
+        border: 1px solid #fff;
+        display: flex;
+    }
+
+    .imgs-produto{
+        display: flex;
+        margin: 20px;
+    }
+
+    .div_imagem{
+
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagem{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E0F8CF;
+        margin-left: 50px;
+        height: 400px;
+        position: relative;
+    }
+
+    .imagem p{
+        top: 5px;
+        left: 20px;
+        position: absolute;
+        color: #000;
+    }
+
+    .imagem img{
+        padding: 0px 130px;
+        box-shadow: -22px 3px #E0F8CF, 22px 3px #E0F8CF;
+    }
+
+    .mini-imgs{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mini-img{
+        width: 112px;
+        height: 105px;
+        background-color: #fff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .mini-img img{
+        height: 100px;
+        width: auto;
+    }   
+
+    #fita{
+        height: 60px;
+        width: auto; 
+    }
+
+    .compra{
+        margin: 20px    ;
+        background-color: #86C06C;
+        padding: 60px;
+    }
+
+    .txt{
+        color: #88C070;
+    }
+
+    .txt h1{
+        font-size: 24px;
+    }
+
+    .txt p{
+        font-size: 13px;
+        width: 690px;
+    }
+
+    .linha{
+        padding: 2px 30px;
+        width: 200px;
+        background-color: #88C070;
+    }
+}
