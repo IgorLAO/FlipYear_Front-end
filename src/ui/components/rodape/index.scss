@@ -3,6 +3,18 @@
 
     font-family: 'Inter';
     background-color: #081820;
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
+.infos {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 
 
 
@@ -12,6 +24,86 @@
 
     color: #1A644E;
     font-size: 18px;
+    text-transform: uppercase;
     
+
+}
+
+.comp-rodape p {
+
+    color: #9C9C9C;
+    font-size: 13px;
+
+
+}
+
+.contato-linha {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+}
+
+.contato-linha img {
+
+
+    width: 22px;
+    height: 22px;
+
+    margin-right: 5px;
+
+
+}
+
+.contato-linha p {
+
+    text-align: left;
+
+
+
+}
+
+.redes-sociais h6{
+
+    color:#1A644E;
+    font-size: 18px;
+
+
+
+}
+
+
+.formas-pag{
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formas-pag img {
+    
+    padding: 5px;
+    width: 62px;
+    height: 42px;
+    
+    
+    
+    
+    
+}
+
+.comp-rodape hr{
+
+
+    height: 1px;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+
+    color:#9C9C9C;
+
 
 }
