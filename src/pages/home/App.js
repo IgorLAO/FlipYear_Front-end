@@ -1,4 +1,5 @@
 import './App.scss';
+import Rodape from '../../ui/components/rodape';
 
 function App() {
   return (
@@ -6,6 +7,8 @@ function App() {
       <h1>
         FLIP YEAR
       </h1>
+
+      <Rodape></Rodape>
     </div>
   );
 }
