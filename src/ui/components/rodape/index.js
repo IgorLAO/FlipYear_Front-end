@@ -42,11 +42,11 @@ export default function Rodape(){
 
         <div className='certificados'>
 
-    <h3>certificados de segurança</h3>
+<h3>certificados de segurança</h3>
 
-    <img src={CertSeg}/>
+<img src={CertSeg}/>
 
-    </div>
+</div>
 
 
         </div>
@@ -87,6 +87,8 @@ export default function Rodape(){
         </div>
         </div>
 
+    <div className='info-2'>
+
     <div className='formas-pag'>
             <h3>Formas de pagamento</h3>
 
@@ -111,6 +113,8 @@ export default function Rodape(){
             <img src={Instagram}/>
             <img src={Youtube}/>
         </div>
+
+    </div>
 
         
         </div>
