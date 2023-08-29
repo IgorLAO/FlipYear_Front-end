@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #0A1A2F;
-    width: 207.9vh;
+    width: 139.6vh;
     height: 100vh;
     justify-content: center;
     h1{
@@ -16,10 +16,13 @@
         flex-direction: row;
         height: 450px;
         input{
-            padding: 8px 60px;
+            border:solid 3px #40985E;
+            padding: 8px 80px;
             margin-top: 4px;
             background-color: #CDF1B5;
-            border: none;
+            justify-self: flex-start;
+            background-color:#429b5579 ;
+
         }
         div{
             display: flex;
@@ -45,6 +48,7 @@
         font: 12px 'flipFont';
         letter-spacing: 1px;
         cursor: pointer;
+        margin-top: 70px;
     }
     .imgs{
         img{
@@ -55,31 +59,30 @@
         }
         #pote{
             position: absolute;
-            top: 500px;
+            top: 670px;
             left: 100px;
-          
         }
         #fogo{
             position: absolute;
-            top: 350px;
+            top: 770px;
             right: 50px;
             
         }
         #flor{
             position: absolute;
-            top: 100px;
-            left: 100px;
+            top: 180px;
+            left: 50px;
         }
         #cruz{
             width: 200px;
             position: absolute;
-            top: 500px;
-            left: 760px;
+            top: 370px;
+            left: -20px;
         }
         #luckyBox{
             position: absolute;
-            top: 50px;
-            right: 50px;
+            top: 170px;
+            right: 60px;
         }
 
         @keyframes shake {
