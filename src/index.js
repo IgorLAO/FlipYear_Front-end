@@ -6,6 +6,7 @@ import Login from './pages/loginPage/login';
 import App from './pages/home/App';
 import Cadastro from './pages/cadastroPage/cadastroPage';
 import InfProduto from './pages/InfProduto';
+import Catalogo from './pages/catalogo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,8 @@ root.render(
         <Route path='/' element={<App/>} />
         <Route path='/cadastro' element={<Cadastro/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/produto' element={<InfProduto />} />
+        <Route path='/produto' element={<InfProduto/>} />
+        <Route path='/catalogo' element= {<Catalogo/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
