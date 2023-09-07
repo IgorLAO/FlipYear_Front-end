@@ -32,6 +32,23 @@ export default function Catalogo(){
 
                 <div className='resultados'>
                     <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                </div>
+
+                <div className='resultados'>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                </div>
+
+                <div className='resultados'>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                    <CardProdutoCtlg></CardProdutoCtlg>
                 </div>
 
                 <div className='paginacao'>

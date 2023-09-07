@@ -112,6 +112,9 @@
     display: flex;
     flex-direction: row;
 
+    margin-top: 105px;
+    margin-bottom: 105px;
+
 }
 .paginacao p {
 
@@ -127,6 +130,14 @@
 .paginacao p:hover{
 
     cursor: pointer;
+
+}
+
+.resultados{
+
+    display: flex;
+    flex-direction: row;
+
 
 }
 
