@@ -1,7 +1,7 @@
 import './index.scss';
 import filtro from '../../ui/images/filtro_logo.png'
 import Rodape from '../../ui/components/rodape/index.js'
-
+import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import Cabecalho from '../../ui/components/cabecalho/cabecalho.js'
 export default function Catalogo(){
     return(
@@ -29,6 +29,10 @@ export default function Catalogo(){
                     </div>
                 </div>
                 <h1 className='exib'>Exibindo todos os resultados para {}</h1>
+
+                <div className='resultados'>
+                    <CardProdutoCtlg></CardProdutoCtlg>
+                </div>
 
                 <div className='paginacao'>
                 <p>1</p>
