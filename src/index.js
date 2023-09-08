@@ -7,6 +7,7 @@ import App from './pages/home/App';
 import Cadastro from './pages/cadastroPage/cadastroPage';
 import InfProduto from './pages/InfProduto';
 import Catalogo from './pages/catalogo';
+import PerfilPublico from './pages/perfil/perfil-publico'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,8 @@ root.render(
         <Route path='/login' element={<Login/>} />
         <Route path='/produto' element={<InfProduto/>} />
         <Route path='/catalogo' element= {<Catalogo/>} />
+        <Route path='/perfil-publico' element= {<PerfilPublico/>} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
