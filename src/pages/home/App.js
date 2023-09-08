@@ -1,12 +1,12 @@
 import './App.scss';
 import Rodape from '../../ui/components/rodape';
+import NavBar from '../../ui/components/navBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        FLIP YEAR
-      </h1>
+      <NavBar />
+      <h1>  </h1>
 
       <Rodape></Rodape>
     </div>

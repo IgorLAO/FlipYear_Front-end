@@ -1,17 +1,15 @@
 import './index.scss';
-import filtro from '../../ui/images/filtro_logo.png'
-import Rodape from '../../ui/components/rodape/index.js'
+
+import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
-import Cabecalho from '../../ui/components/cabecalho/cabecalho.js'
+
 export default function Catalogo(){
     return(
         <>
             <div className="container-ctlg">
-                <Cabecalho></Cabecalho>
                    <h1 className='ctlg'>Catálogo</h1> 
                 <div className="bloco-filtro-ctlg">
                     <div>
-                        <img src={filtro} className='filtro'/>
                         <p>Tipo de Produto</p>
 
                     </div>
