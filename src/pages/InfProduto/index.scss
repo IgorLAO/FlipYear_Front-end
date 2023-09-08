@@ -71,8 +71,13 @@
 
     .compra{
         margin: 20px    ;
-        background-color: #86C06C;
+        background-color: #04373B;
         padding: 60px;
+    }
+
+    .frete{
+        display: flex;
+        flex-direction: column;
     }
 
     .txt{

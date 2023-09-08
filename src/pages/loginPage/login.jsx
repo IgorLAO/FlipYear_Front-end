@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { RecupararSenha } from '../../ui/components/recuperarSenhaComponets/recuperar_senha'
 import './login.scss'
 
-import gameFrame from '../../assets/images/imagesLogin/GAMEBOY_FRAME 1.png'
-import googleLogo from '../../assets/images/imagesLogin/google 1.png'
-import FacebookeLogo from '../../assets/images/imagesLogin/face 1.png'
+import gameFrame from '../../ui/assets/images/imagesLogin/GAMEBOY_FRAME 1.png'
+import googleLogo from '../../ui/assets/images/imagesLogin/google 1.png'
+import FacebookeLogo from '../../ui/assets/images/imagesLogin/face 1.png'
 
 function Login(props2) {
   const [hide, setHide] = useState(true)

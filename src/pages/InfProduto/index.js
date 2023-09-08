@@ -1,18 +1,33 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+
 import './index.scss'
-import Cabecalho from "../../ui/components/cabecalho/cabecalho"
-import yum from '../../ui/images/super_famicon_yum.png'
-import yum_costa from '../../ui/images/yum game_tras 1.png'
-import yum_fita from '../../ui/images/yum fita_frente 1.png'
-import hermes from '../../ui/images/hermes_express.png'
-import red_star from '../../ui/images/re_star_company.png'
 
-export default function InfProduto(){
+import yum from '../../ui/assets/images/super_famicon_yum.png'
+import yum_costa from '../../ui/assets/images/yum game_tras 1.png'
+import yum_fita from '../../ui/assets/images/yum fita_frente 1.png'
+import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
+import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
 
-    return(
+import NavBar from "../../ui/components/navBar"
+
+export default function InfProduto() {
+    const [isHideOptions, setIsHideOptions] = useState(false);
+    const [ang, setAng] = useState('0');
+
+    function hideValid() {
+        setIsHideOptions(true)
+        setAng('90')
+
+        if (isHideOptions) {
+            setIsHideOptions(false);
+            setAng('0')
+        }
+    }
+
+    return (
         <div className="pagina-produto">
-            <Cabecalho />
+            <NavBar />
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
@@ -63,24 +78,34 @@ export default function InfProduto(){
                     </div>
 
                     <div className="frete">
-                        <h2>Onde entregar?</h2>
-                        <button>
-                            <div>
-                                <img src={hermes} alt="" />
-                                <h4>Hermes Express</h4>
-                            </div>
-                            <p>Receba em até 5 dias úteis</p>
-                            <p>R$15,00</p>
-                        </button>
 
-                        <button>
-                            <div>
-                                <img src={red_star} alt="" />
-                                <h4>Red Star Company</h4>
-                            </div>
-                            <p>Receba em até 2 dias úteis</p>
-                            <p>R$25,00</p>
-                        </button>
+                        <label for="CEP"> <h4>Onde entregar?</h4> </label>
+                        <input id="CEP" type="text" placeholder="digite o cep" />
+                        <span onClick={hideValid} style={{ display: "flex", cursor: "pointer" }}>
+                            <h4 > Opções de Entrea </h4>
+                            <a  style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}> >  </a>
+                        </span>
+                        {isHideOptions &&
+                            <>
+                                <button>
+                                    <div>
+                                        <img src={hermes} alt="" />
+                                        <h4>Hermes Express</h4>
+                                    </div>
+                                    <p>Receba em até 5 dias úteis</p>
+                                    <p>R$15,00</p>
+                                </button>
+
+                                <button>
+                                    <div>
+                                        <img src={red_star} alt="" />
+                                        <h4>Red Star Company</h4>
+                                    </div>
+                                    <p>Receba em até 2 dias úteis</p>
+                                    <p>R$25,00</p>
+                                </button>
+                            </>
+                        }
                     </div>
 
                     <div className="button-compra">

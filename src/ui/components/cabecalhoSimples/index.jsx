@@ -1,5 +1,5 @@
 import './index.scss';
-import logo from '../../images/arcade_Logo 1.png';
+import logo from '../../../ui/assets/images/NavBar_assets/arcade_Logo 1.png';
 
 export default function CabecalhoSimples(){
     return(

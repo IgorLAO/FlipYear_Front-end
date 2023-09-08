@@ -1,9 +1,9 @@
     import './cadastro.scss'
-    import florFogo from '../../assets/images/imagesCadastro/flor-fogo 1.png'
-    import luckyBox from '../../assets/images/imagesCadastro/lucky_box 1.png'
-    import cruz from '../../assets/images/imagesCadastro/cruz_castlevania 1.png'
-    import pote from '../../assets/images/imagesCadastro/pote_poision 1.png'
-    import fogo from '../../assets/images/imagesCadastro/fogo 1.png'
+    import florFogo from '../../ui/assets/images/imagesCadastro/flor-fogo 1.png'
+    import luckyBox from '../../ui/assets/images/imagesCadastro/lucky_box 1.png'
+    import cruz from '../../ui/assets/images/imagesCadastro/cruz_castlevania 1.png'
+    import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png'
+    import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png'
 
  const Cadastro = () =>{
 

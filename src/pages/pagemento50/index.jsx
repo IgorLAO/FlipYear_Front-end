@@ -1,8 +1,8 @@
 import './index.scss';
-import Carrinho from '../../ui/images/carrinho_logo.png';
-import Cartao from '../../ui/images/cartao_progresso_pagamento 1.png';
-import Confirmacao from '../../ui/images/olho_progresso_pagamento 1.png';
-import Concluir from '../../ui/images/confirm 1.png';
+import Carrinho from '../../ui/assets/images/progress_pag_assets/carrinho_logo.png';
+import Cartao from '../../ui/assets/images/progress_pag_assets/cartao_progresso_pagamento 1.png';
+import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progresso_pagamento 1.png';
+import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Pista from '../../ui/images/pista.png';
 import Seta from '../../ui/images/setabaixa.png';
 import Sonic from '../../ui/images/sonic-running.gif';
