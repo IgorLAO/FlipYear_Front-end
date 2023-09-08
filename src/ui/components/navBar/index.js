@@ -1,11 +1,11 @@
 import "./index.scss";
 
-import LogoArcade from "../../ui/assets/images/NavBar_assets/arcade_Logo 1.png";
-import Lupa from "../../ui/assets/images/NavBar_assets/lupa.png";
-import Filtro from "../../ui/assets/images/NavBar_assets/filtro_logo.png";
-import Carrinho_logo from "../../ui/assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
-import Suporte from "../../ui/assets/images/NavBar_assets/suporte_logo.png";
-import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
+import LogoArcade from "../../assets/images/NavBar_assets/arcade_Logo 1.png";
+import Lupa from "../../assets/images/NavBar_assets/lupa.png";
+import Filtro from "../../assets/images/NavBar_assets/filtro_logo.png";
+import Carrinho_logo from "../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
+import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
+import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
 
 export default function NavBar() {
 

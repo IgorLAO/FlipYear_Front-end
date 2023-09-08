@@ -1,6 +1,6 @@
 import './App.scss';
 import Rodape from '../../ui/components/rodape';
-import NavBar from '../navBar';
+import NavBar from '../../ui/components/navBar';
 
 function App() {
   return (
