@@ -82,7 +82,7 @@ export default function InfProduto() {
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
                         <input id="CEP" type="text" placeholder="digite o cep" />
                         <span onClick={hideValid} style={{ display: "flex", cursor: "pointer" }}>
-                            <h4 > Opções de Entrea </h4>
+                            <h4 > Opções de Entrega </h4>
                             <a  style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}> >  </a>
                         </span>
                         {isHideOptions &&
