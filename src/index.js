@@ -24,7 +24,7 @@ root.render(
         <Route path='/produto' element={<InfProduto/>} />
         <Route path='/catalogo' element= {<Catalogo/>} />
 <<<<<<< HEAD
-        <Route path='/pagamento50' element= {<Pagamento50/>} />
+        <Route path='/pagamento50' element= {<Pagamento50/>} > />
 =======
         <Route path='/perfil-publico' element= {<PerfilPublico/>} />
 
