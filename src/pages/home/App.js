@@ -6,9 +6,12 @@ function App() {
     <div className="App">
       <h1>
         FLIP YEAR
+        opa
+        adqw
+        <p>dwq</p>
       </h1>
 
-      <Rodape></Rodape>
+  
     </div>
   );
 }
