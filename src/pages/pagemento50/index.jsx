@@ -16,6 +16,7 @@ export default function Pagamento(){
         
         <div className="container_pag50"> 
             <CabecalhoVazio />
+            oi
             <div className='estado_pag'>
                 <div className='icons_pag'>
                     <div>
