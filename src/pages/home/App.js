@@ -1,6 +1,4 @@
 import './App.scss';
-import Rodape from '../../ui/components/rodape';
-import NavBar from '../../ui/components/navBar';
 
 import nes from "../../ui/assets/images/Home_assets/nes_Console 1.png";
 import gameBoy from "../../ui/assets/images/Home_assets/gameboy.png";
@@ -76,6 +74,12 @@ function App() {
         </div>
       </section>
       <Rodape></Rodape>
+      <h1>
+        FLIP YEAR
+      </h1>
+
+  
+
     </div>
   );
 }
