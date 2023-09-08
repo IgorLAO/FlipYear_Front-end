@@ -1,5 +1,5 @@
 import './index.scss';
-import filtro from '../../ui/images/filtro_logo.png'
+import filtro from '../../ui/assets/images/filtro_logo.png'
 export default function Catalogo(){
     return(
         <>

@@ -1,10 +1,10 @@
 import './cabecalho.scss';
-import logo from '../../images/arcade_Logo 1.png'
-import lupa from '../../images/lupa.png'
-import filtro from '../../images/filtro_logo.png'
-import usuario from '../../images/usuario_logo.png'
-import carrinho from '../../images/carrinho_logo_cabecalho.png'
-import suporte from '../../images/suporte_logo.png'
+import logo from '../../assets/images/NavBar_assets/arcade_Logo 1.png'
+import lupa from '../../assets/images/NavBar_assets/lupa.png'
+import filtro from '../../assets/images/NavBar_assets/filtro_logo.png'
+import usuario from '../../assets/images/NavBar_assets/usuario_logo.png'
+import carrinho from '../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png'
+import suporte from '../../assets/images/NavBar_assets/suporte_logo.png'
 
 export default function Cabecalho(){
 

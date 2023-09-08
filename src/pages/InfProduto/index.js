@@ -2,11 +2,11 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import './index.scss'
 import Cabecalho from "../../ui/components/cabecalho/cabecalho"
-import yum from '../../ui/images/super_famicon_yum.png'
-import yum_costa from '../../ui/images/yum game_tras 1.png'
-import yum_fita from '../../ui/images/yum fita_frente 1.png'
-import hermes from '../../ui/images/hermes_express.png'
-import red_star from '../../ui/images/re_star_company.png'
+import yum from '../../ui/assets/images/super_famicon_yum.png'
+import yum_costa from '../../ui/assets/images/yum game_tras 1.png'
+import yum_fita from '../../ui/assets/images/yum fita_frente 1.png'
+import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
+import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
 
 export default function InfProduto(){
 
