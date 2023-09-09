@@ -1,3 +1,5 @@
+import NavBar from '../../ui/components/navBar';
+import Rodape from '../../ui/components/rodape'
 import './App.scss';
 
 import nes from "../../ui/assets/images/Home_assets/nes_Console 1.png";
@@ -8,6 +10,7 @@ import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png"
 import castlevania_back from "../../ui/assets/images/Home_assets/castlevania_back.png"
 import castlevania_delado from "../../ui/assets/images/Home_assets/castlevania_delado.png"
 import castlevania_front from "../../ui/assets/images/Home_assets/castlevania_front.png"
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -30,7 +33,9 @@ function App() {
 
               </svg>
               <button>
-                <a> Catálogo </a> </button>
+                <Link to='/catalogo'> Catálogo </Link> 
+                
+                </button>
             </span>
           </div>
           <span className='imgs'>
@@ -64,22 +69,17 @@ function App() {
           <span className='texts'>
             <h1> Castlevania Symphony of the Night Akumajo Dracula X  </h1>
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
+            
           </span>
           <span className='imgs'>
-            <img src={morcegos} />
-            <img src={castlevania_back} />
-            <img src={castlevania_delado} />
-            <img src={castlevania_front} />
+            <img src={morcegos} className='morcegos' />
+            <img src={castlevania_back} id='castle_back' />
+            <img src={castlevania_delado} id='castle_side'/>
+            <img src={castlevania_front} id='castle_front'/>
           </span>
         </div>
       </section>
-      <Rodape></Rodape>
-      <h1>
-        FLIP YEAR
-      </h1>
-
-  
-
+      <Rodape />
     </div>
   );
 }
