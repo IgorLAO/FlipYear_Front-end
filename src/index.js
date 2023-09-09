@@ -7,10 +7,9 @@ import App from './pages/home/App';
 import Cadastro from './pages/cadastroPage/cadastroPage';
 import InfProduto from './pages/InfProduto';
 import Catalogo from './pages/catalogo';
-
 import Pagamento50 from './pages/pagemento50';
-
 import PerfilPublico from './pages/perfil/perfil-publico'
+import Pagamento75 from './pages/pagamento75';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,7 +21,8 @@ root.render(
         <Route path='/login' element={<Login/>} />
         <Route path='/produto' element={<InfProduto/>} />
         <Route path='/catalogo' element= {<Catalogo/>} />
-        <Route path='/pagamento50' element= {<Pagamento50/>} />
+        <Route path='/pagamento50' element= {<Pagamento50/>}/>
+        <Route path='/pagamento75' element = {<Pagamento75 />}/>
         <Route path='/perfil-publico' element= {<PerfilPublico/>} />
       </Routes>
     </BrowserRouter>

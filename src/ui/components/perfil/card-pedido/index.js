@@ -7,15 +7,11 @@ export default function CardPedido(){
         <div className='card-pedido'>
 
             penis 
+
+            azideia dos cara KKKKKKKKKK 
         </div>
 
 
 
     )
-
-
-
-
-
-
 }

@@ -1,0 +1,91 @@
+.container_pag75{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 10px 35px 20px 35px;
+    background-color: #081820;
+
+    .estado_pag{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        max-width: 150vh;
+        
+        .icons_pag{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            width: 100%;
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    color: #429B56;
+                    
+                    img{
+                        width: 80px;
+                    }
+                }
+        }
+        .pista{
+            background-image: url('../../ui/images/pista.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            background-color: #346856;
+            height: 50px;
+            width: 100%;
+            border-radius: 3px;
+        }
+    }   
+    .titulo_infom_pedidos{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        width: 100%;
+        font-size: 27px;
+        color:#429B56;
+        margin: 80px 0px 50px 0px;
+        img{
+            margin: 0px 20px 0px 0px;
+        }
+    }
+    .dados_pessoais_pag75{
+     
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        background-color: #40985d4f;
+        width: 100%;
+        .coluna_dados{
+            
+            h1{
+                color: #62BE82;
+            }
+            p{
+                color: #fff;
+            }
+            
+            .dados_inform{
+                padding: 25px 0px 0px 0px;
+                div{
+                    display: flex;
+                    flex-direction: row;
+                
+                }
+            }
+
+        }
+    }
+    
+}

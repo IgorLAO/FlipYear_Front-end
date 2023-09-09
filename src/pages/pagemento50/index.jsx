@@ -13,10 +13,9 @@ import Rodape from '../../ui/components/rodape';
 export default function Pagamento(){
     return(
         <>
-        
+
         <div className="container_pag50"> 
-            <CabecalhoVazio />
-            oi
+            <CabecalhoVazio />  
             <div className='estado_pag'>
                 <div className='icons_pag'>
                     <div>
@@ -26,6 +25,7 @@ export default function Pagamento(){
                     <div>
                         <img src={Cartao}/>
                         <p>Pagamento</p>
+                        <img src={Sonic} style={{width: '55px'}}/>
                     </div>
                     <div>
                         <img src={Confirmacao}/>
@@ -35,9 +35,6 @@ export default function Pagamento(){
                         <img src={Concluir}/>
                         <p>Concluir</p>
                     </div>
-                </div> 
-                <div id='sonic'>
-                    <img src={Sonic} style={{width: '55px'}}/>
                 </div>
                 
                 <div className='pista'> </div>  
