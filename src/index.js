@@ -11,6 +11,7 @@ import Pagamento50 from './pages/pagemento50';
 import PerfilPublico from './pages/perfil/perfil-publico'
 import Pagamento75 from './pages/pagamento75';
 import AdmHome from './pages/ADM_pages/home';
+import Users_Consulta from './pages/ADM_pages/consulta_usuarios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,8 @@ root.render(
         <Route path='/pagamento75' element={<Pagamento75 />} />
         <Route path='/perfil-publico' element={<PerfilPublico />} />
         <Route path='/ADM' element={<AdmHome />} />
+        <Route path='/ADM_Users' element={<Users_Consulta />} />
+        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
