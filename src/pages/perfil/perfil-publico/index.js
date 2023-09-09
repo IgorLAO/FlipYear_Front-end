@@ -14,27 +14,32 @@ export default function Perfil(){
 
         <div className='perfil-infos'>
 
-            <div className='pfp'>
-                <img src={Corvo}></img>
+            <div className='meio'>
+                <div className='pfp'>
+                    <img src={Corvo}></img>
+                </div>
+                <p className='nome'>Ind0m4bl3_Cr0w</p>
             </div>
 
-            <img src={Estrela}></img>
-            <p className='curtidas'>x16</p>
+            <div className='estrela-curtidas'>
+                <img src={Estrela}></img>
+                <p className='curtidas'>x16</p>
+            <img src={Exclamacao} className='exclamacao'></img>
+            </div>
 
-            <img src={Exclamacao}></img>
 
         </div>
 
-        <p className='nome'>Ind0m4bl3_Cr0w</p>
+        
 
         <div className='avaliacoes'>
-            <p>Outras Avaliações</p>
+            <p className='outras'>Outras Avaliações:</p>
 
             <svg className='linha-titulo' xmlns="http://www.w3.org/2000/svg" width="458" height="2" viewBox="0 0 458 2" fill="none">
                 <path d="M0 1L458 1" stroke="black" stroke-width="2"/>
             </svg>
 
-            <p className='avaliacao'>Vamos Consertar</p>
+            <p className='avaliacao'>Vamos Consertar !!!</p>
             <svg className='linha-avaliacao' xmlns="http://www.w3.org/2000/svg" width="242" height="2" viewBox="0 0 242 2" fill="none">
                 <path d="M0 1L242 1" stroke="black" stroke-width="2"/>
             </svg>
