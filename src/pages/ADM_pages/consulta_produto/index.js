@@ -10,6 +10,7 @@ import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
 export default function Produtos_ConsultaADM() {
     const [selectdOptionStyle, setSelectdOptionStyle] = useState('');
     const [isHide_X, setisHide_X] = useState(false);
+    const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
 
     const HandleStyleSelected = () =>{
         setSelectdOptionStyle("SelectedOption");
@@ -36,9 +37,11 @@ export default function Produtos_ConsultaADM() {
                     </span>
                     <img
                         src={filter}
-                        style={{ marginLeft: 10, marginTop: -40, width: 40 }} />
+                        style={{ marginLeft: 10, marginTop: -40, width: 40 }}
+                        onClick={() => setIsHideFilterMenu(true)} />
 
                 </span>
+                {IsHideFilterMenu &&
 
                 <div className="Filters">
                     <div className="Tipos">
@@ -107,6 +110,7 @@ export default function Produtos_ConsultaADM() {
                     </div>
 
                 </div>
+                }
 
                 <table>
                     <colgroup>
