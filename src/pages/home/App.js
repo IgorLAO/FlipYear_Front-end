@@ -7,6 +7,7 @@ import Rodape from '../../ui/components/rodape'
 import nes from "../../ui/assets/images/Home_assets/nes_Console 1.png";
 import gameBoy from "../../ui/assets/images/Home_assets/gameboy.png";
 import block from "../../ui/assets/images/Home_assets/block.png";
+import pixel_s2 from "../../ui/assets/images/Home_assets/pixel_block2.png";
 
 import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
@@ -71,7 +72,7 @@ function App() {
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
             <span>
 
-            <button> Confira </button>
+              <button> Confira </button>
             </span>
           </span>
           <span className='imgs'>
@@ -80,17 +81,18 @@ function App() {
             <img src={alucard} className='alucard' />
           </span>
         </div>
+        <img src={pixel_s2} style={{width: 100 + "%", marginTop: -10}} />
       </section>
       <section className='s4'>
-          <h2> Em destaque </h2>
-          <hr/>
-          <div className='produtos' style={{display: "flex", justifyContent:"center", alignItems: "center", marginTop: 50}}>
-                <h2 style={{fontSize: 70}} > {'<'} </h2>
-            <CardProdutoCtlg/>
-            <CardProdutoCtlg/>
-            <CardProdutoCtlg/>
-            <h2 style={{fontSize: 70}} > {'>'} </h2>
-          </div>
+        <h2> Em destaque </h2>
+        <hr />
+        <div className='produtos' style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 50 }}>
+          <h2 style={{ fontSize: 70 }} > {'<'} </h2>
+          <CardProdutoCtlg />
+          <CardProdutoCtlg />
+          <CardProdutoCtlg />
+          <h2 style={{ fontSize: 70 }} > {'>'} </h2>
+        </div>
       </section>
       <Rodape />
     </div>
