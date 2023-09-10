@@ -14,8 +14,8 @@ const Cadastro = () => {
             <h1>Cadastro</h1>
             <p> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-                <div className="esq">
-                    <div>
+                <div className="dupla">
+                    <div className='prt-1'>
                         <div>
                             <p> Nome </p>
                             <imput />
@@ -25,7 +25,7 @@ const Cadastro = () => {
                             <imput />
                         </div>
                     </div>
-                    <div>
+                    <div className='prt-2'>
                         <div>
                             <p CPF ></p>
                             <imput />
@@ -35,7 +35,7 @@ const Cadastro = () => {
                             <imput />
                         </div>
                     </div>
-                    <div>
+                    <div className='prt-3'>
                         <div>
                             <p> Cidade </p>
                             <imput />
@@ -45,7 +45,7 @@ const Cadastro = () => {
                             <imput />
                         </div>
                     </div>
-                    <div>
+                    <div  className='prt-4'>
                         <div>
                             <p> Complemento </p>
                             <imput />
@@ -56,11 +56,11 @@ const Cadastro = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className='prt-5'>
                         <p> Endereço de Email </p>
                         <imput />
                     </div>
-                    <div>
+                    <div className='prt-6'>
                         <p> Senha </p>
                         <imput />
                     </div>
@@ -70,7 +70,7 @@ const Cadastro = () => {
             <button>Enviar</button>
             <div>
                 <p>Já tem uma conta?</p>
-                <Link to='/login' />
+                <Link className='lincar' to='/login' />
             </div>
 
             <div className='imgs'>
