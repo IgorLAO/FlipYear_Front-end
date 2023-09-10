@@ -1,16 +1,16 @@
+import './App.scss';
+import { Link } from 'react-router-dom';
+
 import NavBar from '../../ui/components/navBar';
 import Rodape from '../../ui/components/rodape'
-import './App.scss';
 
 import nes from "../../ui/assets/images/Home_assets/nes_Console 1.png";
 import gameBoy from "../../ui/assets/images/Home_assets/gameboy.png";
 import block from "../../ui/assets/images/Home_assets/block.png";
 
-import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png"
-import castlevania_back from "../../ui/assets/images/Home_assets/castlevania_back.png"
-import castlevania_delado from "../../ui/assets/images/Home_assets/castlevania_delado.png"
-import castlevania_front from "../../ui/assets/images/Home_assets/castlevania_front.png"
-import { Link } from 'react-router-dom';
+import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
+import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
+import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 function App() {
   return (
@@ -33,9 +33,9 @@ function App() {
 
               </svg>
               <button>
-                <Link to='/catalogo'> Catálogo </Link> 
-                
-                </button>
+                <Link to='/catalogo'> Catálogo </Link>
+
+              </button>
             </span>
           </div>
           <span className='imgs'>
@@ -69,15 +69,28 @@ function App() {
           <span className='texts'>
             <h1> Castlevania Symphony of the Night Akumajo Dracula X  </h1>
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
-            
+            <span>
+
+            <button> Confira </button>
+            </span>
           </span>
           <span className='imgs'>
             <img src={morcegos} className='morcegos' />
-            <img src={castlevania_back} id='castle_back' />
-            <img src={castlevania_delado} id='castle_side'/>
-            <img src={castlevania_front} id='castle_front'/>
+            <img src={morcegos} className='morcegos1' />
+            <img src={alucard} className='alucard' />
           </span>
         </div>
+      </section>
+      <section className='s4'>
+          <h2> Em destaque </h2>
+          <hr/>
+          <div className='produtos' style={{display: "flex", justifyContent:"center", alignItems: "center", marginTop: 50}}>
+                <h2 style={{fontSize: 70}} > {'<'} </h2>
+            <CardProdutoCtlg/>
+            <CardProdutoCtlg/>
+            <CardProdutoCtlg/>
+            <h2 style={{fontSize: 70}} > {'>'} </h2>
+          </div>
       </section>
       <Rodape />
     </div>

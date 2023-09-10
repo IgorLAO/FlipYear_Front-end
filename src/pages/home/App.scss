@@ -72,6 +72,7 @@
           right: 20px;
           top: 250px;
           width: 550px;
+
         }
 
         #img2 {
@@ -79,6 +80,7 @@
           width: 300px;
           top: 370px;
           right: 400px;
+
         }
       }
     }
@@ -192,7 +194,7 @@
 
   .s3 {
     padding: 100px;
-
+    height: 120vh;
     h2 {
       font-size: 30px;
       width: 350px;
@@ -208,22 +210,70 @@
       .texts {
         display: flex;
         flex-direction: column;
-      }
+        justify-content: center;
+        align-items: center;
 
-      .imgs {
-        img {
+        h1 {
+          font-size: 30px;
+          width: 700px;
+          color: #0A1A2F;
+          margin-bottom: 15px;
+        }
+
+        a {
+          font-size: 15px;
+          text-align: center;
+        }
+
+        svg {
+
           position: absolute;
         }
 
-        #morcegos {}
+        button {
+          margin-top: 50px;
+          padding: 15px 55px;
+          color: #fff;
+          box-shadow: #0a1a2fa8 0 0 0 6px;
+          background-color: #0A1A2F;
+          font: 10px 'flipFont';
+          border: none;
+        }
+      }
 
-        #castle_back {}
+      .imgs {
+        display: flex;
 
-        #castle_side {}
+        .alucard {
+          width: 450px;
+          height: 700px;
+          margin-top: -250px;
+          margin-left: 2px;
+        }
 
-        #castle_front {}
+        .morcegos {
+          position: absolute;
+          top: 1400px;
+          right: 250px;
+          transform: rotate(190deg);
+        }
+
+        .morcegos1 {
+          position: absolute;
+          top: 1850px;
+          right: 250px;
+          transform: rotate(-190deg);
+        }
+
 
       }
+    }
+  }
+  .s4{
+    padding: 100px;
+    h2{
+      color: aliceblue;
+      font-size: 30px;
     }
   }
 }
