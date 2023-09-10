@@ -43,7 +43,7 @@ function App() {
             <img src={nes} id='img1' />
           </span>
         </div>
-        <img style={{ width: 1210, heigth: 100 }} src={block} />
+        <img style={{ width: 90 + '%', heigth: 100 }} src={block} />
       </section>
 
       <section className='s2'>
