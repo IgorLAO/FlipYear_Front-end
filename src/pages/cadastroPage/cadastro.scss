@@ -10,37 +10,61 @@
     justify-content: center;
     h1{
         color: #CDF1B5;
+        margin-top: -50px;
+        
     }
+    .prt-0{
+        font-size: 13px;
+        color: #CDF1B5;
+        margin-top: 30px;
+    }
+
     .inputs{
         display: flex;
         flex-direction: row;
         height: 450px;
-        margin-left: 30px;
-        input{
-            border:solid 3px #40985E;
-            padding: 8px 10px;
-            margin-top: 4px;
-            background-color: #CDF1B5;
-            justify-self: flex-start;
-            background-color:#429b5579 ;
-            width: 37vh;
-
-        }
+        margin-left: 0vh;
         div{
             display: flex;
-            flex-direction: column;
-            margin: 35px;
+            flex-direction: row;
+            margin: 30px 50px;
+            color: white;
+            p{
+                font-size: 13px;
+                margin-left: 30px;
+            }
+            input{
+                border:solid 3px #40985E;
+                background-color: #1c4124;
+                width: 20vh;
+                height: 35px;
+                margin:20px -87px  ;
+            }
+            .nome{
+                margin: 0px -60px;
+            }
+            .put-1{
+                width: 30vh;
+                margin-left: 0px;
+                color: white;
+            }
+            .put-2{
+                width: 33vh;
+                margin-left: -120px;
+                color: white;
+            }
+
+
+
         }
-        label{
-            display: flex;
-            flex-direction: column;
-            color: #fff;
-            font-size: 10px;
-            padding: 0px 0px;
-            margin: 25px;
-            letter-spacing: 1px;
-        }
+
+
+
     }
+
+
+    
+  
 
     button{
         background-color: #429B56;
