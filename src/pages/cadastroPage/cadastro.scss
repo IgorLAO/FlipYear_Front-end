@@ -16,30 +16,8 @@
         flex-direction: row;
         height: 450px;
         margin-left: 30px;
-        input{
-            border:solid 3px #40985E;
-            padding: 8px 10px;
-            margin-top: 4px;
-            background-color: #CDF1B5;
-            justify-self: flex-start;
-            background-color:#429b5579 ;
-            width: 37vh;
-
-        }
-        div{
-            display: flex;
-            flex-direction: column;
-            margin: 35px;
-        }
-        label{
-            display: flex;
-            flex-direction: column;
-            color: #fff;
-            font-size: 10px;
-            padding: 0px 0px;
-            margin: 25px;
-            letter-spacing: 1px;
-        }
+        
+        
     }
 
     button{
