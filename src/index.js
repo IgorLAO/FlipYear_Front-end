@@ -1,7 +1,10 @@
+import './index.scss';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+
 import Login from './pages/loginPage/login';
 import App from './pages/home/App';
 import Cadastro from './pages/cadastroPage/cadastroPage';
@@ -12,7 +15,10 @@ import PerfilPublico from './pages/perfil/perfil-publico'
 import Pagamento75 from './pages/pagamento75';
 import AdmHome from './pages/ADM_pages/home';
 import Users_Consulta from './pages/ADM_pages/consulta_usuarios';
+import Produtos_ConsultaADM from './pages/ADM_pages/consulta_produto';
+
 import PerfilPessoal from './pages/perfil/perfil-pessoal';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +36,7 @@ root.render(
         <Route path='/perfil-pessoal' element={<PerfilPessoal />} />
         <Route path='/ADM' element={<AdmHome />} />
         <Route path='/ADM_Users' element={<Users_Consulta />} />
+        <Route path='/ADM_Produtos' element={<Produtos_ConsultaADM />} />
         
       </Routes>
     </BrowserRouter>
