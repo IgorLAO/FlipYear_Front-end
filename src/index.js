@@ -17,8 +17,11 @@ import AdmHome from './pages/ADM_pages/home';
 import Users_Consulta from './pages/ADM_pages/consulta_usuarios';
 import Produtos_ConsultaADM from './pages/ADM_pages/consulta_produto';
 
-import PerfilPessoal from './pages/perfil/perfil-pessoal';
-import ADM_pedidos from './pages/ADM_pages/pedidos_concluidos';
+
+
+import PerfilPessoal from './pages/perfil/perfil-pessoal'
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,6 +37,7 @@ root.render(
         <Route path='/pagamento50' element={<Pagamento50 />} />
         <Route path='/pagamento75' element={<Pagamento75 />} />
         <Route path='/perfil-publico' element={<PerfilPublico />} />
+        <Route path='/status-pedido' element={<StatusPedido />} />
         <Route path='/perfil-pessoal' element={<PerfilPessoal />} />
         <Route path='/ADM' element={<AdmHome />} />
         <Route path='/ADM_Users' element={<Users_Consulta />} />
