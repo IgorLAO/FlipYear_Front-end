@@ -48,9 +48,9 @@ export default function Pagamento75(){
         <div className='dados_produtos'>
             <div className='dados_pessoais_pag75'>
                 <div className='coluna_dados'>
-                    <div>
+                    <div >
                         <h1>Dados Pessoais</h1>
-                        <p>informações que serão inseridas na nota fiscal</p>
+                        <p>Informações que serão inseridas na nota fiscal</p>
                     </div>
                     <div className='dados_inform'>
                         <p>nome{}</p>                
@@ -121,10 +121,13 @@ export default function Pagamento75(){
                 </div>
             </div>
         </div>
-        <div className='resumo_pedido'>
-            <div>
-                 <p>Resumo</p>
 
+        <div className='resumo_pedido'> 
+            <div className='resum_titulo'>
+                <p>Resumo</p>
+                <div></div>
+            </div>
+            <div>
                 <div className='valores_resumo75'>
                     <div>
                         <p>SUBTOTAL</p>
