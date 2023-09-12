@@ -12,11 +12,19 @@ export default function Produtos_ConsultaADM() {
     const [isHide_X, setisHide_X] = useState(false);
     const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
 
-    const HandleStyleSelected = () =>{
+    const Hide = () => {
+        setIsHideFilterMenu(true);
+
+        if (IsHideFilterMenu ) {
+            setIsHideFilterMenu(false);
+        }
+    }
+
+    const HandleStyleSelected = (e) => { 
         setSelectdOptionStyle("SelectedOption");
         setisHide_X(true);
 
-        if(isHide_X && !selectdOptionStyle){
+        if (isHide_X && selectdOptionStyle && IsHideFilterMenu) {
             setSelectdOptionStyle("");
             setisHide_X(false);
         }
@@ -30,6 +38,7 @@ export default function Produtos_ConsultaADM() {
             <div className="content">
                 <h1> Buscar Produtos </h1>
 
+
                 <span style={{ display: "flex", justifyContent: "center" }}>
                     <span className='searchBox'>
                         <img src={searchIcon} />
@@ -38,78 +47,78 @@ export default function Produtos_ConsultaADM() {
                     <img
                         src={filter}
                         style={{ marginLeft: 10, marginTop: -40, width: 40 }}
-                        onClick={() => setIsHideFilterMenu(true)} />
+                        onClick={Hide} />
 
                 </span>
                 {IsHideFilterMenu &&
 
-                <div className="Filters">
-                    <div className="Tipos">
-                        <span style={{ marginBottom: 10 }}>
-                            <h4> tipo do produto </h4>
-                            <hr />
-                        </span>
-                        <span className="options">
+                    <div className="Filters">
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> tipo do produto </h4>
+                                <hr />
+                            </span>
+                            <span className="options">
 
-                            <span className="option" onClick={HandleStyleSelected} id={selectdOptionStyle} >
-                               {isHide_X &&  <a style={{marginRight: 5}} > x </a> }  <a> Consoles </a>
+                                <span className="option" value='aa' onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle} >
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  <a> Consoles </a>
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  a
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  aa
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  4354654654aa
+                                </span>
                             </span>
-                            <span className="option" onClick={HandleStyleSelected} id={selectdOptionStyle}>
-                            {isHide_X &&  <a style={{marginRight: 5}} > x </a> }  a 
+                        </div>
+
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> tipo do produto </h4>
+                                <hr />
                             </span>
-                            <span className="option" onClick={HandleStyleSelected} id={selectdOptionStyle}>
-                            {isHide_X &&  <a style={{marginRight: 5}} > x </a> }  aa 
+                            <span className="options">
+
+                                <span className="option">
+                                    x <a> Consoles </a>
+                                </span>
+                                <span className="option">
+                                    x  a
+                                </span>
+                                <span className="option">
+                                    x  aa
+                                </span>
+                                <span className="option">
+                                    x  4354654654aa
+                                </span>
                             </span>
-                            <span className="option" onClick={HandleStyleSelected} id={selectdOptionStyle}>
-                            {isHide_X &&  <a style={{marginRight: 5}} > x </a> }  4354654654aa 
+                        </div>
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> tipo do produto </h4>
+                                <hr />
                             </span>
-                        </span>
+                            <span className="options">
+
+                                <span className="option" id="">
+                                    x <a> Consoles </a>
+                                </span>
+                                <span className="option">
+                                    x  a
+                                </span>
+                                <span className="option">
+                                    x  aa
+                                </span>
+                                <span className="option">
+                                    x  4354654654aa
+                                </span>
+                            </span>
+                        </div>
+
                     </div>
-                   
-                    <div className="Tipos">
-                        <span style={{ marginBottom: 10 }}>
-                            <h4> tipo do produto </h4>
-                            <hr />
-                        </span>
-                        <span className="options">
-
-                            <span className="option">
-                                x <a> Consoles </a>
-                            </span>
-                            <span className="option">
-                                x  a 
-                            </span>
-                            <span className="option">
-                                x  aa 
-                            </span>
-                            <span className="option">
-                                x  4354654654aa 
-                            </span>
-                        </span>
-                    </div>
-                    <div className="Tipos">
-                        <span style={{ marginBottom: 10 }}>
-                            <h4> tipo do produto </h4>
-                            <hr />
-                        </span>
-                        <span className="options">
-
-                            <span className="option" id="">
-                                x <a> Consoles </a>
-                            </span>
-                            <span className="option">
-                                x  a 
-                            </span>
-                            <span className="option">
-                                x  aa 
-                            </span>
-                            <span className="option">
-                                x  4354654654aa 
-                            </span>
-                        </span>
-                    </div>
-
-                </div>
                 }
 
                 <table>

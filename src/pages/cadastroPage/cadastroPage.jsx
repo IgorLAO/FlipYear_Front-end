@@ -12,59 +12,17 @@ const Cadastro = () => {
 
         <div className="mainCad">
             <h1>Cadastro</h1>
-            <p> Informe os seus dados abaixo para criar sua conta </p>
+            <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-                <div className="dupla">
-                    <div className='prt-1'>
-                        <div className='bloco-1'>
-                            <p> Nome </p>
-                            <imput />
-                        </div>
-                        <div className='bloco-2'>
-                            <p> Sobrenome</p>
-                            <imput />
-                        </div>
+                <div>
+                    <div>
+                        <p className='nome'> Nome </p>
+                        <input className='put-1' type='text'/>
                     </div>
-                    <div className='prt-2'>
-                        <div className='bloco-3'>
-                            <p CPF ></p>
-                            <imput />
-                        </div>
-                        <div className='bloco-4'>
-                            <p> CEP </p>
-                            <imput />
-                        </div>
+                    <div>
+                        <p className='sobre'> Sobrenome</p>
+                        <input className='put-2' />
                     </div>
-                    <div className='prt-3'>
-                        <div className='bloco-5'>
-                            <p> Cidade </p>
-                            <imput />
-                        </div>
-                        <div className='bloco-6'>
-                            <p> Rua </p>
-                            <imput />
-                        </div>
-                    </div>
-                    <div  className='prt-4'>
-                        <div className='bloco-7'>
-                            <p> Complemento </p>
-                            <imput />
-                        </div>
-                        <div className='bloco-8'>
-                            <p> Número </p>
-                            <imput />
-                        </div>
-                    </div>
-
-                    <div className='bloco-9'>
-                        <p> Endereço de Email </p>
-                        <imput />
-                    </div>
-                    <div className='bloco-10'>
-                        <p> Senha </p>
-                        <imput />
-                    </div>
-
                 </div>
             </div>
             <button>Enviar</button>

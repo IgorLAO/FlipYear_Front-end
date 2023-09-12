@@ -8,6 +8,7 @@ import clockIcon from "../../../assets/images/adm_assets/relogio_icon_adm.png"
 import userIcon from "../../../assets/images/adm_assets/usuarioADM_icon.png"
 import statisticsIcon from "../../../assets/images/adm_assets/estatisticasADM_icon.png"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function Adm_leftNavBar() {
     const [splitNav, setSplitNav] = useState();
@@ -26,16 +27,19 @@ export default function Adm_leftNavBar() {
                     <h4> Caixa de Entrada </h4>
                     <img src={Mail} />
                 </div>
-
+                <Link to='/ADM_Produtos'>
                 <div>
                     <h4> Produtos </h4>
                     <img src={searchIcon} />
                 </div>
+                </Link>
 
+                <Link to='/ADM_Users'>
                 <div>
                     <h4> Usuarios </h4>
                     <img src={Mail} />
                 </div>
+                </Link>
 
                 <div>
                     <h4> Pedidos Pendentes </h4>

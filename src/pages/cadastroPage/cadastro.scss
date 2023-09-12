@@ -10,15 +10,61 @@
     justify-content: center;
     h1{
         color: #CDF1B5;
+        margin-top: -50px;
+        
     }
+    .prt-0{
+        font-size: 13px;
+        color: #CDF1B5;
+        margin-top: 30px;
+    }
+
     .inputs{
         display: flex;
         flex-direction: row;
         height: 450px;
-        margin-left: 30px;
-        
-        
+        margin-left: 0vh;
+        div{
+            display: flex;
+            flex-direction: row;
+            margin: 30px 50px;
+            color: white;
+            p{
+                font-size: 13px;
+                margin-left: 30px;
+            }
+            input{
+                border:solid 3px #40985E;
+                background-color: #1c4124;
+                width: 20vh;
+                height: 35px;
+                margin:20px -87px  ;
+            }
+            .nome{
+                margin: 0px -60px;
+            }
+            .put-1{
+                width: 30vh;
+                margin-left: 0px;
+                color: white;
+            }
+            .put-2{
+                width: 33vh;
+                margin-left: -120px;
+                color: white;
+            }
+
+
+
+        }
+
+
+
     }
+
+
+    
+  
 
     button{
         background-color: #429B56;
