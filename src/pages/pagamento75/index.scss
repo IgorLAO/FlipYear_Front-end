@@ -58,34 +58,144 @@
             margin: 0px 20px 0px 0px;
         }
     }
-    .dados_pessoais_pag75{
+    .dados_lista_resumos{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        .dados_pessoais_pag75{
      
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
-        background-color: #40985d4f;
-        width: 100%;
-        .coluna_dados{
-            
-            h1{
-                color: #62BE82;
-            }
-            p{
-                color: #fff;
-            }
-            
-            .dados_inform{
-                padding: 25px 0px 0px 0px;
-                div{
-                    display: flex;
-                    flex-direction: row;
+            padding: 20px;
+    
+            background-color: #40985d4f;
+            width: 100%;
+            .coluna_dados{
                 
+                h1{
+                    font-size: 17px;
+                    color: #62BE82;
+                }
+                p{
+                    color: #fff;
+                }
+                
+                .dados_inform{
+                    padding: 25px 0px 0px 0px;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+
+                        padding: 20px 0px 0px 0px;
+                    
+                        h1{
+                            font-size: 12px
+                        }
+                    }
+                }
+    
+            }
+        }
+        .lista_produtos75{  
+            display: flex;
+            flex-direction: column;
+            
+            border-radius: 5px;
+            height: 25vh;
+            color: #fff;
+            padding: 10px;
+            background-color: #17393B;
+            
+            .titulo_pag75{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                
+                max-width: 50%;
+
+                p{
+                    font-size: 23px;
+                    color:#429B56;
+                }
+                img{
+                    width: 60px;
+                }
+                
+            }
+            div{
+                display: flex;
+                flex-direction: row;
+                align-items:center;
+                
+            }
+
+            .produtos75{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+
+                font-size: 11px;
+
+
+                div{
+                    
+                    max-width: 50vh;
+                    line-height: 17px;
+
+                    img{
+                        width: 100px;
+                        padding: 0px 20px 0px 0px;
+                    }
+                }
+
+                .qtd_preco75{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    height: 100px;                    
+                    max-width: 23%;
+                    width: 100%;
+                    
+                        div{
+                            display: flex;
+                            flex-direction: row;
+                             justify-content: space-around;
+                             line-height: 40px;
+
+                             width: 100%;
+                        }
                 }
             }
+           
+        }
+        .resumo_pedido{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
+                border-radius: 5px;
+                margin: 0px 0px 0px 15px;
+                width: 20vh;                
+                color: #fff;
+
+            div{
+                background-color: red;
+                width: 100%;
+                 p{
+
+                 }
+            }
+            .finalizar75{
+                background-color: blue;
+            }
         }
     }
-    
+   
 }

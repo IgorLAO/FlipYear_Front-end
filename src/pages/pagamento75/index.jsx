@@ -6,7 +6,7 @@ import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Pista from '../../ui/images/pista.png';
 import Seta from '../../ui/images/setabaixa.png';
 import Sonic from '../../ui/images/sonic-running.gif';
-
+import Atari from '../../ui/assets/images/atari_console.png';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 
@@ -44,6 +44,8 @@ export default function Pagamento75(){
                 <img src={Confirmacao}/>
                 <p>Informações do Pedido</p>
             </div>
+    <div className='dados_lista_resumos'>
+        <div className='dados_produtos'>
             <div className='dados_pessoais_pag75'>
                 <div className='coluna_dados'>
                     <div>
@@ -96,7 +98,58 @@ export default function Pagamento75(){
                     </div>
                 </div>
             </div>
+            <div className='lista_produtos75'>
+                <div className='titulo_pag75'>
+                    <img src={Carrinho}/>
+                    <p>Lista de Produtos</p>
+                </div>
+                <div className='produtos75'>
+                     <div>
+                      <img src={Atari}/>
+                        <p>{}Não utilizado Nintendo Original Gameboy Console Game Boy do Japão</p>
+                    </div>   
+                    <div className='qtd_preco75'>
+                        <div style={{color: '#69FF8B'}}>
+                            <p><span>qtd</span></p>
+                            <p><span>Preço</span></p>
+                        </div>
+                        <div>
+                            <p>{}1</p>
+                            <p>{}R$ 999,99</p>
+                            </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div className='resumo_pedido'>
+            <div>
+                 <p>Resumo</p>
+
+                <div className='valores_resumo75'>
+                    <div>
+                        <p>SUBTOTAL</p>
+                        <p>FRETE</p>
+                        <p>CUPOM</p>
+                    </div>
+                    <div>
+                        <p>R$ {} 999,99</p>
+                        <p>R$ {} 999,99</p>
+                        <p>R$ {} 999,99</p>
+                    </div>
+                </div>
+                <div className='total_compra75'>
+                    <p>TOTAL</p>
+                    <p>R${} 999,99</p>
+                </div>
+            </div>
+            
+            <div className='finalizar75'>
+                <img src={Carrinho}/>
+                <p>Finalizar</p>
+            </div>
+        </div>  
+    </div>
+    </div>
             <Rodape />
         </>
     )
