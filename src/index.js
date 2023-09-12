@@ -14,8 +14,10 @@ import Pagamento50 from './pages/pagemento50';
 import PerfilPublico from './pages/perfil/perfil-publico'
 import Pagamento75 from './pages/pagamento75';
 import AdmHome from './pages/ADM_pages/home';
+import ADM_pedidos from './pages/ADM_pages/pedidos_concluidos';
 import Users_Consulta from './pages/ADM_pages/consulta_usuarios';
 import Produtos_ConsultaADM from './pages/ADM_pages/consulta_produto';
+import StatusPedido from './pages/perfil/status-pedido'
 
 
 
