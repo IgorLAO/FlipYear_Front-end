@@ -17,21 +17,14 @@ import AdmHome from './pages/ADM_pages/home';
 import ADM_pedidos from './pages/ADM_pages/pedidos_concluidos';
 import Users_Consulta from './pages/ADM_pages/consulta_usuarios';
 import Produtos_ConsultaADM from './pages/ADM_pages/consulta_produto';
-<<<<<<< HEAD
+
 import Esqueceu from './pages/esqueceusenha';
 import PerfilPessoal from './pages/perfil/perfil-pessoal';
-=======
 import StatusPedido from './pages/perfil/status-pedido'
-
-
-
-
-
-
 import PerfilPessoal from './pages/perfil/perfil-pessoal'
 
 
->>>>>>> c32e1939fce74fbbed8ceb064fd3006c8367576f
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -52,13 +45,8 @@ root.render(
         <Route path='/ADM' element={<AdmHome />} />
         <Route path='/ADM_Users' element={<Users_Consulta />} />
         <Route path='/ADM_Produtos' element={<Produtos_ConsultaADM />} />
-<<<<<<< HEAD
         <Route path='/esqueceusenha' element={<Esqueceu />} />
-        
-        
-=======
         <Route path='/ADM_Pedidos' element={<ADM_pedidos />} />
->>>>>>> c32e1939fce74fbbed8ceb064fd3006c8367576f
         
       </Routes>
     </BrowserRouter>
