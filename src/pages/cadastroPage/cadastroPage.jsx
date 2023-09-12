@@ -17,13 +17,23 @@ const Cadastro = () => {
                 <div>
                     <div>
                         <p className='nome'> Nome </p>
-                        <input className='put-1' type='text'/>
+                        <input className='put-1' type='text' />
                     </div>
                     <div>
                         <p className='sobre'> Sobrenome</p>
                         <input className='put-2' />
                     </div>
                 </div>
+                <div>
+                    <div>
+                        <p className='cpf'> CPF </p>
+                        <input className='put-3' type='text' />
+                    </div>
+                    <div>
+                        <p className='cep'> Cep </p>
+                        <input className='put-4' />
+                    </div>
+                </div> 
             </div>
             <button>Enviar</button>
             <div>
