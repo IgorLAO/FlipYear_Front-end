@@ -16,16 +16,16 @@ const Cadastro = () => {
             <div className="inputs">
                 <div>
                     <div className='prt-1'>
-                        <p className='nome'> Nome </p>
+                        <p> Nome </p>
                         <input className='put-1' type='text' />
                     </div>
-                    <div>
+                    <div className='prt-2'>
                         <p className='sobre'> Sobrenome</p>
                         <input className='put-2' />
                     </div>
                 </div>
                 <div>
-                    <div className='prt-2'> 
+                    <div> 
                         <p className='cpf'> CPF </p>
                         <input className='put-3' type='text' />
                     </div>
