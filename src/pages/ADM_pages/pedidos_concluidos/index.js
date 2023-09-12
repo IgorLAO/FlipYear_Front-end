@@ -1,0 +1,214 @@
+import "./style.scss"
+import { useState } from "react";
+
+import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
+import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
+
+import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png';
+import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
+
+export default function ADM_pedidos() {
+    const [selectdOptionStyle, setSelectdOptionStyle] = useState('');
+    const [isHide_X, setisHide_X] = useState(false);
+    const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
+
+    const Hide = () => {
+        setIsHideFilterMenu(true);
+
+        if (IsHideFilterMenu ) {
+            setIsHideFilterMenu(false);
+        }
+    }
+
+    const HandleStyleSelected = (e) => { 
+        setSelectdOptionStyle("SelectedOption");
+        setisHide_X(true);
+
+        if (isHide_X && selectdOptionStyle && IsHideFilterMenu) {
+            setSelectdOptionStyle("");
+            setisHide_X(false);
+        }
+    }
+
+
+    return (<div className="ADM_usersConsulta">
+        <AdmTopNavBar />
+        <div className="s">
+            <Adm_leftNavBar />
+            <div className="content">
+                <h1> Buscar Pedidos </h1>
+
+
+                <span style={{ display: "flex", justifyContent: "center" }}>
+                    <span className='searchBox'>
+                        <img src={searchIcon} />
+                        <input type="text" />
+                    </span>
+                    <img
+                        src={filter}
+                        style={{ marginLeft: 10, marginTop: -40, width: 40 }}
+                        onClick={Hide} />
+
+                </span>
+                {IsHideFilterMenu &&
+
+                    <div className="Filters">
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> tipo do produto </h4>
+                                <hr />
+                            </span>
+                            <span className="options">
+
+                                <span className="option" value='aa' onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle} >
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  <a> Consoles </a>
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  a
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  aa
+                                </span>
+                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
+                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  4354654654aa
+                                </span>
+                            </span>
+                        </div>
+
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> status </h4>
+                                <hr />
+                            </span>
+                            <span className="options">
+
+                                <span className="option">
+                                    x <a> Não entregue </a>
+                                </span>
+                                <span className="option">
+                                    x   Em transito 
+                                </span>
+                                <span className="option">
+                                    x  aa
+                                </span>
+                                <span className="option">
+                                    x  Saiu para entrega
+                                </span>
+
+                                <span className="option">
+                                    x  Entregue
+                                </span>
+
+                                <span className="option">
+                                    x  pendente
+                                </span>
+                            </span>
+                        </div>
+                        <div className="Tipos">
+                            <span style={{ marginBottom: 10 }}>
+                                <h4> Data </h4>
+                                <hr />
+                            </span>
+                            <span className="options">
+
+                                <span className="option" id="">
+                                    x <a> Consoles </a>
+                                </span>
+                                <span className="option">
+                                    x  a
+                                </span>
+                                <span className="option">
+                                    x  aa
+                                </span>
+                                <span className="option">
+                                    x  4354654654aa
+                                </span>
+                            </span>
+                        </div>
+
+                    </div>
+                }
+
+                <table>
+                    <colgroup>
+                        <col style={{ width: 1 + '%' }} />
+                        <col style={{ width: 15 + '%' }} />
+                        <col style={{ width: 10 + '%' }} />
+                        <col style={{ width: 2 + '%' }} />
+                        <col style={{ width: 5 + '%' }} />
+                        <col style={{ width: 0.1 + '%' }} />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Pedido</th>
+                            <th>Data e Hora</th>
+                            <th> QTD </th>
+                            <th> Comprador </th>
+                            <th> Status </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td> sega horse edition </td>
+                            <td> 2020/03/22 00:00:20:30 </td>
+                            <td> x69 </td>
+                            <td> Foi entregue </td>
+                            <td> <button> ... </button> </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>);
+}
