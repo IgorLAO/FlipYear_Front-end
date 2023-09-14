@@ -20,44 +20,51 @@
     }
 
     .inputs{
+        border: solid 2px black;
         display: flex;
         flex-direction: column;
         height: 450px;
+        width: 70vh;
         margin-left: 0vh;
-        div{
+        .bloco-1{
             display: flex;
-            margin: 30px 50px;
+            flex-direction: row;
+            margin: 30px 30vh;
             color: white;
             width: 50vh;
             height: 5vh;
             .prt-1{
                 display: flex;
                 margin-left: -20vh;
+                width: 50vh;
+                height: 10vh;
                 p{
                     font-size: 13px;
-                    margin-left: 20vh;
-                    color: white;
+                    margin-left: -15vh;
                 }
                 input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
-                    width: 35vh;
+                    width: 40vh;
                     height: 35px;
-                    margin:20px -20vh  ;
                     color: white;
                 }
             }
             .prt-2{
-                .sobre{
+                display: flex;
+                margin-left: -20vh;
+                width: 30vh;
+                height: 10vh;
+                p{
+                    display: flex;
                     font-size: 13px;
-                    margin-left: 100px;
+                    margin-left: 5vh;
                 }
-                .put-2{
+                input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
                     width: 40vh;
                     height: 35px;
-                    margin:20px -10px  ;
                     color: white;
                 }
             }
