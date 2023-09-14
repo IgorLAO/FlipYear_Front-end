@@ -10,8 +10,7 @@
     justify-content: center;
     h1{
         color: #CDF1B5;
-        margin-top: -50px;
-        
+        margin-top: -50px;   
     }
     .prt-0{
         font-size: 13px;
@@ -26,7 +25,11 @@
         height: 450px;
         width: 70vh;
         margin-left: 0vh;
+<<<<<<< HEAD
         .bloco-1{
+=======
+        .bloco{
+>>>>>>> c73c8cf845e04bb018e60804685d88a867d653f2
             display: flex;
             flex-direction: row;
             margin: 30px 30vh;
@@ -36,12 +39,16 @@
             .prt-1{
                 display: flex;
                 margin-left: -20vh;
+<<<<<<< HEAD
                 width: 50vh;
                 height: 10vh;
                 p{
                     font-size: 13px;
                     margin-left: -15vh;
                 }
+=======
+            }
+>>>>>>> c73c8cf845e04bb018e60804685d88a867d653f2
                 input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
@@ -53,6 +60,7 @@
             .prt-2{
                 display: flex;
                 margin-left: -20vh;
+<<<<<<< HEAD
                 width: 30vh;
                 height: 10vh;
                 p{
@@ -60,6 +68,8 @@
                     font-size: 13px;
                     margin-left: 5vh;
                 }
+=======
+>>>>>>> c73c8cf845e04bb018e60804685d88a867d653f2
                 input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;

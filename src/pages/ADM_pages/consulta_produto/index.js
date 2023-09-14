@@ -6,6 +6,7 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 
 import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png';
 import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
+import Filter from "../../../ui/components/ADM_components/Filter";
 
 export default function Produtos_ConsultaADM() {
     const [selectdOptionStyle, setSelectdOptionStyle] = useState('');
@@ -20,15 +21,7 @@ export default function Produtos_ConsultaADM() {
         }
     }
 
-    const HandleStyleSelected = (e) => { 
-        setSelectdOptionStyle("SelectedOption");
-        setisHide_X(true);
-
-        if (isHide_X && selectdOptionStyle && IsHideFilterMenu) {
-            setSelectdOptionStyle("");
-            setisHide_X(false);
-        }
-    }
+   
 
 
     return (<div className="ADM_usersConsulta">
@@ -52,73 +45,7 @@ export default function Produtos_ConsultaADM() {
                 </span>
                 {IsHideFilterMenu &&
 
-                    <div className="Filters">
-                        <div className="Tipos">
-                            <span style={{ marginBottom: 10 }}>
-                                <h4> tipo do produto </h4>
-                                <hr />
-                            </span>
-                            <span className="options">
-
-                                <span className="option" value='aa' onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle} >
-                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  <a> Consoles </a>
-                                </span>
-                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
-                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  a
-                                </span>
-                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
-                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  aa
-                                </span>
-                                <span className="option" onClick={e => HandleStyleSelected(e.target.value)} id={selectdOptionStyle}>
-                                    {isHide_X && <a style={{ marginRight: 5 }} > x </a>}  4354654654aa
-                                </span>
-                            </span>
-                        </div>
-
-                        <div className="Tipos">
-                            <span style={{ marginBottom: 10 }}>
-                                <h4> tipo do produto </h4>
-                                <hr />
-                            </span>
-                            <span className="options">
-
-                                <span className="option">
-                                    x <a> Consoles </a>
-                                </span>
-                                <span className="option">
-                                    x  a
-                                </span>
-                                <span className="option">
-                                    x  aa
-                                </span>
-                                <span className="option">
-                                    x  4354654654aa
-                                </span>
-                            </span>
-                        </div>
-                        <div className="Tipos">
-                            <span style={{ marginBottom: 10 }}>
-                                <h4> tipo do produto </h4>
-                                <hr />
-                            </span>
-                            <span className="options">
-
-                                <span className="option" id="">
-                                    x <a> Consoles </a>
-                                </span>
-                                <span className="option">
-                                    x  a
-                                </span>
-                                <span className="option">
-                                    x  aa
-                                </span>
-                                <span className="option">
-                                    x  4354654654aa
-                                </span>
-                            </span>
-                        </div>
-
-                    </div>
+                    <Filter/>
                 }
 
                 <table>

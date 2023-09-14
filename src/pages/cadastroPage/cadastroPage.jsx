@@ -14,6 +14,7 @@ const Cadastro = () => {
             <h1>Cadastro</h1>
             <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
+
                 <div className='bloco-1'>
                     <div className='prt-1'>
                         <p> Nome </p>
@@ -31,6 +32,25 @@ const Cadastro = () => {
                     </div>
                     <div className='prt-2'>
                         <p> Cep </p>
+
+                <div className='bloco'>
+                    <div className='prt-1'>
+                        Nome
+                        <input type='text' />
+                    </div>
+                    <div className='prt-2'>
+                        Sobrenome
+                        <input type='text'/>
+                    </div>
+                </div>
+                <div>
+                    <div> 
+                        CPF
+                        <input type='text'/>
+                    </div>
+                    <div>
+                         Cep
+
                         <input type='text'/>
                     </div>
                 </div> 
