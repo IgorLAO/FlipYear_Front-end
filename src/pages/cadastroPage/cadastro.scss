@@ -10,8 +10,7 @@
     justify-content: center;
     h1{
         color: #CDF1B5;
-        margin-top: -50px;
-        
+        margin-top: -50px;   
     }
     .prt-0{
         font-size: 13px;
@@ -24,7 +23,7 @@
         flex-direction: column;
         height: 450px;
         margin-left: 0vh;
-        div{
+        .bloco{
             display: flex;
             margin: 30px 50px;
             color: white;
@@ -33,11 +32,7 @@
             .prt-1{
                 display: flex;
                 margin-left: -20vh;
-                p{
-                    font-size: 13px;
-                    margin-left: 20vh;
-                    color: white;
-                }
+            }
                 input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
@@ -48,11 +43,9 @@
                 }
             }
             .prt-2{
-                .sobre{
-                    font-size: 13px;
-                    margin-left: 100px;
-                }
-                .put-2{
+                display: flex;
+                margin-left: -20vh;
+                input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
                     width: 40vh;
