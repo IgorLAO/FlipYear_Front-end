@@ -14,7 +14,6 @@ const Cadastro = () => {
             <h1>Cadastro</h1>
             <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-
                 <div className='bloco-1'>
                     <div className='prt-1'>
                         <p> Nome </p>
