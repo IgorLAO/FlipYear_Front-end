@@ -18,11 +18,6 @@ import PerfilPessoal from './pages/perfil/perfil-pessoal';
 import StatusPedido from './pages/perfil/status-pedido'
 import Estatisticas from './pages/ADM_pages/estatisticas';
 
-
-
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

@@ -1,0 +1,127 @@
+.side-bar-logado{
+
+    background-color: #081820;
+    min-height: 100%;
+
+    position: fixed;
+    top: 5px;
+    left: 1000px;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+    .foto{
+    
+        border: 2px solid black;
+        border-radius: 300px;
+        width: 66px;
+
+        margin-bottom: 15px;
+    
+    
+    }
+    
+    .foto img {
+    
+        width: 62px;
+        height: 61px;
+    
+    
+    }
+    
+    .linha-side-bar{
+    
+        width: 100%;
+        height: 1px;
+        background-color: white;
+    
+    
+    }
+
+    .menu-side-bar{
+
+        width: 100%;
+
+
+    }
+    
+    .item-side-bar{
+    
+        color: white;
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+
+        p{
+
+            font-size: 12px;
+
+        }
+    
+    
+    
+    
+    }
+
+    .lapis{
+
+        width: 30px;
+        height: 30px;
+
+    }
+
+    .carrinho-side-bar{
+
+        width: 40px;
+        height: 40px;
+
+
+    }
+
+    .adm{
+
+        width: 20px;
+        height: 20px;
+
+
+    }
+
+    .nome-side-bar{
+
+        color: white;
+        font-size: 16px;
+
+    }
+
+    .seta-baixo{
+
+        width: 17px;
+        height: 11px;
+
+    }
+
+    .pfp-nome{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+
+
+}

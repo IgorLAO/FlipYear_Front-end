@@ -4,6 +4,11 @@
     justify-content: space-between;
     padding: 5px 20px;
     background-color: #081820;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+
     .Logo {
         display: flex;
         align-items: center;
@@ -35,6 +40,13 @@
     .Options{
         img{
             margin: 5px;
+
         }
     }
+}
+
+.Options > img:hover{
+
+    cursor: pointer;
+
 }

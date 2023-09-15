@@ -1,23 +1,20 @@
-
-
-.mainCad{
+.mainCad {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #0A1A2F;
-    width: 137.6vh;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
     justify-content: center;
-    h1{
+
+    h1 {
         color: #CDF1B5;
         margin-top: -50px;
         
     }
-    .prt-0{
-        font-size: 13px;
-        color: #CDF1B5;
-        margin-top: 30px;
-    }
+
 
     .inputs{
         display: flex;
@@ -28,9 +25,10 @@
             display: flex;
             margin: 30px 50px;
             color: white;
-            width: 50vh;
-            height: 5vh;
-            .prt-1{
+
+         
+
+            span {
                 display: flex;
                 margin-left: -20vh;
                 p{
@@ -77,10 +75,9 @@
     }
 
 
-    
-  
 
-    button{
+
+    button {
         background-color: #429B56;
         box-shadow: 0 0 0 6px #429b5579;
         border: none;
@@ -90,59 +87,71 @@
         cursor: pointer;
         margin-top: 70px;
     }
-    .imgs{
-        img{
+
+    .imgs {
+        img {
             width: 150px;
-            &:hover{
-                animation: shake linear infinite 0.4s ;
+
+            &:hover {
+                animation: shake linear infinite 0.4s;
             }
         }
-        #pote{
+
+        #pote {
             position: absolute;
             top: 670px;
             left: 100px;
         }
-        #fogo{
+
+        #fogo {
             position: absolute;
             top: 770px;
             right: 50px;
-            
+
         }
-        #flor{
+
+        #flor {
             position: absolute;
             top: 180px;
             left: 50px;
         }
-        #cruz{
+
+        #cruz {
             width: 200px;
             position: absolute;
             top: 370px;
             left: -20px;
         }
-        #luckyBox{
+
+        #luckyBox {
             position: absolute;
             top: 140px;
             right: 30px;
         }
 
         @keyframes shake {
-            
-                0% {
-                    transform: rotate(0deg);
-                }
-                25% {
-                    transform: rotate(3deg);
-                }
-                50% {
-                    transform: rotate(0deg);
-                }
-                75% {
-                    transform: rotate(-3deg);
-                }
-                100% {
-                    transform: rotate(0deg);
-                }
-            
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(3deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-3deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+
         }
     }
+
 }

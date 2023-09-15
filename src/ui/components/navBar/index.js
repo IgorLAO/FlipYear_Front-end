@@ -6,8 +6,30 @@ import Filtro from "../../assets/images/NavBar_assets/filtro_logo.png";
 import Carrinho_logo from "../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
 import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
 import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
+import SideBarFazerConta from '../perfil/side-bar'
+import SideBarLogado from "../perfil/side-bar-logado";
+import { useState } from "react";
+
+
 
 export default function NavBar() {
+
+    const [menuLateralHidden, setMenuLateralHidden] = useState();
+
+    const Mostrar = () => {
+
+        setMenuLateralHidden(true)
+
+    }
+
+    const Condeu = () =>{
+
+
+        setMenuLateralHidden(false)
+
+    }
+
+
 
     return (
         <div className="Nav">
@@ -23,10 +45,22 @@ export default function NavBar() {
                 <img src={Filtro} />
             </span>
             <span className="Options">
-                <img src={Usuario} />
+                <img src={Usuario} onClick={Mostrar}/>
                 <img src={Carrinho_logo} />
                 <img src={Suporte} />
             </span>
+
+            {menuLateralHidden &&
+
+
+                <SideBarFazerConta></SideBarFazerConta>
+
+            }
+
+            <SideBarLogado></SideBarLogado>
+
+
+            
         </div>
     );
 };
