@@ -14,49 +14,58 @@ export default function Adm_leftNavBar() {
     const [splitNav, setSplitNav] = useState();
 
     return (
+        <div style={{width:80}}>
+
         <div className="MainAdm_leftNavbar">
             <div className="MenuHeader">
-                <h1> Menu </h1>
                 <img src={MenuIcon} />
+                <h1> Menu </h1>
             </div>
 
 
             <div className="Options">
+                <span>
 
+            <Link>
                 <div>
-                    <h4> Caixa de Entrada </h4>
                     <img src={Mail} />
+                    <h4> Caixa de Entrada </h4>
                 </div>
+            </Link>
                 <Link to='/ADM_Produtos'>
                 <div>
-                    <h4> Produtos </h4>
                     <img src={searchIcon} />
+                    <h4> Produtos </h4>
                 </div>
                 </Link>
 
                 <Link to='/ADM_Users'>
                 <div>
-                    <h4> Usuarios </h4>
                     <img src={Mail} />
+                    <h4> Usuarios </h4>
+                </div>
+                </Link>
+
+                <Link to="ADM_Pedidos">
+                <div>
+                    <img src={clockIcon} />
+                    <h4> Pedidos Pendentes </h4>
                 </div>
                 </Link>
 
                 <div>
-                    <h4> Pedidos Pendentes </h4>
-                    <img src={clockIcon} />
-                </div>
-
-                <div>
-                    <h4> Pedidos Concluídos </h4>
-                    <img src={clockIcon} />
-                </div>
-
-                <div>
-                    <h4> Estatísticas</h4>
                     <img src={statisticsIcon} />
+                    <h4> Estatísticas</h4>
+                </div>
+                </span>
+            </div>
+                
+                <div className="LogOut">
+                    <img src={statisticsIcon} />
+                    <h4> Sair</h4>
                 </div>
 
-            </div>
+        </div>
         </div>
     );
 }

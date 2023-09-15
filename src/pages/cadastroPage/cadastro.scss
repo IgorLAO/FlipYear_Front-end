@@ -10,8 +10,7 @@
     justify-content: center;
     h1{
         color: #CDF1B5;
-        margin-top: -50px;
-        
+        margin-top: -50px;   
     }
     .prt-0{
         font-size: 13px;
@@ -20,46 +19,47 @@
     }
 
     .inputs{
+        border: solid 2px black;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         height: 450px;
+        width: 70vh;
         margin-left: 0vh;
-        div{
+        .bloco{
             display: flex;
             flex-direction: row;
-            margin: 30px 50px;
+            margin: 30px 30vh;
             color: white;
-            p{
-                font-size: 13px;
-                margin-left: 30px;
+            width: 50vh;
+            height: 5vh;
+            .prt-1{
+                display: flex;
+                margin-left: -20vh;
+                width: 50vh;
+                height: 10vh;
+            
+                input{
+                    border:solid 3px #40985E;
+                    background-color: #1c4124;
+                    width: 40vh;
+                    height: 35px;
+                    color: white;
+                }
             }
-            input{
-                border:solid 3px #40985E;
-                background-color: #1c4124;
-                width: 20vh;
-                height: 35px;
-                margin:20px -87px  ;
-            }
-            .nome{
-                margin: 0px -60px;
-            }
-            .put-1{
+            .prt-2{
+                display: flex;
+                margin-left: -20vh;
                 width: 30vh;
-                margin-left: 0px;
-                color: white;
+                height: 10vh;
+                input{
+                    border:solid 3px #40985E;
+                    background-color: #1c4124;
+                    width: 40vh;
+                    height: 35px;
+                    color: white;
+                }
             }
-            .put-2{
-                width: 33vh;
-                margin-left: -120px;
-                color: white;
-            }
-
-
-
-        }
-
-
-
+        }     
     }
 
 
@@ -131,4 +131,5 @@
             
         }
     }
+
 }

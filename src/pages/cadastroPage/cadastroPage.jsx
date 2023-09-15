@@ -6,25 +6,38 @@ import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png'
 import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png'
 import { Link } from 'react-router-dom'
 
-const Cadastro = () => {
+    export default function CadastroUsuario() {
 
-    return (
 
-        <div className="mainCad">
+
+        return (
+
+            <div className="mainCad"> 
             <h1>Cadastro</h1>
             <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-                <div>
-                    <div>
-                        <p className='nome'> Nome </p>
-                        <input className='put-1' type='text'/>
+
+                <div className='bloco-1'>
+
+                <div className='bloco'>
+                    <div className='prt-1'>
+                         Nome 
+                        <input type='text' />
                     </div>
-                    <div>
-                        <p className='sobre'> Sobrenome</p>
-                        <input className='put-2' />
+                    <div className='prt-2'>
+                        Sobrenome
+                        <input type='text' />
                     </div>
                 </div>
-            </div>
+                <div className='bloco-2'>
+                    <div className='prt-1'> 
+                         CPF 
+                        <input type='text' />
+                    </div>
+                    <div className='prt-2'>
+                         Cep 
+                        <input type='text' />
+                 </div>
             <button>Enviar</button>
             <div>
                 <p>Já tem uma conta?</p>
@@ -40,7 +53,20 @@ const Cadastro = () => {
             </div>
         </div>
 
-    )
-}
+            </div>
 
-export default Cadastro
+            </div>
+
+            </div>
+
+  
+
+
+        
+        )
+    }
+
+
+    
+
+

@@ -57,7 +57,7 @@ export default function Catalogo(){
                 <p>5</p>
                 <p>6</p>
                 <p>7</p>
-                <p> seta </p>
+                <p> {">"} </p>
                 </div>
                 <Rodape></Rodape>
 
