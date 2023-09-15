@@ -196,9 +196,9 @@
                 background-color: #40985d4a;
                 border-radius: 5px;
                 margin: 0px 0px 0px 15px;
-                width: 25vh;                
+                width: 28vh;                
                 color: #fff;
-                height: 33vh;
+                height: 36vh;
                 padding: 15px;
 
                 .resum_titulo{
@@ -235,7 +235,13 @@
                 background-color: #87c06c6f;
             }
             .finalizar75{
-                background-color: blue;
+                display: flex;
+                flex-direction:  row;
+                align-items: center;
+                justify-content: space-around;
+
+                padding: 5px 10px 5px;
+                background-color: #88C070;
             }
         }
     }

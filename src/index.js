@@ -18,11 +18,6 @@ import Esqueceu from './pages/esqueceusenha';
 import PerfilPessoal from './pages/perfil/perfil-pessoal';
 import StatusPedido from './pages/perfil/status-pedido'
 
-
-
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
