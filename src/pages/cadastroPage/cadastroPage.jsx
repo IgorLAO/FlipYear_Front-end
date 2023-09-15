@@ -14,27 +14,67 @@ const Cadastro = () => {
             <h1>Cadastro</h1>
             <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-                <div>
-                    <div className='prt-1'>
-                        <p> Nome </p>
-                        <input className='put-1' type='text' />
+                <div className='boxInput'>
+                    <span style={{width: 45 + '%'}}>
+                        <a> Nome </a>
+                        <input type='text' style={{width: 100 + '%'}} />
+                    </span>
+
+                    <span style={{width: 75 + '%'}}>
+                        <a > Sobrenome</a>
+                        <input type='text'  />
+                    </span>
+                </div>
+
+                <div className='boxInput'>
+                    <span style={{width: 75 + '%'}}>
+                        <a> CPF </a>
+                        <input type='text' style={{width: 100 + '%'}} />
+                    </span>
+
+                    <span style={{width: 55 + '%'}}>
+                        <a > CEP </a>
+                        <input type='text' />
+                    </span>
+                </div>
+
+                <div className='boxInput'>
+                    <span>
+                        <a> Cidade </a>
+                        <input type='text' />
+                    </span>
+
+                    <span >
+                        <a> Rua </a>
+                        <input />
+                    </span>
+                </div>
+               
+                <div className='boxInput'>
+                    <span>
+                        <a> Complemento </a>
+                        <input type='text' />
+                    </span>
+
+                    <span >
+                        <a> Numero </a>
+                        <input />
+                    </span>
+                </div>
+            
+                <div className='bottomInputs' style={{display:'flex', flexDirection: 'column'}}>
+                    <div>
+                        <a> Complemento </a>
+                        <input type='text' />
                     </div>
-                    <div className='prt-2'>
-                        <p className='sobre'> Sobrenome</p>
-                        <input className='put-2' />
+
+                    <div>
+                        <a> Numero </a>
+                        <input />
                     </div>
                 </div>
-                <div>
-                    <div> 
-                        <p className='cpf'> CPF </p>
-                        <input className='put-3' type='text' />
-                    </div>
-                    <div>
-                        <p className='cep'> Cep </p>
-                        <input className='put-4' />
-                    </div>
-                </div> 
             </div>
+
             <button>Enviar</button>
             <div>
                 <p>Já tem uma conta?</p>
