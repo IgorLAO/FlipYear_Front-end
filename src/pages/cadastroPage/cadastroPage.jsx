@@ -89,7 +89,6 @@ const Cadastro = () => {
                 <img src={pote} alt="" id='pote' />
             </div>
         </div>
-
     )
 }
 

@@ -12,67 +12,67 @@
     h1 {
         color: #CDF1B5;
         margin-top: -50px;
-
+        
     }
 
 
-    .inputs {
+    .inputs{
         display: flex;
         flex-direction: column;
         height: 450px;
-            margin-top: 15px;
-
-        div {
+        margin-left: 0vh;
+        div{
             display: flex;
+            margin: 30px 50px;
             color: white;
 
          
 
             span {
                 display: flex;
-                flex-direction: column;
-                margin: 20px 15px;
-                border: #fff solid;
-                input {
-                    border: solid 3px #40985E;
-                    background-color: #1C4124;
-                    padding: 10px 80px;
-                    border-radius: 5px;
-
+                margin-left: -20vh;
+                p{
+                    font-size: 13px;
+                    margin-left: 20vh;
                     color: white;
                 }
-            }
-        }
-
-        .bottomInputs {
-            width: 100%;
-            div{
-                display: flex;
-                flex-direction: column;
-                margin: 15px;
-                input {
-                    border: solid 3px #40985E;
-                    background-color: #1C4124;
+                input{
+                    border:solid 3px #40985E;
+                    background-color: #1c4124;
+                    width: 35vh;
                     height: 35px;
-                    border-radius: 5px;
-
-                    width: 100%;
+                    margin:20px -20vh  ;
                     color: white;
                 }
             }
-
+            .prt-2{
+                .sobre{
+                    font-size: 13px;
+                    margin-left: 100px;
+                }
+                .put-2{
+                    border:solid 3px #40985E;
+                    background-color: #1c4124;
+                    width: 40vh;
+                    height: 35px;
+                    margin:20px -10px  ;
+                    color: white;
+                }
+            }
         }
+        
+
+
+
+
+
+
+
+
+
+            
+        
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -153,4 +153,5 @@
 
         }
     }
+
 }

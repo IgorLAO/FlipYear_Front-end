@@ -9,6 +9,7 @@ import Sonic from '../../ui/images/sonic-running.gif';
 import Atari from '../../ui/assets/images/atari_console.png';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
+import CarrinhoBranco from '../../ui/images/carrinhoBranco.png';
 
 
 export default function Pagamento75(){
@@ -147,7 +148,7 @@ export default function Pagamento75(){
             </div>
             
             <div className='finalizar75'>
-                <img src={Carrinho}/>
+                <img src={CarrinhoBranco}/>
                 <p>Finalizar</p>
             </div>
         </div>  
