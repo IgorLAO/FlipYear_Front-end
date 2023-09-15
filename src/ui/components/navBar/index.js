@@ -6,6 +6,9 @@ import Filtro from "../../assets/images/NavBar_assets/filtro_logo.png";
 import Carrinho_logo from "../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
 import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
 import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
+import SideBarFazerConta from '../perfil/side-bar'
+
+
 
 export default function NavBar() {
 
@@ -27,6 +30,8 @@ export default function NavBar() {
                 <img src={Carrinho_logo} />
                 <img src={Suporte} />
             </span>
+
+        <SideBarFazerConta></SideBarFazerConta>
         </div>
     );
 };

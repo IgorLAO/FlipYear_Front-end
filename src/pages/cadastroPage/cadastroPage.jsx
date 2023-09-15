@@ -6,19 +6,20 @@ import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png'
 import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png'
 import { Link } from 'react-router-dom'
 
-const Cadastro = () => {
+    export default function CadastroUsuario() {
 
-    return (
 
-        <div className="mainCad">
+
+        return (
+
+            <div className="mainCad"> 
             <h1>Cadastro</h1>
             <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
             <div className="inputs">
-<<<<<<< HEAD
+
                 <div className='bloco-1'>
-=======
+
                 <div className='bloco'>
->>>>>>> e6a6a51bb45e1a74252b7e6165a785376dab0131
                     <div className='prt-1'>
                          Nome 
                         <input type='text' />
@@ -52,7 +53,20 @@ const Cadastro = () => {
             </div>
         </div>
 
-    )
-}
+            </div>
 
-export default Cadastro
+            </div>
+
+            </div>
+
+  
+
+
+        
+        )
+    }
+
+
+    
+
+
