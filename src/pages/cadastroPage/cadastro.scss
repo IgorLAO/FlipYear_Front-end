@@ -19,59 +19,29 @@
     .inputs{
         display: flex;
         flex-direction: column;
-        height: 450px;
-        margin-left: 0vh;
+        padding: 15px;
+        border: solid blue;
         div{
             display: flex;
-            margin: 30px 50px;
+            width: 60%;
             color: white;
-
-         
-
+            
+            
             span {
                 display: flex;
-                margin-left: -20vh;
-                p{
-                    font-size: 13px;
-                    margin-left: 20vh;
-                    color: white;
-                }
+                flex-direction: column;
+                border: solid #fff;
                 input{
                     border:solid 3px #40985E;
                     background-color: #1c4124;
-                    width: 35vh;
-                    height: 35px;
-                    margin:20px -20vh  ;
+                    padding: 10px;
+                    width: 100%;
                     color: white;
+                    margin: 10px;
                 }
             }
-            .prt-2{
-                .sobre{
-                    font-size: 13px;
-                    margin-left: 100px;
-                }
-                .put-2{
-                    border:solid 3px #40985E;
-                    background-color: #1c4124;
-                    width: 40vh;
-                    height: 35px;
-                    margin:20px -10px  ;
-                    color: white;
-                }
-            }
-        }
-        
-
-
-
-
-
-
-
-
-
             
-        
+        }
     }
 
 
