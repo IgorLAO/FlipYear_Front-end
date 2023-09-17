@@ -1,12 +1,63 @@
-import './cadastro.scss'
-import florFogo from '../../ui/assets/images/imagesCadastro/flor-fogo 1.png'
-import luckyBox from '../../ui/assets/images/imagesCadastro/lucky_box 1.png'
-import cruz from '../../ui/assets/images/imagesCadastro/cruz_castlevania 1.png'
-import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png'
-import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png'
-import { Link } from 'react-router-dom'
+import './cadastro.scss';
+
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+import florFogo from '../../ui/assets/images/imagesCadastro/flor-fogo 1.png';
+import luckyBox from '../../ui/assets/images/imagesCadastro/lucky_box 1.png';
+import cruz from '../../ui/assets/images/imagesCadastro/cruz_castlevania 1.png';
+import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png';
+import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png';
+import axios from 'axios';
 
 const Cadastro = () => {
+    const [Erro, setErro] = useState('')
+
+    const [Nome, setNome] = useState('');
+    const [Telefone, setTelefone] = useState('');
+    const [CPF, setCPF] = useState('');
+    const [CEP, setCEP] = useState('');
+    const [Cidade, setCidade] = useState('');
+    const [Rua, setRua] = useState('');
+    const [Complemento, setComplemento] = useState('');
+    const [Numero, setNumero] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Senha, setSenha] = useState('');
+    const [confirmSenha, setConfirmSenha] = useState('');
+
+    const InsertUser = async () => {
+        try {
+            
+            let infosEndereco = {
+                
+                CEP: CEP,
+                Cidade: Cidade,
+                Rua: Rua,
+                Complemento: Complemento,
+                Numero: Numero
+            }
+            let respEndereco = await axios.post('http://localhost:5000/enderecos', infosEndereco)
+            let id_endereco = respEndereco.data[0].insertId
+            
+            let infosPessoa = {
+                id_endereco: id_endereco ,
+                Nome: Nome,
+                Telefone: Telefone,
+                CPF: CPF,
+                Email: Email,
+                Senha: Senha,
+                Tier: "NORMAL_USER"
+            }
+                if(Senha != confirmSenha)
+                        setErro("As senhas devem ser iguais!")
+        
+            let respUser = await axios.post('http://localhost:5000/usuario', infosPessoa)
+
+
+        } catch (err) {
+            console.log(err.response.data)
+        }
+    }
 
     return (
 
@@ -16,73 +67,112 @@ const Cadastro = () => {
             <div className="inputs">
                 <div className='boxInput'>
                     <span style={{ width: 45 + '%' }}>
-                        <a> Nome* </a>
-                        <input type='text' style={{ width: 100 + '%' }} />
+                        <a> Nome Completo* </a>
+                        <input
+                            type='text'
+                            style={{ width: 100 + '%' }}
+                            value={Nome}
+                            onChange={e => setNome(e.target.value)} />
                     </span>
 
                     <span style={{ width: 75 + '%' }}>
-                        <a > Sobrenome*</a>
-                        <input type='text' />
+                        <a > Telefone*</a>
+                        <input
+                            type='text'
+                            value={Telefone}
+                            onChange={e => setTelefone(e.target.value)} />
                     </span>
                 </div>
 
                 <div className='boxInput'>
                     <span style={{ width: 75 + '%' }}>
                         <a> CPF* </a>
-                        <input type='text' style={{ width: 100 + '%' }} />
+                        <input
+                            type='text'
+                            value={CPF}
+                            style={{ width: 100 + '%' }}
+                            onChange={e => setCPF(e.target.value)} />
                     </span>
 
                     <span style={{ width: 55 + '%' }}>
                         <a > CEP* </a>
-                        <input type='text' />
+                        <input
+                            type='text'
+                            value={CEP}
+                            onChange={e => setCEP(e.target.value)} />
                     </span>
                 </div>
 
                 <div className='boxInput'>
                     <span style={{ width: 50 + '%' }}>
                         <a> Cidade* </a>
-                        <input type='text' />
+                        <input
+                            type='text'
+                            value={Cidade}
+                            onChange={e => setCidade(e.target.value)} />
                     </span>
 
                     <span style={{ width: 50 + '%' }}>
                         <a> Rua* </a>
-                        <input />
+                        <input
+                            type='text'
+                            value={Rua}
+                            onChange={e => setRua(e.target.value)} />
                     </span>
                 </div>
 
                 <div className='boxInput'>
                     <span style={{ width: 90 + '%' }}>
                         <a> Complemento </a>
-                        <input type='text' />
+                        <input
+                            type='text'
+                            value={Complemento}
+                            onChange={e => setComplemento(e.target.value)} />
                     </span>
 
                     <span style={{ width: 15 + '%' }}>
                         <a> Numero* </a>
-                        <input type='number' />
+                        <input
+                            type='number'
+                            value={Numero}
+                            onChange={e => setNumero(e.target.value)} />
                     </span>
                 </div>
 
                 <div className='bottomInputs' style={{ display: 'flex', flexDirection: 'column' }}>
                     <span>
                         <a> Email* </a>
-                        <input type='text' style={{ width: 98.4 + "%" }} />
+                        <input
+                            type='text'
+                            style={{ width: 98.4 + "%" }}
+                            value={Email}
+                            onChange={e => setEmail(e.target.value)} />
                     </span>
 
                     <div style={{ display: "flex" }}>
                         <span>
                             <a> Senha* </a>
-                            <input type='password' />
+                            <input
+                                type='password'
+                                value={Senha}
+                                onChange={e => setSenha(e.target.value)} />
                         </span>
 
                         <span>
                             <a> Digite a senha novamente* </a>
-                            <input type='password' />
+                            <input
+                                type='password'
+                                value={confirmSenha}
+                                onChange={e => setConfirmSenha(e.target.value)} />
                         </span>
 
                     </div>
                 </div>
             </div>
-            <div className='button'>
+            
+            <span style={{color: "red", fontSize: 15}}> <a>{Erro}</a> </span>
+
+            <div className='button' onClick={InsertUser}>
                 <span style={{ display: "flex", position: "absolute" }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                         <g opacity="0.5">
