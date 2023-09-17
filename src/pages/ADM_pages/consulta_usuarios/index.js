@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.scss"
 
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
@@ -8,8 +8,12 @@ import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png'
 
 
 import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
+import axios from "axios";
 
 export default function Users_Consulta() {
+    const [listUsusarios, setlistUsuarios] = useState([]);
+    const [searchText, setsearchText] = useState('');
+
     const [selectdOptionStyle, setSelectdOptionStyle] = useState('');
     const [isHide_X, setisHide_X] = useState(false);
     const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
@@ -32,6 +36,27 @@ export default function Users_Consulta() {
         }
     }
 
+    const GetUsers = async () => {
+        let res = await axios.get(`http://localhost:5000/usuarios`);
+
+        let res2 = await axios.get(`http://localhost:5000/usuarios/busca?search=${searchText}`);
+        if(searchText != '')
+            setlistUsuarios(res2.data);
+       
+        else
+          setlistUsuarios(res.data) ;
+     
+
+        console.log(res2);
+        console.log(searchText);
+    }
+
+    useEffect(() => {
+        GetUsers();
+    }, []);
+
+
+
 
     return (<div className="ADM_usersConsulta">
         <AdmTopNavBar />
@@ -42,8 +67,8 @@ export default function Users_Consulta() {
 
                 <span style={{ display: "flex", justifyContent: "center" }}>
                     <span className='searchBox'>
-                        <img src={searchIcon} />
-                        <input type="text" />
+                        <img src={searchIcon} onClick={GetUsers} />
+                        <input type="text" onChange={e => setsearchText(e.target.value)}/>
                     </span>
                     <img
                         src={filter}
@@ -142,30 +167,18 @@ export default function Users_Consulta() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td> 1 </td>
-                            <td> carlinhos </td>
-                            <td> 54654654654 </td>
-                            <td> carlinhos@gmail.com </td>
-                            <td> 69 </td>
-                            <td> <button> ... </button> </td>
-                        </tr>
-                        <tr>
-                            <td> 1 </td>
-                            <td> carlinhos </td>
-                            <td> 54654654654 </td>
-                            <td> carlinhos@gmail.com </td>
-                            <td> 69 </td>
-                            <td> <button> ... </button> </td>
-                        </tr>
-                        <tr>
-                            <td> 1 </td>
-                            <td> carlinhos </td>
-                            <td> 54654654654 </td>
-                            <td> carlinhos@gmail.com </td>
-                            <td> 666 </td>
-                            <td> <button> ... </button> </td>
-                        </tr>
+                        {listUsusarios.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.id || item.ID_USUARIO }</td>
+                                <td>{item.Nome || item.NM_USUARIO}</td>
+                                <td>{item.CPF || item.DS_CPF}</td>
+                                <td>{item.Email || item.DS_EMAIL}</td>
+                                <td>{item.idade}</td>
+                                <td>
+                                    <button>...</button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

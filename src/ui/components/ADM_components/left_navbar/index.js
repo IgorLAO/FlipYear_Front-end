@@ -14,58 +14,68 @@ export default function Adm_leftNavBar() {
     const [splitNav, setSplitNav] = useState();
 
     return (
-        <div style={{width:80}}>
+        <div style={{ width: 80 }}>
 
-        <div className="MainAdm_leftNavbar">
-            <div className="MenuHeader">
-                <img src={MenuIcon} />
-                <h1> Menu </h1>
-            </div>
+            <div className="MainAdm_leftNavbar">
+                <span className="btns">
+
+                    <div className="MenuHeader">
+                        <img src={MenuIcon} />
+                        <h1> Menu </h1>
+                    </div>
 
 
-            <div className="Options">
-                <span>
+                    <div className="Options">
+                        <span className="">
 
-            <Link>
-                <div>
-                    <img src={Mail} />
-                    <h4> Caixa de Entrada </h4>
-                </div>
-            </Link>
-                <Link to='/ADM_Produtos'>
-                <div>
-                    <img src={searchIcon} />
-                    <h4> Produtos </h4>
-                </div>
-                </Link>
+                            <Link>
+                                <div>
+                                    <img src={Mail} />
+                                    <h4> Caixa de Entrada </h4>
+                                </div>
+                            </Link>
+                            <Link to='/ADM_Produtos'>
+                                <div>
+                                    <img src={searchIcon} />
+                                    <h4> Produtos </h4>
+                                </div>
+                            </Link>
 
-                <Link to='/ADM_Users'>
-                <div>
-                    <img src={Mail} />
-                    <h4> Usuarios </h4>
-                </div>
-                </Link>
+                            <Link to='/ADM_RegistroProd'>
+                                <div>
+                                    <img src={penIcon} />
+                                    <h4> Registro </h4>
+                                </div>
+                            </Link>
 
-                <Link to="ADM_Pedidos">
-                <div>
-                    <img src={clockIcon} />
-                    <h4> Pedidos Pendentes </h4>
-                </div>
-                </Link>
+                            <Link to='/ADM_Users'>
+                                <div>
+                                    <img src={Mail} />
+                                    <h4> Usuarios </h4>
+                                </div>
+                            </Link>
 
-                <div>
-                    <img src={statisticsIcon} />
-                    <h4> Estatísticas</h4>
-                </div>
+                            <Link to="ADM_Pedidos">
+                                <div>
+                                    <img src={clockIcon} />
+                                    <h4> Pedidos Pendentes </h4>
+                                </div>
+                            </Link>
+
+                            <div>
+                                <img src={statisticsIcon} />
+                                <h4> Estatísticas</h4>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div className="LogOut">
+                        <img src={statisticsIcon} />
+                        <h4> Sair</h4>
+                    </div>
+
                 </span>
             </div>
-                
-                <div className="LogOut">
-                    <img src={statisticsIcon} />
-                    <h4> Sair</h4>
-                </div>
-
-        </div>
         </div>
     );
 }

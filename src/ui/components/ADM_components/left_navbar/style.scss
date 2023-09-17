@@ -1,36 +1,33 @@
-    .MainAdm_leftNavbar {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        background-color: #1A644E;
-        padding: 15px 0 15px 0;
-        width: 70px;
-        transition: width 0.9s ease;
-        overflow: hidden;
-        min-height: 100%;
-
-        h4 {
-            line-height: 12px;
-            width: 210px;
-            margin-left: 40px;
-        }
-
-        &:hover {
-            width: 240px;
-
-        }
+.MainAdm_leftNavbar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+    background-color: #1A644E;
+    padding: 15px 0;
+    width: 70px;
+    transition: width 0.9s ease;
+    overflow: hidden;
+    min-height: 100vh; /* Alterado para ocupar 100% da altura da viewport */
 
 
+    h4 {
+        line-height: 12px;
+        width: 210px;
+        margin-left: 40px;
+    }
 
+    &:hover {
+        width: 240px;
+    }
 
+    .btns {
+        height: 100%;
 
         .MenuHeader {
             display: flex;
             color: #DEF8CD;
-            margin-bottom: -70px;
             padding: 15px;
-
 
             h1 {
                 margin-left: 25px;
@@ -39,16 +36,14 @@
             img {
                 display: flex;
                 width: 35px;
-
             }
         }
 
         .Options {
             display: flex;
             flex-direction: column;
-            top: 20px;
-            position: sticky;
             transition: all 0.9s ease;
+            margin-bottom: 100px;
 
             div {
                 display: flex;
@@ -57,7 +52,6 @@
                 color: #fff;
                 letter-spacing: 1px;
                 padding: 10px 10px;
-
 
                 &:hover {
                     background-color: #000;
@@ -71,7 +65,6 @@
         }
 
         .LogOut {
-            position: sticky;
             margin-bottom: 40px;
             display: flex;
             align-items: center;
@@ -79,7 +72,6 @@
             color: #fff;
             letter-spacing: 1px;
             padding: 10px 10px;
-
 
             &:hover {
                 background-color: #000;
@@ -90,6 +82,5 @@
                 margin-left: 10px;
             }
         }
-
-
     }
+}

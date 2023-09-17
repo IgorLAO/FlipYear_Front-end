@@ -1,0 +1,109 @@
+.MainRegistroADM {
+    @font-face {
+        font-family: 'flipFont';
+        src: url('../../../ui/assets/fonts/PressStart2P-Regular.ttf');
+    }
+
+    background-color: #081820;
+
+    .s {
+        display: flex;
+        height: 150vh;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            width: 100%;
+            color: #fff;
+
+            .Title {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                width: 100%;
+                margin: 15px;
+            }
+
+            .inputs {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 85%;
+
+                input{
+                    border: solid 3px #40985E;
+                    background-color: #1c4124b9;
+                    padding: 10px;
+                    color: white;
+                    border-radius: 5px;
+                    margin: 5px 0 0 0;
+                    outline: none;
+                }
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 15px;
+
+                }
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        div{
+                            border: #88C070 solid;
+                            padding: 5px 25px;
+                            justify-content: space-between;
+                            a{
+                                margin: 0 25px;
+                                font-size: 15px;
+                            }
+                            button{
+                                background-color: transparent;
+                                color: #fff;
+                                font-size: 25px;
+                                border: none;
+                                cursor: pointer;
+                            }
+                        }
+                        select{
+                            padding: 15px 45px;
+                            font: 8.5px "flipFont";
+                            color: #fff;
+                            background-color: #1c4124b9;
+                            border: solid 3px #40985E;
+                            letter-spacing: 1px;
+                            margin: 0 0 0 10px;
+                            border-radius: 3px;
+                        }
+                    }
+                    .desc{
+                        textarea{
+                            background-color: #1c4124b9;
+                            border: solid 3px #40985E;
+                            border-radius: 4px;
+                            max-width: 100%;
+                            max-height: 200px;
+                            color: #fff;
+                        }
+                    }
+                    .ImageUpload{
+                        display: flex;
+                        flex-direction: column;
+                        span{
+                            background-color: #1c4124b9;    
+                            width: 320px;
+                            align-items: center;
+                            border: #88C070 solid;
+                            img{
+                                width: 160px;
+                            }
+                        }
+                    }
+            }
+
+        }
+    }
+}

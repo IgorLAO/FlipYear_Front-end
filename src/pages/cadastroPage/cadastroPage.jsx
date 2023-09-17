@@ -51,7 +51,7 @@ const Cadastro = () => {
                 if(Senha != confirmSenha)
                         setErro("As senhas devem ser iguais!")
         
-            let respUser = await axios.post('http://localhost:5000/usuario', infosPessoa)
+            let respUser = await axios.post('http://localhost:5000/usuarios', infosPessoa)
 
 
         } catch (err) {

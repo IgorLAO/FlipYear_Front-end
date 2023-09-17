@@ -1,10 +1,13 @@
 .ADM_usersConsulta{
+    display: flex;
+    flex-direction: column;
     background-color: #081820;
-    
+    min-height: 100vh; 
+    margin: 0;
+
     .s{
         display: flex;
-        height: 100vh;
-        
+        flex: 1;
         .content{
             display: flex;
             flex-direction: column;
