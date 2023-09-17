@@ -102,6 +102,19 @@
                             }
                         }
                     }
+                    .btn{
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        margin: 20px;
+                        button{
+                            padding: 10px 45px;
+                            background-color: #40985E;
+                            border: #88C070 solid;
+                            color: #fff;
+                            font: 15px 'flipfont';
+                        }
+                    }
             }
 
         }

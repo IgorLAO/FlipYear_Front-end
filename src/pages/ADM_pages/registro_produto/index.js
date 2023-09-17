@@ -64,6 +64,10 @@ export default function RegistroProdutos() {
                                 <input type="file" />
                             </span>
                         </div>
+                        <span className="btn">
+
+                        <button> Registar </button>
+                        </span>
                     </div>
                 </div>
             </div>
