@@ -4,43 +4,54 @@ import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.pn
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
 import Lapis from '../../../ui/assets/images/perfil-pessoal/105b06c79bc402f 1.png'
 import Carrinho from '../../../ui/assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
-export default function PerfilPessoal(){
+import { useNavigate } from 'react-router-dom';
 
-    return(
-
-        <div className='perfil-pag'> 
-        <img src={BannerGato}></img>
-
-        <div className='perfil-infos'>
+import storage from 'local-storage'
 
 
-            <div className='meio'>
-                <div className='pfp'>
-                    <img src={Corvo}></img>
+export default function PerfilPessoal() {
+    const navigate = useNavigate();
+
+    const LogOut = () => {
+        storage.remove('NORMAL_USER_Logado');
+        navigate('/login');
+    };
+
+    return (
+
+        <div className='perfil-pag'>
+            <img src={BannerGato}></img>
+
+            <div className='perfil-infos'>
+
+
+                <div className='meio'>
+                    <div className='pfp'>
+                        <img src={Corvo}></img>
+                    </div>
+                    <p className='nome'>Ind0m4bl3_Cr0w</p>
                 </div>
-                <p className='nome'>Ind0m4bl3_Cr0w</p>
+
+                <img className='lapis' src={Lapis}></img>
+                <button onClick={LogOut} style={{width: 75, height: 25}} > LOGOUT </button>
             </div>
 
-            <img className='lapis' src={Lapis}></img>
 
-        </div>
 
-        
-
-        <div className='pedidos'>
-            <div className='carrinho-titulo'>
-                <img className='carrinho'src={Carrinho}></img>
-                <p className='titulo'>Meus Pedidos </p>
+            <div className='pedidos'>
+                <div className='carrinho-titulo'>
+                    <img className='carrinho' src={Carrinho}></img>
+                    <p className='titulo'>Meus Pedidos </p>
+                </div>
+                <div className='linha-branca'> </div>
             </div>
-            <div className='linha-branca'> </div>
-        </div>
-        
-            <CardPedido2></CardPedido2>
-            <CardPedido2></CardPedido2>            
+
             <CardPedido2></CardPedido2>
             <CardPedido2></CardPedido2>
             <CardPedido2></CardPedido2>
-            
+            <CardPedido2></CardPedido2>
+            <CardPedido2></CardPedido2>
+
 
         </div>
 

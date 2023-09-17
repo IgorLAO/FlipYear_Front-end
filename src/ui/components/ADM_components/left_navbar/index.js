@@ -1,3 +1,7 @@
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import storage from 'local-storage';
+
 import "./style.scss"
 
 import MenuIcon from "../../../assets/images/adm_assets/menuIcon.png"
@@ -7,11 +11,15 @@ import searchIcon from "../../../assets/images/adm_assets/search_adm.png"
 import clockIcon from "../../../assets/images/adm_assets/relogio_icon_adm.png"
 import userIcon from "../../../assets/images/adm_assets/usuarioADM_icon.png"
 import statisticsIcon from "../../../assets/images/adm_assets/estatisticasADM_icon.png"
-import { useState } from "react"
-import { Link } from "react-router-dom"
 
 export default function Adm_leftNavBar() {
     const [splitNav, setSplitNav] = useState();
+    const navigate = useNavigate();
+
+    const logOut = () =>{
+    storage.remove('ADM_Logado')
+    navigate('/login')
+    }
 
     return (
         <div style={{ width: 80 }}>
@@ -69,7 +77,7 @@ export default function Adm_leftNavBar() {
                         </span>
                     </div>
 
-                    <div className="LogOut">
+                    <div className="LogOut" onClick={logOut}>
                         <img src={statisticsIcon} />
                         <h4> Sair</h4>
                     </div>
