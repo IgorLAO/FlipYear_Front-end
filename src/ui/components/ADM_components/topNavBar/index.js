@@ -2,11 +2,15 @@ import './style.scss'
 
 import LogoArcade from "../../../assets/images/NavBar_assets/arcade_Logo 1.png";
 import bellADM from "../../../assets/images/adm_assets/sino_adm.png";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import localStorage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdmTopNavBar() {
     const [isHideOptions, setIsHideOptions] = useState(false)
     const [Ang, setAng] = useState('0')
+    const navigate = useNavigate();
 
     function hideValid() {
         setIsHideOptions(true)
@@ -17,6 +21,13 @@ export default function AdmTopNavBar() {
             setAng('0')
         }
     }
+
+    useEffect(() => {
+        if(!localStorage("ADM_Logado")){
+            navigate('/login')
+        }
+        
+    }, [])
 
     return (
         <div className="MainTopNavBar">
