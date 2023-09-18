@@ -6,6 +6,7 @@
 
   background: rgb(26,100,78);
   background: linear-gradient(180deg, rgba(26,100,78,1) 34%, rgba(8,24,32,1) 54%);
+  //filter: blur(100px);
 
 .s1 {
     display: flex;
@@ -14,6 +15,8 @@
     flex-direction: column;
     height: 100vh;
     padding: 40px;
+   
+
     .block {
       display: flex;
       width: 90%;
