@@ -39,7 +39,7 @@
         width: 100%;
         height: 1px;
         background-color: white;
-    
+
     
     }
 
@@ -51,16 +51,23 @@
     }
     
     .item-side-bar{
-    
-        color: white;
-    
+        
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
 
-        margin-top: 30px;
-        margin-bottom: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+
+        
+        :hover{
+
+            cursor: pointer;
+
+        }
+    
 
 
         p{
