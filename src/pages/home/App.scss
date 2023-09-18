@@ -14,13 +14,14 @@
     flex-direction: column;
     height: 100vh;
     padding: 40px;
+    filter: blur(10px);
+
     .block {
       display: flex;
       width: 90%;
       height: 500px;
       padding: 20px;
       background-color: #88C070;
-
       margin-top: 15px;
 
       .texts {
@@ -60,6 +61,7 @@
             background-color: #E0F8D0;
             border: none;
             font: 12px 'flipFont';
+
           }
         }
       }

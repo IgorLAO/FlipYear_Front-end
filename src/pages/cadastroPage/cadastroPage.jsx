@@ -53,9 +53,10 @@ const Cadastro = () => {
         
             let respUser = await axios.post('http://localhost:5000/usuarios', infosPessoa)
 
-
         } catch (err) {
             console.log(err.response.data)
+            console.log('err')
+            setErro(err.response.data)
         }
     }
 
@@ -168,6 +169,7 @@ const Cadastro = () => {
 
                     </div>
                 </div>
+                <a style={{color: "red", display: "flex", marginTop: 20}}> {Erro} </a>
             </div>
             
             <span style={{color: "red", fontSize: 15}}> <a>{Erro}</a> </span>

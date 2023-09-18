@@ -11,6 +11,7 @@ import searchIcon from "../../../assets/images/adm_assets/search_adm.png"
 import clockIcon from "../../../assets/images/adm_assets/relogio_icon_adm.png"
 import userIcon from "../../../assets/images/adm_assets/usuarioADM_icon.png"
 import statisticsIcon from "../../../assets/images/adm_assets/estatisticasADM_icon.png"
+import logOutIcon from "../../../assets/images/adm_assets/logOut.png"
 
 export default function Adm_leftNavBar() {
     const [splitNav, setSplitNav] = useState();
@@ -58,7 +59,7 @@ export default function Adm_leftNavBar() {
 
                             <Link to='/ADM_Users'>
                                 <div>
-                                    <img src={Mail} />
+                                    <img src={userIcon} />
                                     <h4> Usuarios </h4>
                                 </div>
                             </Link>
@@ -78,7 +79,7 @@ export default function Adm_leftNavBar() {
                     </div>
 
                     <div className="LogOut" onClick={logOut}>
-                        <img src={statisticsIcon} />
+                        <img src={logOutIcon} />
                         <h4> Sair</h4>
                     </div>
 

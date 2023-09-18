@@ -16,6 +16,7 @@ function Login(props2) {
   const [hide, setHide] = useState(true);
   const [reveal, setReveal] = useState(false);
   const [Tier, setTier] = useState('');
+  const [Erro, setErro] = useState('');
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -53,12 +54,11 @@ function Login(props2) {
 
       }
 
-      
-
     } catch (err) {
 
       if (err.response.status === 401) {
         console.log(err.response.data.erro)
+        setErro(err.response.data.erro)
       }
     }
   }
@@ -99,8 +99,10 @@ function Login(props2) {
                     <input type="password" id='senha' value={senha} onChange={e => setSenha(e.target.value)} />
                   </label>
                   <h6 onClick={hideReveal}>Esqueceu a senha</h6>
+                  
                 </form>
                 <a onClick={logar} className='entrarButton'> APERTE PARA ENTRAR </a>
+                
 
                 <hr className='linha' />
 
@@ -111,6 +113,7 @@ function Login(props2) {
                     <img src={googleLogo} alt="" />
                   </div>
                   <h6>Ainda não tem uma conta? <Link to='/cadastro'> <a >Cadastre-se</a></Link> </h6>
+                  <a style={{color: "red", display: "flex", marginTop: 20}}> {Erro} </a>
                 </div>
               </>
             )}
