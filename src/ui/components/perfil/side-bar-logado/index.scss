@@ -57,16 +57,10 @@
         align-items: center;
         justify-content: space-around;
 
+        color: white;
+
         padding-top: 30px;
         padding-bottom: 30px;
-
-
-        
-        :hover{
-
-            cursor: pointer;
-
-        }
     
 
 
@@ -104,6 +98,9 @@
 
     }
 
+
+
+
     .nome-side-bar{
 
         color: white;
@@ -116,7 +113,15 @@
         width: 17px;
         height: 11px;
 
+
     }
+
+    .seta-baixo:hover{
+
+        cursor: pointer;
+
+    }
+
 
     .pfp-nome{
 
@@ -130,5 +135,97 @@
     }
 
 
+
+
+    .lista-pedidos{
+
+        padding-top: 10px;
+        background-color: #6E8D61;
+        display: flex;
+        flex-direction: column;
+
+
+
+    }
+
+    .pedido{
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+    }
+
+    .Atari{
+
+
+        width: 60px;
+        height: 50px;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+
+    }
+
+    .status-sidebar{
+
+        width: 30px;
+        width: 30px;
+
+    }
+
+    .fundo-atari{
+
+        background-color: #E0F8CF;
+        border-radius: 10px;
+
+    }
+
+    .see-more{
+
+        text-align: right;
+        margin-top: 25px;
+        height: 100vh;
+        color: black;  
+
+    }
+
+    .logo-sb-pedidos{
+
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+
+        padding-top: 75px;
+
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+
+        margin-bottom: 15px;
+
+    }
+
+
+    p{
+        color: white;
+        font-size: 10px;
+        text-align: center;
+        margin-bottom: 3px;
+
+    }
+
+
+    }
 
 }
