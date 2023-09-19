@@ -3,6 +3,7 @@ import { useState } from "react"
 
 import './index.scss'
 
+import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import yum from '../../ui/assets/images/super_famicon_yum.png'
 import yum_costa from '../../ui/assets/images/yum game_tras 1.png'
 import yum_fita from '../../ui/assets/images/yum fita_frente 1.png'
@@ -50,7 +51,6 @@ export default function InfProduto() {
                         </div>
                         <div className="div_imagem">
                             <div className="imagem">
-                                <p>X4</p>
                                 <img src={yum} alt="" />
                             </div>
                         </div>
@@ -66,6 +66,7 @@ export default function InfProduto() {
                 <div className="compra">
                     <div className="nome-produto">
                         <h1>Super Famicon Yum</h1>
+                        <div></div>
                     </div>
 
                     <div className="estado">
@@ -75,43 +76,89 @@ export default function InfProduto() {
                     <div className="preco">
                         <h2>R$800,00</h2>
                         <p>Ou 10x de R$80,00</p>
+                        <div></div>
                     </div>
 
                     <div className="frete">
-
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
-                        <input id="CEP" type="text" placeholder="digite o cep" />
-                        <span onClick={hideValid} style={{ display: "flex", cursor: "pointer" }}>
+
+                        <div className="search-bar">
+                            <input id="CEP" type="text" placeholder="Digite seu CEP" />
+                        </div>
+                    </div>
+
+                    <div className="envio">
+                        <span onClick={hideValid} style={{ display: "flex", cursor: "pointer", textAlign: "center" }}>
                             <h4 > Opções de Entrega </h4>
-                            <a  style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}>   </a>
+                            <a style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}>  {'>'} </a>
                         </span>
                         {isHideOptions &&
                             <>
-                                <button>
-                                    <div>
-                                        <img src={hermes} alt="" />
-                                        <h4>Hermes Express</h4>
-                                    </div>
-                                    <p>Receba em até 5 dias úteis</p>
-                                    <p>R$15,00</p>
-                                </button>
+                                <div className="tipo-envio">
+                                    <div className="env-hermes">
+                                        <button>
+                                            <div>
+                                                <img src={hermes} alt="" />
+                                                <h4>Hermes Express</h4>
+                                            </div>
 
-                                <button>
-                                    <div>
-                                        <img src={red_star} alt="" />
-                                        <h4>Red Star Company</h4>
+                                            <div>
+                                                <p>Receba em até 5 dias úteis</p>
+                                                <p>R$15,00</p>
+                                            </div>
+
+                                        </button>
                                     </div>
-                                    <p>Receba em até 2 dias úteis</p>
-                                    <p>R$25,00</p>
-                                </button>
+
+                                    <div className="linha2"></div>
+
+                                    <div className="env-star">
+                                        <button>
+                                            <div>
+                                                <img src={red_star} alt="" />
+                                                <h4>Red Star Company</h4>
+                                            </div>
+
+                                            <div>
+                                                <p>Receba em até 2 dias úteis</p>
+                                                <p>R$25,00</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
                             </>
                         }
+
+                    </div>
+                    <div className="buttons">
+                        <button id="button-compra">Compre já</button>
+                        <button id="button-carrinho">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="comments">
+                <h1>Avaliações</h1>
+
+                <div className="escrita">
+                    <img src={Usuario} alt="" />
+                    <input type="text" placeholder="Deixe um comentário"/>
+                </div>
+
+                <div className="comment-box">
+                    <div className="content">
+                        <div className="img-tittle">
+                            <img src={Usuario} alt="" />
+                            <h2>Usuário1404</h2> <span>Há 3 semanas</span>
+                        </div>
+                    
+                        <h3>A descrição do produto está errada!!!</h3>
                     </div>
 
-                    <div className="button-compra">
-                        <button>Compre já</button>
-                        <button>Adicionar ao Carrinho</button>
+                    <div className="resposta">
+                        
                     </div>
+
                 </div>
             </div>
         </div>

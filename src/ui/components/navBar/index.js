@@ -30,6 +30,14 @@ export default function NavBar() {
     }
 
 
+    {menuLateralHidden &&
+
+
+        <SideBarFazerConta></SideBarFazerConta>
+
+    }
+
+    <SideBarLogado></SideBarLogado>
 
     return (
         <div className="Nav">
@@ -50,14 +58,7 @@ export default function NavBar() {
                 <img src={Suporte} />
             </span>
 
-            {menuLateralHidden &&
-
-
-                <SideBarFazerConta></SideBarFazerConta>
-
-            }
-
-            <SideBarLogado></SideBarLogado>
+            
 
 
             

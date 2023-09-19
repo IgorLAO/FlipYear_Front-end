@@ -4,7 +4,8 @@
     justify-content: space-between;
     padding: 5px 20px;
     background-color: #081820;
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 1;
 

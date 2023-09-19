@@ -87,7 +87,7 @@ export default function Produtos_ConsultaADM() {
                                 <td>{item.nome || item.NM_PRODUTO}</td>
                                 <td>{item.estoque || item.QTD_ESTOQUE}</td>
                                 <td>{item.NM_CATEGORIA}</td>
-                                <td>{item.preco || item.VL_PRECO}</td>
+                                <td> R${item.preco || item.VL_PRECO}</td>
                             </tr>
                         ))}
                     </tbody>
