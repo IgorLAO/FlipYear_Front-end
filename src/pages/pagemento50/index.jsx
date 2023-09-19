@@ -64,12 +64,12 @@ export default function Pagamento() {
                                 case 1:
                                     setPix(true);
                                 case 2:
-                                    setIsHideBoleto(true);
+                                    return (<div>aaaaaaaaaaa</div> );
                                 case 3:
                                     setIsHideCartao(true);
                             }
                         }}
-                        
+
                         <div id='Pix' onClick={() => setVNumbers(1)}>
                             <p>Pix</p>
                         </div>
