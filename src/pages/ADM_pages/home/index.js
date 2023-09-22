@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import localStorage from "local-storage";
 import "./style.scss";
 
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
@@ -9,6 +12,22 @@ import star from "../../../ui/assets/images/adm_assets/estrela_vazia 6.png";
 import console from "../../../ui/assets/images/atari_console.png";
 
 export default function AdmHome() {
+    const [NomeUser, setNomeUser] = useState('');
+    const [Tier, setTier] = useState('');
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!localStorage("ADM_Logado")) {
+            navigate('/login')
+        } else {
+            const infos = localStorage("ADM_Logado");
+            setNomeUser(infos.data.Nome);
+            setTier(infos.Tier)
+            console.log(Tier)
+        }
+        
+
+    }, [])
 
     return (
         <div className="MainAdm_Home">
@@ -17,7 +36,7 @@ export default function AdmHome() {
                 <Adm_leftNavBar />
                 <section className="ADM">
                     <div className="perfilDetails">
-                        <h2> Seja Bem-vindo "{"insira nome aqui"}" </h2>
+                        <h2> Seja Bem-vindo {NomeUser} </h2>
                         <div className="ExpPerfil">
                             <img src={userImage} style={{ width: 500, borderRadius: 100 + "%" }} />
 
@@ -27,7 +46,7 @@ export default function AdmHome() {
                                 width: 80 + '%'
                             }}>
 
-                                <a style={{ marginBottom: 10 }}> Tier ADM </a>
+                                <a style={{ marginBottom: 10 }}> Tier {Tier} </a>
                                 <span style={{ display: "flex", marginBottom: 10, alignItems: "center" }}> <img src="aa" />  x 464</span>
                                 <progress value={32} max={100} ></progress>
 

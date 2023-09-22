@@ -9,6 +9,9 @@ import localStorage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 
 export default function AdmTopNavBar() {
+    const [NomeUser, setNomeUser] = useState('');
+    const [Tier, setTier] = useState('');
+
     const [isHideOptions, setIsHideOptions] = useState(false)
     const [Ang, setAng] = useState('0')
     const navigate = useNavigate();
@@ -26,7 +29,12 @@ export default function AdmTopNavBar() {
     useEffect(() => {
         if (!localStorage("ADM_Logado")) {
             navigate('/login')
+        } else {
+            const infos = localStorage("ADM_Logado");
+            setNomeUser(infos.data.Nome);
+            setTier(infos.Tier)
         }
+        
 
     }, [])
 
@@ -43,7 +51,7 @@ export default function AdmTopNavBar() {
                 <img src={perfil} />
                 <span className='Name_ArrowMenu' style={{ cursor: "pointer" }}>
                     <span onClick={hideValid} style={{display: "flex", alignItems: "center"}}>
-                        <h4> ${"nome de usuario"} </h4>
+                        <h4> {NomeUser} </h4>
                         <a style={{ transform: `rotate(${Ang}deg)`, marginLeft: 7 }}> {'>'}  </a>
                     </span>
                     {isHideOptions &&(
