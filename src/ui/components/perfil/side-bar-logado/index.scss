@@ -49,6 +49,16 @@
 
 
     }
+
+    #editar-perfil:hover{
+
+        background-color: #88C070;
+        color:black;
+        
+
+
+
+    }
     
     .item-side-bar{
         
@@ -69,11 +79,15 @@
             font-size: 12px;
 
         }
-    
-    
-    
-    
+
+        
+        
+        
+        
+        
     }
+
+
 
     .lapis{
 
@@ -139,7 +153,7 @@
 
     .lista-pedidos{
 
-        padding-top: 10px;
+
         background-color: #6E8D61;
         display: flex;
         flex-direction: column;
@@ -157,6 +171,22 @@
 
         padding-top: 15px;
         padding-bottom: 15px;
+
+        
+
+    }
+
+    .pedido:hover{
+
+        background-color: rgb(220, 233, 220);
+        color: rgb(53, 51, 51);
+        cursor: pointer;
+
+        .fundo-atari{
+
+            background-color: #c0c2bf;
+
+        }
 
     }
 
@@ -192,7 +222,9 @@
         text-align: right;
         margin-top: 25px;
         height: 100vh;
-        color: black;  
+        p{
+            color: black;  
+        }
 
     }
 
@@ -207,8 +239,8 @@
         padding-top: 75px;
 
         display: flex;
-    flex-direction: column;
-    align-items: center;
+        flex-direction: column;
+        align-items: center;
 
     img{
 
@@ -224,6 +256,61 @@
         margin-bottom: 3px;
 
     }
+
+
+    }
+
+    .adm-menu{
+
+        display: flex;
+        flex-direction: column;
+        background-color: #6E8D61;
+        height: 100vh;
+
+
+
+        .rota-adm{
+
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+
+            padding-top: 10px;
+            padding-bottom: 10px;
+            img{
+
+                width: 50px;
+                height: 40px;
+
+            }
+
+
+
+        }
+
+        .rota-adm:hover{
+
+            background-color: rgb(220, 233, 220);
+            color: rgb(53, 51, 51);
+            cursor: pointer;
+
+        }
+
+        #adm-logo{
+
+            position: sticky;
+            margin-top: 17px;
+            img{
+
+                width: 65px;
+                height: 65px;
+            }
+            
+
+        }
+
 
 
     }

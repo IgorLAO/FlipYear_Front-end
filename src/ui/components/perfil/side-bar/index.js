@@ -5,7 +5,15 @@ import Fantasma3 from '../../../assets/images/perfil-side-bar/fantasma 3.png'
 
 import Logo from '../../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 
-export default function SideBarFazerConta(){
+export default function SideBarFazerConta({setLogado, setMenuLateralHidden}){
+
+    function logar(){
+
+        setLogado(true);
+        setMenuLateralHidden(false);        
+
+
+    }
 
     return(<div className='barra-lateral'>
     
@@ -19,7 +27,7 @@ export default function SideBarFazerConta(){
         <p className='mensagem'>É necessário ter uma conta</p>
         <div className='logar-op'>
 
-            <p>Logar</p>
+            <p onClick={logar}>Logar</p>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="132" height="46" viewBox="0 0 132 46" fill="none">
             <g filter="url(#filter0_d_1468_11)">

@@ -13,10 +13,21 @@ import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
-function App() {
+function App({setMenuLateralHidden, setLogado, setFundoEscurecido}) {
+
+  function Condeu(){
+
+
+    setMenuLateralHidden(false);
+    setLogado(false);
+    setFundoEscurecido('');
+
+}
+  
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar/>
       <section className='s1'>
         <div className='block'>
           <div className='texts'>

@@ -6,24 +6,36 @@ import Seta from '../../../assets/images/perfil-side-bar/setapabaixo.png'
 import Logo from '../../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import Checkbox from '../../../assets/images/checkbox(correct).png'
 import Uncheckbox from '../../../assets/images/checkbox(incorrect).png'
-
+import User from '../../../assets/images/adm_assets/u.png'
 import Atari from '../../../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
+import Controle from '../../../assets/images/perfil-side-bar/controle-removebg-preview.png'
+import Users from '../../../assets/images/adm_assets/usuarioADM_icon.png'
+import Grafico from '../../../assets/images/adm_assets/estatisticasADM_icon.png'
+import Caminhao from '../../../assets/images/status_produtos_assets/caminhao_icon.png'
+import Registro from '../../../assets/images/adm_assets/lapis_adm.png'
+
 import { Link } from "react-router-dom";
 import Carrinho from '../../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
 import { useState } from 'react'
 import { render } from '@testing-library/react'
+import { hover } from '@testing-library/user-event/dist/hover'
 
 
 
 export default function SideBarLogado() {
 
     const [selectPerfil, setSelectPerfil] = useState(false);
-    const [coresHover, setCoresHover] = useState('');
+    const [coresHover, setCoresHover] = useState({
+        fonte: '',
+        fundo: '',
+        seta: '-90'
+    });
     const [menuPedidos, setMenuPedidos] = useState(false);
-    const [menuADM, setMenuADM] = useState(false)
+    const [menuADM, setMenuADM] = useState(false);
     const [setaLado, setSetaLado] = useState('-90');
     const [fundoTopo, setFundoTopo] = useState('');
-    const [corFonte, setCorFonte] = useState('white')
+    const [corFonte, setCorFonte] = useState('white');
+
 
     function renderCssPedidos() {
 
@@ -162,7 +174,7 @@ export default function SideBarLogado() {
 
         <div className='menu-side-bar'>
             <div className='linha-side-bar'></div>
-            <div className='item-side-bar'>
+            <div className='item-side-bar' id='editar-perfil'>
                 <img src={Lapis} className='lapis'></img>
                 <p>Editar Perfil</p>
             </div>
@@ -208,10 +220,10 @@ export default function SideBarLogado() {
                         <img className='status-sidebar' src={Uncheckbox}></img>
                     </div>
                     <div className='linha-side-bar'></div>
-                    <Link to='/perfil-pessoal'>
                         <div className='see-more'>
+                    <Link to='/perfil-pessoal'>
                             <p>Ver Mais...</p>
-
+                    </Link>
                             <div className='logo-sb-pedidos'>
 
                                 <img src={Logo} />
@@ -219,9 +231,9 @@ export default function SideBarLogado() {
                                 <p className='doisk'>2000</p>
 
                             </div>
-
                         </div>
-                    </Link>
+
+
 
 
 
@@ -253,6 +265,72 @@ export default function SideBarLogado() {
                     : <></>
 
             }
+
+            {
+
+                (coresHover.seta == 0)
+
+
+            ? <div className='adm-menu'>
+
+                <div className='rota-adm'>
+                    <p>Perfil de Adm</p>
+                    <img src={User}></img>
+                </div>
+
+                <div className='linha-side-bar'></div>
+
+                <div className='rota-adm'>
+                    <p>Produtos</p>
+                    <img src={Controle}></img>
+                </div>
+
+                <div className='linha-side-bar'></div>
+
+                <div className='rota-adm'>
+                    <p>Usuários</p>
+                    <img src={Users}></img>
+                </div>
+
+                <div className='linha-side-bar'></div>
+
+                <div className='rota-adm'>
+                    <p>Estatíscas</p>
+                    <img src={Grafico}></img>
+                </div>
+
+                <div className='linha-side-bar'></div>
+
+                <div className='rota-adm'>
+                    <p>Pedidos</p>
+                    <img src={Caminhao}></img>
+                </div>
+
+                <div className='linha-side-bar'></div>
+
+                <div className='rota-adm'>
+                    <p>Registro Produto</p>
+                    <img src={Registro}></img>
+                    
+                </div>
+                <div className='linha-side-bar'></div>
+
+                <div className='logo' id='adm-logo'>
+
+                <img src={Logo} />
+                <p>FLIP-YEAR</p>
+                <p className='doisk'>2000</p>
+
+</div>
+
+
+            </div>
+
+                : <></>
+
+
+            }
+
 
 
             <div className='logo'>
