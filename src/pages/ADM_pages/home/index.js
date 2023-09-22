@@ -22,8 +22,7 @@ export default function AdmHome() {
         } else {
             const infos = localStorage("ADM_Logado");
             setNomeUser(infos.data.Nome);
-            setTier(infos.Tier)
-            console.log(Tier)
+            setTier(infos.Tier);
         }
         
 

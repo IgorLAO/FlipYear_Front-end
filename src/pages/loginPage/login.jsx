@@ -37,12 +37,11 @@ function Login(props2) {
         Email: email,
         Senha: senha
       })
-      console.log(res.data.Tier)
 
       if (res.data.Tier == "ADM") {
         storage('ADM_Logado', res)
         navigate('/ADM');
-      } else if (res.data.Tier === "NORMAL_USER") {
+      } else if (res.data.Tier === "NORMAL_USERS") {
         storage('NORMAL_USER_Logado', res)
         navigate('/perfil-pessoal');
       }
@@ -54,14 +53,14 @@ function Login(props2) {
       }
     }
   }
+
   const verify = () => {
     if (storage('ADM_Logado'))
-      navigate('/ADM')
+        navigate('/ADM')
 
-    else if (storage('NORMAL_USER_Logado'))
-      navigate('/perfil-pessoal')
+    if (storage('NORMAL_USER_Logado'))
+        navigate('/perfil-pessoal')
 
-    const valor = localStorage.getItem('Chave');
   }
 
   useEffect(() => {
