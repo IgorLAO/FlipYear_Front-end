@@ -97,6 +97,7 @@ export default function SideBarLogado() {
                 setCoresHover(obj);
     
     
+                
             }
     
             else {
