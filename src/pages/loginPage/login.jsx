@@ -9,13 +9,11 @@ import './login.scss';
 import googleLogo from '../../ui/assets/images/imagesLogin/google 1.png';
 import FacebookeLogo from '../../ui/assets/images/imagesLogin/face 1.png';
 
-let url = "http://localhost:5000/usuarios/login"
 
 function Login(props2) {
   const navigate = useNavigate();
   const [hide, setHide] = useState(true);
   const [reveal, setReveal] = useState(false);
-  const [Tier, setTier] = useState('');
   const [Erro, setErro] = useState('');
 
   const [email, setEmail] = useState('');
@@ -35,34 +33,27 @@ function Login(props2) {
 
   const logar = async () => {
     try {
-      let res = await axios.post(url, {
+      let res = await axios.post("http://localhost:5000/usuarios/login", {
         Email: email,
         Senha: senha
       })
+      console.log(res.data.Tier)
 
       if (res.data.Tier == "ADM") {
         storage('ADM_Logado', res)
         navigate('/ADM');
-        setTier(res)
-        console.log(Tier)
-      }
-      if (res.data.Tier === "NORMAL_USER") {
+      } else if (res.data.Tier === "NORMAL_USER") {
         storage('NORMAL_USER_Logado', res)
         navigate('/perfil-pessoal');
-        setTier(res.data.Tier)
-        console.log(Tier)
-
       }
 
     } catch (err) {
-
       if (err.response.status === 401) {
         console.log(err.response.data.erro)
         setErro(err.response.data.erro)
       }
     }
   }
-
   const verify = () => {
     if (storage('ADM_Logado'))
       navigate('/ADM')
@@ -71,13 +62,11 @@ function Login(props2) {
       navigate('/perfil-pessoal')
 
     const valor = localStorage.getItem('Chave');
-    console.log(Tier)
   }
 
   useEffect(() => {
-    // localStorage.clear();
     verify()
-  }, [Tier])
+  }, [])
 
   return (
     <>
