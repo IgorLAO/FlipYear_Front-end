@@ -15,31 +15,24 @@ import { useState } from "react";
 export default function NavBar() {
 
     const [menuLateralHidden, setMenuLateralHidden] = useState();
+    const [logado, setLogado] = useState(false);
+    const [fundoEscurecido, setFundoEscurecido] = useState('');
 
     const Mostrar = () => {
 
         setMenuLateralHidden(true)
-
-    }
-
-    const Condeu = () =>{
-
-
-        setMenuLateralHidden(false)
+        setFundoEscurecido('#000000a9')        
 
     }
 
 
-    {menuLateralHidden &&
 
 
-        <SideBarFazerConta></SideBarFazerConta>
 
-    }
-
-    <SideBarLogado></SideBarLogado>
 
     return (
+        <div className="escurecer-fundo" style={{backgroundColor: `${fundoEscurecido}`} }>
+
         <div className="Nav">
             <div className="Logo">
                 <img src={LogoArcade} />
@@ -57,11 +50,31 @@ export default function NavBar() {
                 <img src={Carrinho_logo} />
                 <img src={Suporte} />
             </span>
-
             
+            {
+                
+                (menuLateralHidden == true) 
 
+                ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden}></SideBarFazerConta>
+
+                :<></>
+
+
+            }
+
+            {
+                (logado == true)
+
+                ? <SideBarLogado></SideBarLogado>
+
+                : <></>
+
+
+
+            }
 
             
         </div>
-    );
-};
+        </div>
+    )
+}
