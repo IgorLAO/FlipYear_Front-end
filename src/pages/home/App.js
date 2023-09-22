@@ -1,6 +1,6 @@
 import './App.scss';
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 import Rodape from '../../ui/components/rodape'
 
@@ -13,17 +13,9 @@ import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
-function App({setMenuLateralHidden, setLogado, setFundoEscurecido}) {
-
-  function Condeu(){
+function App() {
 
 
-    setMenuLateralHidden(false);
-    setLogado(false);
-    setFundoEscurecido('');
-
-}
-  
 
   return (
     <div className="App">

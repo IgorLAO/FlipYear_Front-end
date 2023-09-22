@@ -18,6 +18,18 @@ export default function NavBar() {
     const [logado, setLogado] = useState(false);
     const [fundoEscurecido, setFundoEscurecido] = useState('');
 
+
+  function Condeu(){
+
+
+    setMenuLateralHidden(false);
+    setLogado(false);
+    setFundoEscurecido('');
+
+}
+  
+
+
     const Mostrar = () => {
 
         setMenuLateralHidden(true)
