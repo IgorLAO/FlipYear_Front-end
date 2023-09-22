@@ -7,6 +7,8 @@ import Carrinho from '../../../ui/assets/images/perfil-pessoal/image-removebg-pr
 import { useNavigate } from 'react-router-dom';
 
 import storage from 'local-storage'
+import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
+import Adm_leftNavBar from '../../../ui/components/ADM_components/left_navbar';
 
 
 export default function PerfilPessoal() {
@@ -18,15 +20,17 @@ export default function PerfilPessoal() {
     };
 
     return (
-
+        <div className='MainPerfil-P'>
+            {/* <SideBarUsers/> */}
+            <Adm_leftNavBar/>
         <div className='perfil-pag'>
-            <img src={BannerGato}></img>
+                <div className='banner'>
+
+                </div>
 
             <div className='perfil-infos'>
-
-
                 <div className='meio'>
-                    <div className='pfp'>
+                    <div className='pfp1'>
                         <img src={Corvo}></img>
                     </div>
                     <p className='nome'>Ind0m4bl3_Cr0w</p>
@@ -57,6 +61,7 @@ export default function PerfilPessoal() {
 
 
 
+        </div>
     )
 
 

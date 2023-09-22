@@ -1,5 +1,6 @@
 import './index.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Login from './pages/loginPage/login';
