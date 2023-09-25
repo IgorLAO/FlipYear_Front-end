@@ -1,4 +1,5 @@
 import './index.scss';
+
 import BannerGato from '../../../ui/assets/images/perfil-publico_assets/5759cdb17f90d64d25e9e59854181dde 2.png'
 import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
