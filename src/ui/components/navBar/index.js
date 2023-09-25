@@ -19,14 +19,6 @@ export default function NavBar() {
     const [fundoEscurecido, setFundoEscurecido] = useState('');
 
 
-  function Condeu(){
-
-
-    setMenuLateralHidden(false);
-    setLogado(false);
-    setFundoEscurecido('');
-
-}
   
 
 
@@ -36,6 +28,7 @@ export default function NavBar() {
         setFundoEscurecido('#000000a9')        
 
     }
+
 
 
 
@@ -67,7 +60,7 @@ export default function NavBar() {
                 
                 (menuLateralHidden == true) 
 
-                ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden}></SideBarFazerConta>
+                ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} setFundoEscurecido={setFundoEscurecido}></SideBarFazerConta>
 
                 :<></>
 
@@ -77,7 +70,7 @@ export default function NavBar() {
             {
                 (logado == true)
 
-                ? <SideBarLogado></SideBarLogado>
+                ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} setFundoEscurecido={setFundoEscurecido}></SideBarLogado>
 
                 : <></>
 

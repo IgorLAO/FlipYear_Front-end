@@ -5,7 +5,7 @@ import Fantasma3 from '../../../assets/images/perfil-side-bar/fantasma 3.png'
 
 import Logo from '../../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 
-export default function SideBarFazerConta({setLogado, setMenuLateralHidden}){
+export default function SideBarFazerConta({setLogado, setMenuLateralHidden, setFundoEscurecido}){
 
     function logar(){
 
@@ -15,7 +15,18 @@ export default function SideBarFazerConta({setLogado, setMenuLateralHidden}){
 
     }
 
+    function Condeu(){
+
+
+        setMenuLateralHidden(false);
+        setLogado(false);
+        setFundoEscurecido('');
+    
+    }
+
     return(<div className='barra-lateral'>
+
+<p className='fechar-sb' onClick={Condeu}>X</p>
     
 
         <div className='fantasmas'>

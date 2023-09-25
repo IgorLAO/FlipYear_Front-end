@@ -1,6 +1,7 @@
 .side-bar-logado{
 
     background-color: #081820;
+    color: white;
     min-height: 100%;
 
     position: fixed;
@@ -8,10 +9,25 @@
     left: 1000px;
     z-index: 1;
 
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .fechar-sb{
+
+        font-size: 18px;
+        position: relative;
+        bottom: 130px;
+        left: 100px;
+
+    }
+
+    .fechar-sb:hover{
+            cursor: pointer;
+        }
+
 
 
 
@@ -66,8 +82,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-
-        color: white;
 
         padding-top: 30px;
         padding-bottom: 30px;

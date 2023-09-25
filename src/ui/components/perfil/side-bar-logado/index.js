@@ -22,7 +22,7 @@ import { hover } from '@testing-library/user-event/dist/hover'
 
 
 
-export default function SideBarLogado() {
+export default function SideBarLogado({setMenuLateralHidden, setLogado, setFundoEscurecido}) {
 
     const [selectPerfil, setSelectPerfil] = useState(false);
     const [coresHover, setCoresHover] = useState({
@@ -137,6 +137,15 @@ export default function SideBarLogado() {
 
     }
 
+    function Condeu(){
+
+
+        setMenuLateralHidden(false);
+        setLogado(false);
+        setFundoEscurecido('');
+    
+    }
+
     function PagADM(){
 
         setCoresHover({
@@ -163,6 +172,8 @@ export default function SideBarLogado() {
 
 
     return (<div className='side-bar-logado'>
+
+        <p className='fechar-sb' onClick={Condeu}>X</p>
 
         <div className='pfp-nome'>
             <div className='foto'>
