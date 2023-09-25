@@ -1,6 +1,9 @@
 import './App.scss';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import localStorage from 'local-storage';
+
 import NavBar from '../../ui/components/navBar';
 import Rodape from '../../ui/components/rodape'
 
