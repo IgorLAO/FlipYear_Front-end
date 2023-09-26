@@ -1,9 +1,15 @@
 import './index.scss';
-
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
+import axios from 'axios';
+import { useState } from 'react';
+
 export default function Catalogo(){
+    const [listProd, setListProd] = useState([]);
+
+    
+
     return(
         <>
             <div className="container-ctlg">

@@ -36,6 +36,12 @@ export default function Adm_leftNavBar() {
 
                     <div className="Options">
                         <span className="">
+                            <Link to="/">
+                                <div>
+                                    <img src={clockIcon} />
+                                    <h4> Home </h4>
+                                </div>
+                            </Link>
 
                             <Link>
                                 <div>
@@ -70,6 +76,7 @@ export default function Adm_leftNavBar() {
                                     <h4> Pedidos Pendentes </h4>
                                 </div>
                             </Link>
+
 
                             <div>
                                 <img src={statisticsIcon} />

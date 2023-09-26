@@ -1,4 +1,8 @@
-.side-bar-logado{
+.side-bar-logado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     background-color: #081820;
     color: white;
@@ -8,14 +12,9 @@
     top: 5px;
     left: 1000px;
     z-index: 1;
+    width: 20%;
 
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .fechar-sb{
+    .fechar-sb {
 
         font-size: 18px;
         position: relative;
@@ -24,60 +23,60 @@
 
     }
 
-    .fechar-sb:hover{
-            cursor: pointer;
-        }
+    .fechar-sb:hover {
+        cursor: pointer;
+    }
 
 
 
 
-    .foto{
-    
+    .foto {
+
         border: 2px solid black;
         border-radius: 300px;
         width: 66px;
 
         margin-bottom: 15px;
-    
-    
+
+
     }
-    
+
     .foto img {
-    
+
         width: 62px;
         height: 61px;
-    
-    
+
+
     }
-    
-    .linha-side-bar{
-    
+
+    .linha-side-bar {
+
         width: 100%;
         height: 1px;
         background-color: white;
 
-    
+
     }
 
-    .menu-side-bar{
+    .menu-side-bar {
 
         width: 100%;
 
 
     }
 
-    #editar-perfil:hover{
+    #editar-perfil:hover {
 
         background-color: #88C070;
-        color:black;
-        
+        color: black;
+
 
 
 
     }
-    
-    .item-side-bar{
-        
+
+    .item-side-bar {
+
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -85,32 +84,32 @@
 
         padding-top: 30px;
         padding-bottom: 30px;
-    
 
 
-        p{
+
+        p {
 
             font-size: 12px;
 
         }
 
-        
-        
-        
-        
-        
+
+
+
+
+
     }
 
 
 
-    .lapis{
+    .lapis {
 
         width: 30px;
         height: 30px;
 
     }
 
-    .carrinho-side-bar{
+    .carrinho-side-bar {
 
         width: 40px;
         height: 40px;
@@ -118,25 +117,24 @@
 
     }
 
-    .adm{
+    .adm {
 
         width: 20px;
         height: 20px;
-
 
     }
 
 
 
 
-    .nome-side-bar{
+    .nome-side-bar {
 
         color: white;
         font-size: 16px;
 
     }
 
-    .seta-baixo{
+    .seta-baixo {
 
         width: 17px;
         height: 11px;
@@ -144,14 +142,14 @@
 
     }
 
-    .seta-baixo:hover{
+    .seta-baixo:hover {
 
         cursor: pointer;
 
     }
 
 
-    .pfp-nome{
+    .pfp-nome {
 
         display: flex;
         flex-direction: column;
@@ -165,7 +163,7 @@
 
 
 
-    .lista-pedidos{
+    .lista-pedidos {
 
 
         background-color: #6E8D61;
@@ -176,7 +174,7 @@
 
     }
 
-    .pedido{
+    .pedido {
 
         display: flex;
         flex-direction: row;
@@ -186,17 +184,17 @@
         padding-top: 15px;
         padding-bottom: 15px;
 
-        
+
 
     }
 
-    .pedido:hover{
+    .pedido:hover {
 
         background-color: rgb(220, 233, 220);
         color: rgb(53, 51, 51);
         cursor: pointer;
 
-        .fundo-atari{
+        .fundo-atari {
 
             background-color: #c0c2bf;
 
@@ -204,7 +202,7 @@
 
     }
 
-    .Atari{
+    .Atari {
 
 
         width: 60px;
@@ -217,32 +215,33 @@
 
     }
 
-    .status-sidebar{
+    .status-sidebar {
 
         width: 30px;
         width: 30px;
 
     }
 
-    .fundo-atari{
+    .fundo-atari {
 
         background-color: #E0F8CF;
         border-radius: 10px;
 
     }
 
-    .see-more{
+    .see-more {
 
         text-align: right;
         margin-top: 25px;
         height: 100vh;
-        p{
-            color: black;  
+
+        p {
+            color: black;
         }
 
     }
 
-    .logo-sb-pedidos{
+    .logo-sb-pedidos {
 
 
         display: flex;
@@ -256,26 +255,25 @@
         flex-direction: column;
         align-items: center;
 
-    img{
+        img {
 
-        margin-bottom: 15px;
+            margin-bottom: 15px;
+
+        }
+
+
+        p {
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            margin-bottom: 3px;
+
+        }
+
 
     }
 
-
-    p{
-        color: white;
-        font-size: 10px;
-        text-align: center;
-        margin-bottom: 3px;
-
-    }
-
-
-    }
-
-    .adm-menu{
-
+    .adm-menu {
         display: flex;
         flex-direction: column;
         background-color: #6E8D61;
@@ -283,7 +281,7 @@
 
 
 
-        .rota-adm{
+        .rota-adm {
 
 
             display: flex;
@@ -293,7 +291,8 @@
 
             padding-top: 10px;
             padding-bottom: 10px;
-            img{
+
+            img {
 
                 width: 50px;
                 height: 40px;
@@ -304,7 +303,7 @@
 
         }
 
-        .rota-adm:hover{
+        .rota-adm:hover {
 
             background-color: rgb(220, 233, 220);
             color: rgb(53, 51, 51);
@@ -312,16 +311,17 @@
 
         }
 
-        #adm-logo{
+        #adm-logo {
 
             position: sticky;
             margin-top: 17px;
-            img{
+
+            img {
 
                 width: 65px;
                 height: 65px;
             }
-            
+
 
         }
 

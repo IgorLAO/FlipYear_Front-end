@@ -25,20 +25,24 @@ import localStorage from 'local-storage'
 
 
 export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFundoEscurecido }) {
-    const [isHideAdmOpt, SetIsHideAdmOpt] = useState(false)
-    const [selectPerfil, setSelectPerfil] = useState(false);
+    const [isHideAdmOpt, SetIsHideAdmOpt] = useState(false);
+    const [IsHideOrders, SetIsHideOrders] = useState(true);
+    const [NavTo, SetNavTo] = useState(false);
+    const [NomeUser, setNomeUser] = useState('');
 
-    const [coresHover, setCoresHover] = useState({
-        fonte: '',
-        fundo: '',
-        seta: '-90'
-    });
+    const [selectPerfil, setSelectPerfil] = useState(false);
 
     const [menuPedidos, setMenuPedidos] = useState(false);
     const [menuADM, setMenuADM] = useState(false);
     const [setaLado, setSetaLado] = useState('-90');
     const [fundoTopo, setFundoTopo] = useState('');
     const [corFonte, setCorFonte] = useState('white');
+    const [coresHover, setCoresHover] = useState({
+        fonte: '',
+        fundo: '',
+        seta: '-90'
+    });
+
 
 
     function renderCssPedidos() {
@@ -66,7 +70,6 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
             setCorFonte('black');
 
         }
-
         else {
             setSetaLado('0');
             UnrenderCssPedidos();
@@ -135,9 +138,18 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
 
     useEffect(() => {
         if (localStorage("ADM_Logado")) {
-            SetIsHideAdmOpt(true)
+            SetIsHideAdmOpt(true);
+            SetIsHideOrders(false);
+            SetNavTo('/ADM');
+            const infos = localStorage('ADM_Logado');
+            setNomeUser(infos.data.Nome);
         }
-
+        else{
+            SetNavTo('/perfil-pessoal');
+            const infos = localStorage('NORMAL_USER_Logado');
+            setNomeUser(infos.data.Nome);
+        }
+     
     }, [])
 
 
@@ -152,24 +164,26 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                 <img src={Pfp}></img>
             </div>
 
-            <p className='nome-side-bar'>Ind0m4bl3_Cr0w</p>
+            <p className='nome-side-bar'>{NomeUser}</p>
         </div>
 
         <div className='menu-side-bar'>
             <div className='linha-side-bar'></div>
-            <div className='item-side-bar' id='editar-perfil'>
-                <img src={Lapis} className='lapis'></img>
-                <p>Editar Perfil</p>
-            </div>
+            <Link to={NavTo}>
+                <div className='item-side-bar' id='editar-perfil'>
+                    <img src={Lapis} className='lapis'></img>
+                    <p>Editar Perfil</p>
+                </div>
+            </Link>
+
             <div className='linha-side-bar'></div>
-
-            <div className='item-side-bar' onMouseEnter={renderCssPedidos} onMouseLeave={UnrenderCssPedidos} style={{ backgroundColor: `${fundoTopo}`, color: `${corFonte}` }}>
-                <img src={Carrinho} className='carrinho-side-bar'></img>
-                <p>Meus Pedidos</p>
-                <img src={Seta} style={{ transform: `rotate(${setaLado}deg)` }} className='seta-baixo' onClick={ListarPedidos}></img>
-
-
-            </div>
+            {IsHideOrders &&
+                <div className='item-side-bar' onMouseEnter={renderCssPedidos} onMouseLeave={UnrenderCssPedidos} style={{ backgroundColor: `${fundoTopo}`, color: `${corFonte}` }}>
+                    <img src={Carrinho} className='carrinho-side-bar'></img>
+                    <p>Meus Pedidos</p>
+                    <img src={Seta} style={{ transform: `rotate(${setaLado}deg)` }} className='seta-baixo' onClick={ListarPedidos}></img>
+                </div>
+            }
 
             <div className='linha-side-bar'></div>
 
@@ -228,22 +242,25 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
             {
 
                 (menuPedidos == false)
-                    ? <div>
-                        <div className='item-side-bar'
-                            onMouseEnter={() => renderCssADM()}
-                            onMouseLeave={() => renderCssADM()}
+                    ?
+                    (isHideAdmOpt &&
+                        <div>
+                            <div className='item-side-bar'
+                                onMouseEnter={() => renderCssADM()}
+                                onMouseLeave={() => renderCssADM()}
 
 
-                            style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}` }}>
-                            <img src={Adm} className='adm'></img>
-                            <p >Administrador</p>
+                                style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}` }}>
+                                <img src={Adm} className='adm'></img>
+                                <p >Administrador</p>
 
 
-                            <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} onClick={PagADM}></img>
+                                <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} onClick={PagADM}></img>
 
+                            </div>
+                            <div className='linha-side-bar'></div>
                         </div>
-                        <div className='linha-side-bar'></div>
-                    </div>
+                    )
 
                     : <></>
 
@@ -255,59 +272,57 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
 
 
                     ?
-                    (isHideAdmOpt &&
-                        <div className='adm-menu'>
-                            <div className='rota-adm'>
-                                <p>Perfil de Adm</p>
-                                <img src={User}></img>
-                            </div>
+                    <div className='adm-menu'>
+                        <div className='rota-adm'>
+                            <p>Perfil de Adm</p>
+                            <img src={User}></img>
+                        </div>
 
-                            <div className='linha-side-bar'></div>
+                        <div className='linha-side-bar'></div>
 
-                            <div className='rota-adm'>
-                                <p>Produtos</p>
-                                <img src={Controle}></img>
-                            </div>
+                        <div className='rota-adm'>
+                            <p>Produtos</p>
+                            <img src={Controle}></img>
+                        </div>
 
-                            <div className='linha-side-bar'></div>
+                        <div className='linha-side-bar'></div>
 
-                            <div className='rota-adm'>
-                                <p>Usuários</p>
-                                <img src={Users}></img>
-                            </div>
+                        <div className='rota-adm'>
+                            <p>Usuários</p>
+                            <img src={Users}></img>
+                        </div>
 
-                            <div className='linha-side-bar'></div>
+                        <div className='linha-side-bar'></div>
 
-                            <div className='rota-adm'>
-                                <p>Estatíscas</p>
-                                <img src={Grafico}></img>
-                            </div>
+                        <div className='rota-adm'>
+                            <p>Estatíscas</p>
+                            <img src={Grafico}></img>
+                        </div>
 
-                            <div className='linha-side-bar'></div>
+                        <div className='linha-side-bar'></div>
 
-                            <div className='rota-adm'>
-                                <p>Pedidos</p>
-                                <img src={Caminhao}></img>
-                            </div>
+                        <div className='rota-adm'>
+                            <p>Pedidos</p>
+                            <img src={Caminhao}></img>
+                        </div>
 
-                            <div className='linha-side-bar'></div>
+                        <div className='linha-side-bar'></div>
 
-                            <div className='rota-adm'>
-                                <p>Registro Produto</p>
-                                <img src={Registro}></img>
-
-                            </div>
-                            <div className='linha-side-bar'></div>
-
-                            <div className='logo' id='adm-logo'>
-
-                                <img src={Logo} />
-                                <p>FLIP-YEAR</p>
-                                <p className='doisk'>2000</p>
-                            </div>
+                        <div className='rota-adm'>
+                            <p>Registro Produto</p>
+                            <img src={Registro}></img>
 
                         </div>
-                    )
+                        <div className='linha-side-bar'></div>
+
+                        <div className='logo' id='adm-logo'>
+
+                            <img src={Logo} />
+                            <p>FLIP-YEAR</p>
+                            <p className='doisk'>2000</p>
+                        </div>
+
+                    </div>
 
                     : <></>
 
