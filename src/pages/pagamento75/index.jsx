@@ -124,30 +124,31 @@ export default function Pagamento75(){
         </div>
 
         <div className='resumo_pedido'> 
-            <div className='resum_titulo'>
-                <p>Resumo</p>
-                <div></div>
-            </div>
-            <div>
-                <div className='valores_resumo75'>
+            <div className='valores_pedido'>
+                <div className='titulo_resumo'>
+                    <p>Resumo</p>
+                    <div></div>
+                </div>
+                <div className='dados_pedido'>
                     <div>
                         <p>SUBTOTAL</p>
-                        <p>FRETE</p>
-                        <p>CUPOM</p>
+                        <p>R$ {}999,99</p>
                     </div>
                     <div>
-                        <p>R$ {} 999,99</p>
-                        <p>R$ {} 999,99</p>
-                        <p>R$ {} 999,99</p>
+                        <p>FRETE</p>
+                        <p>R$ {}999,99</p>
                     </div>
+                    <div>
+                        <p>CUPOM</p>
+                        <p>R$ {}999,99</p>
+                    </div>   
                 </div>
-                <div className='total_compra75'>
-                    <p>TOTAL</p>
-                    <p>R${} 999,99</p>
+                <div className='total_pedido'>
+                    <p>PREÇO</p>
+                    <p>R$ 999,99</p>
                 </div>
             </div>
-            
-            <div className='finalizar75'>
+            <div className='finalizar'>
                 <img src={CarrinhoBranco}/>
                 <p>Finalizar</p>
             </div>

@@ -51,13 +51,19 @@
         align-items: center;
         
         width: 100%;
-        font-size: 27px;
+        font-size: 24px;
         color:#429B56;
         margin: 80px 0px 50px 0px;
         img{
             margin: 0px 20px 0px 0px;
         }
     }
+        .dados_produtos{
+            border: 2px solid red;
+            padding: 10px;
+            width: 100%;
+            max-width: 110vh;
+        }
     .dados_lista_resumos{
             display: flex;
             flex-direction: row;
@@ -71,7 +77,7 @@
             justify-content: space-between;
 
             border-radius: 5px;
-            padding: 20px;
+            padding: 90px 18px ;
             margin: 0px 0px 30px 0px ;
             background-color: #40985d4f;
             width: 100%;
@@ -188,62 +194,56 @@
            
         }
         .resumo_pedido{
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+            
+               color: white;
+               padding: 10px;
+               height: 49vh;
+               border: 2px solid red;
+
+               .valores_pedido{
+                
+                background-color: blue;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
+                padding: 30px;
                 
-                background-color: #40985d4a;
-                border-radius: 5px;
-                margin: 0px 0px 0px 15px;
-                width: 28vh;                
-                color: #fff;
-                height: 36vh;
-                padding: 15px;
+                max-width: 900px;
+                width: 100%;
 
-                .resum_titulo{
-                    font-size: 20px;
+                .titulo_resumo{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
 
+                    font-size: 24px;
                     div{
-                        margin: 18px; 
-                        background-color: black;
-                        padding: 1px;
+                        background-color: rgb(0, 0, 0);
+                        height: 2px;
+                        width: 100%;
                     }
                 }
-            div{
-                display: flex;
-                align-items: center;
-                
-                flex-direction: column;
-                width: 100%;
-                
-            }
-            .valores_resumo75{
-                display: flex;
-                flex-direction: row;
-
-                div{
-                    display: flex;
-                    align-items: flex-start;
-                }
-            }
-            .total_compra75{
+               }
+               .finalizar{
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                background-color: #87c06c6f;
-            }
-            .finalizar75{
-                display: flex;
-                flex-direction:  row;
-                align-items: center;
-                justify-content: space-around;
 
-                padding: 5px 10px 5px;
+                border-radius: 1px;
+                padding: 10px 0px;
+                margin-top: 15px;
+                width: 100%;
                 background-color: #88C070;
-            }
+               
+                img{
+                    margin-right:10px ;
+                }}
         }
+
     }
    
 }
