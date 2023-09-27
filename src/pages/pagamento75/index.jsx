@@ -132,20 +132,20 @@ export default function Pagamento75(){
                 <div className='dados_pedido'>
                     <div>
                         <p>SUBTOTAL</p>
-                        <p>R$ {}999,99</p>
+                        <p>R${} 999,99</p>
                     </div>
                     <div>
                         <p>FRETE</p>
-                        <p>R$ {}999,99</p>
+                        <p>R${} 999,99</p>
                     </div>
                     <div>
                         <p>CUPOM</p>
-                        <p>R$ {}999,99</p>
+                        <p>R${} 999,99</p>
                     </div>   
                 </div>
                 <div className='total_pedido'>
-                    <p>PREÇO</p>
-                    <p>R$ 999,99</p>
+                    <p>TOTAL</p>
+                    <p>R${} 999,99</p>
                 </div>
             </div>
             <div className='finalizar'>
