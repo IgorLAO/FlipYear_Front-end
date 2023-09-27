@@ -19,6 +19,7 @@ import PerfilPessoal from './pages/perfil/perfil-pessoal';
 import StatusPedido from './pages/perfil/status-pedido'
 import Estatisticas from './pages/ADM_pages/estatisticas';
 import RegistroProdutos from './pages/ADM_pages/registro_produto';
+import Pagamento100 from './pages/pagamento100';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,6 +33,7 @@ root.render(
         <Route path='/catalogo' element={<Catalogo />} />
         <Route path='/pagamento50' element={<Pagamento50 />} />
         <Route path='/pagamento75' element={<Pagamento75 />} />
+        <Route path='/pagamento100' element={<Pagamento100/>}/>
         <Route path='/perfil-publico' element={<PerfilPublico />} />
         <Route path='/status-pedido' element={<StatusPedido />} />
         <Route path='/perfil-pessoal' element={<PerfilPessoal />} />
@@ -41,6 +43,7 @@ root.render(
         <Route path='/ADM_Produtos' element={<Produtos_ConsultaADM />} />
         <Route path='/ADM_Estatisticas' element={<Estatisticas />} />
         <Route path='/ADM_RegistroProd' element={<RegistroProdutos />} />
+        
         
         
       </Routes>

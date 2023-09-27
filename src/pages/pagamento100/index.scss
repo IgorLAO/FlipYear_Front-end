@@ -1,0 +1,89 @@
+.container_pag100{
+ background-color: #081820;
+    height: 100vh;
+    .estado_pag{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .icons_pag {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            width: 90%;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                color: #429B56;
+
+                img {
+                    width: 80px;
+                }
+            }
+        }
+
+        .pista {
+            background-image: url('../../ui/images/pista.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            background-color: #346856;
+            height: 50px;
+            width: 90%;
+            border-radius: 3px;
+        }
+    }
+    .pedido_concluido{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        color: #E0F8D0;
+        background-color: #122833;
+        border-radius: 10px;
+        padding: 20px;
+        .mensagem_concluido{
+            div{
+                display: flex;
+                flex-direction: row;
+                align-items: center ;
+                justify-content: center;
+
+                img{
+                    width: 60px;
+                    margin-right: 20px;
+                }   
+            }
+            #codigo_pedido{
+                display: flex;
+                flex-direction: column;
+                line-height: 30px;
+
+                h1{
+                    font-size: 29px;
+                }
+            }
+        }
+    }
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        color: #88C070;
+        background-color: transparent;
+        border: 2px solid #88C070;
+        padding: 15px;
+        max-width: 25vh;
+        width: 100%;
+    }
+    
+    
+}
