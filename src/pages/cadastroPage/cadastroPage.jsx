@@ -2,13 +2,9 @@ import './cadastro.scss';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
-import florFogo from '../../ui/assets/images/imagesCadastro/flor-fogo 1.png';
-import luckyBox from '../../ui/assets/images/imagesCadastro/lucky_box 1.png';
-import cruz from '../../ui/assets/images/imagesCadastro/cruz_castlevania 1.png';
-import pote from '../../ui/assets/images/imagesCadastro/pote_poision 1.png';
-import fogo from '../../ui/assets/images/imagesCadastro/fogo 1.png';
 import axios from 'axios';
+
+import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
 
 const Cadastro = () => {
     const [Erro, setErro] = useState('')
@@ -27,9 +23,9 @@ const Cadastro = () => {
 
     const InsertUser = async () => {
         try {
-            
+
             let infosEndereco = {
-                
+
                 CEP: CEP,
                 Cidade: Cidade,
                 Rua: Rua,
@@ -38,9 +34,9 @@ const Cadastro = () => {
             }
             let respEndereco = await axios.post('http://localhost:5000/enderecos', infosEndereco)
             let id_endereco = respEndereco.data[0].insertId
-            
+
             let infosPessoa = {
-                id_endereco: id_endereco ,
+                id_endereco: id_endereco,
                 Nome: Nome,
                 Telefone: Telefone,
                 CPF: CPF,
@@ -48,9 +44,9 @@ const Cadastro = () => {
                 Senha: Senha,
                 Tier: "NORMAL_USER"
             }
-                if(Senha != confirmSenha)
-                        setErro("As senhas devem ser iguais!")
-        
+            if (Senha != confirmSenha)
+                setErro("As senhas devem ser iguais!")
+
             let respUser = await axios.post('http://localhost:5000/usuarios', infosPessoa)
 
         } catch (err) {
@@ -63,8 +59,11 @@ const Cadastro = () => {
     return (
 
         <div className="mainCad">
-            <h1>Cadastro</h1>
-            <p className='prt-0'> Informe os seus dados abaixo para criar sua conta </p>
+            <div className='Card'>
+                <img src={MarioGif} />
+            </div>
+            <div>
+
             <div className="inputs">
                 <div className='boxInput'>
                     <span style={{ width: 45 + '%' }}>
@@ -169,10 +168,10 @@ const Cadastro = () => {
 
                     </div>
                 </div>
-                <a style={{color: "red", display: "flex", marginTop: 20}}> {Erro} </a>
+                <a style={{ color: "red", display: "flex", marginTop: 20 }}> {Erro} </a>
             </div>
-            
-            <span style={{color: "red", fontSize: 15}}> <a>{Erro}</a> </span>
+
+            <span style={{ color: "red", fontSize: 15 }}> <a>{Erro}</a> </span>
 
             <div className='button' onClick={InsertUser}>
                 <span style={{ display: "flex", position: "absolute" }}>
@@ -208,18 +207,12 @@ const Cadastro = () => {
                     Enviar
                 </a>
             </div>
-            <div>
+                <div>
 
-                <Link className='lincar' to='/login' />
+                    <Link className='lincar' to='/login' />
+                </div>
             </div>
 
-            <div className='imgs'>
-                <img src={fogo} alt="" id='fogo' />
-                <img src={cruz} alt="" id='cruz' />
-                <img src={luckyBox} alt="" id='luckyBox' />
-                <img src={florFogo} alt="" id='flor' />
-                <img src={pote} alt="" id='pote' />
-            </div>
         </div>
     )
 }
