@@ -214,11 +214,9 @@ const Cadastro = () => {
                             Enviar
                         </a>
                     </div>
-                    <span className='Entre'> <p>Ainda nao tem conta? <b>Entre aqui </b> </p>  </span>
-                    <div>
-
-                        <Link className='lincar' to='/login' />
-                    </div>
+                                
+                    <span className='Entre'> <p>Já tem conta? <Link to='/login'> <b>Entre aqui </b> </Link> </p>  </span>
+                                
                 </div>
             </div>
         </div>

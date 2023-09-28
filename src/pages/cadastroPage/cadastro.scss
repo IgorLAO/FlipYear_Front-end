@@ -81,6 +81,7 @@
         }
         .Entre{
             font-size: 8.5px;
+            text-decoration: none;
             b{
                 color: #61f300;
             }
@@ -105,72 +106,6 @@
 
             svg {
                 width: 220px;
-            }
-        }
-
-        .imgs {
-            img {
-                width: 150px;
-
-                &:hover {
-                    animation: shake linear infinite 0.4s;
-                }
-            }
-
-            #pote {
-                position: absolute;
-                top: 470px;
-                left: 100px;
-            }
-
-            #fogo {
-                position: absolute;
-                top: 470px;
-                right: 50px;
-
-            }
-
-            #flor {
-                position: absolute;
-                top: 40px;
-                left: 50px;
-            }
-
-            #cruz {
-                position: absolute;
-                width: 200px;
-                top: 170px;
-                left: -20px;
-            }
-
-            #luckyBox {
-                position: absolute;
-                top: 140px;
-                right: 30px;
-            }
-
-            @keyframes shake {
-
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                25% {
-                    transform: rotate(3deg);
-                }
-
-                50% {
-                    transform: rotate(0deg);
-                }
-
-                75% {
-                    transform: rotate(-3deg);
-                }
-
-                100% {
-                    transform: rotate(0deg);
-                }
-
             }
         }
 
