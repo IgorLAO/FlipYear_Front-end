@@ -11,10 +11,13 @@ import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
 import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
 
 import NavBar from "../../ui/components/navBar"
+import PopUpPerfil from "../../ui/components/perfil/pop-up-perfil";
 
 export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
+
+    const [popUpPefil, setPopUpPerfil] = useState('');
 
     function hideValid() {
         setIsHideOptions(true)
@@ -24,6 +27,18 @@ export default function InfProduto() {
             setIsHideOptions(false);
             setAng('0')
         }
+    }
+
+    function mostrarPopUpPerfil(){
+
+        setPopUpPerfil(true);
+
+        if (popUpPefil == true){
+
+            setPopUpPerfil(false);
+
+        }
+
     }
 
     return (
@@ -86,6 +101,8 @@ export default function InfProduto() {
                             <input id="CEP" type="text" placeholder="Digite seu CEP" />
                         </div>
                     </div>
+                    
+                  
 
                     <div className="envio">
                         <span onClick={hideValid} style={{ display: "flex", cursor: "pointer", textAlign: "center" }}>
@@ -145,10 +162,21 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário"/>
                 </div>
 
+                {
+                    (popUpPefil == true)
+
+
+                    ?<PopUpPerfil></PopUpPerfil>
+
+                    :<></>
+
+                }
+
+
                 <div className="comment-box">
                     <div className="content">
                         <div className="img-tittle">
-                            <img src={Usuario} alt="" />
+                            <img src={Usuario} alt="" onClick={mostrarPopUpPerfil}/>
                             <h2>Usuário1404</h2> <span>Há 3 semanas</span>
                         </div>
                     
