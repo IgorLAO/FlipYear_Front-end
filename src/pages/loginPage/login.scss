@@ -3,7 +3,8 @@
         align-items: center;
         justify-content: center;
         background-image: url('../../ui/assets/images/imagesLogin/fundoLogin.png');
-
+        height: 100%;
+        min-height: 100vh;
         .Frame {
             background-image: url('../../ui/assets/images/imagesLogin/GAMEBOY_FRAME 1.png');
             position: relative;

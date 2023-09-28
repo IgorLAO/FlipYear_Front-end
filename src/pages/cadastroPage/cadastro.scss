@@ -1,137 +1,113 @@
 .mainCad {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #0A1A2F;
     width: 100%;
     height: 100%;
     min-height: 100vh;
     color: #fff;
-    justify-content: center;
 
-    h1 {
-        color: #CDF1B5;
-        margin: -5px 0 10px 0;
-        font-size: 30px;
-
-    }
-
-
-    .inputs {
+    .Card {
         display: flex;
-        flex-direction: column;
-        padding: 15px;
-        width: 57%;
-        margin-bottom: -30px;
-
-        div {
+        background-color: #122833;
+        width: 95%;
+        height: 85vh;
+        border-radius: 15px;
+        .Banner {
             display: flex;
-            color: white;
+            width: 37%;
 
-            span {
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 15px 0 0 15px ;
+            }
+        }
+
+        h1 {
+            color: #CDF1B5;
+            margin: -5px 0 10px 0;
+            font-size: 30px;
+
+        }
+
+        .CardCad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 63%;
+            padding: 20px;
+          
+            .Title{
+                text-align: center;
+                margin-bottom: 30px;
+                p{
+                    color: #429B56;
+                }
+            }
+            .inputs {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                margin: 8px 5px;
+                margin-bottom: -30px;
+              
 
-                input {
-                    border: solid 3px #40985E;
-                    background-color: #1c4124b9;
-                    padding: 10px;
+                div {
+                    display: flex;
                     color: white;
-                    border-radius: 5px;
-                    margin: 5px 0 0 0;
-                    outline: none;
+                    span {
+                        
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        margin: 8px 5px;
+
+                        input {
+                            border: solid 3px #40985E;
+                            background-color: #1c4124b9;
+                            padding: 10px;
+                            color: white;
+                            border-radius: 5px;
+                            margin: 5px 0 0 0;
+                            outline: none;
+                        }
+                    }
+
                 }
+
+            }
+        }
+        .Entre{
+            font-size: 8.5px;
+            text-decoration: none;
+            b{
+                color: #61f300;
+            }
+        }
+
+        .button {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            margin-top: 70px;
+            align-items: center;
+            cursor: pointer;
+            padding: 35px;
+   
+
+            a {
+                position: absolute;
+                z-index: 1;
+                letter-spacing: 1px;
+                color: #0A1A2F;
             }
 
+            svg {
+                width: 220px;
+            }
         }
 
     }
-
-    .button {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        margin-top: 70px;
-        align-items: center;
-        cursor: pointer;
-
-        a {
-            position: absolute;
-            z-index: 1;
-            letter-spacing: 1px;
-            color: #0A1A2F;
-        }
-
-        svg {
-            width: 220px;
-        }
-    }
-
-    .imgs {
-        img {
-            width: 150px;
-
-            &:hover {
-                animation: shake linear infinite 0.4s;
-            }
-        }
-
-        #pote {
-            position: absolute;
-            top: 470px;
-            left: 100px;
-        }
-
-        #fogo {
-            position: absolute;
-            top: 470px;
-            right: 50px;
-
-        }
-
-        #flor {
-            position: absolute;
-            top: 40px;
-            left: 50px;
-        }
-
-        #cruz {
-            position: absolute;
-            width: 200px;
-            top: 170px;
-            left: -20px;
-        }
-
-        #luckyBox {
-            position: absolute;
-            top: 140px;
-            right: 30px;
-        }
-
-        @keyframes shake {
-
-            0% {
-                transform: rotate(0deg);
-            }
-
-            25% {
-                transform: rotate(3deg);
-            }
-
-            50% {
-                transform: rotate(0deg);
-            }
-
-            75% {
-                transform: rotate(-3deg);
-            }
-
-            100% {
-                transform: rotate(0deg);
-            }
-
-        }
-    }
-
 }
