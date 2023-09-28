@@ -3,14 +3,11 @@ import Carrinho from '../../ui/assets/images/progress_pag_assets/carrinho_logo.p
 import Cartao from '../../ui/assets/images/progress_pag_assets/cartao_progresso_pagamento 1.png';
 import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progresso_pagamento 1.png';
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
-import Pista from '../../ui/images/pista.png';
-import Seta from '../../ui/images/setabaixa.png';
 import Sonic from '../../ui/images/sonic-running.gif';
 import Atari from '../../ui/assets/images/atari_console.png';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 import CarrinhoBranco from '../../ui/images/carrinhoBranco.png';
-
 
 export default function Pagamento75(){
     return(
@@ -114,7 +111,7 @@ export default function Pagamento75(){
                             <p><span>qtd</span></p>
                             <p><span>Preço</span></p>
                         </div>
-                        <div>
+                         <div >
                             <p>{}1</p>
                             <p>{}R$ 999,99</p>
                             </div>
