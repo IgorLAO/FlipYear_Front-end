@@ -13,7 +13,7 @@ export default function Pagamento25() {
         <>
             <CabecalhoSimples/>
             <div className="container_pag25">
-                <div className='estado_pag'>
+                <div className  ='estado_pag'>
                     <div className='icons_pag'>
                         <div>
                             <img src={Carrinho} />
@@ -35,10 +35,13 @@ export default function Pagamento25() {
                     </div> 
                     <div className='pista'></div>  
                 </div>
-                <div className='titulo_carrinho'>
-                    <img src={Carrinho}/>
-                </div>
+                
                 <div className='inform_prod'>
+                    <div className='titulo_carrinho'>
+                        <img src={Carrinho}/>
+                        <p>Meu Carrinho</p>
+                    </div>
+                    <div>
                     <div className='lista_produtos'>
                             <div className='cabecalho_prod'>
                             <a>Produto</a>
@@ -50,6 +53,8 @@ export default function Pagamento25() {
                         
                     </div>
                 </div>
+                    </div>
+                    
                 <div className='resumo_pedido'> 
             <div className='valores_pedido'>
                 <div className='titulo_resumo'>

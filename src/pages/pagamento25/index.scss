@@ -1,0 +1,77 @@
+.container_pag25{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+
+    background-color: #081820;
+    .estado_pag{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        width: 100%;
+        max-width: 90%;
+        
+        .icons_pag{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:space-between;
+            
+            width: 100%;
+            color: #429B56;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 15px;
+            }
+
+        }
+        .pista {
+            background-image: url('../../ui/images/pista.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            background-color: #346856;
+            
+            height: 50px;
+            width: 100%;
+            border-radius: 3px;
+        }
+    }
+    .inform_prod{
+
+        display: flex;
+        flex-direction: column;
+        
+        width: 100%;
+
+        padding: 110px 60px;
+        .titulo_carrinho{
+            display: flex;
+            flex-direction: row;
+            align-items:center;
+            justify-content: space-between;
+            
+            border: 2px solid green;
+            font-size: 23px;
+            color: #429B56;
+            width: 30%;
+
+    
+            img{
+                width: 60px
+            }
+    }
+    
+    }
+}
+
+

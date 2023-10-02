@@ -150,7 +150,7 @@ export default function Pagamento75(){
                 <p>Finalizar</p>
             </div>
         </div>  
-    </div>
+    </div> 
     </div>
             <Rodape />
         </>
