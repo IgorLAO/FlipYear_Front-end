@@ -18,7 +18,7 @@ import SideBarLogado from "../perfil/side-bar-logado";
 export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
-    const [fundoEscurecido, setFundoEscurecido] = useState('');
+    
 
     const [NomeUser, setNomeUser] = useState('');
 
@@ -29,52 +29,51 @@ export default function NavBar() {
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
             setLogado(true)
-        } 
-         else
+        }
+        else
             setMenuLateralHidden(true)
-        
 
-        setFundoEscurecido('#000000a9')
+
+        
 
     }
 
 
     return (
-        <div className="escurecer-fundo" style={{ backgroundColor: `${fundoEscurecido}` }}>
 
-            <div className="Nav">
-                <div className="Logo">
-                    <img src={LogoArcade} />
-                    <h3> Flip-Year
-                        <h1>2000</h1>
-                    </h3>
-                </div>
-                <span className="SearchBox">
-                    <img src={Lupa} />
-                    <input type="text" placeholder="Oque esta buscando?" />
-                    <img src={Filtro} />
-                </span>
-                <span className="Options">
-                    <img src={Usuario} onClick={Mostrar} />
-                    <img src={Carrinho_logo} />
-                    <img src={Suporte} />
-                </span>
+        <div className="Nav">
 
-                {
-                    (menuLateralHidden == true)
-                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} setFundoEscurecido={setFundoEscurecido}></SideBarFazerConta>
-                        : <></>
-
-                }
-
-                {
-                    (logado == true)
-                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} setFundoEscurecido={setFundoEscurecido}></SideBarLogado>
-                        : <></>
-                }
-
-
+            <div className="Logo">
+                <img src={LogoArcade} />
+                <h3> Flip-Year
+                    <h1>2000</h1>
+                </h3>
             </div>
+            <span className="SearchBox">
+                <img src={Lupa} />
+                <input type="text" placeholder="Oque esta buscando?" />
+                <img src={Filtro} />
+            </span>
+            <span className="Options">
+                <img src={Usuario} onClick={Mostrar} />
+                <img src={Carrinho_logo} />
+                <img src={Suporte} />
+            </span>
+
+            {
+                (menuLateralHidden == true)
+                    ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarFazerConta>
+                    : <></>
+
+            }
+
+            {
+                (logado == true)
+                    ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado>
+                    : <></>
+            }
+
+
         </div>
     )
 }

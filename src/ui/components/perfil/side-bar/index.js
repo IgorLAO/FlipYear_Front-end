@@ -5,12 +5,18 @@ import Fantasma3 from '../../../assets/images/perfil-side-bar/fantasma 3.png'
 
 import Logo from '../../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
-export default function SideBarFazerConta({ setLogado, setMenuLateralHidden, setFundoEscurecido }) {
+export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
+    const [fundoEscurecido, setFundoEscurecido] = useState('');
+
 
     function logar() {
         setLogado(true);
         setMenuLateralHidden(false);
+        setFundoEscurecido('#000000a9')
+
+
     }
 
     function Condeu() {
@@ -20,7 +26,12 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden, set
 
     }
 
-    return (<div className='barra-lateral'>
+    return (
+    <>
+            <div className="escurecer-fundo" style={{ backgroundColor: `${fundoEscurecido}` }}>
+
+            </div>
+    <div className='barra-lateral'>
 
         <p className='fechar-sb' onClick={Condeu}>X</p>
 
@@ -93,7 +104,9 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden, set
         </div>
 
 
-    </div>)
+    </div>
+    </>
+    )
 
 
 

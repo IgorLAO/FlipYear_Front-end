@@ -1,0 +1,15 @@
+.MainSideBar{
+    background-color: aqua;
+    .op{
+        display: flex;
+        flex-direction: column;
+        span{
+            display: flex;
+            align-items: center;
+            img{
+                width: 40px;
+            }
+        }
+    }
+
+}

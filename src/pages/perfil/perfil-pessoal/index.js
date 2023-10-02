@@ -22,8 +22,7 @@ export default function PerfilPessoal() {
 
     return (
         <div className='MainPerfil-P'>
-            {/* <SideBarUsers/> */}
-            <Adm_leftNavBar/>
+             <SideBarUsers/> 
         <div className='perfil-pag'>
                 <div className='banner'>
 
@@ -51,11 +50,6 @@ export default function PerfilPessoal() {
                 <div className='linha-branca'> </div>
             </div>
 
-            <CardPedido2></CardPedido2>
-            <CardPedido2></CardPedido2>
-            <CardPedido2></CardPedido2>
-            <CardPedido2></CardPedido2>
-            <CardPedido2></CardPedido2>
 
 
         </div>

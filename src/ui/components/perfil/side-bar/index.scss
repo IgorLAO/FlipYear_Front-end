@@ -1,4 +1,4 @@
-.barra-lateral{
+.barra-lateral {
 
     background-color: #081820;
     color: white;
@@ -15,137 +15,138 @@
     align-items: center;
     justify-content: center;
 
-}
 
 
-.fechar-sb{
+    .fechar-sb {
 
-    font-size: 18px;
-    position: relative;
-    bottom: 130px;
-    left: 100px;
-
-}
-
-.fechar-sb:hover{
-
-    cursor: pointer;
-
-}
-
-.fantasmas{
-
-    display: flex;
-    flex-direction: column;
-
-    margin-bottom: 150px;
-
-}
-
-.fant-1{
-
-    position: relative;
-    left: 40px; 
-
-
-}
-
-.fant-2{
-
-    position: relative;
-    right: 55px; 
-
-    width: 54px;
-    height: 51px;
-
-}
-
-.fant-3{
-
-    position: relative;
-    left: 45px;
-
-
-}
-
-.mensagem{
-
-    color: white;
-    font-size: 12px;
-
-    text-align: center;
-
-}
-
-.logo{
-
-    position: relative;
-    top: 150px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img{
-
-        margin-bottom: 15px;
+        font-size: 18px;
+        position: relative;
+        bottom: 130px;
+        left: 100px;
 
     }
 
 
-    p{
+    .fechar-sb:hover {
+
+        cursor: pointer;
+
+    }
+
+    .fantasmas {
+
+        display: flex;
+        flex-direction: column;
+
+        margin-bottom: 150px;
+
+    }
+
+    .fant-1 {
+
+        position: relative;
+        left: 40px;
+
+
+    }
+
+    .fant-2 {
+
+        position: relative;
+        right: 55px;
+
+        width: 54px;
+        height: 51px;
+
+    }
+
+    .fant-3 {
+
+        position: relative;
+        left: 45px;
+
+
+    }
+
+    .mensagem {
+
+        color: white;
+        font-size: 12px;
+
+        text-align: center;
+
+    }
+
+    .logo {
+
+        position: relative;
+        top: 150px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        p {
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            margin-bottom: 3px;
+
+        }
+
+
+    }
+
+    .doisk {
+
+        font-size: 24px !important;
+        letter-spacing: 3.12px;
+        text-align: center;
+
+
+    }
+
+    .logar-op:hover {
+
+        cursor: pointer;
+
+
+    }
+
+    .cadastro-op:hover {
+
+        cursor: pointer;
+    }
+
+    .logar-op p {
+
         color: white;
         font-size: 10px;
-        text-align: center;
-        margin-bottom: 3px;
+
+        position: relative;
+        top: 28px;
+        left: 43px;
+
+
 
     }
 
+    .cadastro-op p {
 
-}
-
-.doisk{
-
-    font-size: 24px !important;
-    letter-spacing: 3.12px;
-    text-align: center;
+        font-size: 10px;
 
 
-}
-
-.logar-op:hover{
-
-    cursor: pointer;
+        position: relative;
+        top: 28px;
+        left: 25px;
 
 
-}
-
-.cadastro-op:hover{
-
-    cursor: pointer;
-}
-
-.logar-op p{
-
-    color: white;
-    font-size: 10px;
-
-    position: relative;
-    top: 28px;
-    left: 43px;
-
-
-
-}
-
-.cadastro-op p{
-
-    font-size: 10px;
-
-
-    position: relative;
-    top: 28px;
-    left: 25px;
-
-
+    }
 }
