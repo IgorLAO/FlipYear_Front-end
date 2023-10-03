@@ -177,22 +177,6 @@
         background-color: #1A644E;
     }
 
-    .txt{
-        color: #88C070;
-        margin-left: 20px;
-    }
-
-    .txt h1{
-        font-size: 24px;
-    }
-
-    .txt p{
-        font-size: 13px;
-        width: 690px;
-
-        line-height: 2;
-    }
-
     .linha{
         padding: 2px 30px;
         width: 200px;
@@ -323,4 +307,22 @@
         border: none;
         border-bottom: solid 4px #1A644E;
     }
+}
+
+.product-details{
+    padding: 50px;
+    background-color: #04373B;
+
+    color: #88C070;
+    margin-left: 20px;
+}
+
+.product-details h1{
+    font-size: 24px;
+}
+
+.product-details p{
+    font-size: 13px;
+    width: 1000px;
+    line-height: 2;
 }

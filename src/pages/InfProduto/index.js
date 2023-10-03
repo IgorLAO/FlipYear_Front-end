@@ -70,12 +70,6 @@ export default function InfProduto() {
                             </div>
                         </div>
                     </div>
-
-                    <div className="txt">
-                        <h1>sobre</h1>
-                        <div className="linha"></div>
-                        <p>Yam Yam é um jogo de tiro em 3D com elementos de RPG, onde um garoto-toupeira chamado Magu Magu e seu animal de estimação, Yam Yam, embarcam em uma aventura por 28 missões. Eles viajam entre vilas, enfrentando fases de tiro em 3D para derrotar monstros, ganhar pontos de experiência e coletar recompensas. O jogo apresenta elementos de RPG, como comprar equipamentos e completar tarefas nas vilas, mas reseta o progresso do personagem após cada missão, como se fosse um sonho.</p>
-                    </div>
                 </div>
 
                 <div className="compra">
@@ -154,6 +148,12 @@ export default function InfProduto() {
                 </div>
             </div>
 
+            <div className="product-details">
+                        <h1>sobre</h1>
+                        <div className="linha"></div>
+                        <p>Yam Yam é um jogo de tiro em 3D com elementos de RPG, onde um garoto-toupeira chamado Magu Magu e seu animal de estimação, Yam Yam, embarcam em uma aventura por 28 missões. Eles viajam entre vilas, enfrentando fases de tiro em 3D para derrotar monstros, ganhar pontos de experiência e coletar recompensas. O jogo apresenta elementos de RPG, como comprar equipamentos e completar tarefas nas vilas, mas reseta o progresso do personagem após cada missão, como se fosse um sonho.</p>
+                    </div>
+
             <div className="comments">
                 <h1>Avaliações</h1>
 
@@ -171,7 +171,6 @@ export default function InfProduto() {
                     :<></>
 
                 }
-
 
                 <div className="comment-box">
                     <div className="content">
