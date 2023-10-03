@@ -9,7 +9,7 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 import userImage from "../../../ui/assets/images/adm_assets/marg.jpg";
 import star from "../../../ui/assets/images/adm_assets/estrela_vazia 6.png";
 
-import console from "../../../ui/assets/images/atari_console.png";
+import console from "../../../ui/assets/images/imageExamples/atari_console.png";
 
 export default function AdmHome() {
     const [NomeUser, setNomeUser] = useState('');

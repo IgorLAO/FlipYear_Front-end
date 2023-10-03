@@ -4,9 +4,9 @@ import { useState } from "react"
 import './index.scss'
 
 import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
-import yum from '../../ui/assets/images/super_famicon_yum.png'
-import yum_costa from '../../ui/assets/images/yum game_tras 1.png'
-import yum_fita from '../../ui/assets/images/yum fita_frente 1.png'
+import yum from '../../ui/assets/images/imageExamples/super_famicon_yum.png'
+import yum_costa from '../../ui/assets/images/imageExamples/yum game_tras 1.png'
+import yum_fita from '../../ui/assets/images/imageExamples/yum fita_frente 1.png'
 import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
 import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
 

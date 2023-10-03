@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './recuperar_senha.scss'
-import confirmacao from '../../../ui/assets/images/confirm 4.png'
+import confirmacao from '../../../ui/assets/images/imagesLogin/confirm 4.png'
 
 
 export function RecupararSenha(props){
