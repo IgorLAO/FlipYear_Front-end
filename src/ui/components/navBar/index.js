@@ -12,7 +12,7 @@ import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
 import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
 import SideBarFazerConta from '../perfil/side-bar'
 import SideBarLogado from "../perfil/side-bar-logado";
-
+import PopUpCarrinho from "../popupCarrinho";
 
 
 export default function NavBar() {
@@ -73,6 +73,7 @@ export default function NavBar() {
                     : <></>
             }
 
+            <PopUpCarrinho></PopUpCarrinho>
 
         </div>
     )
