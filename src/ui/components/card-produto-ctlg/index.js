@@ -1,6 +1,6 @@
 import './index.scss';
-import Atari from '../../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
-import Estrela from '../../../assets/images/imagesCardProduto/estrela_vazia 6.png'
+import Atari from '../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
+import Estrela from '../../assets/images/imagesCardProduto/estrela_vazia 6.png'
 
 export default function CardProdutoCtlg(props) {
 

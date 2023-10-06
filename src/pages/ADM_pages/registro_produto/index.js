@@ -1,4 +1,5 @@
 import "./style.scss"
+import {useState} from 'react'
 
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
@@ -6,6 +7,17 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 import camera from "../../../ui/assets/images/adm_assets/camera_icon.png"
 
 export default function RegistroProdutos() {
+    const[qtd, setQtd] = useState(0);
+
+    function aumentarQtd(){
+        setQtd(qtd+1)
+    }
+
+    function diminuirQtd(){
+        if(qtd > 0){
+            setQtd(qtd - 1)
+        }
+    }
 
     return (
         <div className="MainRegistroADM">
@@ -30,7 +42,7 @@ export default function RegistroProdutos() {
                             </span>
 
                             <div className="button">
-                                <button>-</button> <a>{'0'}</a> <button>+</button>
+                                <button onClick={diminuirQtd}>-</button> <a>{qtd}</a> <button onClick={aumentarQtd}>+</button>
                             </div>
                         </div>
 

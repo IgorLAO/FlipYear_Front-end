@@ -1,5 +1,5 @@
 import './index.scss';
-import Atari from '../../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
+import Atari from '../../../ui/assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
 import Confere from '../../../ui/assets/images/status_produtos_assets/confere-removebg-preview 1.png'
 import Desconf from '../../../ui/assets/images/status_produtos_assets/desconf-removebg-preview 1.png'
 import Fabrica from '../../../ui/assets/images/status_produtos_assets/fabrica_icon.png'
