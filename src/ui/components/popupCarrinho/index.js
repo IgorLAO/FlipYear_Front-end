@@ -2,13 +2,25 @@ import './index.scss';
 import linhaAstersico from '../../assets/images/carrinho_assets/linhaAsterisco.png'
 import  Logo from '../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteriscoMenor.png'
-export default function PopUpCarrinho(){
+
+
+export default function PopUpCarrinho({setPopUpCarro}){
+
+    
+    function mostrarCarrinho(){
+
+        setPopUpCarro((current) => !current);
+
+
+    }
+
 
     return(
 
+
         <div className='popUp-carrinho'>
 
-         <p className='x'>X</p>
+         <p className='x' onClick={mostrarCarrinho}>X</p>
 
          <div className='puc-Logo'>
             <img src={Logo}></img>
