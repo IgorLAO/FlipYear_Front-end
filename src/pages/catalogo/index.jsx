@@ -4,9 +4,11 @@ import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import NavBar from '../../ui/components/navBar';
 
 export default function Catalogo() {
     const [list, setList] = useState([]);
+    
 
     const GetProds = async () => {
         let res = await axios.get('http://localhost:5000/produtos');
@@ -17,8 +19,6 @@ export default function Catalogo() {
     }
 
 
-    
-
     useEffect(() => {
         GetProds();
     }, [])
@@ -26,6 +26,7 @@ export default function Catalogo() {
     return (
         <>
             <div className="container-ctlg">
+                <NavBar/>
                 <h1 className='ctlg'>Catálogo</h1>
                 <div className="bloco-filtro-ctlg">
                     <div>
