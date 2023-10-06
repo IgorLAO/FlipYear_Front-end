@@ -1,113 +1,89 @@
 .MainPerfil-P {
     display: flex;
     padding: 0;
+    color: #fff;
+
     .perfil-pag {
-        background-color: #1A644E;
-        overflow-x: hidden;
-        padding: 0;
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        .perfil-infos {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            position: absolute;
-            top: 455px;
-            left: 550px;
-        }
+        background-color: #081820;
 
         .banner {
             background-image: url('../../../ui/assets/images/perfil-publico_assets/5759cdb17f90d64d25e9e59854181dde 2.png');
             background-attachment: fixed;
-            height: 400px;
+            height: 300px;
+            position: relative;
+
         }
 
-        .meio {
+        .PerfilDetails {
             display: flex;
             flex-direction: column;
-            align-items: center !important;
+            padding: 0 50px;
 
-            position: relative;
-            bottom: 150px;
+            .Perfil {
+                display: flex;
 
-            p {
-                color: white;
+                justify-content: space-between;
+
+                .InfoP {
+                    position: relative;
+                    top: -45%;
+
+                    img {
+                        display: flex;
+                        width: 190px;
+                        border: #081820 solid 10px;
+                        border-radius: 100%;
+                    }
+                }
+
+                .EditBtn {
+                    border-radius: 15px;
+                    border: 1px solid aliceblue;
+                    padding: 10px;
+                    font-size: 10px;
+                }
+
+                font-size: 15px;
+                padding: 20px;
             }
 
+            .Pedidos {
+                display: flex;
+                flex-direction: column;
+                background-color: #122833;
+                border-radius: 15px;
+                padding: 20px 0;
 
-        }
+                .title {
+                    display: flex;
+                    justify-content: center;
 
-        .pfp1 {
-            width: 200px;
+                    h1 {
+                        font-size: 25px;
+                        margin: 10px;
+                        text-decoration: underline;
+                    }
 
-            img {
-                border-radius: 142px;
-                width: 150px;
-                border: solid #1A644E;
+                    img {
+                        width: 30px;
+                    }
+                }
 
+                .pages {
+                    display: flex;
+                    justify-content: center;
+                    letter-spacing: 20px;
+                    font-size: 10px;
+                    margin: 50px 0 20px 0;
+
+                }
             }
-
-
         }
 
-        .nome {
-
-            text-align: center;
-            font-size: 24px;
-            margin-top: 25px;
-
-        }
-
-        .lapis {
-
-            width: 51px;
-            height: 51px;
-
-        }
-
-
-
-        .pedidos {
-
-            margin-left: 150px;
-
-        }
-
-        .carrinho-titulo {
-
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
-
-
-        }
-
-
-        .titulo {
-
-            font-size: 24px;
-            color: white;
-
-
-        }
-
-        .carrinho {
-
-
-            position: relative;
-            top: 25px;
-            right: 20px
-        }
-
-        .linha-branca {
-
-            width: 300px;
-            height: 5px;
-            background-color: white;
-            margin-left: 90px;
-            margin-top: 15px;
-            margin-bottom: 30px;
-
-
-        }
     }
+
+
 }
