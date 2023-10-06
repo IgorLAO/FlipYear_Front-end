@@ -3,7 +3,6 @@ import linhaAstersico from '../../assets/images/carrinho_assets/linhaAsterisco.p
 import  Logo from '../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteriscoMenor.png'
 
-
 export default function PopUpCarrinho({setPopUpCarro}){
 
     
@@ -37,6 +36,12 @@ export default function PopUpCarrinho({setPopUpCarro}){
          </div>
 
         <img src={linhaAstersico}></img>
+
+        <div className='puc-listaPedidos'>
+
+        <p>Me parece vazio :{'('}</p>
+        </div>
+
 
         <img src={linhaAstersico}></img>
 
