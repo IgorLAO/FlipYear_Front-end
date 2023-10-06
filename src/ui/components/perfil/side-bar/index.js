@@ -20,17 +20,21 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
     }
 
     function Condeu() {
+        document.body.style.overflow = 'unset';
         setMenuLateralHidden(false);
         setLogado(false);
         setFundoEscurecido('');
-
     }
 
+
+    document.body.style.overflow = 'hidden';
+    
     return (
     <>
-            <div className="escurecer-fundo" style={{ backgroundColor: `${fundoEscurecido}` }}>
-
+            <div className="escurecer-fundo" onClick={Condeu}>
             </div>
+
+            
     <div className='barra-lateral'>
 
         <p className='fechar-sb' onClick={Condeu}>X</p>

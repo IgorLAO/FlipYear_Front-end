@@ -1,3 +1,16 @@
+
+.escurecer-fundo {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    background: rgba(8, 24, 32, 0.644);
+    backdrop-filter: blur(10px);
+    
+}
+
+
+
 .barra-lateral {
 
     background-color: #081820;
@@ -22,7 +35,7 @@
         font-size: 18px;
         position: relative;
         bottom: 130px;
-        left: 100px;
+        right: 100px;
 
     }
 
