@@ -23,7 +23,7 @@ export default function SideBarUsers() {
     }
 
     return (
-        <div style={{ width: 80 }}>
+        <div >
 
             <div className="MainUsers_bar">
                 <span className="btns">
@@ -49,27 +49,7 @@ export default function SideBarUsers() {
                                     <h4> Caixa de Entrada </h4>
                                 </div>
                             </Link>
-                            <Link to='/ADM_Produtos'>
-                                <div>
-                                    <img src={searchIcon} />
-                                    <h4> Produtos </h4>
-                                </div>
-                            </Link>
-
-                            <Link to='/ADM_RegistroProd'>
-                                <div>
-                                    <img src={penIcon} />
-                                    <h4> Registro </h4>
-                                </div>
-                            </Link>
-
-                            <Link to='/ADM_Users'>
-                                <div>
-                                    <img src={userIcon} />
-                                    <h4> Usuarios </h4>
-                                </div>
-                            </Link>
-
+                         
                             <Link to="ADM_Pedidos">
                                 <div>
                                     <img src={clockIcon} />
@@ -78,10 +58,6 @@ export default function SideBarUsers() {
                             </Link>
 
 
-                            <div>
-                                <img src={statisticsIcon} />
-                                <h4> Estatísticas</h4>
-                            </div>
                         </span>
                     </div>
 
