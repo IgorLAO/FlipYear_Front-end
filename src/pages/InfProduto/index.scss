@@ -300,14 +300,13 @@
     }
 
     .comments-area{
-
-
         background-color: #122833;
         border-radius: 20px; 
 
         margin-top: 100px;
         margin-left: 30px;
         margin-right: 30px;
+        margin-bottom: 100px;
     }
 
     .comments-area h1{
@@ -435,6 +434,34 @@
 
         margin-right: 40px;
         margin-top: 60px;
+    }
+
+    .other-products{
+        background-color: #04373B;
+    }
+
+    .ot-tittle{
+        padding: 80px 50px 0px 80px;
+    }
+
+    .ot-tittle h1{
+        font-size: 28px;
+
+        color: #86C06C;
+        box-shadow: 0px 5px #86C06C;
+        padding: 10px;
+    }
+
+    .products{
+        padding: 70px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #setaInversa{
+        rotate: 180deg;
     }
 
 }
