@@ -11,15 +11,29 @@ import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg'
 import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
 import Adm_leftNavBar from '../../../ui/components/ADM_components/left_navbar';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
+import { useEffect, useState } from 'react';
 
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
+    const [NomeUser, setNomeUser] = useState('');
 
     const LogOut = () => {
         storage.remove('NORMAL_USER_Logado');
         navigate('/login');
     };
+
+    useEffect(() => {
+        if (!localStorage("NORMAL_USER_Logado")) {
+            navigate('/login')
+        } else {
+            const infos = localStorage("NORMAL_USER_Logado");
+            setNomeUser(infos.data.Nome);
+            
+        }
+        
+
+    }, [])
 
     return (
         <div className='MainPerfil-P'>
@@ -31,7 +45,7 @@ export default function PerfilPessoal() {
                     <div className='Perfil'>
                         <span className='InfoP'>
                             <img src={Corvo} />
-                            <a> Tyler, the creator </a>
+                            <a> {NomeUser} </a>
                         </span>
                         <span>
 
