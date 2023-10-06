@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: column;
 
+    position: fixed;
+    z-index: 1;
+    top: 5px;
+    left: 1000px;
+    width: 20%;
+
     .x{
 
         font-size: 12px;

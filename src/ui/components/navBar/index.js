@@ -41,15 +41,7 @@ export default function NavBar() {
 
     function mostrarCarrinho(){
 
-        setPopUpCarro(true);
-
-        if(popUpCarro == true){
-
-            setPopUpCarro(false);
-
-
-        }
-
+        setPopUpCarro((current) => !current);
 
 
     }
@@ -92,7 +84,7 @@ export default function NavBar() {
             {
                 (popUpCarro == true)
 
-                ? <PopUpCarrinho></PopUpCarrinho>
+                ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
 
                 : <></>
 
