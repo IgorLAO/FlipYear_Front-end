@@ -18,6 +18,7 @@ import PopUpCarrinho from "../popupCarrinho";
 export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
+    const [popUpCarro, setPopUpCarro] = useState(false);
     
 
     const [NomeUser, setNomeUser] = useState('');
@@ -35,6 +36,21 @@ export default function NavBar() {
 
 
         
+
+    }
+
+    function mostrarCarrinho(){
+
+        setPopUpCarro(true);
+
+        if(popUpCarro == true){
+
+            setPopUpCarro(false);
+
+
+        }
+
+
 
     }
 
@@ -56,7 +72,7 @@ export default function NavBar() {
             </span>
             <span className="Options">
                 <img src={Usuario} onClick={Mostrar} />
-                <img src={Carrinho_logo} />
+                <img src={Carrinho_logo} onClick={mostrarCarrinho}/>
                 <img src={Suporte} />
             </span>
 
@@ -73,7 +89,18 @@ export default function NavBar() {
                     : <></>
             }
 
-            <PopUpCarrinho></PopUpCarrinho>
+            {
+                (popUpCarro == true)
+
+                ? <PopUpCarrinho></PopUpCarrinho>
+
+                : <></>
+
+
+
+            }
+
+            
 
         </div>
     )
