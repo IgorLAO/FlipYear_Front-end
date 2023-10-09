@@ -31,10 +31,9 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
     
     return (
     <>
-            <div className="escurecer-fundo" onClick={Condeu}>
-            </div>
+            <div className="escurecer-fundo" onClick={Condeu}></div>
 
-            
+
     <div className='barra-lateral'>
 
         <p className='fechar-sb' onClick={Condeu}>X</p>

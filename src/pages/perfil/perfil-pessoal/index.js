@@ -24,10 +24,10 @@ export default function PerfilPessoal() {
     };
 
     useEffect(() => {
-        if (!localStorage("NORMAL_USER_Logado")) {
+        if (!storage("NORMAL_USER_Logado")) {
             navigate('/login')
         } else {
-            const infos = localStorage("NORMAL_USER_Logado");
+            const infos = storage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
             
         }
@@ -37,11 +37,11 @@ export default function PerfilPessoal() {
 
     return (
         <div className='MainPerfil-P'>
-            {/* <SideBarUsers/>  */}
             <div className='perfil-pag'>
                 <div className='banner'></div>
-                <section className='PerfilDetails'>
+            <SideBarUsers/>  
 
+                <section className='PerfilDetails'>
                     <div className='Perfil'>
                         <span className='InfoP'>
                             <img src={Corvo} />
