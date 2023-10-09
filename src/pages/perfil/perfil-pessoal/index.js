@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
-    const [NomeUser, setNomeUser] = useState('');
+    const [NomeUser, setNomeUser] = useState('default');
 
     const LogOut = () => {
         storage.remove('NORMAL_USER_Logado');
@@ -24,19 +24,20 @@ export default function PerfilPessoal() {
     };
 
     useEffect(() => {
-        if (!storage("NORMAL_USER_Logado")) {
+        if (!localStorage("NORMAL_USER_Logado")) {
             navigate('/login')
         } else {
-            const infos = storage("NORMAL_USER_Logado");
+            const infos = localStorage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
             
-        }
+        // }
         
 
     }, [])
 
     return (
         <div className='MainPerfil-P'>
+            {/* <SideBarUsers/>  */}
             <div className='perfil-pag'>
                 <div className='banner'></div>
             <SideBarUsers/>  

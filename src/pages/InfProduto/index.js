@@ -13,6 +13,7 @@ import estrela from '../../ui/assets/images/imagesCardProduto/estrela_vazia 6.pn
 import carlinhos from '../../ui/assets/images/compraPage_assets/carlinhos_image.png'
 import mito from '../../ui/assets/images/compraPage_assets/mito_depressaum.png'
 import flag from '../../ui/assets/images/compraPage_assets/red_flag.png'
+import seta from '../../ui/assets/images/compraPage_assets/seta.png'
 
 import NavBar from "../../ui/components/navBar"
 import PopUpPerfil from "../../ui/components/perfil/pop-up-perfil";
@@ -301,11 +302,13 @@ export default function InfProduto() {
                     <h1>Outros Produtos</h1>
                 </div>
 
-                <img src="" alt="" />
-                <CardProdutoCtlg />
-                <CardProdutoCtlg />
-                <CardProdutoCtlg />
-                <img src="" alt="" />
+                <div className="products">
+                    <img id="setaInversa" src={seta} alt="" />
+                        <CardProdutoCtlg />
+                        <CardProdutoCtlg />
+                        <CardProdutoCtlg />
+                    <img src={seta} alt="" />
+                </div>
             </div>
             <Rodape />
         </div>

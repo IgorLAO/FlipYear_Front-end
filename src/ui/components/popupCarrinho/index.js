@@ -2,6 +2,8 @@ import './index.scss';
 import linhaAstersico from '../../assets/images/carrinho_assets/linhaAsterisco.png'
 import  Logo from '../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteriscoMenor.png'
+import Fantasma1 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho1.png'
+import Fantasma2 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho2.png'
 
 
 export default function PopUpCarrinho({setPopUpCarro}){
@@ -37,6 +39,16 @@ export default function PopUpCarrinho({setPopUpCarro}){
          </div>
 
         <img src={linhaAstersico}></img>
+
+        <div className='puc-listaPedidos'>
+
+            <img src={Fantasma1} className='puc-fantasma1'></img>
+
+        <p>Me parece vazio :{'('}</p>
+
+        <img src={Fantasma2} className='puc-fantasma2'></img>
+        </div>
+
 
         <img src={linhaAstersico}></img>
 
