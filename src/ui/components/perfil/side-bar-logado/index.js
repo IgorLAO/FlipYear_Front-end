@@ -108,7 +108,6 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
     function Condeu() {
         setMenuLateralHidden(false);
         setLogado(false);
-        setFundoEscurecido('');
 
     }
 

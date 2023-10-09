@@ -8,13 +8,11 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
-    const [fundoEscurecido, setFundoEscurecido] = useState('');
 
 
     function logar() {
         setLogado(true);
         setMenuLateralHidden(false);
-        setFundoEscurecido('#000000a9')
 
 
     }
@@ -23,7 +21,6 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
         document.body.style.overflow = 'unset';
         setMenuLateralHidden(false);
         setLogado(false);
-        setFundoEscurecido('');
     }
 
 
