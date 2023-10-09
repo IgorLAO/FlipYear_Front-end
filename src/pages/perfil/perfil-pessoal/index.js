@@ -30,7 +30,7 @@ export default function PerfilPessoal() {
             const infos = localStorage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
             
-        // }
+        }
         
 
     }, [])
