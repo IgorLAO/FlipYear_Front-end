@@ -1,15 +1,16 @@
 .background-popup-user{
     
-
+    background-color: aqua;
+    width: 400px;
+    border-radius: 10px;
 
     .pop-up-user{
-    
-        width: 400px;
+        width: 100%;
         
 
         .banner-gato{
 
-
+border-radius:  8px  8px 0 0 ;
             width: 400px;
         }
 
@@ -102,7 +103,6 @@
 
     .outras-avaliacoes{
 
-        background-color: #122833;
         margin-top: 15px;
         border-radius: 15px;
         display: flex;

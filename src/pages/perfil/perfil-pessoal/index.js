@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
-    const [NomeUser, setNomeUser] = useState('');
+    const [NomeUser, setNomeUser] = useState('default');
 
     const LogOut = () => {
         storage.remove('NORMAL_USER_Logado');
@@ -30,7 +30,7 @@ export default function PerfilPessoal() {
             const infos = localStorage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
             
-        }
+        // }
         
 
     }, [])
@@ -40,8 +40,9 @@ export default function PerfilPessoal() {
             {/* <SideBarUsers/>  */}
             <div className='perfil-pag'>
                 <div className='banner'></div>
-                <section className='PerfilDetails'>
+            <SideBarUsers/>  
 
+                <section className='PerfilDetails'>
                     <div className='Perfil'>
                         <span className='InfoP'>
                             <img src={Corvo} />
