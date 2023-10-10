@@ -10,7 +10,7 @@ export default function CardProdutoCtlg(props) {
             <div className='card'>
 
                 <img src={Atari}></img>
-                <p className='nm-produto'> {props.Nome_prod} </p>
+                <p className='nm-produto'> {props.nome} </p>
 
                 <div className='desc-info'>
                     <p className='info-produto' id='cinza-pequeno'> Atari inc. </p>
@@ -21,8 +21,8 @@ export default function CardProdutoCtlg(props) {
                 <svg className='linha' xmlns="http://www.w3.org/2000/svg" width="284" height="2" viewBox="0 0 284 2" fill="none">
                     <path d="M0.816406 1.22266H282.724" stroke="#0D3A3D" stroke-linecap="round" />
                 </svg>
-                <p className='preco-produto'> {props.preco} </p>
-                <p className='prec-produto-original' id='cinza-pequeno'> {props.preco_promo} </p>
+                <p className='preco-produto'> {props.precoPromocao} </p>
+                <p className='preco-produto-original' id='cinza-pequeno'> {props.preco} </p>
 
                 <div className='avaliacao-produto'>
                     <div className='estrelas'>

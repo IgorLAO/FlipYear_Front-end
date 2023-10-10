@@ -29,15 +29,12 @@ export default function PerfilPessoal() {
         } else {
             const infos = localStorage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
-            
-<<<<<<< HEAD
-         }
-=======
-        }
->>>>>>> 58f0119630a7d0092f9233ac70c906fbab9fffe7
-        
 
-    }, [])
+        }
+
+    })
+            
+
 
     return (
         <div className='MainPerfil-P'>
