@@ -18,19 +18,13 @@ export default function Carrinho(){
 
     async function consultaProdutos(){
 
-
-        let url =  'http://localhost:5000/produtos/busca';
-
-        let resposta = await axios.get(url);
+        let resposta = await axios.get('http://localhost:5000/produtos/busca');
 
         let produtos = resposta.data;
 
-        console.log(produtos)
-
-
         setListaCarrrinho(produtos);
 
-     
+
 
     }
 
@@ -70,7 +64,13 @@ export default function Carrinho(){
 
     
 
-                            <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} promocao={item.BT_PROMOCAO}/>
+                            <CardProdutoCtlg 
+                            preco={item.VL_PRECO} 
+                            nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} 
+                            promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
+                            fabricante={item.NM_FABRICANTE}
+                            estado={item.TP_ESTADO}
+                            />
 
 
                         ))}
