@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
+    top: 178px;
+    left: 25px;
+
     .voltar{
         display: flex;
         flex-direction: column;
