@@ -68,7 +68,9 @@ export default function Carrinho(){
 
                     {listaCarrinho.map((item) =>(
 
-                            <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA}/>
+    
+
+                            <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} promocao={item.BT_PROMOCAO}/>
 
 
                         ))}

@@ -21,8 +21,22 @@ export default function CardProdutoCtlg(props) {
                 <svg className='linha' xmlns="http://www.w3.org/2000/svg" width="284" height="2" viewBox="0 0 284 2" fill="none">
                     <path d="M0.816406 1.22266H282.724" stroke="#0D3A3D" stroke-linecap="round" />
                 </svg>
-                <p className='preco-produto'> {props.precoPromocao} </p>
-                <p className='preco-produto-original' id='cinza-pequeno'> {props.preco} </p>
+                {   
+
+                    (props.promocao == 1)
+
+                    ?<>
+                    <p className='preco-produto'> {props.precoPromocao} </p>
+                    <p className='preco-produto-original' id='cinza-pequeno'> {props.preco} </p>
+                    </>
+
+                    :<p className='preco-produto'> {props.preco} </p>
+                   
+
+
+
+                }
+   
 
                 <div className='avaliacao-produto'>
                     <div className='estrelas'>
