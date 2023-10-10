@@ -3,6 +3,7 @@ import './App.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
+import axios from 'axios'
 
 import NavBar from '../../ui/components/navBar';
 import Rodape from '../../ui/components/rodape'
@@ -17,7 +18,42 @@ import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 function App() {
+  const [mostrarDestaques, setMostrarDestaques]= useState([]);
+  const [pageDestaqueNum, setPageDestaqueNum] = useState(1)
 
+  async function ConsultaDestaqueProdutos(){
+    
+    try {
+      let sql= await axios.get('http://localhost:5000/produtosDestaque?pagina='+ pageDestaqueNum)
+
+      let produtos = sql.data
+      setMostrarDestaques(produtos)  
+    } catch (error) {
+      throw new Error('Erro ao buscar produtos em destaque', error)
+    }
+    
+
+  }
+
+  function nextPag(){
+
+
+    if(pageDestaqueNum <= mostrarDestaques.length){
+    setPageDestaqueNum(pageDestaqueNum + 1)
+    }
+
+    console.log(mostrarDestaques.length)
+  }
+
+  function prevPag(){
+    if(pageDestaqueNum > 1){
+      setPageDestaqueNum(pageDestaqueNum - 1)
+    }
+  }
+
+  useEffect(() =>{
+    ConsultaDestaqueProdutos()
+  }, [pageDestaqueNum])
 
 
   return (
@@ -93,11 +129,12 @@ function App() {
         <h2> Em destaque </h2>
         <hr />
         <div className='produtos' style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 50 }}>
-          <h2 style={{ fontSize: 70 }} > {'<'} </h2>
-          <CardProdutoCtlg />
-          <CardProdutoCtlg />
-          <CardProdutoCtlg />
-          <h2 style={{ fontSize: 70 }} > {'>'} </h2>
+          <h2 onClick={prevPag} style={{ fontSize: 70 }} > {'<'} </h2>
+
+          {mostrarDestaques.map((item) =>(
+          <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
+          ))}
+          <h2 onClick={nextPag} style={{ fontSize: 70 }} > {'>'} </h2>
         </div>
       </section>
       <Rodape />
