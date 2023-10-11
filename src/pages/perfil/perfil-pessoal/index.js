@@ -1,6 +1,6 @@
 import './index.scss';
 
-import storage from 'local-storage'
+import localStorage from 'local-storage'
 import { useNavigate } from 'react-router-dom';
 
 import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
@@ -19,7 +19,7 @@ export default function PerfilPessoal() {
     const [NomeUser, setNomeUser] = useState('default');
 
     const LogOut = () => {
-        storage.remove('NORMAL_USER_Logado');
+        localStorage.remove('NORMAL_USER_Logado');
         navigate('/login');
     };
 
@@ -33,58 +33,59 @@ export default function PerfilPessoal() {
         }
 
     })
-            
+
 
 
     return (
         <div className='MainPerfil-P'>
-            {/* <SideBarUsers/>  */}
             <div className='perfil-pag'>
                 <div className='banner'></div>
-            <SideBarUsers/>  
+                <span style={{display: 'flex'}}>
 
-                <section className='PerfilDetails'>
-                    <div className='Perfil'>
-                        <span className='InfoP'>
-                            <img src={Corvo} />
-                            <a> {NomeUser} </a>
-                        </span>
-                        <span>
+                    <SideBarUsers />
+                    <section className='PerfilDetails'>
+                        <div className='Perfil'>
+                            <span className='InfoP'>
+                                <img src={Corvo} />
+                                <a> {NomeUser} </a>
+                            </span>
+                            <span>
 
-                            <a className='EditBtn'>Editar Perfil</a>
-                        </span>
-                    </div>
+                                <a className='EditBtn'>Editar Perfil</a>
+                            </span>
+                        </div>
 
-                    <div className='Pedidos'>
+                        <div className='Pedidos'>
                             <span className='title'>
                                 <span>
-                                <h1> Meus Pedidos </h1>
+                                    <h1> Meus Pedidos </h1>
                                 </span>
                                 <img src={filter} />
                             </span>
-                        <div className='Items'>
-                            <CardPedido2 />
-                            <CardPedido2 />
-                            <CardPedido2 />
-                            <CardPedido2 />
-                            <CardPedido2 />
+                            <div className='Items'>
+                                <CardPedido2 />
+                                <CardPedido2 />
+                                <CardPedido2 />
+                                <CardPedido2 />
+                                <CardPedido2 />
+                            </div>
+
+                            <span className='pages'>
+                                <a>1</a>
+                                <a>2</a>
+                                <a>3</a>
+                                <a>4</a>
+                                <a>5</a>
+                                <a>6</a>
+                                <a>7</a>
+                                <a>8</a>
+                                <a>9</a>
+                                <a>{'>'}</a>
+                            </span>
                         </div>
 
-                        <span className='pages'>
-                            <a>1</a>
-                            <a>2</a>
-                            <a>3</a>
-                            <a>4</a>
-                            <a>5</a>
-                            <a>6</a>
-                            <a>7</a>
-                            <a>8</a>
-                            <a>9</a>
-                            <a>{'>'}</a>
-                        </span>
-                    </div>
-
-                </section>
+                    </section>
+                </span>
 
             </div>
         </div>
