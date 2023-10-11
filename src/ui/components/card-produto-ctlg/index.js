@@ -13,11 +13,15 @@ export default function CardProdutoCtlg(props) {
                 <p className='nm-produto'> {props.nome} </p>
 
                 <div className='desc-info'>
-                    <p className='info-produto' id='cinza-pequeno'> {props.fabricante} </p>
-                    <p id='cinza-pequeno' className='ponto'>•</p>
+                    
+                    <p className='infor-produto' id='cinza-pequeno'> {props.fabricante} </p>
+                    <div className='ponto'>
+                    <p>•</p>
+                    </div>
                     <p className='estado-produto' id='cinza-pequeno'>{props.estado}</p>
 
                 </div>
+
                 <svg className='linha' xmlns="http://www.w3.org/2000/svg" width="284" height="2" viewBox="0 0 284 2" fill="none">
                     <path d="M0.816406 1.22266H282.724" stroke="#0D3A3D" stroke-linecap="round" />
                 </svg>

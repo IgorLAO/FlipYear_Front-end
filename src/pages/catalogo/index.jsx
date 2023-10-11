@@ -50,28 +50,16 @@ export default function Catalogo() {
 
                 <div className='resultados'>
                     {list?.map((item) => <>
+
                         <CardProdutoCtlg 
-                            id_categoria = {item.ID_CATEGORIA}
-                            id_prod = {item.ID_PRODUTO}
-                            destaque ={item.BT_DESTAQUE}
-                            bt_disp = {item.BT_DISPONIVEL}
-                            bt_promo = {item.BT_PRMOCAO}
-                            detalhes = {item.DS_DETALHES}
-                            Nome_categ = {item.NM_CATEGORIA}
-                            Nome_prod = {item.NM_PRODUTO}
-                            qtd = {item.QTD_ESTOQUE}
-                            preco = {item.VL_PRECO}
-                            preco_promo = {item.VL_PRECO_PROMOCIONA}
+                            preco={item.VL_PRECO} 
+                            nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} 
+                            promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
+                            fabricante={item.NM_FABRICANTE}
+                            estado={item.TP_ESTADO}
                             />
+             
                     </>)}
-                </div>
-
-
-                <div className='resultados'>
-                    <CardProdutoCtlg></CardProdutoCtlg>
-                    <CardProdutoCtlg></CardProdutoCtlg>
-                    <CardProdutoCtlg></CardProdutoCtlg>
-                    <CardProdutoCtlg></CardProdutoCtlg>
                 </div>
 
                 <div className='paginacao'>
