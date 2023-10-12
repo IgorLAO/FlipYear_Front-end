@@ -3,15 +3,19 @@
         align-items: center;
         justify-content: center;
         background-image: url('../../ui/assets/images/imagesLogin/fundoLogin.png');
+        width: 100%;
+        background-size: cover;
         height: 100%;
         min-height: 100vh;
         .Frame {
+            display: flex;
+        
             background-image: url('../../ui/assets/images/imagesLogin/GAMEBOY_FRAME 1.png');
             position: relative;
             background-size: 760px;
             background-repeat: no-repeat;
             height: 650px;
-            width: 57.1%;
+            width: 40%;
 
             .DetailsInside {
                 display: flex;
@@ -97,9 +101,9 @@
 
             .linha {
                 width: 300px;
-                height: 2em;
-                margin: 10px;
-                margin-bottom: -10px;
+                height: 0.5px;
+                background-color: #fff;
+                margin-top: 15px;
             }
 
             .entrarCom {
@@ -112,10 +116,9 @@
                 .redes {
                     display: flex;
                     flex-direction: row;
-
                     img {
                         width: 76px;
-                        height: 50px;
+                        object-fit: cover;
                     }
 
                     margin-bottom: -13px;
@@ -128,6 +131,7 @@
                 h6 {
                     font-size: 8.5px;
                     letter-spacing: 1px;
+                    margin-top: 20px;
 
                     a {
                         color: #00FF57;

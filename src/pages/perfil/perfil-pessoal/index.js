@@ -2,6 +2,7 @@ import './index.scss';
 
 import localStorage from 'local-storage'
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
 import Lapis from '../../../ui/assets/images/perfil-pessoal/105b06c79bc402f 1.png'
@@ -11,12 +12,13 @@ import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg'
 import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
 import Adm_leftNavBar from '../../../ui/components/ADM_components/left_navbar';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
-import { useEffect, useState } from 'react';
+import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
 
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
+    const [IsHideEdit, setIsHideEdit] = useState(false)
 
     const LogOut = () => {
         localStorage.remove('NORMAL_USER_Logado');
@@ -38,9 +40,11 @@ export default function PerfilPessoal() {
 
     return (
         <div className='MainPerfil-P'>
+            {IsHideEdit && <EditarPerfil />}
+
             <div className='perfil-pag'>
                 <div className='banner'></div>
-                <span style={{display: 'flex'}}>
+                <span style={{ display: 'flex' }}>
 
                     <SideBarUsers />
                     <section className='PerfilDetails'>

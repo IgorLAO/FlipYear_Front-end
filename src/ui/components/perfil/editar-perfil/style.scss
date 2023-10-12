@@ -1,0 +1,141 @@
+.MainPerfil-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 2;
+
+    .EditFrame {
+        padding: 5px 0;
+        background-color: rgb(88, 72, 72);
+        width: 50%;
+        border-radius: 10px;
+        border: #000 solid;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+
+            span {
+                display: flex;
+                align-items: center;
+
+                a {
+                    margin: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            .SaveBtn {
+                background-color: black;
+                color: #fff;
+                padding: 7px 20px;
+                border-radius: 12px;
+                cursor: pointer;
+            }
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+
+            .ProfilePic {
+                input {
+                    visibility: hidden;
+                    position: absolute;
+                }
+
+                .banner {
+                    display: flex;
+                    align-items: center;
+                    background-image: url('../../../../ui/assets/images/perfil-publico_assets/5759cdb17f90d64d25e9e59854181dde 2.png');
+                    height: 200px;
+                    background-size: cover;
+
+                    .blockCam {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #0000005b;
+                        padding: 37px 5px;
+                        width: 100%;
+                        height: 100%;
+
+                        img {
+                            width: 60px;
+                            opacity: 50%;
+                        }
+                    }
+                }
+
+                .perfil {
+                    position: relative;
+                    top: -55px;
+
+
+                    #foto {
+                        width: 120px;
+                        border: 5px #fff solid;
+                        border-radius: 100%;
+                    }
+
+                    .blockCam {
+                        display: flex;
+                        position: relative;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #0000005b;
+                        padding: 37px 5px;
+                        width: 120px;
+                        top: -120px;
+                        border-radius: 100%;
+
+                        img {
+                            width: 45px;
+                        }
+                    }
+                }
+
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                top: -130px;
+                height: 5px;
+
+                input {
+                    padding: 15px;
+
+                }
+            }
+
+            .advancedOP {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                border: #000 solid;
+                border-radius: 15px;
+
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 15px;
+                }
+
+                p {
+                    color: #757373;
+                    font-size: 9px;
+                }
+
+            }
+
+        }
+    }
+}

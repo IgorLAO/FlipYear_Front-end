@@ -22,7 +22,6 @@ import RegistroProdutos from './pages/ADM_pages/registro_produto';
 import Pagamento100 from './pages/pagamento100';
 import Pagamento25 from './pages/pagamento25';
 import Carrinho from './pages/carrinho';
-import EditarPerfil from './pages/perfil/editar-perfil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -48,7 +47,6 @@ root.render(
         <Route path='/ADM_Estatisticas' element={<Estatisticas />} />
         <Route path='/ADM_RegistroProd' element={<RegistroProdutos />} />
         <Route path='/carrinho' element={<Carrinho />} />
-        <Route path='/editar' element={<EditarPerfil />} />
         
       </Routes>
     </BrowserRouter>

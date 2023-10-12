@@ -3,8 +3,8 @@ import './style.scss';
 import localStorage from 'local-storage'
 import { useNavigate } from 'react-router-dom';
 
-import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
-import cam from '../../../ui/assets/images/edit_profi/cam.png'
+import Corvo from '../../../../ui/assets/images/perfil-publico_assets/download 2.png'
+import cam from '../../../../ui/assets/images/edit_profi/cam.png'
 
 import { useEffect, useState } from 'react';
 
@@ -29,7 +29,7 @@ export default function EditarPerfil() {
 
     })
 
-
+    document.body.style.overflow = 'hidden';
 
     return (
         <div className='MainPerfil-edit'>
@@ -43,26 +43,36 @@ export default function EditarPerfil() {
                 </header>
                 <section>
                     <div className='ProfilePic' >
-                        <span className='editIconsProf'>
+                        <div className='banner'>
+                            <span className='blockCam'>
+                                <img src={cam} />
+                                <input type='file' />
+                            </span>
+                        </div>
 
-                        <div className='banner'></div>
-                       <img src={cam} />
-                        </span>
+                        <span className='perfil'>
+                            <img src={Corvo} id='foto' />
 
-                        <span>
-                       <img src={cam} />
-                        <img src={Corvo} />
+                            <span className='blockCam'>
+                                <img src={cam} />
+                                <input type='file' />
+                            </span>
                         </span>
                     </div>
                     <div className='inputs'>
-
+                        <input type='text' placeholder='Digite um novo Nome' />
                     </div>
+                        <div className='advancedOP'>
+                            <span>
+                            <a>Opções avançadas</a>  <a>{'>'}</a>
+                            </span>
+                            <p>
+                                Informações da sua conta, como endereços, email e alterar senha
+                            </p>
+                        </div>
                 </section>
             </div>
         </div>
     )
-
-
-
-
 }
+

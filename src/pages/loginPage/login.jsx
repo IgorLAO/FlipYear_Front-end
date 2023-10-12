@@ -31,7 +31,7 @@ function Login(props2) {
 
 
 
-  const logar = async () => {
+  const logar = async (e) => {
     try {
       let res = await axios.post("http://localhost:5000/usuarios/login", {
         Email: email,
@@ -54,12 +54,38 @@ function Login(props2) {
     }
   }
 
+  const logarEnter = async (e) => {
+    if(e.key == 'Enter'){
+    try {
+        
+        let res = await axios.post("http://localhost:5000/usuarios/login", {
+          Email: email,
+          Senha: senha
+        })
+        
+        if (res.data.Tier == "ADM") {
+          storage('ADM_Logado', res)
+          navigate('/ADM');
+        } else if (res.data.Tier === "NORMAL_USERS") {
+          storage('NORMAL_USER_Logado', res)
+          navigate('/perfil-pessoal');
+        }
+        
+      } catch (err) {
+        if (err.response.status === 401) {
+          console.log(err.response.data.erro)
+          setErro(err.response.data.erro)
+        }
+      }
+    }
+  }
+
   const verify = () => {
     if (storage('ADM_Logado'))
-        navigate('/ADM')
+      navigate('/ADM')
 
     if (storage('NORMAL_USER_Logado'))
-        navigate('/perfil-pessoal')
+      navigate('/perfil-pessoal')
 
   }
 
@@ -84,15 +110,16 @@ function Login(props2) {
                   </label>
                   <label for='senha'>
                     Senha
-                    <input type="password" id='senha' value={senha} onChange={e => setSenha(e.target.value)} />
+                    <input type="password" id='senha' value={senha} onChange={e => setSenha(e.target.value)}  onKeyDown={logarEnter} />
                   </label>
                   <h6 onClick={hideReveal}>Esqueceu a senha</h6>
-                  
-                </form>
-                <a onClick={logar} className='entrarButton'> APERTE PARA ENTRAR </a>
-                
 
-                <hr className='linha' />
+                </form>
+                <a
+                  onClick={logar}
+                  className='entrarButton'> APERTE PARA ENTRAR </a>
+
+                <span className='linha'></span>
 
                 <div className='entrarCom'>
                   <p>Acesse com:</p>
@@ -101,7 +128,7 @@ function Login(props2) {
                     <img src={googleLogo} alt="" />
                   </div>
                   <h6>Ainda não tem uma conta? <Link to='/cadastro'> <a >Cadastre-se</a></Link> </h6>
-                  <a style={{color: "red", display: "flex", marginTop: 20}}> {Erro} </a>
+                  <a style={{ color: "red", display: "flex", marginTop: 20 }}> {Erro} </a>
                 </div>
               </>
             )}
