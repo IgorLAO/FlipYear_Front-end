@@ -35,7 +35,7 @@ export default function PerfilPessoal() {
         }
 
     })
-
+    document.body.style.overflow = 'auto';
 
 
     return (
@@ -55,7 +55,7 @@ export default function PerfilPessoal() {
                             </span>
                             <span>
 
-                                <a className='EditBtn'>Editar Perfil</a>
+                                <a className='EditBtn' onClick={ () => setIsHideEdit(true) }>Editar Perfil</a>
                             </span>
                         </div>
 

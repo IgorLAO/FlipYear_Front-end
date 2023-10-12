@@ -7,10 +7,11 @@
     min-height: 100vh;
     width: 100%;
     z-index: 2;
+    backdrop-filter: blur(10px);
 
     .EditFrame {
         padding: 5px 0;
-        background-color: rgb(88, 72, 72);
+        background-color: rgb(215, 240, 227);
         width: 50%;
         border-radius: 10px;
         border: #000 solid;
@@ -119,6 +120,7 @@
             .advancedOP {
                 display: flex;
                 flex-direction: column;
+                background-color: #8ca796;
                 padding: 15px;
                 border: #000 solid;
                 border-radius: 15px;

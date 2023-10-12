@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 export default function EditarPerfil() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
+    const [isHide, setIsHide] = useState(true);
 
     const LogOut = () => {
         localStorage.remove('NORMAL_USER_Logado');
@@ -30,49 +31,52 @@ export default function EditarPerfil() {
     })
 
     document.body.style.overflow = 'hidden';
-
     return (
-        <div className='MainPerfil-edit'>
-            <div className='EditFrame'>
-                <header>
-                    <span>
-                        <a>X</a>
-                        <h5>Edit Profile</h5>
-                    </span>
-                    <a className='SaveBtn'>SAVE</a>
-                </header>
-                <section>
-                    <div className='ProfilePic' >
-                        <div className='banner'>
-                            <span className='blockCam'>
-                                <img src={cam} />
-                                <input type='file' />
-                            </span>
-                        </div>
-
-                        <span className='perfil'>
-                            <img src={Corvo} id='foto' />
-
-                            <span className='blockCam'>
-                                <img src={cam} />
-                                <input type='file' />
-                            </span>
-                        </span>
-                    </div>
-                    <div className='inputs'>
-                        <input type='text' placeholder='Digite um novo Nome' />
-                    </div>
-                        <div className='advancedOP'>
+        <>
+            {isHide &&
+                <div className='MainPerfil-edit'>
+                    <div className='EditFrame'>
+                        <header>
                             <span>
-                            <a>Opções avançadas</a>  <a>{'>'}</a>
+                                <a onClick={() => setIsHide(false)}>X</a>
+                                <h5>Edit Profile</h5>
                             </span>
-                            <p>
-                                Informações da sua conta, como endereços, email e alterar senha
-                            </p>
-                        </div>
-                </section>
-            </div>
-        </div>
+                            <a className='SaveBtn'>SAVE</a>
+                        </header>
+                        <section>
+                            <div className='ProfilePic' >
+                                <div className='banner'>
+                                    <span className='blockCam'>
+                                        <img src={cam} />
+                                        <input type='file' />
+                                    </span>
+                                </div>
+
+                                <span className='perfil'>
+                                    <img src={Corvo} id='foto' />
+
+                                    <span className='blockCam'>
+                                        <img src={cam} />
+                                        <input type='file' />
+                                    </span>
+                                </span>
+                            </div>
+                            <div className='inputs'>
+                                <input type='text' placeholder='Digite um novo Nome' />
+                            </div>
+                            <div className='advancedOP'>
+                                <span>
+                                    <a>Opções avançadas</a>  <a>{'>'}</a>
+                                </span>
+                                <p>
+                                    Informações da sua conta, como endereços, email e alterar senha
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            }
+        </>
     )
 }
 

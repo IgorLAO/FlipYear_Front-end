@@ -1,4 +1,5 @@
 import './index.scss'
+
 import Fantasma1 from '../../../assets/images/perfil-side-bar/fantasma.png'
 import Fantasma2 from '../../../assets/images/perfil-side-bar/fantasma 2.png'
 import Fantasma3 from '../../../assets/images/perfil-side-bar/fantasma 3.png'
