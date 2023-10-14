@@ -35,12 +35,18 @@ export default function PerfilPessoal() {
         }
 
     })
-    document.body.style.overflow = 'auto';
+    function is(){
+        if(IsHideEdit){
+            setIsHideEdit(false)
+        }
 
+        setIsHideEdit(true)
+    }
+    console.log('perfil edit is ' + IsHideEdit)
 
     return (
         <div className='MainPerfil-P'>
-            {IsHideEdit && <EditarPerfil />}
+            {IsHideEdit && <EditarPerfil IsHideEdit={IsHideEdit} />}
 
             <div className='perfil-pag'>
                 <div className='banner'></div>
@@ -55,7 +61,7 @@ export default function PerfilPessoal() {
                             </span>
                             <span>
 
-                                <a className='EditBtn' onClick={ () => setIsHideEdit(true) }>Editar Perfil</a>
+                                <a className='EditBtn' style={{cursor: 'pointer'}} onClick={is}>Editar Perfil</a>
                             </span>
                         </div>
 

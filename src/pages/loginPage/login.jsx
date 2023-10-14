@@ -62,6 +62,7 @@ function Login(props2) {
           Email: email,
           Senha: senha
         })
+        console.log(res)
         
         if (res.data.Tier == "ADM") {
           storage('ADM_Logado', res)
