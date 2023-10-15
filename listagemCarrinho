@@ -1,0 +1,14 @@
+import React from "react";
+
+    function ListagemCarrinho({}) {
+      return (<div className='lista-carrinho'>
+                <div className='linha-produtos'>
+                <p>oie</p>
+                <p>aaa</p>
+                <p>aaa</p>
+                </div>
+  
+             </div>);
+    }
+  
+  

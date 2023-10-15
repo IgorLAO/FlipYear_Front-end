@@ -13,7 +13,6 @@ export default function Catalogo() {
     const GetProds = async () => {
         let res = await axios.get('http://localhost:5000/produtos');
         setList(res.data);
-        console.log(list);
 
 
     }
@@ -49,14 +48,18 @@ export default function Catalogo() {
                 <h1 className='exib'>Exibindo todos os resultados para { }</h1>
 
                 <div className='resultados'>
-                    {list?.map((item) => <>
+                    {list.map((item) => <>
 
                         <CardProdutoCtlg 
                             preco={item.VL_PRECO} 
-                            nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} 
-                            promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
+                            nome={item.NM_PRODUTO} 
+                            precoPromocao={item.VL_PRECO_PROMOCIONAL} 
+                            promocao={item.BT_PROMOCAO} 
+                            avaliacao={item.VL_AVALIACAO}
                             fabricante={item.NM_FABRICANTE}
                             estado={item.TP_ESTADO}
+                            estoque={item.QTD_ESTOQUE}
+                            idProduto={item.ID_PRODUTO}
                             />
              
                     </>)}

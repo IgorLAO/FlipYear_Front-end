@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 import "./index.scss";
 import localStorage from "local-storage";
@@ -19,6 +20,7 @@ export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
+    const [listaCarrinho, setListaCarrinho] = useState([]);
     
 
     const [NomeUser, setNomeUser] = useState('');
@@ -84,7 +86,7 @@ export default function NavBar() {
             {
                 (popUpCarro == true)
 
-                ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                ? <PopUpCarrinho setPopUpCarro={setPopUpCarro}></PopUpCarrinho>
 
                 : <></>
 

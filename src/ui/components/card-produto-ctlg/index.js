@@ -1,13 +1,69 @@
 import './index.scss';
 import Atari from '../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
 import Estrela from '../../assets/images/imagesCardProduto/estrela_vazia 6.png'
+import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
+import { useState } from 'react';
+import axios from 'axios';
+
 
 export default function CardProdutoCtlg(props) {
+
+    const [qtdProdutos, SetQtdProdutos] = useState(0);
+    const [limiteQtd, setLimiteQtd] = useState(props.estoque);
+    const [idUser, setIdUser] = useState(3);
+    const [idProduto, setIdProduto] = useState(props.idProduto);
+
+    function AddQtdProduto(){
+
+        SetQtdProdutos(qtdProdutos + 1);
+         
+        if(qtdProdutos == limiteQtd){
+
+            SetQtdProdutos(limiteQtd);
+
+        }
+
+
+    }
+
+    function MinusQtdProduto(){
+
+        SetQtdProdutos(qtdProdutos - 1);
+         
+        if(qtdProdutos == 0){
+
+            SetQtdProdutos(0);
+
+        }
+
+
+    }
+
+    async function AddNoCarrinho(){
+
+        let resposta = await axios.post('http://localhost:5000/carrinho',{
+            usuario: idUser,
+            produto: idProduto,
+            qtd: qtdProdutos
+        });
+
+        return resposta.data;
+
+
+    }
+
 
     return (
         <div className='card-produto-ctlg'>
 
             <div className='card'>
+
+                <div className='qtd-produtos'>
+                <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
+                    <p className='hover-opt'onClick={MinusQtdProduto}>-</p>
+                    <p>{qtdProdutos}</p>
+                    <p className='hover-opt' onClick={AddQtdProduto}>+</p>
+                </div>
 
                 <img src={Atari}></img>
                 <p className='nm-produto'> {props.nome} </p>
