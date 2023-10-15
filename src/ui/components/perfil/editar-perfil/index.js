@@ -9,12 +9,12 @@ import cam from '../../../../ui/assets/images/edit_profi/cam.png'
 import { useEffect, useState } from 'react';
 
 
-export default function EditarPerfil() {
+export default function EditarPerfil(props) {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
-    const [isHide, setIsHide] = useState(true);
+    const [isHide, setIsHide] = useState(props.IsHideEdit);
 
-    const LogOut = () => {
+    const LogOut = (props) => {
         localStorage.remove('NORMAL_USER_Logado');
         navigate('/login');
     };
@@ -30,7 +30,19 @@ export default function EditarPerfil() {
 
     })
 
-    document.body.style.overflow = 'hidden';
+    if(isHide){
+
+        document.body.style.overflow = 'hidden'
+    } else{
+        document.body.style.overflow = 'auto'
+    }
+    console.log('popUp perfil is ' + isHide)
+
+
+    // function sendImage(){
+    //     document.getElementById('fileBanner').click();
+    // }
+
     return (
         <>
             {isHide &&
@@ -45,19 +57,20 @@ export default function EditarPerfil() {
                         </header>
                         <section>
                             <div className='ProfilePic' >
-                                <div className='banner'>
-                                    <span className='blockCam'>
-                                        <img src={cam} />
-                                        <input type='file' />
+                                <div className='banner'onClick={() => document.getElementById('fileBanner').click()}>
+
+                                    <span className='blockCam' >
+                                        <img src={cam} alt='CameraIcon'/>
+                                        <input type='file' id='fileBanner'/>
                                     </span>
                                 </div>
 
-                                <span className='perfil'>
+                                <span className='perfil' onClick={() => document.getElementById('fileProfile').click()}>
                                     <img src={Corvo} id='foto' />
 
                                     <span className='blockCam'>
-                                        <img src={cam} />
-                                        <input type='file' />
+                                        <img src={cam} alt='CameraIcon'/>
+                                        <input type='file' id='fileProfile'/>
                                     </span>
                                 </span>
                             </div>

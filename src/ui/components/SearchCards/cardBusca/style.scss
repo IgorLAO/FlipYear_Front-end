@@ -1,0 +1,40 @@
+.Main_SearchCard {
+    display: flex;
+    align-items: center;
+    background-color: #88C070;
+    box-shadow: 5px 5px 0 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin: 5px;
+    width: 35%;
+    padding: 5px 10px;
+    justify-content: space-between;
+
+    img {
+        width: 9%;
+        
+    }
+
+    .Texts {
+        width: 67%;
+
+        b {
+            font-size: 14px;
+            margin: 5px;
+        }
+    }
+
+    .Prices {
+        color: aliceblue;
+
+        b {
+
+            font-size: 13px;
+        }
+
+        a {
+            margin: 5px 0 0 15px;
+        }
+    }
+
+
+}

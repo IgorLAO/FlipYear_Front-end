@@ -18,7 +18,7 @@ export default function SideBarUsers() {
     const navigate = useNavigate();
 
     const logOut = () =>{
-    storage.remove('ADM_Logado')
+    storage.remove('NORMAL_USER_Logado')
     navigate('/login')
     }
 
