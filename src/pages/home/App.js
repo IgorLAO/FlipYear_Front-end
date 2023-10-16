@@ -19,7 +19,7 @@ import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 function App() {
   const [mostrarDestaques, setMostrarDestaques]= useState([]);
-  const [pageDestaqueNum, setPageDestaqueNum] = useState(1)
+  const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
 
   async function ConsultaDestaqueProdutos(){
     
@@ -31,16 +31,14 @@ function App() {
     } catch (error) {
       throw new Error('Erro ao buscar produtos em destaque', error)
     }
-    
-
   }
+  
+//ao ultrapassar o limite de produtos em destques disponíveis ele dá erro
 
   function nextPag(){
 
-
-    if(pageDestaqueNum <= mostrarDestaques.length){
     setPageDestaqueNum(pageDestaqueNum + 1)
-    }
+    
 
     console.log(mostrarDestaques.length)
   }
