@@ -5,13 +5,17 @@ import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
+import localStorage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchResults(props) {
     const [list, setList] = useState([]);
+    const navigate = useNavigate('')
     
 
     const GetProds = async () => {
-        let res = await axios.get(`http://localhost:5000/produtos/busca?search=${props.SearchValue}`);
+        let infos = localStorage('SearchValue')
+        let res = await axios.get(`http://localhost:5000/produto/busca?search=${infos}`);
         setList(res.data);
         console.log(props.SearchValue);
 
@@ -21,7 +25,9 @@ export default function SearchResults(props) {
 
     useEffect(() => {
         GetProds();
-        sessionStorage.setItem('chave', JSON.stringify(list))
+        if(!localStorage('SearchValue')){
+            navigate('/')
+        }   
     }, [])
 
     return (

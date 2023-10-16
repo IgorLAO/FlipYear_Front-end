@@ -58,6 +58,7 @@ export default function NavBar() {
             SetSearchRes(res.data);
             setErro(res)
             console.log(res)
+          
 
         } catch (err) {
             setErro('Produto Não Encontrado')
@@ -71,8 +72,13 @@ export default function NavBar() {
     }
 
     const NavTo = (e) => {
-        if(e.key === 'Enter')
-                navigate('/search')
+        if(e.key === 'Enter'){
+            navigate('/search')
+            localStorage('SearchValue', SearchValue);
+            window.location.reload();
+        }
+               
+
     }
 
 

@@ -11,7 +11,7 @@ const SearchCard_NotFound = (props) => {
                 <img src={GhostNotFound} id='peq_G' />
                 <a> Produto não Encontrado</a>
             </span>
-            <img src={GhostNotFound} id='' />
+            <img src={GhostNotFound} id='' style={{width: 9+'%'}} />
         </div>
     );
 }
