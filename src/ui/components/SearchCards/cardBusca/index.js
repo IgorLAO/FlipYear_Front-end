@@ -1,10 +1,10 @@
 import './style.scss'
-import consolo from '../../../assets/images/imageExamples/atari_console.png'
+import console from '../../../assets/images/imageExamples/atari_console.png'
 
 const SearchCard = (props) => {
     return(
         <div className="Main_SearchCard">
-           <img src={consolo}/>
+           <img src={console}/>
 
            <span className='Texts' style={{display: 'flex', flexDirection: 'column'}}>
             <b> {props.i.Nome} </b>

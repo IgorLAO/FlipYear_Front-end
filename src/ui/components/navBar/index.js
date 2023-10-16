@@ -54,7 +54,7 @@ export default function NavBar() {
         setSearchValue(e.target.value)
 
         try {
-            let res = await axios.get(`http://localhost:5000/produtos/busca?search=${SearchValue}`)
+            let res = await axios.get(`http://localhost:5000/produto/busca?search=${SearchValue}`)
             SetSearchRes(res.data);
             setErro(res)
             console.log(res)
