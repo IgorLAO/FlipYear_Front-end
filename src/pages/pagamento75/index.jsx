@@ -9,8 +9,13 @@ import Atari from '../../ui/assets/images/imageExamples/atari_console.png';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
+import { Link } from 'react-router-dom';
 
 export default function Pagamento75(){
+
+    function ConcluirPedido(){
+        Link = '../'
+    } 
     return(
         <>
             <div className='container_pag75'>
@@ -148,7 +153,7 @@ export default function Pagamento75(){
             </div>
             <div className='finalizar'>
                 <img src={CarrinhoBranco}/>
-                <p>Finalizar</p>
+                <p onClick={ConcluirPedido}>Finalizar</p>
             </div>
         </div>  
     </div> 

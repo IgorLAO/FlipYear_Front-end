@@ -10,6 +10,7 @@ import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 
 
 export default function Pagamento100() {
+
     return (
         <>
             <CabecalhoSimples />
