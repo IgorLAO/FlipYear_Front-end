@@ -3,6 +3,8 @@ import "./index.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import "./index.scss";
 import localStorage from "local-storage";
 
 
@@ -27,7 +29,6 @@ export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
-    const [IsComp, setIsComp] = useState(false);
     const [NomeUser, setNomeUser] = useState('');
     const [searchRes, SetSearchRes] = useState([]);
     const [SearchValue, setSearchValue] = useState('');
@@ -105,23 +106,20 @@ export default function NavBar() {
                     (logado === true)
                         ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado> : <></>
                 }
-
                 {
-                    (popUpCarro === true)
+                    (popUpCarro == true)
                         ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
 
                 }
-
-
             </div>
             <div className="searchResults">
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
                 {IshideNotFount &&
-                    <SearchCard_NotFound Erro={Erro} />
+                <SearchCard_NotFound Erro={Erro} />
                 }
-                {IsComp && <SearchResults SearchValue={SearchValue} />}
+
             </div>
 
 

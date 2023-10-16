@@ -4,10 +4,19 @@ import  Logo from '../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteriscoMenor.png'
 import Fantasma1 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho1.png'
 import Fantasma2 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho2.png'
+import ListagemCarrinho from './ListagemCarrinho.js'
+import { useState } from 'react';
+import axios from 'axios';
 
 
 export default function PopUpCarrinho({setPopUpCarro}){
 
+
+    const [produtosnoCarrinho, setProdutosnoCarrinho] = useState([]);
+    const [dataCarrinho, setDataCarrinho] = useState([]);
+    const [idsProduto, setIdsProdutos] = useState([])
+    const [dataProd, setDataProd] = useState([]);
+    const [infoProd, setInfoProd] = useState([]);
     
     function mostrarCarrinho(){
 
@@ -15,6 +24,24 @@ export default function PopUpCarrinho({setPopUpCarro}){
 
 
     }
+
+    
+    async function PuxarCarrinho(){
+
+
+       
+        let respCarrinho = await axios.get('http://localhost:5000/carrinho/' + 3);
+        setDataCarrinho(respCarrinho.data);
+        console.log(dataCarrinho);
+
+
+       
+
+
+
+        
+    }
+
 
 
     return(
@@ -40,7 +67,25 @@ export default function PopUpCarrinho({setPopUpCarro}){
 
         <img src={linhaAstersico}></img>
 
-        <div className='puc-listaPedidos'>
+
+        {dataCarrinho.map((item) =>
+        
+        <ListagemCarrinho 
+        qtd={item.QTD_PRODUTO_CARRINHO} 
+        nome={item.NM_PRODUTO} 
+        precoOriginal={item.VL_PRECO}
+        precoPromocional={item.VL_PRECO_PROMOCIONAL}
+        promocao={item.BT_PROMOCAO}></ListagemCarrinho>
+        
+        )}
+        
+
+        {
+            (produtosnoCarrinho.length == 0)
+            
+            ?<></>
+
+            :<div className='puc-listaPedidos'>
 
             <img src={Fantasma1} className='puc-fantasma1'></img>
 
@@ -50,7 +95,9 @@ export default function PopUpCarrinho({setPopUpCarro}){
         </div>
 
 
+        }
         <img src={linhaAstersico}></img>
+
 
         <div className='puc-total'>
             <p className='titulo'>Total</p>
@@ -92,7 +139,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
 </defs>
 </svg>
 
-<p>Finalizar</p>
+<p onClick={PuxarCarrinho}>Finalizar</p>
 
         </div>
 
@@ -104,6 +151,4 @@ export default function PopUpCarrinho({setPopUpCarro}){
     )
 
 
-
-
-}
+    }
