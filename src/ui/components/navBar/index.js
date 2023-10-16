@@ -62,10 +62,11 @@ export default function NavBar() {
         } catch (err) {
             setErro('Produto Não Encontrado')
             console.log(Erro)
+            setIshideNotFount(true)
+
             SetSearchRes([])
         }
         if (Erro.length === 'Produto Não Encontrado') {
-            setIshideNotFount(true)
         }
     }
 
