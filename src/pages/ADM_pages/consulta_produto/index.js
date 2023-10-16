@@ -26,7 +26,7 @@ export default function Produtos_ConsultaADM() {
     }
 
    const GetProducts = async () =>{
-    let res = await axios.get('http://localhost:5000/produtos/busca')
+    let res = await axios.get('http://localhost:5000/produtos')
 
     console.log(res)
 
