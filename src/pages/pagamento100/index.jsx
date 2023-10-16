@@ -51,7 +51,7 @@ export default function Pagamento100() {
                         </div>
                     </div>
 
-                    <div className='opcoes_botoes'>
+                    <div style={{gap:"15px"}} className='opcoes_botoes'>
                         <a>Ver meus pedidos</a>
                         <a id='navegar'>Continuar navegando</a>
                     </div>

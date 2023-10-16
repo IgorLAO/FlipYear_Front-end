@@ -6,7 +6,8 @@ import Cartao from '../../ui/assets/images/progress_pag_assets/cartao_progresso_
 import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progresso_pagamento 1.png'
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonicRunning_gif.png';
-import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinho_logo.png'
+import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
+
 export default function Pagamento25() {
     
     return (
@@ -77,7 +78,11 @@ export default function Pagamento25() {
                 </div>
                 <div className='total_pedido'>
                     <p>TOTAL</p>
-                    <p>R${} 999,99</p>
+                    <p>R${} 999</p>
+                </div>
+                <div className='cupom_desconto'>
+                    <input type="text" placeholder='Cupom de desconto'/>
+                    <a>Aplicar</a>
                 </div>
             </div>
             <div className='finalizar'>
