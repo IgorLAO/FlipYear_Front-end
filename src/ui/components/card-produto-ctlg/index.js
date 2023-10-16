@@ -86,11 +86,11 @@ export default function CardProdutoCtlg(props) {
                     (props.promocao == 1)
 
                     ?<>
-                    <p className='preco-produto'> {props.precoPromocao} </p>
-                    <p className='preco-produto-original' id='cinza-pequeno'> {props.preco} </p>
+                    <p className='preco-produto'> ${props.precoPromocao} </p>
+                    <p className='preco-produto-original' id='cinza-pequeno'> ${props.preco} </p>
                     </>
 
-                    :<p className='preco-produto'> {props.preco} </p>
+                    :<p className='preco-produto'> ${props.preco} </p>
                    
 
 

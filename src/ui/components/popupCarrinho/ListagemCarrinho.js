@@ -11,9 +11,9 @@ export default function ListagemCarrinho(props) {
               <p>{props.nome}</p>
               {
                 (props.promocao == true)
-                ?<p>{props.precoPromocional}</p>
+                ?<p>${props.precoPromocional}</p>
 
-                :<p>{props.precoOriginal}</p>
+                :<p>${props.precoOriginal}</p>
               }
               
               </div>

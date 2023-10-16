@@ -5,42 +5,69 @@ import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteri
 import Fantasma1 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho1.png'
 import Fantasma2 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho2.png'
 import ListagemCarrinho from './ListagemCarrinho.js'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
 export default function PopUpCarrinho({setPopUpCarro}){
 
 
-    const [produtosnoCarrinho, setProdutosnoCarrinho] = useState([]);
     const [dataCarrinho, setDataCarrinho] = useState([]);
-    const [idsProduto, setIdsProdutos] = useState([])
-    const [dataProd, setDataProd] = useState([]);
-    const [infoProd, setInfoProd] = useState([]);
-    
+    const [total, SetTotal] = useState(0)
+
     function mostrarCarrinho(){
 
         setPopUpCarro((current) => !current);
-
 
     }
 
     
     async function PuxarCarrinho(){
-
-
        
         let respCarrinho = await axios.get('http://localhost:5000/carrinho/' + 3);
         setDataCarrinho(respCarrinho.data);
-        console.log(dataCarrinho);
-
-
-       
-
-
-
+      
         
     }
+
+    async function CalcularTotal(){
+
+        dataCarrinho.map((item) =>{
+
+            if(item.BT_PROMOCAO == true){
+
+                let calculo = item.VL_PRECO_PROMOCIONAL * item.QTD_PRODUTO_CARRINHO;
+
+                console.log(calculo);
+
+                SetTotal(total + calculo);
+
+            }
+
+            else{
+
+                
+                let calculo = item.VL_PRECO * item.QTD_PRODUTO_CARRINHO;
+
+                SetTotal(total + calculo);
+
+            }
+
+
+
+        })
+        
+    }
+
+    useEffect(() =>{
+
+        PuxarCarrinho();
+        
+    });
+
+    function reverseString(str) {
+        return str.split('').reverse().join('');
+      }
 
 
 
@@ -81,7 +108,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
         
 
         {
-            (produtosnoCarrinho.length == 0)
+            (dataCarrinho.length > 0)
             
             ?<></>
 
@@ -101,7 +128,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
 
         <div className='puc-total'>
             <p className='titulo'>Total</p>
-            <p className='valor'>R$ 0,00</p>
+            <p className='valor'>$ {total}</p>
         </div>
 
         <div  className='puc-asteriscoCentro'>
@@ -139,7 +166,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
 </defs>
 </svg>
 
-<p onClick={PuxarCarrinho}>Finalizar</p>
+<p onClick={CalcularTotal}>Finalizar</p>
 
         </div>
 
