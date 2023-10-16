@@ -20,6 +20,8 @@ import PopUpCarrinho from "../popupCarrinho";
 import SearchCard from "../SearchCards/cardBusca";
 import SearchCard_NotFound from "../SearchCards/NotFoundCard";
 
+import SearchResults from "../../../pages/SearchResultsPage";
+
 
 export default function NavBar() {
     const navigate = useNavigate('');
@@ -27,7 +29,7 @@ export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
-    
+    const [IsComp, setIsComp] = useState(false);
 
     const [NomeUser, setNomeUser] = useState('');
     const [searchRes, SetSearchRes] = useState([]);
@@ -56,16 +58,22 @@ export default function NavBar() {
             SetSearchRes(res.data);
             setErro(res)
             console.log(res)
-       
+
         } catch (err) {
             setErro('Produto Não Encontrado')
             console.log(Erro)
             SetSearchRes([])
         }
-        if(Erro.length === 'Produto Não Encontrado'){
+        if (Erro.length === 'Produto Não Encontrado') {
             setIshideNotFount(true)
         }
     }
+
+    const NavTo = (e) => {
+        if(e.key === 'Enter')
+                navigate('/search')
+    }
+
 
     return (
         <>
@@ -80,7 +88,7 @@ export default function NavBar() {
                 <span className="SearchBox">
                     <span className="boxInput">
                         <img src={Lupa} />
-                        <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} />
+                        <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} onKeyDown={NavTo}/>
                         <img src={Filtro} />
                     </span>
                 </span>
@@ -91,16 +99,20 @@ export default function NavBar() {
                 </span>
 
                 {
-                    (menuLateralHidden == true)
+                    (menuLateralHidden === true)
                         ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarFazerConta>
                         : <></>
 
                 }
                 {
-                    (logado == true)
+                    (logado === true)
                         ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado> : <></>
                 }
 
+                {
+                    (popUpCarro === true)
+                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
+                }
             {
                 (popUpCarro == true)
 
@@ -109,12 +121,25 @@ export default function NavBar() {
                 : <></>
 
 
+                    }
+            </div>
+            <div className="searchResults">
+                {searchRes.slice(0, limit).map((i) => (
+                    <SearchCard i={i} />
+                ))}
+                {IshideNotFount &&
+                    <SearchCard_NotFound Erro={Erro} />
+                }
 
-            }
+                {IsComp && <SearchResults SearchValue={SearchValue} />}
+
 
             
 
+
             </div>
+
+
         </>
     )
 }

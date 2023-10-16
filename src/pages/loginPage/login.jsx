@@ -38,7 +38,7 @@ function Login(props2) {
         Senha: senha
       })
 
-      if (res.data.Tier == "ADM") {
+      if (res.data.Tier === "ADM") {
         storage('ADM_Logado', res)
         navigate('/ADM');
       } else if (res.data.Tier === "NORMAL_USERS") {
