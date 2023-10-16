@@ -13,7 +13,7 @@ export default function SearchResults(props) {
     const GetProds = async () => {
         let res = await axios.get(`http://localhost:5000/produtos/busca?search=${props.SearchValue}`);
         setList(res.data);
-        console.log(list);
+        console.log(props.SearchValue);
 
 
     }
@@ -22,7 +22,6 @@ export default function SearchResults(props) {
     useEffect(() => {
         GetProds();
         sessionStorage.setItem('chave', JSON.stringify(list))
-        console.log(list)
     }, [])
 
     return (
