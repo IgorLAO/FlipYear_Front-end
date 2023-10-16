@@ -6,12 +6,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 
-export default function Catalogo() {
+export default function SearchResults(props) {
     const [list, setList] = useState([]);
     
 
     const GetProds = async () => {
-        let res = await axios.get('http://localhost:5000/produtos');
+        let res = await axios.get(`http://localhost:5000/produtos/busca?search=${props.SearchValue}`);
         setList(res.data);
         console.log(list);
 
@@ -21,42 +21,24 @@ export default function Catalogo() {
 
     useEffect(() => {
         GetProds();
+        sessionStorage.setItem('chave', JSON.stringify(list))
+        console.log(list)
     }, [])
 
     return (
         <>
             <div className="container-ctlg">
                 <NavBar/>
-                <h1 className='ctlg'>Catálogo</h1>
-                <div className="bloco-filtro-ctlg">
-                    <div>
-                        <p>Tipo de Produto</p>
-
-                    </div>
-                    <div className="filtros-ctlg">
-                        <div>
-                            <a>Jogos</a>
-                            <a>Consoles</a>
-                            <a>Super Nintendo</a>
-                        </div>
-                        <div>
-                            <a>Colecionador</a>
-                            <a>Funcionando</a>
-                            <a>Mega Drive</a>
-                        </div>
-                    </div>
-                </div>
                 <h1 className='exib'>Exibindo todos os resultados para { }</h1>
 
                 <div className='resultados'>
                     {list?.map((item) => <>
-
                         <CardProdutoCtlg 
-                            preco={item.VL_PRECO} 
-                            nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL} 
-                            promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
-                            fabricante={item.NM_FABRICANTE}
-                            estado={item.TP_ESTADO}
+                            preco={item.Preco} 
+                            nome={item.Nome} precoPromocao={item.Promo} 
+                            promocao={item.IsPromo} avaliacao={item.Avaliacao}
+                            fabricante={item.Fabricante}
+                            estado={item.Estado}
                             />
              
                     </>)}
