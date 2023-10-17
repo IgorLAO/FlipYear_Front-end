@@ -6,10 +6,12 @@ import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_vazia 6
 import PopUpPerfil from '../perfil/pop-up-perfil';
 
 import { useState } from 'react';
+import Report from '../report';
 
 
 export default function Comments() {
     const [popUpPefil, setPopUpPerfil] = useState('');
+    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
     function mostrarPopUpPerfil() {
 
@@ -25,17 +27,13 @@ export default function Comments() {
     return (
         <div className='Comment'>
 
-                {
-                    (popUpPefil == true)
-
-
-                        ? <PopUpPerfil></PopUpPerfil>
-
-                        : <></>
-
-                }
+                {(popUpPefil)
+                ? <PopUpPerfil/> 
+                : <></>}
 
             <div className="comment-block">
+                {(IsHideReportPopUp) ? <Report/> : <></> }
+                
                 <div className="comments">
                     <div className="comment-box">
                         <div className="content">
@@ -69,7 +67,7 @@ export default function Comments() {
                         </div>
                     </div>
                 </div>
-                <img id="red-flag" src={flag} alt="" />
+                <img id="red-flag" src={flag} alt="" onClick={() => setIsHideReportPopUp(true)} />
             </div>
         </div>
     )

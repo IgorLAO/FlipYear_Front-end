@@ -17,11 +17,14 @@ import NavBar from "../../ui/components/navBar"
 import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
+import Report from "../../ui/components/report";
 
 export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
-    const [hideBuyOptions, setHideBuyOptions] = useState('')
+    const [hideBuyOptions, setHideBuyOptions] = useState('');
+    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
+
 
     const GetComments = async () =>{
         let res = await axios.get('')
@@ -45,6 +48,7 @@ export default function InfProduto() {
     return (
         <div className="pagina-produto">
             <NavBar />
+          
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
