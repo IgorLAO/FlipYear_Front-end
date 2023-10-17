@@ -8,6 +8,8 @@ import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonicRunning_gif.png';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
 
+// import { ListProd } from '../../../../FlipYear-Back-end/api/src/repositorys/produtos/produtosRepository.js';
+
 export default function Pagamento25() {
 
 
@@ -50,16 +52,26 @@ export default function Pagamento25() {
                         <div className='container_lista'>
                             <div className='lista_produtos'>
                                 <div className='cabecalho_prod'>
-                                    <a>Produto</a>
-                                    <div>
-                                        <a>Qtd</a>
-                                        <a>Preço</a>
-                                    </div>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Produto</th>
+                                                <th>Qtd</th>
+                                                <th>Preço</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#01</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
                                 </div>
                             </div>
                             <div className='resumo_pedido'>
-
+            
                             </div>
                         </div>
                     </div>
