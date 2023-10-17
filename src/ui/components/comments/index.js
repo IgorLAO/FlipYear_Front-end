@@ -32,7 +32,7 @@ export default function Comments() {
                 : <></>}
 
             <div className="comment-block">
-                {(IsHideReportPopUp) ? <Report/> : <></> }
+                {(IsHideReportPopUp) ? <Report isHide={IsHideReportPopUp}/> : <></> }
                 
                 <div className="comments">
                     <div className="comment-box">

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './style.scss'
 
-const Report = () => {
-    const [IsHidePopUp, setIsHidePopUp] = useState(true)
+const Report = (props) => {
+    const [IsHidePopUp, setIsHidePopUp] = useState(props.isHide)
 
     return (
         <>
