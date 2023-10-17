@@ -13,6 +13,8 @@ export default function EditarPerfil(props) {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
     const [isHide, setIsHide] = useState(props.IsHideEdit);
+    const [BannerImg, setBannerImg] = useState();
+    const [ProfileImg, setProfileImg] = useState();
 
     const LogOut = (props) => {
         localStorage.remove('NORMAL_USER_Logado');
@@ -36,12 +38,12 @@ export default function EditarPerfil(props) {
     } else{
         document.body.style.overflow = 'auto'
     }
-    console.log('popUp perfil is ' + isHide)
+    console.log(ProfileImg)
 
 
-    // function sendImage(){
-    //     document.getElementById('fileBanner').click();
-    // }
+    function mostrar(){
+        return URL.createObjectURL(ProfileImg)
+    }
 
     return (
         <>
@@ -61,7 +63,7 @@ export default function EditarPerfil(props) {
 
                                     <span className='blockCam' >
                                         <img src={cam} alt='CameraIcon'/>
-                                        <input type='file' id='fileBanner'/>
+                                        <input type='file' id='fileBanner'onChange={ e => setBannerImg(e.target.files)}/>
                                     </span>
                                 </div>
 
@@ -70,7 +72,7 @@ export default function EditarPerfil(props) {
 
                                     <span className='blockCam'>
                                         <img src={cam} alt='CameraIcon'/>
-                                        <input type='file' id='fileProfile'/>
+                                        <input type='file' id='fileProfile' onChange={ e => setProfileImg(e.target.files[0])} />
                                     </span>
                                 </span>
                             </div>
@@ -81,9 +83,7 @@ export default function EditarPerfil(props) {
                                 <span>
                                     <a>Opções avançadas</a>  <a>{'>'}</a>
                                 </span>
-                                <p>
-                                    Informações da sua conta, como endereços, email e alterar senha
-                                </p>
+                                <p> Informações da sua conta, como endereços, email e alterar senha </p>
                             </div>
                         </section>
                     </div>

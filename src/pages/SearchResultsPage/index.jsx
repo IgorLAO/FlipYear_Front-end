@@ -10,12 +10,15 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SearchResults(props) {
     const [list, setList] = useState([]);
-    const navigate = useNavigate('')
+    const [ValueS, setValueS] = useState('');
+    const navigate = useNavigate('');
     
 
     const GetProds = async () => {
         let infos = localStorage('SearchValue')
+        setValueS(infos)
         let res = await axios.get(`http://localhost:5000/produto/busca?search=${infos}`);
+
         setList(res.data);
         console.log(props.SearchValue);
 
@@ -34,7 +37,7 @@ export default function SearchResults(props) {
         <>
             <div className="container-ctlg">
                 <NavBar/>
-                <h1 className='exib'>Exibindo todos os resultados para { }</h1>
+                <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
 
                 <div className='resultados'>
                     {list?.map((item) => <>
