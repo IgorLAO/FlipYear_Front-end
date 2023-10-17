@@ -9,13 +9,12 @@
         min-height: 100vh;
         .Frame {
             display: flex;
-        
             background-image: url('../../ui/assets/images/imagesLogin/GAMEBOY_FRAME 1.png');
             position: relative;
             background-size: 760px;
             background-repeat: no-repeat;
             height: 650px;
-            width: 40%;
+            width: 60%;
 
             .DetailsInside {
                 display: flex;
@@ -54,9 +53,10 @@
 
                 input {
                     padding: 7px 80px;
-                    background-color: #CDF1B5;
+                    background-color: #00ff5536;
                     margin-top: 5px;
-                    border: none;
+                    border: #018b2f solid 2px;
+                    border-radius: 5px;                    
                 }
 
                 h6 {
