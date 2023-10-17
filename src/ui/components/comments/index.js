@@ -1,0 +1,76 @@
+import './index.scss';
+
+import Usuario from "../../../ui/assets/images/NavBar_assets/usuario_logo.png";
+import flag from '../../../ui/assets/images/compraPage_assets/red_flag.png'
+import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_vazia 6.png'
+import PopUpPerfil from '../perfil/pop-up-perfil';
+
+import { useState } from 'react';
+
+
+export default function Comments() {
+    const [popUpPefil, setPopUpPerfil] = useState('');
+
+    function mostrarPopUpPerfil() {
+
+        setPopUpPerfil(true);
+
+        if (popUpPefil == true) {
+
+            setPopUpPerfil(false);
+
+        }
+
+    }
+    return (
+        <div className='Comment'>
+
+                {
+                    (popUpPefil == true)
+
+
+                        ? <PopUpPerfil></PopUpPerfil>
+
+                        : <></>
+
+                }
+
+            <div className="comment-block">
+                <div className="comments">
+                    <div className="comment-box">
+                        <div className="content">
+                            <div className="img-perfil">
+                                <img onClick={mostrarPopUpPerfil} src={Usuario} alt="" />
+                            </div>
+
+                            <div className="txt-comment">
+                                <div className="username">
+                                    <h2>Usuário1404</h2>
+                                    <span>Há 3 semanas</span>
+                                </div>
+
+                                <div className="comment">
+                                    <p>A descrição do produto está errada!!!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="resposta-area">
+                            <div className="likes-button">
+                                <img src={estrela} alt="" />
+                                <h4>X6</h4>
+                                <button>Responder</button>
+                            </div>
+
+                            <div className="show-answers">
+                                <a>  {'>'} </a>
+                                <a>2 Respostas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img id="red-flag" src={flag} alt="" />
+            </div>
+        </div>
+    )
+}

@@ -3,20 +3,18 @@ import { useState } from "react"
 
 import './index.scss'
 
+import axios from "axios";
+
 import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import yum from '../../ui/assets/images/imageExamples/super_famicon_yum.png'
 import yum_costa from '../../ui/assets/images/imageExamples/yum game_tras 1.png'
 import yum_fita from '../../ui/assets/images/imageExamples/yum fita_frente 1.png'
 import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
 import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
-import estrela from '../../ui/assets/images/imagesCardProduto/estrela_vazia 6.png'
-import carlinhos from '../../ui/assets/images/compraPage_assets/carlinhos_image.png'
-import mito from '../../ui/assets/images/compraPage_assets/mito_depressaum.png'
-import flag from '../../ui/assets/images/compraPage_assets/red_flag.png'
 import seta from '../../ui/assets/images/compraPage_assets/seta.png'
 
 import NavBar from "../../ui/components/navBar"
-import PopUpPerfil from "../../ui/components/perfil/pop-up-perfil";
+import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
@@ -25,7 +23,11 @@ export default function InfProduto() {
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('')
 
-    const [popUpPefil, setPopUpPerfil] = useState('');
+    const GetComments = async () =>{
+        let res = await axios.get('')
+    }
+
+
 
     function hideValid() {
         setIsHideOptions(true)
@@ -39,17 +41,6 @@ export default function InfProduto() {
         }
     }
 
-    function mostrarPopUpPerfil() {
-
-        setPopUpPerfil(true);
-
-        if (popUpPefil == true) {
-
-            setPopUpPerfil(false);
-
-        }
-
-    }
 
     return (
         <div className="pagina-produto">
@@ -173,128 +164,10 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-                {
-                    (popUpPefil == true)
+                <Comments/>
+                <Comments/>
+                <Comments/>
 
-
-                        ? <PopUpPerfil></PopUpPerfil>
-
-                        : <></>
-
-                }
-
-                <div className="comment-block">
-                    <div className="comments">
-                        <div className="comment-box">
-                            <div className="content">
-                                <div className="img-perfil">
-                                    <img src={Usuario} alt="" onClick={mostrarPopUpPerfil} />
-                                </div>
-
-                                <div className="txt-comment">
-                                    <div className="username">
-                                        <h2>Usuário1404</h2>
-                                        <span>Há 3 semanas</span>
-                                    </div>
-
-                                    <div className="comment">
-                                        <p>A descrição do produto está errada!!!</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="resposta-area">
-                                <div className="likes-button">
-                                    <img src={estrela} alt="" />
-                                    <h4>X6</h4>
-                                    <button>Responder</button>
-                                </div>
-
-                                <div className="show-answers">
-                                    <a style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}>  {'>'} </a>
-                                    <a>2 Respostas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <img id="red-flag" src={flag} alt="" />
-                </div>
-
-
-                <div className="comment-block">
-                    <div className="comments">
-                        <div className="comment-box">
-                            <div className="content">
-                                <div className="img-perfil">
-                                    <img src={carlinhos} alt="" onClick={mostrarPopUpPerfil} />
-                                </div>
-
-                                <div className="txt-comment">
-                                    <div className="username">
-                                        <h2>CarlinhosHorse1</h2>
-                                        <span>Há 7 dias</span>
-                                    </div>
-
-                                    <div className="comment">
-                                        <p>Adorei o jogo e é bem raro! Caso alguém queira saber o nome do jogo, se chama "Horse Adventure"</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="resposta-area">
-                                <div className="likes-button">
-                                    <img src={estrela} alt="" />
-                                    <h4>X87</h4>
-                                    <button>Responder</button>
-                                </div>
-
-                                <div className="show-answers">
-                                    <a style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}>  {'>'} </a>
-                                    <a>2 Respostas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <img id="red-flag" src={flag} alt="" />
-                </div>
-
-                <div className="comment-block">
-                    <div className="comments">
-                        <div className="comment-box">
-                            <div className="content">
-                                <div className="img-perfil">
-                                    <img src={mito} alt="" onClick={mostrarPopUpPerfil} />
-                                </div>
-
-                                <div className="txt-comment">
-                                    <div className="username">
-                                        <h2>Mito22</h2>
-                                        <span>Há 5 dias</span>
-                                    </div>
-
-                                    <div className="comment">
-                                        <p>A caixa veio meio amassada :/ crtz que é um esquema do Lula aquele BANDIDO</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="resposta-area">
-                                <div className="likes-button">
-                                    <img src={estrela} alt="" />
-                                    <h4>X1</h4>
-                                    <button>Responder</button>
-                                </div>
-
-                                <div className="show-answers">
-                                    <a style={{ transform: `rotate(${ang}deg)`, marginLeft: 7 }}>  {'>'} </a>
-                                    <a>2 Respostas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <img id="red-flag" src={flag} alt="" />
-                </div>
             </div>
 
             <div className="other-products">

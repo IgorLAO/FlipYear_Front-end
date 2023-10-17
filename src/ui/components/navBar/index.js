@@ -21,6 +21,7 @@ import SearchCard from "../SearchCards/cardBusca";
 import SearchCard_NotFound from "../SearchCards/NotFoundCard";
 
 import SearchResults from "../../../pages/SearchResultsPage";
+import { func } from "prop-types";
 
 
 export default function NavBar() {
@@ -81,12 +82,16 @@ export default function NavBar() {
 
     }
 
+    function NavToHome(){
+        navigate('/')
+    }
+
 
     return (
         <>
             <div className="Nav">
 
-                <div className="Logo">
+                <div onClick={NavToHome} className="Logo">
                     <img src={LogoArcade} />
                     <h3> Flip-Year
                         <h1>2000</h1>
