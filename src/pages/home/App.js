@@ -94,7 +94,7 @@ function App() {
         </span>
 
         <span className='cover2' id='covers'>
-          <a>Seus jogos preferidos aqui</a>
+          <a>Os Melhores Jogos</a>
           <button> VER JOGOS </button>
         </span>
 

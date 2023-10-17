@@ -60,6 +60,7 @@ export default function Catalogo() {
                             estado={item.TP_ESTADO}
                             estoque={item.QTD_ESTOQUE}
                             idProduto={item.ID_PRODUTO}
+                            colecionador={item.TP_COLECIONADOR}
                             />
              
                     </>)}

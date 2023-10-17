@@ -13,6 +13,7 @@ import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
 import Adm_leftNavBar from '../../../ui/components/ADM_components/left_navbar';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
 import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
+import Report from '../../../ui/components/report';
 
 
 export default function PerfilPessoal() {
@@ -51,7 +52,7 @@ export default function PerfilPessoal() {
             <div className='perfil-pag'>
                 <div className='banner'></div>
                 <span style={{ display: 'flex' }}>
-
+                    <Report/>
                     <SideBarUsers />
                     <section className='PerfilDetails'>
                         <div className='Perfil'>
