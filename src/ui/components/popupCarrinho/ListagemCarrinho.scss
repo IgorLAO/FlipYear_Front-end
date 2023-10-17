@@ -3,17 +3,29 @@
     display: flex;
     flex-direction: column;
 
+    .linha-produtos{
+    
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 8px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        
+    
+    
+    
+    }
 
-}
 
-.linha-produtos{
+    .linha-produtos:hover{
+
+        border: 1px solid black;
 
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    }
 
 }

@@ -24,13 +24,22 @@ export default function PopUpCarrinho({setPopUpCarro}){
     
     async function PuxarCarrinho(){
        
+        SetTotal(0);
         let respCarrinho = await axios.get('http://localhost:5000/carrinho/' + 3);
         setDataCarrinho(respCarrinho.data);
       
         
     }
+    async function LimparCarrinho(){
+
+       
+        let resp = await axios.delete("http://localhost:5000/carrinho/" + 3);
+   
+    }
 
     async function CalcularTotal(){
+
+        let total = 0;
 
         dataCarrinho.map((item) =>{
 
@@ -38,9 +47,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
 
                 let calculo = item.VL_PRECO_PROMOCIONAL * item.QTD_PRODUTO_CARRINHO;
 
-                console.log(calculo);
-
-                SetTotal(total + calculo);
+                total = total + calculo;
 
             }
 
@@ -49,19 +56,23 @@ export default function PopUpCarrinho({setPopUpCarro}){
                 
                 let calculo = item.VL_PRECO * item.QTD_PRODUTO_CARRINHO;
 
-                SetTotal(total + calculo);
+                total = total + calculo;
 
             }
 
 
 
         })
+
+        SetTotal(total);
         
     }
 
     useEffect(() =>{
 
         PuxarCarrinho();
+        CalcularTotal();
+
         
     });
 
@@ -102,7 +113,8 @@ export default function PopUpCarrinho({setPopUpCarro}){
         nome={item.NM_PRODUTO} 
         precoOriginal={item.VL_PRECO}
         precoPromocional={item.VL_PRECO_PROMOCIONAL}
-        promocao={item.BT_PROMOCAO}></ListagemCarrinho>
+        promocao={item.BT_PROMOCAO}
+        idProduto={item.ID_PRODUTO}></ListagemCarrinho>
         
         )}
         
@@ -166,7 +178,7 @@ export default function PopUpCarrinho({setPopUpCarro}){
 </defs>
 </svg>
 
-<p onClick={CalcularTotal}>Finalizar</p>
+<p>Finalizar</p>
 
         </div>
 
