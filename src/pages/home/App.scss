@@ -278,4 +278,14 @@
       font-size: 30px;
     }
   }
+
+
+  .produtos h2{
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .produtos h2:hover{
+    color: #346856;
+  }
 }
