@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import './index.scss'
 
@@ -12,12 +12,10 @@ import yum_fita from '../../ui/assets/images/imageExamples/yum fita_frente 1.png
 import hermes from '../../ui/assets/images/compraPage_assets/hermes_express.png'
 import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.png'
 import seta from '../../ui/assets/images/compraPage_assets/seta.png'
-
 import NavBar from "../../ui/components/navBar"
 import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
-import Report from "../../ui/components/report";
 
 export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
@@ -25,9 +23,14 @@ export default function InfProduto() {
     const [hideBuyOptions, setHideBuyOptions] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
+    const[comments, setComments] = useState([])
+
 
     const GetComments = async () =>{
-        let res = await axios.get('')
+        let res = await axios.get('http://localhost:5000/comentarios?pagina=1')
+
+        console.log(res.data)
+        setComments(res.data)
     }
 
 
@@ -43,6 +46,10 @@ export default function InfProduto() {
             setAng('0')
         }
     }
+
+    useEffect(() =>{
+    GetComments()
+    }, []);
 
 
     return (
@@ -168,9 +175,13 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-                <Comments/>
-                <Comments/>
-                <Comments/>
+                {comments.map((item) =>
+                <Comments
+                Nome={item.NOME}
+                Data={item.PUBLICACAO}
+                Conteudo={item.COMENTARIO}
+                Likes={item.LIKES}/>
+              )}
 
             </div>
 
