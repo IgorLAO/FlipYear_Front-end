@@ -22,22 +22,18 @@ export default function Rodape(){
                     <div >
                         <h1>CONTEÚDO</h1>
 
-                        <a>Fale conosco</a>
+                        <a>Suporte</a>
                         <a>Minha Conta</a>
-                        <a>A Empresa</a>
-                        <a>Atendimento ao Cliente</a>
-                        <a>Garantia e Devoluções</a>
-                        <a>Política de Privacidade</a>
+                        <a>Sobre Nós</a>
+                        <a>Catálogo</a>
+
                     </div>
                     <div>
                         <h1>CATEGORIAS</h1>
-
                         <a>Nintendo</a>
-                        <a>Nintendo</a>
-                        <a>Nintendo</a>
-                        <a>Nintendo</a>
-                        <a>Nintendo</a>
-                        <a>Nintendo</a>
+                        <a>Sega</a>
+                        <a>Jogos</a>
+                        <a>Colecionador</a>
                     </div>
                     <div className="contato">
                         <h1>CONTATO</h1>
