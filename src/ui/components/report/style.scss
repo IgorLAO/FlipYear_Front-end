@@ -65,18 +65,18 @@
     }
     .PopUp.active {
         opacity: 1;
-        animation: fadeIn 50s;
+        animation: fadeIn 5s;
         
     }
 
     
 @keyframes fadeIn {
     from {
-        opacity: 1;
+        transform: skew(30deg, 20deg);
 
     }
     to {
-        transform: scale3d(1.5, 1.5, 1.5);
+        transform: skew(20deg, 40deg);
     }
 }
 
