@@ -11,7 +11,7 @@ import Report from '../report';
 
 export default function Comments() {
     const [popUpPefil, setPopUpPerfil] = useState('');
-    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
+    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(true);
 
     function mostrarPopUpPerfil() {
 
@@ -32,7 +32,7 @@ export default function Comments() {
                 : <></>}
 
             <div className="comment-block">
-                {(IsHideReportPopUp) ? <Report isHide={IsHideReportPopUp}/> : <></> }
+                <Report isHide={IsHideReportPopUp}/> 
                 
                 <div className="comments">
                     <div className="comment-box">

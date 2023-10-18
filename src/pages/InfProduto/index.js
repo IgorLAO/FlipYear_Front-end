@@ -169,8 +169,6 @@ export default function InfProduto() {
                 </div>
 
                 <Comments/>
-                <Comments/>
-                <Comments/>
 
             </div>
 

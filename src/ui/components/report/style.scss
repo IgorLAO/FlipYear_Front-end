@@ -9,12 +9,14 @@
     z-index: 2;
     backdrop-filter: blur(10px);
 
+
     .PopUp {
         display: flex;
         flex-direction: column;
         background-color: aliceblue;
         width: 55%;
         border-bottom: solid #000;
+        opacity: 0;
 
         header {
             display: flex;
@@ -61,13 +63,32 @@
         }
 
     }
-    .Btn{
+    .PopUp.active {
+        opacity: 1;
+        animation: fadeIn 50s;
+        
+    }
+
+    
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+
+    }
+    to {
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+}
+
+
+    .Btn {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
         box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 7px, rgba(101, 119, 134, 0.15) 0px 1px 3px 1px;
-        button{
+
+        button {
             border-radius: 5px;
             padding: 10px 70px;
             border: none;
