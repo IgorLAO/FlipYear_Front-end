@@ -35,7 +35,7 @@ const Report = () => {
                             <h4> Suicídio ou auto-mutilação </h4>
                             <a>Incentivar, promover, fornecer instruções ou compartilhar estratégias de auto-mutilação.</a>
                         </span>
-                        <input type='radio' id='paia'/>
+                        <input type='radio' id='paia' />
                     </div>
 
                     <div className='option' onClick={() => document.getElementById('dis_vio').click()}>
@@ -43,7 +43,7 @@ const Report = () => {
                             <h4> Discurso Violento </h4>
                             <a>Ameaças Violentas, Desejo de Dano, Glorificação da Violência, Incitação da Violência, Incitação Codificada da Violência</a>
                         </span>
-                        <input type='radio' id='dis_vio'/>
+                        <input type='radio' id='dis_vio' />
                     </div>
 
                     <div className='option' onClick={() => document.getElementById('ab').click()}>
