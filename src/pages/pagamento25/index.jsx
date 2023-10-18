@@ -7,11 +7,27 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonicRunning_gif.png';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { set } from 'local-storage';
 
-// import { ListProd } from '../../../../FlipYear-Back-end/api/src/repositorys/produtos/produtosRepository.js';
 
-export default function Pagamento25() {
+export default function Pagamento25(){
+    const [id, setId] = useState();
+    const [list, setList] = useState([]);
 
+    useEffect(() => {
+        ListProduct();
+    }, []);
+
+    async function ListProduct(){
+
+        const url = await axios.get(`http://localhost:5000/produtos`);
+
+        console.log(url.data[0].QTD_ESTOQUE)
+         setList(url.data[0])
+
+    };
 
     return (
         <>
@@ -55,14 +71,14 @@ export default function Pagamento25() {
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Produto</th>
+                                                <th></th>
                                                 <th>Qtd</th>
                                                 <th>Preço</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>#01</td>
+                                                <td>{list.NM_PRODUTO}</td>
                                                 <td></td>
                                             </tr>
                                         </tbody>
@@ -71,7 +87,7 @@ export default function Pagamento25() {
                                 </div>
                             </div>
                             <div className='resumo_pedido'>
-            
+
                             </div>
                         </div>
                     </div>
@@ -107,7 +123,7 @@ export default function Pagamento25() {
                         </div>
                         <div className='finalizar'>
                             <img src={CarrinhoBranco} />
-                            <p>Finalizar</p>
+                            <p onClick={ListProduct}>Finalizar</p>
                         </div>
                     </div>
                 </div>
