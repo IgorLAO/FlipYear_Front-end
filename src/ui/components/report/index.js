@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './style.scss'
 
 const Report = (props) => {
-    const [IsHidePopUp, setIsHidePopUp] = useState(props.isHide)
+    const [IsHidePopUp, setIsHidePopUp] = useState(true)
 
     return (
         <>
@@ -34,13 +34,13 @@ const Report = (props) => {
                                 <input type='radio' id='violenta' />
                             </div>
 
-                    <div className='option' onClick={() => document.getElementById('paia').click()}>
-                        <span style={{ display: 'flex', flexDirection: 'column' }}>
-                            <h4> Suicídio ou auto-mutilação </h4>
-                            <a>Incentivar, promover, fornecer instruções ou compartilhar estratégias de auto-mutilação.</a>
-                        </span>
-                        <input type='radio' id='paia'/>
-                    </div>
+                            <div className='option' onClick={() => document.getElementById('paia').click()}>
+                                <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <h4> Suicídio ou auto-mutilação </h4>
+                                    <a>Incentivar, promover, fornecer instruções ou compartilhar estratégias de auto-mutilação.</a>
+                                </span>
+                                <input type='radio' id='paia' />
+                            </div>
 
                             <div className='option' onClick={() => document.getElementById('dis_vio').click()}>
                                 <span style={{ display: 'flex', flexDirection: 'column' }}>

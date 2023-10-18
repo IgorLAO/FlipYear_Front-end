@@ -94,7 +94,7 @@ export default function PerfilPessoal() {
                                 <a>{'>'}</a>
                             </span>
                         </div>
-
+                        <Report/>
                     </section>
                 </span>
 

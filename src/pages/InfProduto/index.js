@@ -193,8 +193,6 @@ export default function InfProduto() {
                 <div className="products">
                     <img id="setaInversa" src={seta} alt="" />
                         <CardProdutoCtlg />
-                        <CardProdutoCtlg />
-                        <CardProdutoCtlg />
                     <img src={seta} alt="" />
                 </div>
             </div>
