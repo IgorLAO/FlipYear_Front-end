@@ -36,8 +36,8 @@ export default function PerfilPessoal() {
         }
 
     })
-    function is(){
-        if(IsHideEdit){
+    function is() {
+        if (IsHideEdit) {
             setIsHideEdit(false)
         }
 
@@ -46,60 +46,61 @@ export default function PerfilPessoal() {
     console.log('perfil edit is ' + IsHideEdit)
 
     return (
-        <div className='MainPerfil-P'>
-            {IsHideEdit && <EditarPerfil IsHideEdit={IsHideEdit} />}
+        <>
+            <div className='MainPerfil-P'>
+                {IsHideEdit && <EditarPerfil IsHideEdit={IsHideEdit} />}
 
-            <div className='perfil-pag'>
-                <div className='banner'></div>
-                <span style={{ display: 'flex' }}>
-                    <Report/>
-                    <SideBarUsers />
-                    <section className='PerfilDetails'>
-                        <div className='Perfil'>
-                            <span className='InfoP'>
-                                <img src={Corvo} />
-                                <a> {NomeUser} </a>
-                            </span>
-                            <span>
-
-                                <a className='EditBtn' style={{cursor: 'pointer'}} onClick={is}>Editar Perfil</a>
-                            </span>
-                        </div>
-
-                        <div className='Pedidos'>
-                            <span className='title'>
-                                <span>
-                                    <h1> Meus Pedidos </h1>
+                <div className='perfil-pag'>
+                    <div className='banner'></div>
+                    <span style={{ display: 'flex' }}>
+                        <SideBarUsers />
+                        <section className='PerfilDetails'>
+                            <div className='Perfil'>
+                                <span className='InfoP'>
+                                    <img src={Corvo} />
+                                    <a> {NomeUser} </a>
                                 </span>
-                                <img src={filter} />
-                            </span>
-                            <div className='Items'>
-                                <CardPedido2 />
-                                <CardPedido2 />
-                                <CardPedido2 />
-                                <CardPedido2 />
-                                <CardPedido2 />
+                                <span>
+
+                                    <a className='EditBtn' style={{ cursor: 'pointer' }} onClick={is}>Editar Perfil</a>
+                                </span>
                             </div>
 
-                            <span className='pages'>
-                                <a>1</a>
-                                <a>2</a>
-                                <a>3</a>
-                                <a>4</a>
-                                <a>5</a>
-                                <a>6</a>
-                                <a>7</a>
-                                <a>8</a>
-                                <a>9</a>
-                                <a>{'>'}</a>
-                            </span>
-                        </div>
-                        <Report/>
-                    </section>
-                </span>
+                            <div className='Pedidos'>
+                                <span className='title'>
+                                    <span>
+                                        <h1> Meus Pedidos </h1>
+                                    </span>
+                                    <img src={filter} />
+                                </span>
+                                <div className='Items'>
+                                    <CardPedido2 />
+                                    <CardPedido2 />
+                                    <CardPedido2 />
+                                    <CardPedido2 />
+                                    <CardPedido2 />
+                                </div>
 
+                                <span className='pages'>
+                                    <a>1</a>
+                                    <a>2</a>
+                                    <a>3</a>
+                                    <a>4</a>
+                                    <a>5</a>
+                                    <a>6</a>
+                                    <a>7</a>
+                                    <a>8</a>
+                                    <a>9</a>
+                                    <a>{'>'}</a>
+                                </span>
+                            </div>
+                        </section>
+                    </span>
+                {<Report />}
+
+                </div>
             </div>
-        </div>
+        </>
     )
 
 

@@ -2,15 +2,21 @@ import { useState } from 'react';
 import './style.scss'
 
 const Report = (props) => {
-    const [IsHidePopUp, setIsHidePopUp] = useState(true)
+    const [IsHidePopUp, setIsHidePopUp] = useState(props.isHide)
 
+    if(props.isHide){
+        document.body.style.overflow = 'hidden'
+    } else{
+        document.body.style.overflow = 'auto'
+    }
     return (
         <>
+        <button onClick={() => setIsHidePopUp(true)}>aparecer</button>
             {IsHidePopUp &&
                 <div className="Main_Report">
                     <section className='PopUp'>
                         <header>
-                            <span onClick={() => setIsHidePopUp(false)} style={{cursor: 'pointer'}} >X</span>
+                            <span onClick={() => setIsHidePopUp(false)} style={{cursor: 'pointer'}} > <a>X</a> </span>
                             <h1>Reportar Usuario</h1>
                         </header>
                         <div className='Title'>
