@@ -4,14 +4,9 @@ import './style.scss'
 const Report = (props) => {
     const [IsHidePopUp, setIsHidePopUp] = useState(props.isHide)
 
-
-    const ReviewPopUp = () =>{
-        document.getElementById('popUp').style.display = 'flex'
-        document.getElementById('popUp').classList.add('active')
-    }
-
     return (
         <>
+        <button onClick={() => setIsHidePopUp(true)}>aparecer</button>
             {IsHidePopUp &&
                 <div className="Main_Report" >
                     <button onClick={ReviewPopUp} >
@@ -19,8 +14,7 @@ const Report = (props) => {
                     </button>
                     <section className='PopUp' id='popUp' >
                         <header>
-                            <span onClick={() => document.getElementById('popUp').style.display = 'none'} 
-                                  style={{cursor: 'pointer'}} >X</span>
+                            <span onClick={() => setIsHidePopUp(false)} style={{cursor: 'pointer'}} >X</span>
                             <h1>Reportar Usuario</h1>
                         </header>
                         <div className='Title'>
@@ -49,7 +43,7 @@ const Report = (props) => {
                             <h4> Suicídio ou auto-mutilação </h4>
                             <a>Incentivar, promover, fornecer instruções ou compartilhar estratégias de auto-mutilação.</a>
                         </span>
-                        <input type='radio' id='paia' name='paia' value="paia" />
+                        <input type='radio' id='paia'/>
                     </div>
 
                             <div className='option' onClick={() => document.getElementById('dis_vio').click()}>
