@@ -17,9 +17,9 @@ export default function SideBarUsers() {
     const [splitNav, setSplitNav] = useState();
     const navigate = useNavigate();
 
-    const logOut = () =>{
-    storage.remove('NORMAL_USER_Logado')
-    navigate('/login')
+    const logOut = () => {
+        storage.remove('NORMAL_USER_Logado')
+        navigate('/login')
     }
 
     return (
@@ -49,7 +49,7 @@ export default function SideBarUsers() {
                                     <h4> Caixa de Entrada </h4>
                                 </div>
                             </Link>
-                         
+
                             <Link to="ADM_Pedidos">
                                 <div>
                                     <img src={clockIcon} />

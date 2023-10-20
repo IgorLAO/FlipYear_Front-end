@@ -7,43 +7,54 @@ import Corvo from '../../../../ui/assets/images/perfil-publico_assets/download 2
 import cam from '../../../../ui/assets/images/edit_profi/cam.png'
 
 import { useEffect, useState } from 'react';
+import { EnviarImagem, GetImage, GetUserById } from '../../../../api/usuario';
 
 
 export default function EditarPerfil(props) {
     const navigate = useNavigate();
-    const [NomeUser, setNomeUser] = useState('default');
+    const [Infos, setInfos] = useState('default');
     const [isHide, setIsHide] = useState(props.IsHideEdit);
     const [BannerImg, setBannerImg] = useState();
     const [ProfileImg, setProfileImg] = useState();
+    const [userInfos, setUserInfos] = useState([]);
 
-    const LogOut = (props) => {
-        localStorage.remove('NORMAL_USER_Logado');
-        navigate('/login');
-    };
+
+
+    const getId = async () => {
+        const infos = localStorage("NORMAL_USER_Logado");
+        let datas = await GetUserById(infos.data.Id);
+        setUserInfos(datas);
+        console.log(userInfos);
+    }
 
     useEffect(() => {
-        if (!localStorage("NORMAL_USER_Logado")) {
-            navigate('/login')
-        } else {
-            const infos = localStorage("NORMAL_USER_Logado");
-            setNomeUser(infos.data.Nome);
+        getId();
+    }, [])
 
-        }
 
-    })
-
-    if(isHide){
-
+    if (isHide) {
         document.body.style.overflow = 'hidden'
-    } else{
+    } else {
         document.body.style.overflow = 'auto'
     }
-    console.log(ProfileImg)
 
 
-    function mostrar(){
-        return URL.createObjectURL(ProfileImg)
+
+    function mostrarBanner() {
+        return URL.createObjectURL(BannerImg)
     }
+
+    function mostrarProfile() {
+        return GetImage(ProfileImg)
+    }
+
+    const Save = () => {
+        const infos = localStorage("NORMAL_USER_Logado");
+        setInfos(infos.data);
+        EnviarImagem(infos.data.Id, userInfos.ImageProfile)
+        console.log(userInfos.ImageProfile)
+    }
+
 
     return (
         <>
@@ -52,27 +63,33 @@ export default function EditarPerfil(props) {
                     <div className='EditFrame'>
                         <header>
                             <span>
+                                <button onClick={getId} >aaa</button>
                                 <a onClick={() => setIsHide(false)}>X</a>
                                 <h5>Edit Profile</h5>
                             </span>
-                            <a className='SaveBtn'>SAVE</a>
+                            <a className='SaveBtn' onClick={Save}>SAVE</a>
                         </header>
+
                         <section>
                             <div className='ProfilePic' >
-                                <div className='banner'onClick={() => document.getElementById('fileBanner').click()}>
+                                <div className='banner' onClick={() => document.getElementById('fileBanner').click()}>
 
-                                    <span className='blockCam' >
-                                        <img src={cam} alt='CameraIcon'/>
-                                        <input type='file' id='fileBanner'onChange={ e => setBannerImg(e.target.files)}/>
+                                    <span className='blockCam' id='cam'>
+                                        {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
+                                        {!BannerImg && <img src={cam} alt='CameraIcon' />}
+
+                                        <input type='file' id='fileBanner' onChange={e => setBannerImg(e.target.files[0])} />
                                     </span>
                                 </div>
 
                                 <span className='perfil' onClick={() => document.getElementById('fileProfile').click()}>
-                                    <img src={Corvo} id='foto' />
+                                    {!ProfileImg && <img className='foto' src={Corvo} alt='CameraIcon' />}
+                                    {ProfileImg && <img className='foto' src={mostrarProfile()} alt='CameraIcon' />}
 
-                                    <span className='blockCam'>
-                                        <img src={cam} alt='CameraIcon'/>
-                                        <input type='file' id='fileProfile' onChange={ e => setProfileImg(e.target.files[0])} />
+                                    <span className='blockCam' id='cam'>
+                                        <img src={cam} alt='CameraIcon' />
+
+                                        <input style={{ border: 'red solid' }} type='file' id='fileProfile' onChange={e => setProfileImg(e.target.files[0])} />
                                     </span>
                                 </span>
                             </div>

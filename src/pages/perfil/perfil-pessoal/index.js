@@ -19,7 +19,8 @@ import Report from '../../../ui/components/report';
 export default function PerfilPessoal() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
-    const [IsHideEdit, setIsHideEdit] = useState(false)
+    const [Infos, setInfos] = useState();
+    const [IsHideEdit, setIsHideEdit] = useState(true);
 
     const LogOut = () => {
         localStorage.remove('NORMAL_USER_Logado');
@@ -32,10 +33,11 @@ export default function PerfilPessoal() {
         } else {
             const infos = localStorage("NORMAL_USER_Logado");
             setNomeUser(infos.data.Nome);
-
+            setInfos(infos);
         }
 
-    })
+    });
+    
     function is() {
         if (IsHideEdit) {
             setIsHideEdit(false)
@@ -43,12 +45,14 @@ export default function PerfilPessoal() {
 
         setIsHideEdit(true)
     }
-    console.log('perfil edit is ' + IsHideEdit)
+
+
+
 
     return (
         <>
             <div className='MainPerfil-P'>
-                {IsHideEdit && <EditarPerfil IsHideEdit={IsHideEdit} />}
+                 <EditarPerfil IsHideEdit={IsHideEdit} />
 
                 <div className='perfil-pag'>
                     <div className='banner'></div>

@@ -8,6 +8,7 @@ import './login.scss';
 
 import googleLogo from '../../ui/assets/images/imagesLogin/google 1.png';
 import FacebookeLogo from '../../ui/assets/images/imagesLogin/face 1.png';
+import { Login2 } from '../../api/usuario';
 
 
 function Login(props2) {
@@ -33,10 +34,7 @@ function Login(props2) {
 
   const logar = async (e) => {
     try {
-      let res = await axios.post("http://localhost:5000/usuarios/login", {
-        Email: email,
-        Senha: senha
-      })
+      let res = await Login2(email, senha);
 
       if (res.data.Tier === "ADM") {
         storage('ADM_Logado', res)
@@ -55,15 +53,10 @@ function Login(props2) {
   }
 
   const logarEnter = async (e) => {
-    if(e.key == 'Enter'){
-    try {
-        
-        let res = await axios.post("http://localhost:5000/usuarios/login", {
-          Email: email,
-          Senha: senha
-        })
-        console.log(res)
-        
+    if (e.key == 'Enter') {
+      try {
+        let res = await Login2(email, senha);
+
         if (res.data.Tier == "ADM") {
           storage('ADM_Logado', res)
           navigate('/ADM');
@@ -71,7 +64,7 @@ function Login(props2) {
           storage('NORMAL_USER_Logado', res)
           navigate('/perfil-pessoal');
         }
-        
+
       } catch (err) {
         if (err.response.status === 401) {
           console.log(err.response.data.erro)
@@ -111,7 +104,7 @@ function Login(props2) {
                   </label>
                   <label for='senha'>
                     Senha
-                    <input type="password" id='senha' value={senha} onChange={e => setSenha(e.target.value)}  onKeyDown={logarEnter} />
+                    <input type="password" id='senha' value={senha} onChange={e => setSenha(e.target.value)} onKeyDown={logarEnter} />
                   </label>
                   <h6 onClick={hideReveal}>Esqueceu a senha</h6>
 
