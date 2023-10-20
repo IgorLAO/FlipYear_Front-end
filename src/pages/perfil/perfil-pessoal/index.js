@@ -20,7 +20,7 @@ export default function PerfilPessoal() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
     const [Infos, setInfos] = useState();
-    const [IsHideEdit, setIsHideEdit] = useState(true);
+    const [IsHideEdit, setIsHideEdit] = useState(false);
 
     const LogOut = () => {
         localStorage.remove('NORMAL_USER_Logado');
