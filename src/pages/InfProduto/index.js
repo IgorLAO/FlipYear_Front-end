@@ -175,13 +175,9 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-                {comments.map((item) =>
-                <Comments
-                Nome={item.NOME}
-                Data={item.PUBLICACAO}
-                Conteudo={item.COMENTARIO}
-                Likes={item.LIKES}/>
-              )}
+                <Comments/>
+                <Comments/>
+                <Comments/>
 
             </div>
 
