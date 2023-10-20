@@ -32,6 +32,7 @@ export default function PerfilPessoal() {
             navigate('/login')
         } else {
             const infos = localStorage("NORMAL_USER_Logado");
+            navigate('/perfil-pessoal')
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
