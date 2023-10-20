@@ -16,21 +16,16 @@ export default function EditarPerfil(props) {
     const [isHide, setIsHide] = useState(props.IsHideEdit);
     const [BannerImg, setBannerImg] = useState();
     const [ProfileImg, setProfileImg] = useState();
-    const [userInfos, setUserInfos] = useState([]);
+    const [userInfos, setUserInfos] = useState();
 
 
 
-    const getId = async () => {
-        const infos = localStorage("NORMAL_USER_Logado");
-        let datas = await GetUserById(infos.data.Id);
-        setUserInfos(datas);
-        console.log(userInfos);
-    }
-    
-
-    useEffect(() => {
-        getId();
-    }, [])
+     const getId = async () => {
+         const infos = localStorage("NORMAL_USER_Logado");
+         const datas = await GetUserById(infos.data.Id);
+         setUserInfos(infos);
+         console.log(datas);
+     }
 
 
     if (isHide) {
@@ -50,6 +45,7 @@ export default function EditarPerfil(props) {
     }
 
     const Save = () => {
+        
         const infos = localStorage("NORMAL_USER_Logado");
         setInfos(infos.data);
         EnviarImagem(infos.data.Id, userInfos.ImageProfile)
@@ -62,9 +58,11 @@ export default function EditarPerfil(props) {
             {isHide &&
                 <div className='MainPerfil-edit'>
                     <div className='EditFrame'>
+                        <button onClick={getId}> 
+                            oii
+                        </button>
                         <header>
                             <span>
-                                <button onClick={getId} >aaa</button>
                                 <a onClick={() => setIsHide(false)}>X</a>
                                 <h5>Edit Profile</h5>
                             </span>

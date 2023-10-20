@@ -43,10 +43,12 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
         </div>
 
         <p className='mensagem'>É necessário ter uma conta</p>
-        <div className='logar-op'>
-            <Link to={'/login'}>
-            <p onClick={logar}>Logar</p>
-            </Link>
+
+        <Link to={'/login'}>
+        <div  onClick={logar} className='logar-op'>
+            
+            <p>Logar</p>
+            
 
             <svg xmlns="http://www.w3.org/2000/svg" width="132" height="46" viewBox="0 0 132 46" fill="none">
                 <g filter="url(#filter0_d_1468_11)">
@@ -70,6 +72,7 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
                 </defs>
             </svg>
         </div>
+        </Link>
 
         <div className='cadastro-op'>
             <p> Cadastrar-se</p>

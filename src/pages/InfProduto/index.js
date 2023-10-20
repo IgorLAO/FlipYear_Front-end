@@ -23,14 +23,29 @@ export default function InfProduto() {
     const [hideBuyOptions, setHideBuyOptions] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
-    const[comments, setComments] = useState([])
+    const [comments, setComments] = useState([])
+    const [otherProducts, setOtherProducts] = useState([])
+    const [pageComments, setPageComments] = useState(1)
 
 
     const GetComments = async () =>{
-        let res = await axios.get('http://localhost:5000/comentarios?pagina=1')
+        let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
         console.log(res.data)
         setComments(res.data)
+    }
+
+    function nextPag(){
+        setPageComments(pageComments + 1)
+    }
+
+
+
+    const GetProducts = async () =>{
+        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=1')
+
+        console.log(res.data)
+        setOtherProducts(res.data)
     }
 
 
@@ -49,6 +64,7 @@ export default function InfProduto() {
 
     useEffect(() =>{
     GetComments()
+    GetProducts()
     }, []);
 
 
@@ -175,9 +191,15 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-                <Comments/>
-                <Comments/>
-                <Comments/>
+                {comments.map((item) =>
+                <Comments
+                Nome={item.NOME}
+                Data={item.PUBLICACAO}
+                Conteudo={item.COMENTARIO}
+                Likes={item.LIKES}
+                />    
+                )}
+                
 
             </div>
 
@@ -188,7 +210,9 @@ export default function InfProduto() {
 
                 <div className="products">
                     <img id="setaInversa" src={seta} alt="" />
-                        <CardProdutoCtlg />
+                    {otherProducts.map((item) =>(
+          <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
+          ))}
                     <img src={seta} alt="" />
                 </div>
             </div>

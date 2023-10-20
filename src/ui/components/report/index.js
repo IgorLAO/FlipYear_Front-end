@@ -9,7 +9,7 @@ const Report = (props) => {
         <button onClick={() => setIsHidePopUp(true)}>aparecer</button>
             {IsHidePopUp &&
                 <div className="Main_Report" >
-                    <button onClick={ReviewPopUp} >
+                    <button >
                         aparece poraa
                     </button>
                     <section className='PopUp' id='popUp' >

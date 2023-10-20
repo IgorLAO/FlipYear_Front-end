@@ -25,7 +25,7 @@ export function RecupararSenha(props){
 <div className='recuperação'>
   {hide && (<>
     <div className='voltar'>
-    <h5 onClick={props.hideReveal2}> --Voltar </h5>
+    <h5 onClick={props.hideReveal2}> --    Voltar </h5>
           </div>
 
         <h1>Recuperar conta</h1>

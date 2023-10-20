@@ -1,7 +1,6 @@
 import axios from "axios";
-import { Profiler } from "react";
 const server = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "http://129.148.42.252:5010"
 });
 
 export async function Login2(email, senha) {
@@ -18,7 +17,7 @@ export async function EnviarImagem(id, Profile) {
 
     const res = await server.put(`/usuario/${id}/images`, formData, {
         headers: {
-            "Content-Typr": "multipart/form-data"
+            "Content-Type": "multipart/form-data"
         },
     });
     return res.status;
@@ -26,9 +25,10 @@ export async function EnviarImagem(id, Profile) {
 
 export async function GetUserById(UserId) {
     const resp = await server.get(`/usuario/${UserId}`)
-    return resp.data
+    return resp
 }
 
 export function GetImage(imagem) {
+    console.log(`${server.getUri()}/${imagem}`)
     return `${server.getUri()}/${imagem}`
 }
