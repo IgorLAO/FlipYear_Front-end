@@ -20,17 +20,13 @@ export default function EditarPerfil(props) {
 
 
 
-    const getId = async () => {
-        const infos = localStorage("NORMAL_USER_Logado");
-        let datas = await GetUserById(infos.data.Id);
-        setUserInfos(datas);
-        console.log(userInfos);
-    }
+    // const getId = async () => {
+    //     const infos = localStorage("NORMAL_USER_Logado");
+    //     let datas = await GetUserById(infos.data.Id);
+    //     setUserInfos(datas);
+    //     console.log(userInfos);
+    // }
     
-
-    useEffect(() => {
-        getId();
-    }, [])
 
 
     if (isHide) {
@@ -64,7 +60,6 @@ export default function EditarPerfil(props) {
                     <div className='EditFrame'>
                         <header>
                             <span>
-                                <button onClick={getId} >aaa</button>
                                 <a onClick={() => setIsHide(false)}>X</a>
                                 <h5>Edit Profile</h5>
                             </span>
