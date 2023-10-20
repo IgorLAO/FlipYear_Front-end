@@ -33,7 +33,6 @@ export default function Comments(props) {
                 : <></>}
 
             <div className="comment-block">
-                <Report isHide={IsHideReportPopUp}/> 
                 
                 <div className="comments">
                     <div className="comment-box">
