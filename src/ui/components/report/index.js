@@ -4,13 +4,14 @@ import './style.scss'
 const Report = (props) => {
     const [IsHidePopUp, setIsHidePopUp] = useState(props.isHide)
 
-
     return (
         <>
         <button onClick={() => setIsHidePopUp(true)}>aparecer</button>
             {IsHidePopUp &&
                 <div className="Main_Report" >
-                 
+                    <button >
+                        aparece poraa
+                    </button>
                     <section className='PopUp' id='popUp' >
                         <header>
                             <span onClick={() => setIsHidePopUp(false)} style={{cursor: 'pointer'}} >X</span>

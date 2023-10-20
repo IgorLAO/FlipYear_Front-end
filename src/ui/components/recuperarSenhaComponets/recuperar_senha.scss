@@ -5,7 +5,7 @@
 
     position: relative;
     top: 178px;
-    left: 25px;
+    left: 200px;
 
     .voltar{
         display: flex;
@@ -15,6 +15,8 @@
         h5{
             font-size: 7px;
             padding: 10px 10px;
+            cursor: pointer;
+            color: #018b2f;
         }
     }
     .inputsRec{
@@ -22,6 +24,8 @@
         flex-direction: column;
         font-size: 9px;
         input{
+            background-color: #00ff5536;
+            border: #018b2f solid 2px;
             padding: 8px 10px;
             width: 250px;
             margin-top: 5px;
