@@ -26,6 +26,7 @@ export default function EditarPerfil(props) {
         setUserInfos(datas);
         console.log(userInfos);
     }
+    
 
     useEffect(() => {
         getId();
