@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import storage from 'local-storage';
-
+import localStorage from 'local-storage';
 import { RecupararSenha } from '../../ui/components/recuperarSenhaComponets/recuperar_senha';
 import './login.scss';
 
@@ -37,10 +36,10 @@ function Login(props2) {
       let res = await Login2(email, senha);
 
       if (res.data.Tier === "ADM") {
-        storage('ADM_Logado', res)
+        localStorage('ADM_Logado', res)
         navigate('/ADM');
       } else if (res.data.Tier === "NORMAL_USERS") {
-        storage('NORMAL_USER_Logado', res)
+        localStorage('NORMAL_USER_Logado', res)
         navigate('/perfil-pessoal');
       }
 
@@ -56,12 +55,12 @@ function Login(props2) {
     if (e.key == 'Enter') {
       try {
         let res = await Login2(email, senha);
-
+    
         if (res.data.Tier == "ADM") {
-          storage('ADM_Logado', res)
+          localStorage('ADM_Logado', res)
           navigate('/ADM');
         } else if (res.data.Tier === "NORMAL_USERS") {
-          storage('NORMAL_USER_Logado', res)
+          localStorage('NORMAL_USER_Logado', res)
           navigate('/perfil-pessoal');
         }
 
@@ -75,10 +74,10 @@ function Login(props2) {
   }
 
   const verify = () => {
-    if (storage('ADM_Logado'))
+    if (localStorage('ADM_Logado'))
       navigate('/ADM')
 
-    if (storage('NORMAL_USER_Logado'))
+    if (localStorage('NORMAL_USER_Logado'))
       navigate('/perfil-pessoal')
 
   }
@@ -111,7 +110,7 @@ function Login(props2) {
                 </form>
                 <a
                   onClick={logar}
-                  className='entrarButton'> APERTE PARA ENTRAR </a>
+                  className='entrarButton' style={{cursor: 'pointer'}}> APERTE PARA ENTRAR </a>
 
                 <span className='linha'></span>
 

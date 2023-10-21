@@ -15,51 +15,79 @@ export default function EditarPerfil(props) {
     const [Infos, setInfos] = useState('default');
     const [isHide, setIsHide] = useState(props.IsHideEdit);
     const [BannerImg, setBannerImg] = useState();
-    const [ProfileImg, setProfileImg] = useState();
-    const [userInfos, setUserInfos] = useState();
+    const [NewProfilePic, setNewProfilePicShow] = useState('');
+    const [SendNewProfilePic, setSendNewProfilePic] = useState();
+    const [CurrentProfilePic, setCurrentProfilePic] = useState('');
+    const [userImage, setUserImage] = useState('');
+
+    function mostrarBanner() {
+        return URL.createObjectURL(BannerImg);
+    }
+
+    async function mostrarProfile() {
+        let infos = localStorage('NORMAL_USER_Logado');
+        let id = infos.data.Id
+        let das = await GetUserById(id);
+        let img = GetImage(das.data[0].ImageProfile);
+        console.log(das);
+        return GetImage(img);
+    }
+    //esse define a imagem no estado
+    function ShowNewProfileIMG(e) {
+        let files = e.target.files[0];
+        setSendNewProfilePic(files);
+        console.log(SendNewProfilePic);
+        let i = URL.createObjectURL(files);
+        setNewProfilePicShow(i);
+    }
+
+    // esse envia imagem
+    function Save() {
+        if(NewProfilePic){
+            const infos = localStorage("NORMAL_USER_Logado");
+            console.log(SendNewProfilePic)
+            EnviarImagem(infos.data.Id, SendNewProfilePic)
+            setIsHide(false)
+            window.location.reload();
+        }
+    }
+    async function TESTE() {
+        let infos = localStorage('NORMAL_USER_Logado');
+        let id = infos.data.Id
+        let das = await GetUserById(id);
+        let img = GetImage(das.data[0].ImageProfile);
+        setCurrentProfilePic(img)
+    }
 
 
-
-     const getId = async () => {
-         const infos = localStorage("NORMAL_USER_Logado");
-         const datas = await GetUserById(infos.data.Id);
-         setUserInfos(infos);
-         console.log(datas);
-     }
+    useEffect(() => {
+        TESTE();
+        props.enviarDadosParaPai(CurrentProfilePic);
+    }, [TESTE])
 
 
+    // ---------------------------------------------
     if (isHide) {
         document.body.style.overflow = 'hidden'
     } else {
         document.body.style.overflow = 'auto'
     }
 
-
-
-    function mostrarBanner() {
-        return URL.createObjectURL(BannerImg)
-    }
-
-    function mostrarProfile() {
-        return GetImage(ProfileImg)
-    }
-
-    const Save = () => {
-        
-        const infos = localStorage("NORMAL_USER_Logado");
-        setInfos(infos.data);
-        EnviarImagem(infos.data.Id, userInfos.ImageProfile)
-        console.log(userInfos.ImageProfile)
-    }
-
-
     return (
         <>
             {isHide &&
                 <div className='MainPerfil-edit'>
                     <div className='EditFrame'>
-                        <button onClick={getId}> 
-                            oii
+                        <button
+                            onClick={TESTE}
+                            style={{
+                                backgroundColor: '#6BAEFF',
+                                padding: '15px 30px',
+                                color: 'fff', border: 'solid #fff',
+                                borderRadius: '15px',
+                                margin: '15px'
+                            }} >
+                            ShowNewProfileIMG
                         </button>
                         <header>
                             <span>
@@ -82,13 +110,16 @@ export default function EditarPerfil(props) {
                                 </div>
 
                                 <span className='perfil' onClick={() => document.getElementById('fileProfile').click()}>
-                                    {!ProfileImg && <img className='foto' src={Corvo} alt='CameraIcon' />}
-                                    {ProfileImg && <img className='foto' src={mostrarProfile()} alt='CameraIcon' />}
+
+                                    {!NewProfilePic ?
+                                        (<img className='foto' src={CurrentProfilePic} alt='CameraIcon' />)
+                                        :
+                                        (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)}
 
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input style={{ border: 'red solid' }} type='file' id='fileProfile' onChange={e => setProfileImg(e.target.files[0])} />
+                                        <input style={{ border: 'red solid' }} type='file' id='fileProfile' onChange={ShowNewProfileIMG} />
                                     </span>
                                 </span>
                             </div>
@@ -107,5 +138,7 @@ export default function EditarPerfil(props) {
             }
         </>
     )
+
+
 }
 

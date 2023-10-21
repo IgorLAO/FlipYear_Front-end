@@ -1,6 +1,7 @@
 import axios from "axios";
 const server = axios.create({
-    baseURL: "http://129.148.42.252:5010"
+    // baseURL: "http://129.148.42.252:5010"
+    baseURL: "http://localhost:5000"
 });
 
 export async function Login2(email, senha) {
@@ -8,7 +9,13 @@ export async function Login2(email, senha) {
         Email: email,
         Senha: senha
     });
+    console.log(r)
     return r
+}
+
+export async function GetUserById(id) {
+    const resp = await server.get(`/usuario/${id}`);
+    return resp
 }
 
 export async function EnviarImagem(id, Profile) {
@@ -19,16 +26,13 @@ export async function EnviarImagem(id, Profile) {
         headers: {
             "Content-Type": "multipart/form-data"
         },
-    });
-    return res.status;
+    }).then((res) =>console.log(res))
+    
+    return res;
 }
 
-export async function GetUserById(UserId) {
-    const resp = await server.get(`/usuario/${UserId}`)
-    return resp
-}
 
-export function GetImage(imagem) {
-    console.log(`${server.getUri()}/${imagem}`)
+export function  GetImage(imagem) {
+    // console.log(`${server.getUri()}/${imagem}`)
     return `${server.getUri()}/${imagem}`
 }

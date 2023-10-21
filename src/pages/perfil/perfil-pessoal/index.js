@@ -21,39 +21,43 @@ export default function PerfilPessoal() {
     const [NomeUser, setNomeUser] = useState('default');
     const [Infos, setInfos] = useState();
     const [IsHideEdit, setIsHideEdit] = useState(false);
-
-    const LogOut = () => {
-        localStorage.remove('NORMAL_USER_Logado');
-        navigate('/login');
-    };
+    const [dados, setDadosRecebidos] = useState('');
 
     useEffect(() => {
         if (!localStorage("NORMAL_USER_Logado")) {
-            navigate('/login')
+            navigate('/login');
+
         } else {
             const infos = localStorage("NORMAL_USER_Logado");
-            navigate('/perfil-pessoal')
+            navigate('/perfil-pessoal');
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
 
-    });
-    
+    }, []);
+
     function is() {
         if (IsHideEdit) {
-            setIsHideEdit(false)
+            setIsHideEdit(false);
         }
 
-        setIsHideEdit(true)
+        setIsHideEdit(true);
     }
 
+    const receberDadosDoFilho = (dados) => {
+        setDadosRecebidos(dados);
+    };
 
-
+    useEffect(() => {
+        receberDadosDoFilho()
+        console.log(dados)
+    }, [])
 
     return (
         <>
             <div className='MainPerfil-P'>
-                 <EditarPerfil IsHideEdit={IsHideEdit} />
+                <EditarPerfil IsHideEdit={IsHideEdit}
+                    enviarDadosParaPai={receberDadosDoFilho} />
 
                 <div className='perfil-pag'>
                     <div className='banner'></div>
@@ -62,7 +66,7 @@ export default function PerfilPessoal() {
                         <section className='PerfilDetails'>
                             <div className='Perfil'>
                                 <span className='InfoP'>
-                                    <img src={Corvo} />
+                                    <img src={dados} />
                                     <a> {NomeUser} </a>
                                 </span>
                                 <span>
@@ -101,7 +105,6 @@ export default function PerfilPessoal() {
                             </div>
                         </section>
                     </span>
-                {<Report />}
 
                 </div>
             </div>
