@@ -20,7 +20,7 @@ export default function PerfilPessoal() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
     const [Infos, setInfos] = useState();
-    const [IsHideEdit, setIsHideEdit] = useState(false);
+    const [IsHideEdit, setIsHideEdit] = useState(true);
     const [dados, setDadosRecebidos] = useState('');
 
     useEffect(() => {
