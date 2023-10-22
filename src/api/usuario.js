@@ -9,6 +9,7 @@ export async function Login2(email, senha) {
         Email: email,
         Senha: senha
     });
+
     console.log(r)
     return r
 }
@@ -18,21 +19,27 @@ export async function GetUserById(id) {
     return resp
 }
 
-export async function EnviarImagem(id, Profile) {
+export async function EnviarImagem(id, Profile, Banner) {
     const formData = new FormData();
     formData.append('profile', Profile);
+    formData.append('banner', Banner);
 
     const res = await server.put(`/usuario/${id}/images`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
-    }).then((res) =>console.log(res))
-    
+    }).then((res) => console.log(res))
+
     return res;
 }
 
 
-export function  GetImage(imagem) {
-    // console.log(`${server.getUri()}/${imagem}`)
-    return `${server.getUri()}/${imagem}`
+export function GetBannerImage(BannerIMG) {
+    console.log(`${server.getUri()}/${BannerIMG}`)
+    return `${server.getUri()}/${BannerIMG}`
+}
+
+export function GetProfileImage(ProfIMG) {
+    console.log(`${server.getUri()}/${ProfIMG}`)
+    return `${server.getUri()}/${ProfIMG}`
 }

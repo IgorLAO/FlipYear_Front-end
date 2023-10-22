@@ -33,21 +33,22 @@ function Login(props2) {
 
   const logar = async (e) => {
     try {
-      let res = await Login2(email, senha);
-
-      if (res.data.Tier === "ADM") {
-        localStorage('ADM_Logado', res)
+      let r = await Login2(email, senha);
+      console.log(r.data.Tier);
+      
+      if (r.data.Tier === "ADM") {
+        localStorage('ADM_Logado', r)
         navigate('/ADM');
-      } else if (res.data.Tier === "NORMAL_USERS") {
-        localStorage('NORMAL_USER_Logado', res)
+
+      } else if (r.data.Tier === "NORMAL_USERS") {
+        localStorage('NORMAL_USER_Logado', r);
         navigate('/perfil-pessoal');
+
       }
 
     } catch (err) {
-      if (err.response.status === 401) {
-        console.log(err.response.data.erro)
         setErro(err.response.data.erro)
-      }
+      
     }
   }
 
