@@ -35,7 +35,6 @@ export default function PerfilPessoal() {
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
-
     }, []);
 
     function is() {
@@ -64,19 +63,27 @@ export default function PerfilPessoal() {
                     SendProfileToD={sendProfileToS} />
 
                 <div className='perfil-pag'>
-                    <img src={ReceivedBanner} style={{width: '100%', objectFit: 'cover', height: '10%'}} />
+                    <img src={ReceivedBanner} style={{
+                                        width: '100%', 
+                                        objectFit: 'cover', 
+                                        height: '15%'}} />
 
                     <span style={{ display: 'flex' }}>
                         <SideBarUsers />
                         <section className='PerfilDetails'>
                             <div className='Perfil'>
                                 <span className='InfoP'>
-                                    <img src={ReceivedProfile} style={{height: '150px', width: '100%', maxWidth: '150px', objectFit: 'cover'}} />
+                                    <img src={ReceivedProfile} style={{
+                                        height: '150px', 
+                                        width: '100%', 
+                                        maxWidth: '150px', 
+                                        objectFit: 'cover'}} />
+
                                     <a> {NomeUser} </a>
                                 </span>
                                 <span>
 
-                                    <a className='EditBtn' style={{ cursor: 'pointer' }} onClick={is}>Editar Perfil</a>
+                                    <a className='EditBtn' style={{ cursor: 'pointer' }} onClick={() => setIsHideEdit(true)}>Editar Perfil</a>
                                 </span>
                             </div>
 

@@ -55,7 +55,7 @@ export default function CardProdutoCtlg(props) {
         <div className='card-produto-ctlg'>
             {
                 (colecionador == true)
-                    ? <div className='card-colecionador'>
+                    ? <div id='colecionador' className='card'>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
@@ -64,6 +64,7 @@ export default function CardProdutoCtlg(props) {
                             <p className='hover-opt' onClick={AddQtdProduto}>+</p>
                         </div>
 
+                       
                         <img src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
