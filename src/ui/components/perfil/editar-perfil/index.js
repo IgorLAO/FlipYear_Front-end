@@ -12,9 +12,12 @@ import { EnviarImagem, GetBannerImage, GetProfileImage, GetUserById } from '../.
 
 export default function EditarPerfil(props) {
     const navigate = useNavigate();
-    const [NewProfilePic, setNewProfilePicShow] = useState('');
+    const [ShowNewBannerPic, setNewBannerPicShow2] = useState('');
     const [IsHide, setIsHide] = useState(true);
-    const [NewBannerPic, setNewBannerPicShow] = useState('');
+
+    const [NewProfilePic, setNewProfilePicShow] = useState();
+    const [NewBannerPic, setNewBannerPicShow] = useState();
+
     const [SendNewProfilePic, setSendNewProfilePic] = useState();
     const [SendNewBannerPic, setSendNewBannerPic] = useState();
     const [CurrentProfilePic, setCurrentProfilePic] = useState('');
@@ -23,21 +26,20 @@ export default function EditarPerfil(props) {
     const [userImage, setUserImage] = useState('');
 
 
-    // async function mostrarProfile() {
-    //     let infos = localStorage('NORMAL_USER_Logado');
-    //     let id = infos.data.Id
-    //     let das = await GetUserById(id);
-    //     let img = GetImage(das.data[0].ImageProfile);
-    //     console.log(das);
-    //     return GetImage(img);
-    // }
+    async function ShowImages() {
+        if(SendNewProfilePic){
+            let Profile = URL.createObjectURL(SendNewBannerPic);
+            setNewProfilePicShow(Profile)
+        }
+        if(SendNewBannerPic){
+            let Banner = URL.createObjectURL(SendNewProfilePic);
+            setNewBannerPicShow(Banner);
+        }
+
+    }
 
     //esse define a imagem no estado
-    function ShowNewProfileIMG(eProfi, eBanner) {
-        // console.log(SendNewProfilePic);
-        // let i = URL.createObjectURL(filesProfi);
-        // setNewProfilePicShow(i);
-    }
+
 
     // esse envia imagem
     // essa função vai dar erro provavelmente. Vou dar uma encurtada dps
@@ -45,16 +47,16 @@ export default function EditarPerfil(props) {
         const infos = localStorage("NORMAL_USER_Logado");
         console.log(SendNewProfilePic);
 
-        let das = await GetUserById(id);
-            let Banner = GetBannerImage(das.data[0].ImageBanner);
+        let das = await GetUserById(infos.data.Id);
+        let Banner = GetBannerImage(das.data[0].ImageBanner);
 
-        if(!NewBannerPic)
+        if (!NewBannerPic)
             EnviarImagem(infos.data.Id, SendNewProfilePic, CurrentBannerPic);
 
-        if(!NewProfilePic)
+        if (!NewProfilePic)
             EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
 
-            EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+        EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
 
         setIsHide(false);
         window.location.reload();
@@ -151,7 +153,7 @@ export default function EditarPerfil(props) {
                                     }} >
                                         {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
 
-                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
+                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0], ShowImages())} />
 
                                     </span>
                                 </div>
@@ -162,12 +164,12 @@ export default function EditarPerfil(props) {
                                         :
                                         (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)}  */}
 
-                                    <img className='foto' src={CurrentProfilePic || NewProfilePic} alt='CameraIcon' style={{ maxHeight: '50px', objectFit: 'cover' }} />
+                                    <img className='foto' src={ CurrentProfilePic || NewProfilePic} alt='CameraIcon' style={{ maxHeight: '50px', objectFit: 'cover' }} />
 
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} />
+                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0], ShowImages())} />
                                     </span>
                                 </span>
                             </div>
