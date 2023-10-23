@@ -29,11 +29,12 @@ export default function EditarPerfil(props) {
     async function ShowImages() {
         if(SendNewProfilePic){
             let Profile = URL.createObjectURL(SendNewBannerPic);
-            setNewProfilePicShow(Profile)
+            console.log(Profile)
         }
         if(SendNewBannerPic){
             let Banner = URL.createObjectURL(SendNewProfilePic);
             setNewBannerPicShow(Banner);
+            console.log(Banner)
         }
 
     }
@@ -77,9 +78,7 @@ export default function EditarPerfil(props) {
     }
 
     async function TESTES() {
-        // document.getElementById('fileBanner').click();
-        let i = await GETImages()
-        console.log(i);
+      ShowImages()
     }
 
     useEffect(() => {
@@ -118,7 +117,7 @@ export default function EditarPerfil(props) {
                                 borderRadius: '15px',
                                 margin: '15px'
                             }} >
-                            TESTES NESSA PORRA
+                            TESTES NESSA PORRA  
                         </button>
                         <header>
                             <span>
@@ -137,7 +136,7 @@ export default function EditarPerfil(props) {
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
                                     <span className='IMG' style={{ width: '100%' }} >
-                                        <img src={CurrentBannerPic || NewBannerPic} style={{
+                                        <img src={NewBannerPic} style={{
                                             width: '100%',
                                             height: '100%',
                                             maxHeight: '200px',
@@ -153,7 +152,7 @@ export default function EditarPerfil(props) {
                                     }} >
                                         {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
 
-                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0], ShowImages())} />
+                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
 
                                     </span>
                                 </div>
@@ -169,7 +168,7 @@ export default function EditarPerfil(props) {
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0], ShowImages())} />
+                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} />
                                     </span>
                                 </span>
                             </div>
