@@ -46,31 +46,45 @@ export default function EditarPerfil(props) {
         console.log(SendNewProfilePic);
         EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
         setIsHide(false);
-        // window.location.reload();
+        window.location.reload();
     }
 
     async function GETImages() {
-        let infos = localStorage('NORMAL_USER_Logado');
-        let id = infos.data.Id
-        let das = await GetUserById(id);
-        console.log(das);
-        let profile = GetProfileImage(das.data[0].ImageProfile);
-        let Banner = GetBannerImage(das.data[0].ImageBanner);
-        setCurrentProfilePic(profile);
-        console.log(Banner);
-        console.log(NewProfilePic);
-        setCurrentBanner(Banner);
+        if (!CurrentBannerPic && !CurrentProfilePic) {
+            let infos = localStorage('NORMAL_USER_Logado');
+            let id = infos.data.Id
+            let das = await GetUserById(id);
+            let Banner = GetBannerImage(das.data[0].ImageBanner);
+            let profile = GetProfileImage(das.data[0].ImageProfile);
+            setCurrentProfilePic(profile);
+            setCurrentBanner(Banner);
+            return { profile, Banner }
+        }
+        return {  Banner: CurrentBannerPic, profile: CurrentProfilePic }
     }
 
-    function TESTES() {
-        document.getElementById('fileBanner').click();
+    async function TESTES() {
+        // document.getElementById('fileBanner').click();
+        let i = await GETImages()
+        console.log(i);
     }
-
 
     useEffect(() => {
-        GETImages();
-        props.enviarDadosParaPai(CurrentProfilePic);
-    }, [GETImages])
+        const fetchData = async () => {
+            try {
+                const images = await GETImages();
+                props.SendBannerToD(images.Banner);
+                props.SendProfileToD(images.profile);
+
+            } catch (error) {
+                console.error('Erro ao buscar imagens:', error);
+            }
+        }
+
+        fetchData();
+    }, [GETImages, props]);
+
+
 
 
 
@@ -114,15 +128,16 @@ export default function EditarPerfil(props) {
                                         // (<div style={{backgroundImage: `url(${CurrentBannerPic})`, backgroundSize: 'cover'}}></div>)
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
-                                    <span className='IMG' style={{width: '100%'}} >
+                                    <span className='IMG' style={{ width: '100%' }} >
                                         <img src={CurrentBannerPic || NewBannerPic} style={{ width: '100%', height: '100%', maxHeight: '200px', objectFit: 'cover' }} />
 
                                     </span>
 
-                                    <span className='blockCam' id='cam' style={{position: 'absolute', maxHeight: "200px", maxWidth: '49.7%'}} >
+                                    <span className='blockCam' id='cam' style={{ position: 'absolute', maxHeight: "200px", maxWidth: '49.7%' }} >
                                         {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
 
-                                        <input type='file' id='fileBanner' onChange={e => setSendNewProfilePic(e.target.files[0])} />
+                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
+                                        
                                     </span>
                                 </div>
 
@@ -130,13 +145,14 @@ export default function EditarPerfil(props) {
                                     {/* {!NewProfilePic ?
                                         (<img className='foto' src={CurrentProfilePic} alt='CameraIcon' />)
                                         :
-                                        (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)} */}
+                                        (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)}  */}
+                                    
                                     <img className='foto' src={CurrentProfilePic || NewProfilePic} alt='CameraIcon' />
 
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input style={{ border: 'red solid' }} type='file' id='fileProfile' onChange={e => setSendNewBannerPic(e.target.files[0])} />
+                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} />
                                     </span>
                                 </span>
                             </div>

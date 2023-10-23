@@ -20,8 +20,10 @@ export default function PerfilPessoal() {
     const navigate = useNavigate();
     const [NomeUser, setNomeUser] = useState('default');
     const [Infos, setInfos] = useState();
-    const [IsHideEdit, setIsHideEdit] = useState(true);
+    const [IsHideEdit, setIsHideEdit] = useState(false);
     const [dados, setDadosRecebidos] = useState('');
+    const [ReceivedBanner, setReceivedBanner] = useState('');
+    const [ReceivedProfile, setReceivedProfile] = useState('');
 
     useEffect(() => {
         if (!localStorage("NORMAL_USER_Logado")) {
@@ -37,36 +39,39 @@ export default function PerfilPessoal() {
     }, []);
 
     function is() {
-        if (IsHideEdit) {
-            setIsHideEdit(false);
-        }
-
-        setIsHideEdit(true);
+        setIsHideEdit(true)
     }
 
-    const receberDadosDoFilho = (dados) => {
-        setDadosRecebidos(dados);
+    const sendBannerToS = (dados) => {
+        setReceivedBanner(dados);
+    };
+
+    const sendProfileToS = (dados) => {
+        setReceivedProfile(dados);
     };
 
     useEffect(() => {
-        receberDadosDoFilho()
-        console.log(dados)
+        sendProfileToS();
+        sendBannerToS();
+        console.log(dados);
     }, [])
 
     return (
         <>
             <div className='MainPerfil-P'>
                 <EditarPerfil IsHideEdit={IsHideEdit}
-                    enviarDadosParaPai={receberDadosDoFilho} />
+                    SendBannerToD={sendBannerToS}
+                    SendProfileToD={sendProfileToS} />
 
                 <div className='perfil-pag'>
-                    <div className='banner'></div>
+                    <img src={ReceivedBanner} style={{width: '100%', objectFit: 'cover', height: '10%'}} />
+
                     <span style={{ display: 'flex' }}>
                         <SideBarUsers />
                         <section className='PerfilDetails'>
                             <div className='Perfil'>
                                 <span className='InfoP'>
-                                    <img src={dados} />
+                                    <img src={ReceivedProfile} style={{height: '150px', width: '100%', maxWidth: '150px', objectFit: 'cover'}} />
                                     <a> {NomeUser} </a>
                                 </span>
                                 <span>
