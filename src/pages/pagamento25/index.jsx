@@ -10,23 +10,31 @@ import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoB
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { set } from 'local-storage';
+import { useHref, useNavigate } from 'react-router-dom';
 
 
 export default function Pagamento25(){
     const [id, setId] = useState();
     const [list, setList] = useState([]);
+    const [Discount, setDiscount] = useState();
 
-    useEffect(() => {
-        ListProduct();
-    }, []);
+    const TotalDiscount = 20;
+    const codig = 'italac';
+
+    const navigate = useNavigate();
 
     async function ListProduct(){
 
-        const url = await axios.get(`http://localhost:5000/produtos`);
+         const url = await axios.get(`http://localhost:5000/produtos`);
 
-        console.log(url.data[0].QTD_ESTOQUE)
-         setList(url.data[0])
+         console.log(url.data[0].QTD_ESTOQUE)
+          setList(url.data[0]);
 
+        navigate("/pagamento50");
+
+        if(co){
+
+        }
     };
 
     return (
@@ -116,14 +124,15 @@ export default function Pagamento25(){
                                 <p>TOTAL</p>
                                 <p>R${ } 999</p>
                             </div>
-                            <div className='cupom_desconto'>
+                            <div value={Discount} onChange={(e) => setDiscount(e.target.value)} 
+                                className='cupom_desconto'>
                                 <input type="text" placeholder='Cupom de desconto' />
                                 <a>Aplicar</a>
                             </div>
                         </div>
-                        <div className='finalizar'>
+                        <div onClick={ListProduct} className='finalizar'>
                             <img src={CarrinhoBranco} />
-                            <p onClick={ListProduct}>Finalizar</p>
+                            <p>Finalizar</p>
                         </div>
                     </div>
                 </div>
