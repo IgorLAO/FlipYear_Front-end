@@ -58,17 +58,17 @@ function Login(props2) {
         let res = await Login2(email, senha);
 
         if (res.data.Tier == "ADM") {
-          storage('ADM_Logado', res)
+          storage('ADM_Logado', res);
           navigate('/ADM');
         } else if (res.data.Tier === "NORMAL_USERS") {
-          storage('NORMAL_USER_Logado', res)
+          storage('NORMAL_USER_Logado', res);
           navigate('/perfil-pessoal');
         }
 
       } catch (err) {
         if (err.response.status === 401) {
-          console.log(err.response.data.erro)
-          setErro(err.response.data.erro)
+          console.log(err.response.data.erro);
+          setErro(err.response.data.erro);
         }
       }
     }
@@ -76,16 +76,16 @@ function Login(props2) {
 
   const verify = () => {
     if (storage('ADM_Logado'))
-      navigate('/ADM')
+      navigate('/ADM');
 
     if (storage('NORMAL_USER_Logado'))
-      navigate('/perfil-pessoal')
+      navigate('/perfil-pessoal');
 
   }
 
   useEffect(() => {
-    verify()
-  }, [])
+    verify();
+  }, []);
 
   return (
     <>
