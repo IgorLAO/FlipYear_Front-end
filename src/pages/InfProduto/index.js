@@ -27,35 +27,49 @@ export default function InfProduto() {
     const [otherProducts, setOtherProducts] = useState([])
     const [pageComments, setPageComments] = useState(1)
     const [pageProducts, setPageProducts] = useState(1)
+    const [aaa, SetAaa] = useState([])
 
 
-    const GetComments = async () =>{
+    async function GetComments(){
         let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
-        console.log(res.data)
         setComments(res.data)
     }
 
-    function nextPag(){
+    function nextPagComments(){
         setPageComments(pageComments + 1)
     }
 
 
 
-    const GetProducts = async () =>{
+    async function GetProducts(){
         let res = await axios.get('http://localhost:5000/outrosprodutos?pagina='+ pageProducts)
 
-        console.log(res.data)
         setOtherProducts(res.data)
     }
 
+    async function GetAllProduttc(){
+        let res = await axios.get('http://localhost:5000/produtos')
+
+        let data = (res.data)
+        let a = data.length
+
+        let length = a / otherProducts.length
+
+        SetAaa(length)
+        console.log(length)
+    }
+
+
+
     function nextPagProducts(){
+        if(pageProducts <= aaa){
         setPageProducts(pageProducts + 1)
-        console.log(pageComments)
+        }
     }
 
     function prevPagProducts(){
-        if(pageComments > 1){
+        if(pageProducts > 1){
             setPageProducts(pageProducts - 1)
         }
     }
@@ -73,9 +87,10 @@ export default function InfProduto() {
     }
 
     useEffect(() =>{
-    GetComments()
     GetProducts()
-    }, []);
+    GetComments()
+    GetAllProduttc()
+    }, [pageProducts, pageComments]);
 
 
     return (
@@ -209,9 +224,9 @@ export default function InfProduto() {
                 Likes={item.LIKES}
                 />    
                 )}
-                
-
             </div>
+
+            <button onClick={nextPagComments}>aaaaaa</button>
 
             <div className="other-products">
                 <div className="ot-tittle">
@@ -219,11 +234,11 @@ export default function InfProduto() {
                 </div>
 
                 <div className="products">
-                    <img onClick={prevPagProducts} id="setaInversa" src={seta} alt="" />
+                <h2 id="seta" onClick={prevPagProducts} style={{ fontSize: 70 }} > {'<'} </h2>
                     {otherProducts.map((item) =>(
           <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
           ))}
-                    <img onClick={nextPagProducts} src={seta} alt="" />
+                    <h2 id="seta" onClick={nextPagProducts} style={{ fontSize: 70 }} > {'>'} </h2>
                 </div>
             </div>
             <Rodape />

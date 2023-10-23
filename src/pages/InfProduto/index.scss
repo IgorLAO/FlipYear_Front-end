@@ -460,8 +460,13 @@
         justify-content: center;
     }
 
-    #setaInversa{
-        rotate: 180deg;
+    #seta{
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #seta:hover{
+        color: #346856;
     }
 
 }
