@@ -12,7 +12,6 @@ import { EnviarImagem, GetBannerImage, GetProfileImage, GetUserById } from '../.
 
 export default function EditarPerfil(props) {
     const navigate = useNavigate();
-    const [ShowNewBannerPic, setNewBannerPicShow2] = useState('');
     const [IsHide, setIsHide] = useState(true);
 
     const [NewProfilePic, setNewProfilePicShow] = useState();
@@ -23,24 +22,16 @@ export default function EditarPerfil(props) {
     const [CurrentProfilePic, setCurrentProfilePic] = useState('');
     const [CurrentBannerPic, setCurrentBanner] = useState('');
 
-    const [userImage, setUserImage] = useState('');
-
 
     async function ShowImages() {
-        if(SendNewProfilePic){
-            let Profile = URL.createObjectURL(SendNewBannerPic);
-            console.log(Profile)
-        }
-        if(SendNewBannerPic){
-            let Banner = URL.createObjectURL(SendNewProfilePic);
+            let Profile = URL.createObjectURL(SendNewProfilePic);
+            setNewProfilePicShow(Profile);
+            console.log(Profile, 'perfil')
+
+            let Banner = URL.createObjectURL(SendNewBannerPic);
             setNewBannerPicShow(Banner);
             console.log(Banner)
-        }
-
     }
-
-    //esse define a imagem no estado
-
 
     // esse envia imagem
     // essa função vai dar erro provavelmente. Vou dar uma encurtada dps
@@ -51,16 +42,18 @@ export default function EditarPerfil(props) {
         let das = await GetUserById(infos.data.Id);
         let Banner = GetBannerImage(das.data[0].ImageBanner);
 
-        if (!NewBannerPic)
+        if (!NewBannerPic){
             EnviarImagem(infos.data.Id, SendNewProfilePic, CurrentBannerPic);
+        }
 
-        if (!NewProfilePic)
-            EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+        if (!NewProfilePic){
+            EnviarImagem(infos.data.Id, CurrentProfilePic, SendNewBannerPic);
+        }
 
         EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
 
         setIsHide(false);
-        window.location.reload();
+        // window.location.reload();
     }
 
     async function GETImages() {
@@ -78,7 +71,7 @@ export default function EditarPerfil(props) {
     }
 
     async function TESTES() {
-      ShowImages()
+        ShowImages()
     }
 
     useEffect(() => {
@@ -117,7 +110,7 @@ export default function EditarPerfil(props) {
                                 borderRadius: '15px',
                                 margin: '15px'
                             }} >
-                            TESTES NESSA PORRA  
+                            TESTES NESSA PORRA
                         </button>
                         <header>
                             <span>
@@ -135,15 +128,28 @@ export default function EditarPerfil(props) {
                                         // (<div style={{backgroundImage: `url(${CurrentBannerPic})`, backgroundSize: 'cover'}}></div>)
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
-                                    <span className='IMG' style={{ width: '100%' }} >
-                                        <img src={NewBannerPic} style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            maxHeight: '200px',
-                                            objectFit: 'cover'
-                                        }} />
+                                    {!NewBannerPic ?
+                                        (<span className='IMG' style={{ width: '100%' }} >
+                                            <img src={CurrentBannerPic} style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                maxHeight: '200px',
+                                                objectFit: 'cover'
+                                            }} />
+                                        </span>)
+                                        :
+                                        (
+                                            <span className='IMG' style={{ width: '100%' }} >
+                                                <img src={NewBannerPic} style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    maxHeight: '200px',
+                                                    objectFit: 'cover'
+                                                }} />
+                                            </span>
+                                        )
+                                    }
 
-                                    </span>
 
                                     <span className='blockCam' id='cam' style={{
                                         position: 'absolute',
@@ -158,12 +164,12 @@ export default function EditarPerfil(props) {
                                 </div>
 
                                 <span className='perfil' onClick={() => document.getElementById('fileProfile').click()}>
-                                    {/* {!NewProfilePic ?
-                                        (<img className='foto' src={CurrentProfilePic} alt='CameraIcon' />)
+                                    {!NewProfilePic ?
+                                        (<img className='foto' src={CurrentProfilePic} alt='imagem antiga' />)
                                         :
-                                        (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)}  */}
+                                        (<img className='foto' src={NewProfilePic} alt='nova imagem de perfil' />)}
 
-                                    <img className='foto' src={ CurrentProfilePic || NewProfilePic} alt='CameraIcon' style={{ maxHeight: '50px', objectFit: 'cover' }} />
+                                    {/* <img className='foto' src={ CurrentProfilePic } alt='CameraIcon' style={{ maxHeight: '50px', objectFit: 'cover' }} /> */}
 
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />

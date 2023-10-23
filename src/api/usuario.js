@@ -28,7 +28,7 @@ export async function EnviarImagem(id, Profile, Banner) {
         headers: {
             "Content-Type": "multipart/form-data"
         },
-    }).then((res) => console.log(res))
+    }).then((formData) => console.log(formData))
 
     return res;
 }
