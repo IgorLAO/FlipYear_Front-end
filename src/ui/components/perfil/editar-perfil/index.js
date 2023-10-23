@@ -12,8 +12,8 @@ import { EnviarImagem, GetBannerImage, GetProfileImage, GetUserById } from '../.
 
 export default function EditarPerfil(props) {
     const navigate = useNavigate();
-    const [isHide, setIsHide] = useState(props.IsHideEdit);
     const [NewProfilePic, setNewProfilePicShow] = useState('');
+    const [IsHide, setIsHide] = useState(true);
     const [NewBannerPic, setNewBannerPicShow] = useState('');
     const [SendNewProfilePic, setSendNewProfilePic] = useState();
     const [SendNewBannerPic, setSendNewBannerPic] = useState();
@@ -41,10 +41,21 @@ export default function EditarPerfil(props) {
 
     // esse envia imagem
     // essa função vai dar erro provavelmente. Vou dar uma encurtada dps
-    function Save() {
+    async function Save() {
         const infos = localStorage("NORMAL_USER_Logado");
         console.log(SendNewProfilePic);
-        EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+
+        let das = await GetUserById(id);
+            let Banner = GetBannerImage(das.data[0].ImageBanner);
+
+        if(!NewBannerPic)
+            EnviarImagem(infos.data.Id, SendNewProfilePic, CurrentBannerPic);
+
+        if(!NewProfilePic)
+            EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+
+            EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+
         setIsHide(false);
         window.location.reload();
     }
@@ -60,7 +71,7 @@ export default function EditarPerfil(props) {
             setCurrentBanner(Banner);
             return { profile, Banner }
         }
-        return {  Banner: CurrentBannerPic, profile: CurrentProfilePic }
+        return { Banner: CurrentBannerPic, profile: CurrentProfilePic }
     }
 
     async function TESTES() {
@@ -84,22 +95,17 @@ export default function EditarPerfil(props) {
         fetchData();
     }, [GETImages, props]);
 
-
-
-
-
-
     // ---------------------------------------------
-    if (isHide) {
-        document.body.style.overflow = 'hidden'
+    if (IsHide) {
+        document.body.style.overflow = 'hidden';
     } else {
-        document.body.style.overflow = 'auto'
+        document.body.style.overflow = 'auto';
     }
 
     return (
         <>
-            {isHide &&
-                <div className='MainPerfil-edit'>
+            {IsHide &&
+                <div className='MainPerfil-edit' id='MainPerfil-edit'>
                     <div className='EditFrame'>
                         <button
                             onClick={TESTES}
@@ -129,15 +135,24 @@ export default function EditarPerfil(props) {
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
                                     <span className='IMG' style={{ width: '100%' }} >
-                                        <img src={CurrentBannerPic || NewBannerPic} style={{ width: '100%', height: '100%', maxHeight: '200px', objectFit: 'cover' }} />
+                                        <img src={CurrentBannerPic || NewBannerPic} style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            maxHeight: '200px',
+                                            objectFit: 'cover'
+                                        }} />
 
                                     </span>
 
-                                    <span className='blockCam' id='cam' style={{ position: 'absolute', maxHeight: "200px", maxWidth: '49.7%' }} >
+                                    <span className='blockCam' id='cam' style={{
+                                        position: 'absolute',
+                                        maxHeight: "200px",
+                                        maxWidth: '49.7%'
+                                    }} >
                                         {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
 
                                         <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
-                                        
+
                                     </span>
                                 </div>
 
@@ -146,8 +161,8 @@ export default function EditarPerfil(props) {
                                         (<img className='foto' src={CurrentProfilePic} alt='CameraIcon' />)
                                         :
                                         (<img className='foto' src={NewProfilePic} alt='CameraIcon' />)}  */}
-                                    
-                                    <img className='foto' src={CurrentProfilePic || NewProfilePic} alt='CameraIcon' />
+
+                                    <img className='foto' src={CurrentProfilePic || NewProfilePic} alt='CameraIcon' style={{ maxHeight: '50px', objectFit: 'cover' }} />
 
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />

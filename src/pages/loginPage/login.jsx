@@ -47,7 +47,7 @@ function Login(props2) {
       }
 
     } catch (err) {
-        setErro(err.response.data.erro)
+        setErro(err.response)
       
     }
   }
@@ -72,10 +72,10 @@ function Login(props2) {
         }
 
       } catch (err) {
-        if (err.response.status === 401) {
-          console.log(err.response.data.erro);
-          setErro(err.response.data.erro);
-        }
+
+          console.log(err.response);
+          // setErro(err.response.data.erro);
+        
       }
     }
   }
