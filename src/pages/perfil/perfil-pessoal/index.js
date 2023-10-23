@@ -21,47 +21,57 @@ export default function PerfilPessoal() {
     const [NomeUser, setNomeUser] = useState('default');
     const [Infos, setInfos] = useState();
     const [IsHideEdit, setIsHideEdit] = useState(false);
-
-    const LogOut = () => {
-        localStorage.remove('NORMAL_USER_Logado');
-        navigate('/login');
-    };
+    const [dados, setDadosRecebidos] = useState('');
+    const [ReceivedBanner, setReceivedBanner] = useState('');
+    const [ReceivedProfile, setReceivedProfile] = useState('');
 
     useEffect(() => {
         if (!localStorage("NORMAL_USER_Logado")) {
-            navigate('/login')
+            navigate('/login');
+
         } else {
             const infos = localStorage("NORMAL_USER_Logado");
+            navigate('/perfil-pessoal');
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
 
-    });
-    
-    function is() {
-        if (IsHideEdit) {
-            setIsHideEdit(false)
-        }
+    }, []);
 
+    function is() {
         setIsHideEdit(true)
     }
 
+    const sendBannerToS = (dados) => {
+        setReceivedBanner(dados);
+    };
 
+    const sendProfileToS = (dados) => {
+        setReceivedProfile(dados);
+    };
 
+    useEffect(() => {
+        sendProfileToS();
+        sendBannerToS();
+        console.log(dados);
+    }, [])
 
     return (
         <>
             <div className='MainPerfil-P'>
-                 <EditarPerfil IsHideEdit={IsHideEdit} />
+                <EditarPerfil IsHideEdit={IsHideEdit}
+                    SendBannerToD={sendBannerToS}
+                    SendProfileToD={sendProfileToS} />
 
                 <div className='perfil-pag'>
-                    <div className='banner'></div>
+                    <img src={ReceivedBanner} style={{width: '100%', objectFit: 'cover', height: '10%'}} />
+
                     <span style={{ display: 'flex' }}>
                         <SideBarUsers />
                         <section className='PerfilDetails'>
                             <div className='Perfil'>
                                 <span className='InfoP'>
-                                    <img src={Corvo} />
+                                    <img src={ReceivedProfile} style={{height: '150px', width: '100%', maxWidth: '150px', objectFit: 'cover'}} />
                                     <a> {NomeUser} </a>
                                 </span>
                                 <span>
@@ -100,7 +110,6 @@ export default function PerfilPessoal() {
                             </div>
                         </section>
                     </span>
-                {<Report />}
 
                 </div>
             </div>

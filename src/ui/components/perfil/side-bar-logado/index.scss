@@ -1,333 +1,337 @@
-.side-bar-logado {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #081820;
-    color: white;
-    min-height: 100%;
-
-    position: fixed;
-    top: 5px;
-    left: 1000px;
-    right: 0;
-    z-index: 1;
-    width: 20%;
-
-    .fechar-sb {
-
-        font-size: 18px;
-        position: relative;
-        bottom: 130px;
-        right: 100px;
-
-    }
-
-    .fechar-sb:hover {
-        cursor: pointer;
-    }
+.MainSide {
 
 
-
-
-    .foto {
-
-        border: 2px solid black;
-        border-radius: 300px;
-        width: 66px;
-
-        margin-bottom: 15px;
-
-
-    }
-
-    .foto img {
-
-        width: 62px;
-        height: 61px;
-
-
-    }
-
-    .linha-side-bar {
-
-        width: 100%;
-        height: 1px;
-        background-color: white;
-
-
-    }
-
-    .menu-side-bar {
-
-        width: 100%;
-
-
-    }
-
-    #editar-perfil:hover {
-
-        background-color: #88C070;
-        color: black;
-
-
-
-
-    }
-
-    .item-side-bar {
-
+    .side-bar-logado {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
 
-        padding-top: 30px;
-        padding-bottom: 30px;
-
-
-
-        p {
-
-            font-size: 12px;
-
-        }
-
-
-
-
-
-
-    }
-
-
-
-    .lapis {
-
-        width: 30px;
-        height: 30px;
-
-    }
-
-    .carrinho-side-bar {
-
-        width: 40px;
-        height: 40px;
-
-
-    }
-
-    .adm {
-
-        width: 20px;
-        height: 20px;
-
-    }
-
-
-
-
-    .nome-side-bar {
-
+        background-color: #081820;
         color: white;
-        font-size: 16px;
+        min-height: 100%;
 
-    }
+        position: fixed;
+        top: 5px;
+        left: 1000px;
+        right: 0;
+        z-index: 1;
+        width: 20%;
 
-    .seta-baixo {
+        .fechar-sb {
 
-        width: 17px;
-        height: 11px;
-
-
-    }
-
-    .seta-baixo:hover {
-
-        cursor: pointer;
-
-    }
-
-
-    .pfp-nome {
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        margin-bottom: 30px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-
-
-
-    .lista-pedidos {
-
-
-        background-color: #6E8D61;
-        display: flex;
-        flex-direction: column;
-
-
-
-    }
-
-    .pedido {
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-
-        padding-top: 15px;
-        padding-bottom: 15px;
-
-
-
-    }
-
-    .pedido:hover {
-
-        background-color: rgb(220, 233, 220);
-        color: rgb(53, 51, 51);
-        cursor: pointer;
-
-        .fundo-atari {
-
-            background-color: #c0c2bf;
+            font-size: 18px;
+            position: relative;
+            bottom: 130px;
+            right: 100px;
 
         }
 
-    }
-
-    .Atari {
-
-
-        width: 60px;
-        height: 50px;
-
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 5px;
-        margin-right: 5px;
-
-    }
-
-    .status-sidebar {
-
-        width: 30px;
-        width: 30px;
-
-    }
-
-    .fundo-atari {
-
-        background-color: #E0F8CF;
-        border-radius: 10px;
-
-    }
-
-    .see-more {
-
-        text-align: right;
-        margin-top: 25px;
-        height: 100vh;
-
-        p {
-            color: black;
+        .fechar-sb:hover {
+            cursor: pointer;
         }
 
-    }
-
-    .logo-sb-pedidos {
 
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: white;
 
-        padding-top: 75px;
+        .foto {
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        img {
+            border: 2px solid black;
+            border-radius: 300px;
+            width: 66px;
 
             margin-bottom: 15px;
 
-        }
-
-
-        p {
-            color: white;
-            font-size: 10px;
-            text-align: center;
-            margin-bottom: 3px;
 
         }
 
+        .foto img {
 
-    }
-
-    .adm-menu {
-        display: flex;
-        flex-direction: column;
-        background-color: #6E8D61;
-        height: 100vh;
+            width: 62px;
+            height: 61px;
 
 
+        }
 
-        .rota-adm {
+        .linha-side-bar {
 
+            width: 100%;
+            height: 1px;
+            background-color: white;
+
+
+        }
+
+        .menu-side-bar {
+
+            width: 100%;
+
+
+        }
+
+        #editar-perfil:hover {
+
+            background-color: #88C070;
+            color: black;
+
+
+
+
+        }
+
+        .item-side-bar {
 
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
             align-items: center;
+            justify-content: space-around;
 
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 30px;
+            padding-bottom: 30px;
 
-            img {
 
-                width: 50px;
-                height: 40px;
+
+            p {
+
+                font-size: 12px;
 
             }
 
 
 
+
+
+
         }
 
-        .rota-adm:hover {
+
+
+        .lapis {
+
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .carrinho-side-bar {
+
+            width: 40px;
+            height: 40px;
+
+
+        }
+
+        .adm {
+
+            width: 20px;
+            height: 20px;
+
+        }
+
+
+
+
+        .nome-side-bar {
+
+            color: white;
+            font-size: 16px;
+
+        }
+
+        .seta-baixo {
+
+            width: 17px;
+            height: 11px;
+
+
+        }
+
+        .seta-baixo:hover {
+
+            cursor: pointer;
+
+        }
+
+
+        .pfp-nome {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-bottom: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+
+
+
+        .lista-pedidos {
+
+
+            background-color: #6E8D61;
+            display: flex;
+            flex-direction: column;
+
+
+
+        }
+
+        .pedido {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+
+
+        }
+
+        .pedido:hover {
 
             background-color: rgb(220, 233, 220);
             color: rgb(53, 51, 51);
             cursor: pointer;
 
+            .fundo-atari {
+
+                background-color: #c0c2bf;
+
+            }
+
         }
 
-        #adm-logo {
+        .Atari {
 
-            position: sticky;
-            margin-top: 17px;
+
+            width: 60px;
+            height: 50px;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+
+        }
+
+        .status-sidebar {
+
+            width: 30px;
+            width: 30px;
+
+        }
+
+        .fundo-atari {
+
+            background-color: #E0F8CF;
+            border-radius: 10px;
+
+        }
+
+        .see-more {
+
+            text-align: right;
+            margin-top: 25px;
+            height: 100vh;
+
+            p {
+                color: black;
+            }
+
+        }
+
+        .logo-sb-pedidos {
+
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+
+            padding-top: 75px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             img {
 
-                width: 65px;
-                height: 65px;
+                margin-bottom: 15px;
+
+            }
+
+
+            p {
+                color: white;
+                font-size: 10px;
+                text-align: center;
+                margin-bottom: 3px;
+
             }
 
 
         }
 
+        .adm-menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #6E8D61;
+            height: 100vh;
 
+
+
+            .rota-adm {
+
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                img {
+
+                    width: 50px;
+                    height: 40px;
+
+                }
+
+
+
+            }
+
+            .rota-adm:hover {
+
+                background-color: rgb(220, 233, 220);
+                color: rgb(53, 51, 51);
+                cursor: pointer;
+
+            }
+
+            #adm-logo {
+
+                position: sticky;
+                margin-top: 17px;
+
+                img {
+
+                    width: 65px;
+                    height: 65px;
+                }
+
+
+            }
+
+
+
+        }
 
     }
-
 }

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import storage from 'local-storage';
-
+import localStorage from 'local-storage';
 import { RecupararSenha } from '../../ui/components/recuperarSenhaComponets/recuperar_senha';
 import './login.scss';
 
@@ -34,21 +33,22 @@ function Login(props2) {
 
   const logar = async (e) => {
     try {
-      let res = await Login2(email, senha);
-
-      if (res.data.Tier === "ADM") {
-        storage('ADM_Logado', res)
+      let r = await Login2(email, senha);
+      console.log(r.data.Tier);
+      
+      if (r.data.Tier === "ADM") {
+        localStorage('ADM_Logado', r)
         navigate('/ADM');
-      } else if (res.data.Tier === "NORMAL_USERS") {
-        storage('NORMAL_USER_Logado', res)
+
+      } else if (r.data.Tier === "NORMAL_USERS") {
+        localStorage('NORMAL_USER_Logado', r);
         navigate('/perfil-pessoal');
+
       }
 
     } catch (err) {
-      if (err.response.status === 401) {
-        console.log(err.response.data.erro)
         setErro(err.response.data.erro)
-      }
+      
     }
   }
 
@@ -56,12 +56,18 @@ function Login(props2) {
     if (e.key == 'Enter') {
       try {
         let res = await Login2(email, senha);
-
+    
         if (res.data.Tier == "ADM") {
           storage('ADM_Logado', res);
           navigate('/ADM');
         } else if (res.data.Tier === "NORMAL_USERS") {
           storage('NORMAL_USER_Logado', res);
+
+          localStorage('ADM_Logado', res)
+          navigate('/ADM');
+        } else if (res.data.Tier === "NORMAL_USERS") {
+          localStorage('NORMAL_USER_Logado', res)
+
           navigate('/perfil-pessoal');
         }
 
@@ -80,6 +86,13 @@ function Login(props2) {
 
     if (storage('NORMAL_USER_Logado'))
       navigate('/perfil-pessoal');
+
+    if (localStorage('ADM_Logado'))
+      navigate('/ADM')
+
+    if (localStorage('NORMAL_USER_Logado'))
+      navigate('/perfil-pessoal')
+
 
   }
 
@@ -111,7 +124,7 @@ function Login(props2) {
                 </form>
                 <a
                   onClick={logar}
-                  className='entrarButton'> APERTE PARA ENTRAR </a>
+                  className='entrarButton' style={{cursor: 'pointer'}}> APERTE PARA ENTRAR </a>
 
                 <span className='linha'></span>
 

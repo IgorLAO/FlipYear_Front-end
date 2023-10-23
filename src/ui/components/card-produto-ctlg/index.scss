@@ -1,210 +1,241 @@
-.card{
+.card {
     background-color: white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 250px;
-    
+
     margin: 25px;
+
+    color: #000;
 
     font-family: 'flipFont';
     font-size: 20px;
 
 
 
-    
-}
-.card-prod-carrinho{
 
-    position: relative;
-    width: 40px;
-    height: 40px;
+    .card-prod-carrinho {
 
+        position: relative;
+        width: 40px;
+        height: 40px;
 
 
-}
 
-.card-prod-carrinho:hover{
+    }
+
+    .card-prod-carrinho:hover {
 
         cursor: pointer;
 
     }
 
-.qtd-produtos{
+    .qtd-produtos {
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-    .hover-opt:hover{
+        .hover-opt:hover {
 
-        cursor: pointer;
+            cursor: pointer;
+
+        }
+
+        p {
+
+            font-size: 10px !important;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+
 
     }
-    p{
-        
+
+
+
+    .nm-produto {
+        color: #000;
+        font-size: 14px;
+
+
+
+    }
+
+    .preco-produto-original {
+        color: #000;
+        text-decoration: line-through;
+        margin-top: 5px;
         font-size: 10px !important;
-        padding-left: 5px;
-        padding-right: 5px;
-
-    }
-
-
-}
-
-
-
-.nm-produto{
-
-    font-size: 14px;
-
-
-
-}
-
-.preco-produto-original{
-
-    text-decoration: line-through;
-    margin-top: 5px;
-    font-size: 10px !important;
-
-
-}
-
-
-
-
-
-#cinza-pequeno{
-
-    color:rgba(0, 0, 0, 0.76);
-    font-size: 8px;
-
-
-
-}
-
-.desc-info{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    text-align: center;
-    margin-top: 5px;
-
-
-}
-
-.ponto{
-
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    p{
-        font-size: 10px;
-    }
-
-
-
-}
-
-.nm-produto{
-
-    text-align: center;
-
-}
-
-.avaliacao-decimal{
-
-    font-size: 9px !important;
-    margin-bottom: 5px;
-    margin-top: 5px;
-
-
-}
-
-.linha{
-
-    margin-top: 25px;
-    margin-bottom: 15px;
-    width: 100%;
-
-
-}
-
-.avaliacao-produto{
-
-    margin-top: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
-
-}
-
-.estrelas{
-
-    display: flex;
-    flex-direction: row;
-    img{
-
-        padding: 5px;
 
 
     }
 
 
-}
 
-.card-colecionador {
-    background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
-    background-size: 600% 600%;
 
-    -webkit-animation: AnimationName 5s ease infinite;
-    -moz-animation: AnimationName 5s ease infinite;
-    animation: AnimationName 5s ease infinite;
 
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
+    #cinza-pequeno {
 
-    font-family: 'flipFont';
-    font-size: 20px;
-    
-    margin: 25px;
-    color: white !important;
+        color: rgba(0, 0, 0, 0.76);
+        font-size: 8px;
 
-    #cinza-pequeno{
 
+
+    }
+
+    .desc-info {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        text-align: center;
+        margin-top: 5px;
+
+
+    }
+
+    .ponto {
+
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        p {
+            font-size: 10px;
+        }
+
+
+
+    }
+
+    .nm-produto {
+        color: #000;
+        text-align: center;
+
+    }
+
+    .avaliacao-decimal {
+
+        font-size: 9px !important;
+        margin-bottom: 5px;
+        margin-top: 5px;
+
+
+    }
+
+    .linha {
+
+        margin-top: 25px;
+        margin-bottom: 15px;
+        width: 100%;
+
+
+    }
+
+    .avaliacao-produto {
+        color: #000;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+
+    }
+
+    .estrelas {
+
+        display: flex;
+        flex-direction: row;
+
+        img {
+
+            padding: 5px;
+
+
+        }
+
+
+    }
+
+    .card-colecionador {
+        background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
+        background-size: 600% 600%;
+
+        -webkit-animation: AnimationName 5s ease infinite;
+        -moz-animation: AnimationName 5s ease infinite;
+        animation: AnimationName 5s ease infinite;
+
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+
+        font-family: 'flipFont';
+        font-size: 20px;
+
+        margin: 25px;
         color: white !important;
 
+        #cinza-pequeno {
+
+            color: white !important;
+
+
+        }
+
+
 
     }
 
+    @-webkit-keyframes AnimationName {
+        0% {
+            background-position: 81% 0%
+        }
 
+        50% {
+            background-position: 20% 100%
+        }
 
-}
+        100% {
+            background-position: 81% 0%
+        }
+    }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:81% 0%}
-    50%{background-position:20% 100%}
-    100%{background-position:81% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:81% 0%}
-    50%{background-position:20% 100%}
-    100%{background-position:81% 0%}
-}
-@keyframes AnimationName {
-    0%{background-position:81% 0%}
-    50%{background-position:20% 100%}
-    100%{background-position:81% 0%}
+    @-moz-keyframes AnimationName {
+        0% {
+            background-position: 81% 0%
+        }
+
+        50% {
+            background-position: 20% 100%
+        }
+
+        100% {
+            background-position: 81% 0%
+        }
+    }
+
+    @keyframes AnimationName {
+        0% {
+            background-position: 81% 0%
+        }
+
+        50% {
+            background-position: 20% 100%
+        }
+
+        100% {
+            background-position: 81% 0%
+        }
+    }
+
 }
