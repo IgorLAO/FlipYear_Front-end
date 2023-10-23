@@ -165,77 +165,88 @@
 
     }
 
-    .card-colecionador {
-        background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
-        background-size: 600% 600%;
+    
 
-        -webkit-animation: AnimationName 5s ease infinite;
-        -moz-animation: AnimationName 5s ease infinite;
-        animation: AnimationName 5s ease infinite;
+}
 
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 250px;
 
-        font-family: 'flipFont';
-        font-size: 20px;
+#colecionador {
+    background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
+    background-size: 600% 600%;
 
-        margin: 25px;
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+
+    font-family: 'flipFont';
+    font-size: 20px;
+
+    margin: 25px;
+    color: white !important;
+
+    #cinza-pequeno {
+
         color: white !important;
 
-        #cinza-pequeno {
-
-            color: white !important;
-
-
-        }
-
-
 
     }
 
-    @-webkit-keyframes AnimationName {
-        0% {
-            background-position: 81% 0%
-        }
+    p{
 
-        50% {
-            background-position: 20% 100%
-        }
+        color: white !important;
 
-        100% {
-            background-position: 81% 0%
-        }
     }
 
-    @-moz-keyframes AnimationName {
-        0% {
-            background-position: 81% 0%
-        }
+    
 
-        50% {
-            background-position: 20% 100%
-        }
 
-        100% {
-            background-position: 81% 0%
-        }
+
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 81% 0%
     }
 
-    @keyframes AnimationName {
-        0% {
-            background-position: 81% 0%
-        }
-
-        50% {
-            background-position: 20% 100%
-        }
-
-        100% {
-            background-position: 81% 0%
-        }
+    50% {
+        background-position: 20% 100%
     }
 
+    100% {
+        background-position: 81% 0%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 81% 0%
+    }
+
+    50% {
+        background-position: 20% 100%
+    }
+
+    100% {
+        background-position: 81% 0%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 81% 0%
+    }
+
+    50% {
+        background-position: 20% 100%
+    }
+
+    100% {
+        background-position: 81% 0%
+    }
 }
