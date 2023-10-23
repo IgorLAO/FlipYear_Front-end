@@ -26,6 +26,7 @@ export default function InfProduto() {
     const [comments, setComments] = useState([])
     const [otherProducts, setOtherProducts] = useState([])
     const [pageComments, setPageComments] = useState(1)
+    const [pageProducts, setPageProducts] = useState(1)
 
 
     const GetComments = async () =>{
@@ -42,13 +43,22 @@ export default function InfProduto() {
 
 
     const GetProducts = async () =>{
-        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=1')
+        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina='+ pageProducts)
 
         console.log(res.data)
         setOtherProducts(res.data)
     }
 
+    function nextPagProducts(){
+        setPageProducts(pageProducts + 1)
+        console.log(pageComments)
+    }
 
+    function prevPagProducts(){
+        if(pageComments > 1){
+            setPageProducts(pageProducts - 1)
+        }
+    }
 
     function hideValid() {
         setIsHideOptions(true)
@@ -209,11 +219,11 @@ export default function InfProduto() {
                 </div>
 
                 <div className="products">
-                    <img id="setaInversa" src={seta} alt="" />
+                    <img onClick={prevPagProducts} id="setaInversa" src={seta} alt="" />
                     {otherProducts.map((item) =>(
           <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
           ))}
-                    <img src={seta} alt="" />
+                    <img onClick={nextPagProducts} src={seta} alt="" />
                 </div>
             </div>
             <Rodape />

@@ -58,10 +58,10 @@ function Login(props2) {
         let res = await Login2(email, senha);
     
         if (res.data.Tier == "ADM") {
-          storage('ADM_Logado', res);
+          localStorage('ADM_Logado', res);
           navigate('/ADM');
         } else if (res.data.Tier === "NORMAL_USERS") {
-          storage('NORMAL_USER_Logado', res);
+          localStorage('NORMAL_USER_Logado', res);
 
           localStorage('ADM_Logado', res)
           navigate('/ADM');
@@ -81,10 +81,10 @@ function Login(props2) {
   }
 
   const verify = () => {
-    if (storage('ADM_Logado'))
+    if (localStorage('ADM_Logado'))
       navigate('/ADM');
 
-    if (storage('NORMAL_USER_Logado'))
+    if (localStorage('NORMAL_USER_Logado'))
       navigate('/perfil-pessoal');
 
     if (localStorage('ADM_Logado'))
