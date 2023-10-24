@@ -46,14 +46,13 @@ function App() {
   
 
   function nextPag(){
-<<<<<<< HEAD
+
     if(pageDestaqueNum < mostrarAllDestaques){
     setPageDestaqueNum(pageDestaqueNum + 1)
   }
-=======
+
     setPageDestaqueNum(pageDestaqueNum + 1)
     console.log(mostrarDestaques.length)
->>>>>>> 198a26023c63fed2b7ae1e6c352185ba7c13d0a4
   }
 
   function prevPag(){
