@@ -36,10 +36,7 @@ function App() {
 //ao ultrapassar o limite de produtos em destques disponíveis ele dá erro
 
   function nextPag(){
-
     setPageDestaqueNum(pageDestaqueNum + 1)
-    
-
     console.log(mostrarDestaques.length)
   }
 

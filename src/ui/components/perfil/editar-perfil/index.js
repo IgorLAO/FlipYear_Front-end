@@ -23,14 +23,19 @@ export default function EditarPerfil(props) {
     const [CurrentBannerPic, setCurrentBanner] = useState('');
 
 
-    async function ShowImages() {
-            let Profile = URL.createObjectURL(SendNewProfilePic);
-            setNewProfilePicShow(Profile);
-            console.log(Profile, 'perfil')
-
+    async function ShowImagesBanner() {
+        if (SendNewBannerPic) {
             let Banner = URL.createObjectURL(SendNewBannerPic);
             setNewBannerPicShow(Banner);
-            console.log(Banner)
+        }
+    }
+
+    async function ShowImagesProfile() {
+        if (SendNewProfilePic) {
+            let Profile = URL.createObjectURL(SendNewProfilePic);
+            setNewProfilePicShow(Profile);
+        }
+
     }
 
     // esse envia imagem
@@ -40,15 +45,6 @@ export default function EditarPerfil(props) {
         console.log(SendNewProfilePic);
 
         let das = await GetUserById(infos.data.Id);
-        let Banner = GetBannerImage(das.data[0].ImageBanner);
-
-        if (!NewBannerPic){
-            EnviarImagem(infos.data.Id, SendNewProfilePic, CurrentBannerPic);
-        }
-
-        if (!NewProfilePic){
-            EnviarImagem(infos.data.Id, CurrentProfilePic, SendNewBannerPic);
-        }
 
         EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
 
@@ -57,7 +53,7 @@ export default function EditarPerfil(props) {
     }
 
     async function GETImages() {
-        if (!CurrentBannerPic && !CurrentProfilePic) {
+        
             let infos = localStorage('NORMAL_USER_Logado');
             let id = infos.data.Id
             let das = await GetUserById(id);
@@ -66,12 +62,13 @@ export default function EditarPerfil(props) {
             setCurrentProfilePic(profile);
             setCurrentBanner(Banner);
             return { profile, Banner }
-        }
-        return { Banner: CurrentBannerPic, profile: CurrentProfilePic }
+        
+     
     }
 
     async function TESTES() {
-        ShowImages()
+        ShowImagesBanner();
+        ShowImagesProfile();
     }
 
     useEffect(() => {
@@ -80,13 +77,12 @@ export default function EditarPerfil(props) {
                 const images = await GETImages();
                 props.SendBannerToD(images.Banner);
                 props.SendProfileToD(images.profile);
-
             } catch (error) {
                 console.error('Erro ao buscar imagens:', error);
             }
         }
-
         fetchData();
+        
     }, [GETImages, props]);
 
     // ---------------------------------------------
@@ -136,7 +132,8 @@ export default function EditarPerfil(props) {
                                                 maxHeight: '200px',
                                                 objectFit: 'cover'
                                             }} />
-                                        </span>)
+                                        </span>
+                                        )
                                         :
                                         (
                                             <span className='IMG' style={{ width: '100%' }} >
@@ -174,7 +171,7 @@ export default function EditarPerfil(props) {
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} />
+                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} onMouseEnter={ShowImagesProfile} />
                                     </span>
                                 </span>
                             </div>

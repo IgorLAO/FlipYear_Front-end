@@ -3,8 +3,10 @@ import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { GetSearchProd } from '../../api/produtos';
 import NavBar from '../../ui/components/navBar';
+
+import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,14 +17,12 @@ export default function SearchResults(props) {
     
 
     const GetProds = async () => {
-        let infos = localStorage('SearchValue')
-        setValueS(infos)
-        let res = await axios.get(`http://localhost:5000/produto/busca?search=${infos}`);
+        let infos = localStorage('SearchValue');
+        setValueS(infos);
+        let res = await GetSearchProd(infos);
 
         setList(res.data);
         console.log(props.SearchValue);
-
-
     }
 
 
@@ -39,9 +39,9 @@ export default function SearchResults(props) {
                 <NavBar/>
                 <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
 
-                <div className='resultados'>
+                <div  iv className='resultados'>
                     {list?.map((item) => <>
-                        <CardProdutoCtlg 
+                        <CardProdutoCtlg
                             preco={item.Preco} 
                             nome={item.Nome} precoPromocao={item.Promo} 
                             promocao={item.IsPromo} avaliacao={item.Avaliacao}
@@ -62,7 +62,7 @@ export default function SearchResults(props) {
                     <p>7</p>
                     <p> {">"} </p>
                 </div>
-                <Rodape></Rodape>
+                <Rodape/>
 
 
             </div>

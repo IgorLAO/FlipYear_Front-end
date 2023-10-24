@@ -22,12 +22,11 @@ import SearchCard from "../SearchCards/cardBusca";
 import SearchCard_NotFound from "../SearchCards/NotFoundCard";
 
 import SearchResults from "../../../pages/SearchResultsPage";
-import { func } from "prop-types";
+import { GetSearchProd } from "../../../api/produtos";
 
 
 export default function NavBar() {
     const navigate = useNavigate('');
-
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
@@ -38,14 +37,14 @@ export default function NavBar() {
     const [SearchValue, setSearchValue] = useState('');
     const [Erro, setErro] = useState('');
     const [limit, setLimit] = useState(5);
-    const [IshideNotFount, setIshideNotFount] = useState(false);
+    const [IshideNotFount, setIshideNotFound] = useState(false);
 
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
-            setLogado(true)
+            setLogado(true);
         }
         else
-            setMenuLateralHidden(true)
+            setMenuLateralHidden(true);
     }
 
     function mostrarCarrinho() {
@@ -53,40 +52,43 @@ export default function NavBar() {
     }
 
     const GetSearchRes = async (e) => {
-        setSearchValue(e.target.value)
-
+        setSearchValue(e.target.value);
+        console.log(e.key);
+        let i = e.target.value.length;
         try {
-            let res = await axios.get(`http://localhost:5000/produto/busca?search=${SearchValue}` )
-            SetSearchRes(res.data);
-            setErro(res)
-            console.log(res)
-          
+            if (i > 0) {
+                let res = await GetSearchProd(SearchValue);
+                SetSearchRes(res.data);
+                setErro(res);
+                console.log(res);
+
+                if (res.data <= 0)
+                    setIshideNotFound(false);
+            }
 
         } catch (err) {
-            setErro('Produto Não Encontrado')
-            console.log(Erro)
-            setIshideNotFount(true)
+            setErro('Produto Não Encontrado');
+            console.log(Erro);
+            setIshideNotFound(true);
 
-            SetSearchRes([])
+            SetSearchRes([]);
         }
-        if (Erro.length === 'Produto Não Encontrado') {
-        }
+        if (Erro != 'Produto Não Encontrado')
+            setIshideNotFound(false);
     }
 
 
 
     const NavTo = (e) => {
-        if(e.key === 'Enter'){
-            navigate('/search')
+        if (e.key === 'Enter') {
+            navigate('/search');
             localStorage('SearchValue', SearchValue);
             window.location.reload();
         }
-               
-
     }
 
-    function NavToHome(){
-        navigate('/')
+    function NavToHome() {
+        navigate('/');
     }
 
 
@@ -104,8 +106,8 @@ export default function NavBar() {
                 <span className="SearchBox">
                     <span className="boxInput">
                         <img src={Lupa} />
-                        <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} onKeyDown={NavTo}/>
-                        <img src={Filtro}/>
+                        <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} onKeyDown={NavTo} />
+                        <img src={Filtro} />
                     </span>
                 </span>
                 <span className="Options">
@@ -129,29 +131,28 @@ export default function NavBar() {
                     (popUpCarro === true)
                         ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
                 }
-            {
-                (popUpCarro == true)
 
-                ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                {(popUpCarro == true) ?
+                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                    :
+                    <></>
 
-                : <></>
 
-
-                    }
+                }
             </div>
             <div className="searchResults">
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
+
                 {IshideNotFount &&
                     <SearchCard_NotFound Erro={Erro} />
+
                 }
 
-                {IsComp && <SearchResults SearchValue={SearchValue} />}
-
-
-            
-
+                {IsComp &&
+                    <SearchResults SearchValue={SearchValue} />
+                }
 
             </div>
 
