@@ -2,18 +2,20 @@ import './index.scss';
 import Atari from '../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
 import Estrela from '../../assets/images/imagesCardProduto/estrela_vazia 6.png'
 import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
-
 import { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-export default function CardProdutoCtlg(props) {
+export default function CardProdutoCtlg(props, {ProdutoAdicionado}) {
 
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState(props.estoque);
     const [idUser, setIdUser] = useState(3);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
+
+
 
     function AddQtdProduto() {
         SetQtdProdutos(qtdProdutos + 1);
@@ -22,6 +24,22 @@ export default function CardProdutoCtlg(props) {
             SetQtdProdutos(limiteQtd);
 
         }
+    }
+
+    function ProdutoAdicionado(){
+
+        toast.success("Produto Adicionado ao Carrinho!")
+
+
+    }
+
+    
+    function ErroAdicionarProduto(){
+
+
+        toast.error("Produto Não Adicionado ao Carrinho");
+
+
     }
 
     function MinusQtdProduto() {
@@ -33,26 +51,48 @@ export default function CardProdutoCtlg(props) {
         }
     }
 
+
+
+
     async function AddNoCarrinho() {
 
-        let resposta = await axios.post('http://localhost:5000/carrinho', {
-            usuario: idUser,
-            produto: idProduto,
-            qtd: qtdProdutos
-        });
-        let limite = limiteQtd - qtdProdutos;
-        setLimiteQtd(limiteQtd - qtdProdutos);
+        if(qtdProdutos >= 1){
 
-        if (qtdProdutos > limite) {
-            SetQtdProdutos(limite);
+            let resposta = await axios.post('http://localhost:5000/carrinho', {
+                usuario: idUser,
+                produto: idProduto,
+                qtd: qtdProdutos
+            });
+            let limite = limiteQtd - qtdProdutos;
+            setLimiteQtd(limiteQtd - qtdProdutos);
+    
+            if (qtdProdutos > limite) {
+                SetQtdProdutos(limite);
+    
+            }
+    
+            ProdutoAdicionado();
+
+
 
         }
 
-        return resposta.data;
+        else{
+
+
+            ErroAdicionarProduto();
+            
+        }
+
+
+
+        
     }
 
     return (
         <div className='card-produto-ctlg'>
+
+            <ToastContainer></ToastContainer>
             {
                 (colecionador == true)
                     ? <div id='colecionador' className='card'>
