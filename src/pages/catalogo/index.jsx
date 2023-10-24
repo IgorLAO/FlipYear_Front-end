@@ -8,6 +8,7 @@ import NavBar from '../../ui/components/navBar';
 
 export default function Catalogo() {
     const [list, setList] = useState([]);
+
     
 
     const GetProds = async () => {
@@ -16,6 +17,12 @@ export default function Catalogo() {
 
 
     }
+
+        
+
+
+
+
 
 
     useEffect(() => {

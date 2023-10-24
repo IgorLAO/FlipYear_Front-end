@@ -1,5 +1,6 @@
 import "./index.scss";
 
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -72,6 +73,8 @@ export default function NavBar() {
         }
     }
 
+
+
     const NavTo = (e) => {
         if(e.key === 'Enter'){
             navigate('/search')
@@ -89,6 +92,7 @@ export default function NavBar() {
 
     return (
         <>
+        
             <div className="Nav">
 
                 <div onClick={NavToHome} className="Logo">
@@ -101,7 +105,7 @@ export default function NavBar() {
                     <span className="boxInput">
                         <img src={Lupa} />
                         <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} onKeyDown={NavTo}/>
-                        <img src={Filtro} />
+                        <img src={Filtro}/>
                     </span>
                 </span>
                 <span className="Options">
