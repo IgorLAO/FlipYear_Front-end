@@ -18,13 +18,6 @@ export default function Catalogo() {
 
     }
 
-        
-
-
-
-
-
-
     useEffect(() => {
         GetProds();
     }, [])
@@ -52,7 +45,6 @@ export default function Catalogo() {
                         </div>
                     </div>
                 </div>
-                <h1 className='exib'>Exibindo todos os resultados para { }</h1>
 
                 <div className='resultados'>
                     {list.map((item) => <>
