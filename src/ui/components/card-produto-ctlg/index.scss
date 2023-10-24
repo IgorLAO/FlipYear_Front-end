@@ -150,22 +150,25 @@
 
     }
 
-    .estrelas {
+    .estrelas-linha {
 
         display: flex;
         flex-direction: row;
 
-        img {
 
-            padding: 5px;
+    }
 
+    .estrelas {
 
-        }
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+
 
 
     }
 
-    
+
 
 }
 
@@ -197,13 +200,13 @@
 
     }
 
-    p{
+    p {
 
         color: white !important;
 
     }
 
-    
+
 
 
 

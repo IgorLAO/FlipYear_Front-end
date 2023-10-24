@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import Usuario from "../../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import flag from '../../../ui/assets/images/compraPage_assets/red_flag.png'
-import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_vazia 6.png'
+import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_cheia-avaliacao 11.png'
 import PopUpPerfil from '../perfil/pop-up-perfil';
 
 import { useEffect, useState } from 'react';

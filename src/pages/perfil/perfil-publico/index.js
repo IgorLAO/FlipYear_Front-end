@@ -2,7 +2,7 @@ import './index.scss';
 import BannerGato from '../../../ui/assets/images/perfil-publico_assets/5759cdb17f90d64d25e9e59854181dde 2.png'
 import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
 import Exclamacao from '../../../ui/assets/images/perfil-publico_assets/exclamacao 1.png'
-import Estrela from '../../../ui/assets/images/imagesCardProduto/estrela_vazia 6.png'
+import Estrela from '../../../ui/assets/images/imagesCardProduto/estrela_cheia-avaliacao 11.png'
 import CardPedido from '../../../ui/components/perfil/card-pedido'
 
 export default function Perfil() {

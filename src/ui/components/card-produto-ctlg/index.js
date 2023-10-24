@@ -1,11 +1,14 @@
 import './index.scss';
 import Atari from '../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png'
-import Estrela from '../../assets/images/imagesCardProduto/estrela_vazia 6.png'
+import EstrelaVaziaEsquerda from '../../assets/images/imagesCardProduto/estrelavazia esquerda.png'
+import EstrelaVaziaDireita from '../../assets/images/imagesCardProduto/estrelavaziadireita.png'
+import EstrelaCheiaEsquerda from '../../assets/images/imagesCardProduto/estrelacheiaesquerda.png'
+import EstrelaCheiaDireita from '../../assets/images/imagesCardProduto/estrelacheiadireita.png'
 import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
-
 import { useState } from 'react';
 import axios from 'axios';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CardProdutoCtlg(props) {
 
@@ -15,6 +18,132 @@ export default function CardProdutoCtlg(props) {
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
 
+    const [estrelaCheiaEsq1, setEstrelaCheiaEsq1] = useState(false);
+    const [estrelaCheiaDir1, setEstrelaCheiaDir1] = useState(false);
+
+    const [estrelaCheiaEsq2, setEstrelaCheiaEsq2] = useState(false);
+    const [estrelaCheiaDir2, setEstrelaCheiaDir2] = useState(false);
+
+    const [estrelaCheiaEsq3, setEstrelaCheiaEsq3] = useState(false);
+    const [estrelaCheiaDir3, setEstrelaCheiaDir3] = useState(false);
+
+    const [estrelaCheiaEsq4, setEstrelaCheiaEsq4] = useState(false);
+    const [estrelaCheiaDir4, setEstrelaCheiaDir4] = useState(false);
+
+    const [estrelaCheiaEsq5, setEstrelaCheiaEsq5] = useState(false);
+    const [estrelaCheiaDir5, setEstrelaCheiaDir5] = useState(false);
+
+    const [clicado, setClicado] = useState(false);
+
+    function selectEstrelaEsq(){
+
+        setEstrelaCheiaEsq1(true);
+
+
+
+
+    }
+
+    function selectEstEsq2(){
+
+        setEstrelaCheiaEsq2(true);
+        setEstrelaCheiaDir1(true);
+        setEstrelaCheiaEsq1(true);
+        
+
+
+
+    }
+
+    function selectEstDir2(){
+
+        selectEstEsq2()
+        setEstrelaCheiaDir2(true);
+
+
+
+    }
+
+    function unselectEstEsq2(){
+
+        if(clicado == false){
+
+            setEstrelaCheiaEsq2(false);
+            unselectEstrelaDir()
+            unselectEstrelaEsq()
+
+        }
+
+
+    }
+
+    function unselectEstDir2(){
+
+
+        if(clicado == false){
+
+
+            setEstrelaCheiaDir2(false)
+            unselectEstEsq2();
+
+
+        }
+
+
+    }
+
+    function unselectEstrelaEsq(){
+
+        if(clicado == false){
+
+            setEstrelaCheiaEsq1(false)
+
+        }
+
+    }
+
+    function selectEstrelaDir(){
+
+
+        setEstrelaCheiaDir1(true);
+
+
+    }
+
+    function unselectEstrelaDir(){
+
+        if(clicado == false){
+
+            setEstrelaCheiaDir1(false);
+
+
+        }
+
+
+
+
+    }
+
+    function ClickEsq(){
+
+        setClicado((current) => !current);
+
+
+    }
+
+    function ClickDir(){
+
+        setClicado((current) => !current);
+        selectEstrelaDir();
+        selectEstrelaEsq();
+
+
+    }
+
+
+
+
+
     function AddQtdProduto() {
         SetQtdProdutos(qtdProdutos + 1);
 
@@ -22,6 +151,22 @@ export default function CardProdutoCtlg(props) {
             SetQtdProdutos(limiteQtd);
 
         }
+    }
+
+    function ProdutoAdicionado() {
+
+        toast.success("Produto Adicionado ao Carrinho!")
+
+
+    }
+
+
+    function ErroAdicionarProduto() {
+
+
+        toast.error("Produto Não Adicionado ao Carrinho");
+
+
     }
 
     function MinusQtdProduto() {
@@ -33,26 +178,48 @@ export default function CardProdutoCtlg(props) {
         }
     }
 
+
+
+
     async function AddNoCarrinho() {
 
-        let resposta = await axios.post('http://localhost:5000/carrinho', {
-            usuario: idUser,
-            produto: idProduto,
-            qtd: qtdProdutos
-        });
-        let limite = limiteQtd - qtdProdutos;
-        setLimiteQtd(limiteQtd - qtdProdutos);
+        if (qtdProdutos >= 1) {
 
-        if (qtdProdutos > limite) {
-            SetQtdProdutos(limite);
+            let resposta = await axios.post('http://localhost:5000/carrinho', {
+                usuario: idUser,
+                produto: idProduto,
+                qtd: qtdProdutos
+            });
+            let limite = limiteQtd - qtdProdutos;
+            setLimiteQtd(limiteQtd - qtdProdutos);
+
+            if (qtdProdutos > limite) {
+                SetQtdProdutos(limite);
+
+            }
+
+            ProdutoAdicionado();
+
+
 
         }
 
-        return resposta.data;
+        else {
+
+
+            ErroAdicionarProduto();
+
+        }
+
+
+
+
     }
 
     return (
         <div className='card-produto-ctlg'>
+
+            <ToastContainer></ToastContainer>
             {
                 (colecionador == true)
                     ? <div id='colecionador' className='card'>
@@ -64,7 +231,7 @@ export default function CardProdutoCtlg(props) {
                             <p className='hover-opt' onClick={AddQtdProduto}>+</p>
                         </div>
 
-                       
+
                         <img src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
@@ -93,12 +260,80 @@ export default function CardProdutoCtlg(props) {
                         }
 
                         <div className='avaliacao-produto'>
-                            <div className='estrelas'>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
+
+                            <div className='estrelas-linha'>
+
+                                <div className='estrelas'>
+                                    {estrelaCheiaEsq1 == true
+
+                                    ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstrelaEsq} onClick={ClickEsq}></img>
+
+                                    
+                                    :<img src={EstrelaVaziaEsquerda}  
+                                    onMouseEnter={selectEstrelaEsq}
+                                    onClick={ClickEsq}></img>
+
+                                    }
+
+                                    {estrelaCheiaDir1 == true
+   
+                                    ?<img src={EstrelaCheiaDireita} 
+                                    onMouseLeave={() => {unselectEstrelaDir(); unselectEstrelaEsq();}} onClick={ClickDir}></img>
+                                   
+
+                                    :<img src={EstrelaVaziaDireita} 
+                                    onMouseEnter={() => {selectEstrelaDir(); selectEstrelaEsq();}} onClick={ClickDir}></img>
+
+
+                                    }
+
+
+                                </div>
+
+                                <div className='estrelas'>
+                                    {estrelaCheiaEsq2 == true
+
+                                    ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstEsq2} onClick={ClickEsq}></img>
+
+                                    
+                                    :<img src={EstrelaVaziaEsquerda}  
+                                    onMouseEnter={selectEstEsq2}
+                                    onClick={ClickEsq}></img>
+
+                                    }
+
+                                    {estrelaCheiaDir2 == true
+   
+                                    ?<img src={EstrelaCheiaDireita} 
+                                    onMouseLeave={unselectEstDir2} onClick={ClickDir}></img>
+                                   
+
+                                    :<img src={EstrelaVaziaDireita} 
+                                    onMouseEnter={selectEstDir2} onClick={ClickDir}></img>
+
+
+                                    }
+
+
+                                </div>
+
+  
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
                             </div>
 
                             <p className='avaliacao-decimal'>({props.avaliacao})</p>
@@ -145,14 +380,34 @@ export default function CardProdutoCtlg(props) {
                         }
 
                         <div className='avaliacao-produto'>
-                            <div className='estrelas'>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                                <img src={Estrela}></img>
-                            </div>
+                            <div className='estrelas-linha'>
 
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                                <div className='estrelas'>
+                                    <img src={EstrelaVaziaEsquerda}></img>
+                                    <img src={EstrelaVaziaDireita}></img>
+                                </div>
+
+                            </div>
                             <p className='avaliacao-decimal'>({props.avaliacao})</p>
 
                         </div>
@@ -160,4 +415,5 @@ export default function CardProdutoCtlg(props) {
             }
         </div>
 
-    )};
+    )
+};
