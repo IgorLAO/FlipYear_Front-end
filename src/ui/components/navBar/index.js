@@ -1,5 +1,6 @@
 import "./index.scss";
 
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -76,6 +77,8 @@ export default function NavBar() {
             setIshideNotFound(false);
     }
 
+
+
     const NavTo = (e) => {
         if (e.key === 'Enter') {
             navigate('/search');
@@ -91,6 +94,7 @@ export default function NavBar() {
 
     return (
         <>
+        
             <div className="Nav">
 
                 <div onClick={NavToHome} className="Logo">
