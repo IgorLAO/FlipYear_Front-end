@@ -53,7 +53,6 @@ export default function EditarPerfil(props) {
     }
 
     async function GETImages() {
-        
             let infos = localStorage('NORMAL_USER_Logado');
             let id = infos.data.Id
             let das = await GetUserById(id);
@@ -82,6 +81,9 @@ export default function EditarPerfil(props) {
             }
         }
         fetchData();
+
+
+
         
     }, [GETImages, props]);
 
