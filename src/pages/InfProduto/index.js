@@ -22,12 +22,13 @@ export default function InfProduto() {
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
+    
 
     const [comments, setComments] = useState([])
     const [otherProducts, setOtherProducts] = useState([])
     const [pageComments, setPageComments] = useState(1)
     const [pageProducts, setPageProducts] = useState(1)
-    const [aaa, SetAaa] = useState([])
+    const [allProducts, SetAllProducts] = useState([])
 
 
     async function GetComments(){
@@ -56,14 +57,14 @@ export default function InfProduto() {
 
         let length = a / otherProducts.length
 
-        SetAaa(length)
+        SetAllProducts(length)
         console.log(length)
     }
 
 
 
     function nextPagProducts(){
-        if(pageProducts <= aaa){
+        if(pageProducts <= allProducts){
         setPageProducts(pageProducts + 1)
         }
     }
