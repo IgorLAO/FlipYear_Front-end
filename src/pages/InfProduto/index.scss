@@ -188,6 +188,15 @@
         align-items: center;
     }
 
+    .env-hermes:hover{
+        border-radius: 20px 20px 0px 0px;
+        background-color: #1eb647;
+
+        p, h4{
+            color:#174b39 !important;
+        }
+    }   
+
     .env-hermes button p{
         margin-top: 10px;
     }
@@ -209,6 +218,15 @@
         display: flex;
         align-items: center;
     }
+
+    .env-star:hover{
+        border-radius: 00px 0px 20px 20px;
+        background-color: #1eb647;
+        
+        p, h4{
+            color:#174b39 !important;
+        }
+    }  
 
     .env-star button p{
         margin-top: 10px;
@@ -253,9 +271,17 @@
         font-family: flipfont;
         border: none;
 
+        transition: 0.2s;
+
         cursor: pointer;
 
         box-shadow: 3px 3px #5DF4AC, 3px -3px #5DF4AC, 7px 0px #5DF4AC;
+    }
+
+    #button-compra:hover{
+        color: #fff;
+        background-color: #0edf7a;
+        box-shadow: 3px 3px #0edf7a, 3px -3px #0edf7a, 7px 0px #0edf7a;
     }
 
     #button-carrinho{
@@ -267,7 +293,15 @@
         box-shadow: 3px 3px #346856, 3px -3px #346856, 7px 0px #346856;
         border: none;
 
+        transition: 0.2s;
+
         cursor: pointer;
+    }
+
+    #button-carrinho:hover{
+        color: #000;
+        background-color: #029c66;
+        box-shadow: 3px 3px #029c66, 3px -3px #029c66, 7px 0px #029c66;
     }
 
     .product-details{

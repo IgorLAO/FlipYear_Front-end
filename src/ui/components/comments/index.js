@@ -1,8 +1,9 @@
 import './index.scss';
+// import moment from 'moment';
 
 import Usuario from "../../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import flag from '../../../ui/assets/images/compraPage_assets/red_flag.png'
-import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_vazia 6.png'
+import estrela from '../../../ui/assets/images/imagesCardProduto/estrela_cheia-avaliacao 11.png'
 import PopUpPerfil from '../perfil/pop-up-perfil';
 
 import { useEffect, useState } from 'react';
@@ -12,7 +13,7 @@ import Report from '../report';
 export default function Comments(props) {
     const [popUpPefil, setPopUpPerfil] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(true);
-
+    const [dataPublicacao, setDataPublicacao] = useState('')
 
     function mostrarPopUpPerfil() {
 
@@ -25,6 +26,18 @@ export default function Comments(props) {
         }
 
     }
+
+    function Publicacao(){
+        // const publicacao = new Date(props.Data)
+        // const FixedData = moment(publicacao).format('DD/MM/YYYY');
+        // setDataPublicacao(FixedData)
+        // console.log(dataPublicacao)
+    }
+
+    useEffect(() =>{
+        Publicacao()
+    }, [dataPublicacao])
+
     return (
         <div className='Comment'>
 
@@ -44,7 +57,7 @@ export default function Comments(props) {
                             <div className="txt-comment">
                                 <div className="username">
                                     <h2>{props.Nome}</h2>
-                                    <span>{props.Data}</span>
+                                    <span>{dataPublicacao}</span>
                                 </div>
 
                                 <div className="comment">

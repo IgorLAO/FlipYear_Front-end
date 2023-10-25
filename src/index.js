@@ -23,6 +23,7 @@ import Pagamento100 from './pages/pagamento100';
 import Pagamento25 from './pages/pagamento25';
 import Carrinho from './pages/carrinho';
 import SearchResults from './pages/SearchResultsPage';
+import Suporte from './pages/suporte';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -50,6 +51,7 @@ root.render(
         <Route path='/ADM_RegistroProd' element={<RegistroProdutos />} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/search' element={<SearchResults />} />
+        <Route path='/Suporte' element={<Suporte />} />
         
       </Routes>
     </BrowserRouter>

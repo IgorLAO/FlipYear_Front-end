@@ -21,6 +21,8 @@ function App() {
   const [mostrarDestaques, setMostrarDestaques]= useState([]);
   const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
 
+  const [mostrarAllDestaques, setMostrarAllDestaques] =useState([])
+
   async function ConsultaDestaqueProdutos(){
     
     try {
@@ -32,14 +34,24 @@ function App() {
       throw new Error('Erro ao buscar produtos em destaque', error)
     }
   }
+
+  async function ListAllProdDestaques(){
+      let sql = await axios.get('http://localhost:5000/produtosAllDestaque')
+      
+      let produtos = (sql.data)
+      let a = produtos.length
+      setMostrarAllDestaques(a)
+      console.log(mostrarAllDestaques)
+  }
   
-//ao ultrapassar o limite de produtos em destques disponíveis ele dá erro
 
   function nextPag(){
 
+    if(pageDestaqueNum < mostrarAllDestaques){
     setPageDestaqueNum(pageDestaqueNum + 1)
-    
+  }
 
+    setPageDestaqueNum(pageDestaqueNum + 1)
     console.log(mostrarDestaques.length)
   }
 
@@ -51,6 +63,7 @@ function App() {
 
   useEffect(() =>{
     ConsultaDestaqueProdutos()
+    ListAllProdDestaques()
   }, [pageDestaqueNum])
 
 
