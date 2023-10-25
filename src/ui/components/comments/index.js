@@ -1,5 +1,5 @@
 import './index.scss';
-import moment from 'moment';
+// import moment from 'moment';
 
 import Usuario from "../../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import flag from '../../../ui/assets/images/compraPage_assets/red_flag.png'
@@ -28,10 +28,10 @@ export default function Comments(props) {
     }
 
     function Publicacao(){
-        const publicacao = new Date(props.Data)
-        const FixedData = moment(publicacao).format('DD/MM/YYYY');
-        setDataPublicacao(FixedData)
-        console.log(dataPublicacao)
+        // const publicacao = new Date(props.Data)
+        // const FixedData = moment(publicacao).format('DD/MM/YYYY');
+        // setDataPublicacao(FixedData)
+        // console.log(dataPublicacao)
     }
 
     useEffect(() =>{
