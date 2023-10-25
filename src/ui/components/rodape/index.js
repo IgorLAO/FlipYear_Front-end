@@ -48,7 +48,7 @@ export default function Rodape(){
                         </div>
                         <div>
                             <img src={Email}/>
-                            <p>E-mail: garotodeprograma@gmail.com</p>
+                            <p>E-mail: FlipYear2000Contact@gmail.com</p>
                         </div>
                     </div>
                     <div className="formas_pagamento">

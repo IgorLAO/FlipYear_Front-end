@@ -7,7 +7,16 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 import camera from "../../../ui/assets/images/adm_assets/camera_icon.png"
 
 export default function RegistroProdutos() {
-    const[qtd, setQtd] = useState(0);
+    const [qtd, setQtd] = useState(0);
+    const [nome, setNome] = useState('')
+    const [preco, setPreco] = useState(0)
+    const [destaque, setDestaque] = useState(1)
+    const [categoria, setCategoria] = useState([])
+    const [disponivel, setDisponivel] = useState(1)
+    const [estoque, setEstoque] = useState(1)
+    const [detalhes, setDetalhes] = useState('')
+    const [avaliacao, setAvaliacao] = useState(5)
+    const [fabricante, setFabricante] = useState('')
 
     function aumentarQtd(){
         setQtd(qtd+1)
