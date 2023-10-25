@@ -32,9 +32,6 @@ export default function Pagamento25(){
 
         navigate("/pagamento50");
 
-        if(co){
-
-        }
     };
 
     return (

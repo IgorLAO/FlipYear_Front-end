@@ -9,12 +9,27 @@ import Atari from '../../ui/assets/images/imageExamples/atari_console.png';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-export default function Pagamento75(){
+import { Navigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 
-    function ConcluirPedido(){
-        Link = '../'
+import { GetSearchProd } from '../../api/produtos.js';
+
+export default function Pagamento75(props){
+
+    const [QtdProduto, setQtdProduto] = useState('');
+    const [QtdDeProdutosComprados, setQtdDeProdutosComprados] = useState(1)
+
+    const navigate = useNavigate();
+
+    async function ConcluirPedido(){
+        const url = await axios.get(`http://localhost:5000/produtos/2`);
+       
+        // setQtdProduto(url.data[0].QTD_ESTOQUE);
+        console.log(url.data.QTD_ESTOQUE);
+        
     } 
     return(
         <>
