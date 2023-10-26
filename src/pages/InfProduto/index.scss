@@ -335,7 +335,7 @@
 
     .comments-area{
         background-color: #122833;
-        border-radius: 20px; 
+        border-radius: 20px; ;
 
         margin-top: 100px;
         margin-left: 30px;
@@ -374,6 +374,15 @@
         background: none;
         border: none;
         border-bottom: solid 4px #1A644E;
+    }
+
+    .setas{
+        display: flex;
+        justify-content: center;
+    }
+
+    .setas h2{
+        margin: 20px;
     }
 
     .comments{
