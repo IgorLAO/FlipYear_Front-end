@@ -26,6 +26,7 @@ import Pagamento25 from './pages/pagamento25';
 import Carrinho from './pages/carrinho';
 import SearchResults from './pages/SearchResultsPage';
 import Suporte from './pages/suporte';
+import SobreNos from './pages/sobre_nos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -54,7 +55,7 @@ root.render(
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/search' element={<SearchResults />} />
         <Route path='/Suporte' element={<Suporte />} />
-        
+        <Route path='/sobrenos' element={<SobreNos/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
