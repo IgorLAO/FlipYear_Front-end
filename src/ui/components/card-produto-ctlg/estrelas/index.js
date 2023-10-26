@@ -35,14 +35,26 @@ export default function EstrelasAvaliacao(){
 
     function selectEstrelaEsq(){
 
-        setEstrelaCheiaEsq1(true);
+        if(clicado == false){
+
+            setEstrelaCheiaEsq1(true);
+
+
+        }
+
     }
 
     function selectEstEsq2(){
 
-        setEstrelaCheiaEsq2(true);
-        setEstrelaCheiaDir1(true);
-        setEstrelaCheiaEsq1(true);
+        if(clicado == false){
+
+            
+                    setEstrelaCheiaEsq2(true);
+                    setEstrelaCheiaDir1(true);
+                    setEstrelaCheiaEsq1(true);
+
+
+        }
         
 
 
@@ -51,27 +63,43 @@ export default function EstrelasAvaliacao(){
 
     function selectEstEsq3(){
 
-        setEstrelaCheiaEsq3(true);
-        selectEstEsq2();
-        selectEstDir2();
+        if(clicado == false){
+
+            setEstrelaCheiaEsq3(true);
+            selectEstEsq2();
+            selectEstDir2();
+
+        }
+
 
 
     }
 
     function selectEstEsq4(){
 
-        setEstrelaCheiaEsq4(true);
-        selectEstEsq3();
-        selectEstDir3();
+        if(clicado == false){
+
+            setEstrelaCheiaEsq4(true);
+            selectEstEsq3();
+            selectEstDir3();
+
+
+        }
+
 
 
     }
 
     function selectEstEsq5(){
 
-        setEstrelaCheiaEsq5(true);
-        selectEstEsq4();
-        selectEstDir4();
+        if(clicado == false){
+
+            setEstrelaCheiaEsq5(true);
+            selectEstEsq4();
+            selectEstDir4();
+
+        }
+
 
 
 
@@ -81,8 +109,12 @@ export default function EstrelasAvaliacao(){
 
     function selectEstrelaDir(){
 
+        if(clicado == false){
 
-        setEstrelaCheiaDir1(true);
+            setEstrelaCheiaDir1(true);
+
+        }
+
 
 
     }
@@ -90,8 +122,14 @@ export default function EstrelasAvaliacao(){
 
     function selectEstDir2(){
 
-        selectEstEsq2();
-        setEstrelaCheiaDir2(true);
+        if(clicado == false){
+
+            selectEstEsq2();
+            setEstrelaCheiaDir2(true);
+
+
+        }
+
 
 
 
@@ -99,26 +137,42 @@ export default function EstrelasAvaliacao(){
 
     function selectEstDir3(){
 
-        setEstrelaCheiaDir3(true);
-        selectEstEsq3();
+        if(clicado == false){
+
+            setEstrelaCheiaDir3(true);
+            selectEstEsq3();
+
+
+        }
+
 
 
 
     }
 
     function selectEstDir4(){
+
+        if(clicado == false){
+
+            setEstrelaCheiaDir4(true);
+            selectEstEsq4();
+
+        }
         
-        setEstrelaCheiaDir4(true);
-        selectEstEsq4();
 
 
     }
     
     function selectEstDir5(){
 
+        if(clicado == false){
 
-        setEstrelaCheiaDir5(true);
-        selectEstEsq5();
+            setEstrelaCheiaDir5(true);
+            selectEstEsq5();
+
+        }
+
+
 
 
     }
@@ -276,21 +330,33 @@ export default function EstrelasAvaliacao(){
 
 
 
-    function ClickEsq(){
+    function Clicks(id){
+        
 
-        setClicado((current) => !current);
+      setClicado(true)
 
+        if(clicado == true){
+
+                    if(id == 'vd5'){
+
+                        setEstrelaCheiaDir5(true);
+
+
+                    }
+            
+                    if(id == 'ce5'){
+            
+                        setEstrelaCheiaDir5(false);
+                       
+            
+                    }
+
+
+        }
 
     }
 
-    function ClickDir(){
 
-        setClicado((current) => !current);
-        selectEstrelaDir();
-        selectEstrelaEsq();
-
-
-    }
 
 
 return(
@@ -300,23 +366,28 @@ return(
     <div className='estrelas'>
         {estrelaCheiaEsq1 == true
 
-        ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstrelaEsq} onClick={ClickEsq}></img>
+        ? <img src={EstrelaCheiaEsquerda} 
+        onMouseLeave={unselectEstrelaEsq}
+         onClick={() => {Clicks('ce1')}}></img>
 
         
         :<img src={EstrelaVaziaEsquerda}  
         onMouseEnter={selectEstrelaEsq}
-        onClick={ClickEsq}></img>
+         onClick={() => {Clicks('ve1')}}
+        ></img>
 
         }
 
         {estrelaCheiaDir1 == true
 
         ?<img src={EstrelaCheiaDireita} 
-        onMouseLeave={() => {unselectEstrelaDir(); unselectEstrelaEsq();}} onClick={ClickDir}></img>
+         onClick={() => {Clicks('cd1')}}
+        onMouseLeave={() => {unselectEstrelaDir(); unselectEstrelaEsq();}} ></img>
        
 
         :<img src={EstrelaVaziaDireita} 
-        onMouseEnter={() => {selectEstrelaDir(); selectEstrelaEsq();}} onClick={ClickDir}></img>
+         onClick={() => {Clicks('vd1')}}
+        onMouseEnter={() => {selectEstrelaDir(); selectEstrelaEsq();}} ></img>
 
 
         }
@@ -327,23 +398,28 @@ return(
     <div className='estrelas'>
         {estrelaCheiaEsq2 == true
 
-        ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstEsq2} onClick={ClickEsq}></img>
+        ? <img src={EstrelaCheiaEsquerda} 
+        onClick={() => {Clicks('ce2')}}
+        onMouseLeave={unselectEstEsq2} ></img>
 
         
-        :<img src={EstrelaVaziaEsquerda}  
+        :<img src={EstrelaVaziaEsquerda} 
+         onClick={() => {Clicks('ve2')}} 
         onMouseEnter={selectEstEsq2}
-        onClick={ClickEsq}></img>
+       ></img>
 
         }
 
         {estrelaCheiaDir2 == true
 
         ?<img src={EstrelaCheiaDireita} 
-        onMouseLeave={unselectEstDir2} onClick={ClickDir}></img>
+         onClick={() => {Clicks('cd2')}}
+        onMouseLeave={unselectEstDir2} ></img>
        
 
         :<img src={EstrelaVaziaDireita} 
-        onMouseEnter={selectEstDir2} onClick={ClickDir}></img>
+         onClick={() => {Clicks('vd2')}}
+        onMouseEnter={selectEstDir2} ></img>
 
 
         }
@@ -354,23 +430,28 @@ return(
     <div className='estrelas'>
         {estrelaCheiaEsq3 == true
 
-        ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstEsq3} onClick={ClickEsq}></img>
+        ? <img src={EstrelaCheiaEsquerda} 
+         onClick={() => {Clicks('ce3')}}
+        onMouseLeave={unselectEstEsq3} ></img>
 
         
         :<img src={EstrelaVaziaEsquerda}  
+         onClick={() => {Clicks('ve3')}}
         onMouseEnter={selectEstEsq3}
-        onClick={ClickEsq}></img>
+        ></img>
 
         }
 
         {estrelaCheiaDir3 == true
 
         ?<img src={EstrelaCheiaDireita} 
-        onMouseLeave={unselectEstDir3} onClick={ClickDir}></img>
+         onClick={() => {Clicks('cd3')}}
+        onMouseLeave={unselectEstDir3} ></img>
        
 
         :<img src={EstrelaVaziaDireita} 
-        onMouseEnter={selectEstDir3} onClick={ClickDir}></img>
+         onClick={() => {Clicks('vd3')}}
+        onMouseEnter={selectEstDir3} ></img>
 
 
         }
@@ -381,23 +462,28 @@ return(
     <div className='estrelas'>
         {estrelaCheiaEsq4 == true
 
-        ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstEsq4} onClick={ClickEsq}></img>
+        ? <img src={EstrelaCheiaEsquerda}
+         onClick={() => {Clicks('ce4')}}
+         onMouseLeave={unselectEstEsq4} ></img>
 
         
-        :<img src={EstrelaVaziaEsquerda}  
+        :<img src={EstrelaVaziaEsquerda}
+         onClick={() => {Clicks('ve4')}}  
         onMouseEnter={selectEstEsq4}
-        onClick={ClickEsq}></img>
+        ></img>
 
         }
 
         {estrelaCheiaDir4 == true
 
         ?<img src={EstrelaCheiaDireita} 
-        onMouseLeave={unselectEstDir4} onClick={ClickDir}></img>
+         onClick={() => {Clicks('cd4')}}
+        onMouseLeave={unselectEstDir4} ></img>
        
 
         :<img src={EstrelaVaziaDireita} 
-        onMouseEnter={selectEstDir4} onClick={ClickDir}></img>
+         onClick={() => {Clicks('vd4')}}
+        onMouseEnter={selectEstDir4} ></img>
 
 
         }
@@ -408,23 +494,26 @@ return(
     <div className='estrelas'>
         {estrelaCheiaEsq5 == true
 
-        ? <img src={EstrelaCheiaEsquerda} onMouseLeave={unselectEstEsq5} onClick={ClickEsq}></img>
+        ? <img src={EstrelaCheiaEsquerda} 
+        onMouseLeave={unselectEstEsq5}  
+        onClick={() => {Clicks('ce5')}}></img>
 
         
         :<img src={EstrelaVaziaEsquerda}  
         onMouseEnter={selectEstEsq5}
-        onClick={ClickEsq}></img>
+         onClick={() => {Clicks('ve5')}}
+        ></img>
 
         }
 
         {estrelaCheiaDir5 == true
 
         ?<img src={EstrelaCheiaDireita} 
-        onMouseLeave={unselectEstDir5} onClick={ClickDir}></img>
+        onMouseLeave={unselectEstDir5}  onClick={() => {Clicks('cd5')}}></img>
        
 
         :<img src={EstrelaVaziaDireita} 
-        onMouseEnter={selectEstDir5} onClick={ClickDir}></img>
+        onMouseEnter={selectEstDir5}  onClick={() => {Clicks('vd5')}}></img>
 
 
         }
