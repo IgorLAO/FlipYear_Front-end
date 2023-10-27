@@ -31,14 +31,14 @@ import SobreNos from './pages/sobre_nos';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />} />
+        <Route path='/' element={<App />}/>
         <Route path='/cadastro' element={<Cadastro />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/produto' element={<InfProduto />} />
-        <Route path='/catalogo' element={<Catalogo />} />
+        <Route path='/catalogo' element={<Catalogo />}/>
+        <Route path='/produto' element={<InfProduto/>} />
+        <Route path='/produto/:idParam' element={<InfProduto/>}/>
         <Route path='/pagamento25' element={<Pagamento25/>}/>
         <Route path='/pagamento50' element={<Pagamento50 />} />
         <Route path='/pagamento75' element={<Pagamento75 />} />

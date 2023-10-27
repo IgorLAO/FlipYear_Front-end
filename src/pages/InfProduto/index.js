@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+
 
 import './index.scss'
-
 import axios from "axios";
 
 import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
@@ -17,20 +17,36 @@ import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
+import { ConsultarProdPorId } from "../../api/produtos";
+
 export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
     
+    const [comments, setComments] = useState([]);
+    const [otherProducts, setOtherProducts] = useState([]);
+    const [pageComments, setPageComments] = useState(1);
+    const [pageProducts, setPageProducts] = useState(1);
+    const [allProducts, SetAllProducts] = useState([]);
 
-    const [comments, setComments] = useState([])
-    const [otherProducts, setOtherProducts] = useState([])
-    const [pageComments, setPageComments] = useState(1)
-    const [pageProducts, setPageProducts] = useState(1)
-    const [allProducts, SetAllProducts] = useState([])
+    //    
+    const [produto, setProduto] = useState({});
+    const { idParam } = useParams();
 
+    useEffect(() =>{    
+        CarregarProdutos();
+    }, []);
 
+    async function CarregarProdutos(){    
+        const resp  = await ConsultarProdPorId(idParam);
+        setProduto(resp); 
+        console.log(resp);
+
+    }
+    //peguei o id_produto do catálogo e joguei aqui
+    
     async function GetComments(){
         let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
@@ -133,16 +149,16 @@ export default function InfProduto() {
 
                 <div className="compra">
                     <div className="nome-produto">
-                        <h1>Super Famicon Yum</h1>
-                        <div></div>
+                        <h1>{produto.NM_PRODUTO}</h1>
+                        <div></div> 
                     </div>
 
                     <div className="estado">
-                        <p>Estado: Seminovo</p>
+                        <p>{produto.TP_ESTADO}</p>
                     </div>
 
                     <div className="preco">
-                        <h2>R$800,00</h2>
+                        <h2>R${produto.VL_PRECO}</h2>
                         <p>Ou 10x de R$80,00</p>
                         <div></div>
                     </div>
@@ -211,7 +227,8 @@ export default function InfProduto() {
                 <div className="linha">
                     <h1>Sobre</h1>
                 </div>
-                <p>Yam Yam é um jogo de tiro em 3D com elementos de RPG, onde um garoto-toupeira chamado Magu Magu e seu animal de estimação, Yam Yam, embarcam em uma aventura por 28 missões. Eles viajam entre vilas, enfrentando fases de tiro em 3D para derrotar monstros, ganhar pontos de experiência e coletar recompensas. O jogo apresenta elementos de RPG, como comprar equipamentos e completar tarefas nas vilas, mas reseta o progresso do personagem após cada missão, como se fosse um sonho.</p>
+                <p>{produto.DS_DETALHES}</p>
+                {/* <p>Yam Yam é um jogo de tiro em 3D com elementos de RPG, onde um garoto-toupeira chamado Magu Magu e seu animal de estimação, Yam Yam, embarcam em uma aventura por 28 missões. Eles viajam entre vilas, enfrentando fases de tiro em 3D para derrotar monstros, ganhar pontos de experiência e coletar recompensas. O jogo apresenta elementos de RPG, como comprar equipamentos e completar tarefas nas vilas, mas reseta o progresso do personagem após cada missão, como se fosse um sonho.</p> */}
             </div>
 
             <div className="comments-area">

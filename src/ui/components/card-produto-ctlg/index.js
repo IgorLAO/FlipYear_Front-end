@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function CardProdutoCtlg(props) {
 
@@ -14,6 +15,8 @@ export default function CardProdutoCtlg(props) {
     const [idUser, setIdUser] = useState(3);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
+
+    const navigate = useNavigate();
 
     const [estrelaCheiaEsq1, setEstrelaCheiaEsq1] = useState(false);
     const [estrelaCheiaDir1, setEstrelaCheiaDir1] = useState(false);
@@ -32,7 +35,7 @@ export default function CardProdutoCtlg(props) {
 
     const [clicado, setClicado] = useState(false);
 
-    function selectEstrelaEsq(){
+    function selectEstrelaEsq() {
 
         setEstrelaCheiaEsq1(true);
 
@@ -41,18 +44,18 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function selectEstEsq2(){
+    function selectEstEsq2() {
 
         setEstrelaCheiaEsq2(true);
         setEstrelaCheiaDir1(true);
         setEstrelaCheiaEsq1(true);
-        
+
 
 
 
     }
 
-    function selectEstDir2(){
+    function selectEstDir2() {
 
         selectEstEsq2()
         setEstrelaCheiaDir2(true);
@@ -61,9 +64,9 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function unselectEstEsq2(){
+    function unselectEstEsq2() {
 
-        if(clicado == false){
+        if (clicado == false) {
 
             setEstrelaCheiaEsq2(false);
             unselectEstrelaDir()
@@ -74,10 +77,10 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function unselectEstDir2(){
+    function unselectEstDir2() {
 
 
-        if(clicado == false){
+        if (clicado == false) {
 
 
             setEstrelaCheiaDir2(false)
@@ -89,9 +92,9 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function unselectEstrelaEsq(){
+    function unselectEstrelaEsq() {
 
-        if(clicado == false){
+        if (clicado == false) {
 
             setEstrelaCheiaEsq1(false)
 
@@ -99,7 +102,7 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function selectEstrelaDir(){
+    function selectEstrelaDir() {
 
 
         setEstrelaCheiaDir1(true);
@@ -107,9 +110,9 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function unselectEstrelaDir(){
+    function unselectEstrelaDir() {
 
-        if(clicado == false){
+        if (clicado == false) {
 
             setEstrelaCheiaDir1(false);
 
@@ -121,14 +124,14 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    function ClickEsq(){
+    function ClickEsq() {
 
         setClicado((current) => !current);
 
 
     }
 
-    function ClickDir(){
+    function ClickDir() {
 
         setClicado((current) => !current);
         selectEstrelaDir();
@@ -209,9 +212,12 @@ export default function CardProdutoCtlg(props) {
         }
 
 
-
-
     }
+
+    //só utilizei o id do produto para seguir para a pág de produto
+    function processoCompra() {
+        navigate(`/produto/${props.idProduto}`)
+    }   
 
     return (
         <div className='card-produto-ctlg'>
@@ -219,7 +225,7 @@ export default function CardProdutoCtlg(props) {
             <ToastContainer></ToastContainer>
             {
                 (colecionador == true)
-                    ? <div id='colecionador' className='card'>
+                    ? <div style={{ cursor: "pointer" }} id='colecionador' className='card' onClick={processoCompra}>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
@@ -299,17 +305,17 @@ export default function CardProdutoCtlg(props) {
                                     <p className='preco-produto-original' id='cinza-pequeno'> ${props.preco} </p>
                                 </>
 
-                                 : <p className='preco-produto'> ${props.preco} </p>
-                         }
+                                : <p className='preco-produto'> ${props.preco} </p>
+                        }
 
                         <div className='avaliacao-produto'>
-                           <EstrelasAvaliacao></EstrelasAvaliacao>
+                            <EstrelasAvaliacao></EstrelasAvaliacao>
                             <p className='avaliacao-decimal'>({props.avaliacao})</p>
 
-                         </div>
-                     </div>
-             }
-         </div>
+                        </div>
+                    </div>
+            }
+        </div>
 
-     )
- };
+    )
+};
