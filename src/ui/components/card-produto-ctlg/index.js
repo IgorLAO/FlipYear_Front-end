@@ -18,127 +18,6 @@ export default function CardProdutoCtlg(props) {
 
     const navigate = useNavigate();
 
-    const [estrelaCheiaEsq1, setEstrelaCheiaEsq1] = useState(false);
-    const [estrelaCheiaDir1, setEstrelaCheiaDir1] = useState(false);
-
-    const [estrelaCheiaEsq2, setEstrelaCheiaEsq2] = useState(false);
-    const [estrelaCheiaDir2, setEstrelaCheiaDir2] = useState(false);
-
-    const [estrelaCheiaEsq3, setEstrelaCheiaEsq3] = useState(false);
-    const [estrelaCheiaDir3, setEstrelaCheiaDir3] = useState(false);
-
-    const [estrelaCheiaEsq4, setEstrelaCheiaEsq4] = useState(false);
-    const [estrelaCheiaDir4, setEstrelaCheiaDir4] = useState(false);
-
-    const [estrelaCheiaEsq5, setEstrelaCheiaEsq5] = useState(false);
-    const [estrelaCheiaDir5, setEstrelaCheiaDir5] = useState(false);
-
-    const [clicado, setClicado] = useState(false);
-
-    function selectEstrelaEsq() {
-
-        setEstrelaCheiaEsq1(true);
-
-
-
-
-    }
-
-    function selectEstEsq2() {
-
-        setEstrelaCheiaEsq2(true);
-        setEstrelaCheiaDir1(true);
-        setEstrelaCheiaEsq1(true);
-
-
-
-
-    }
-
-    function selectEstDir2() {
-
-        selectEstEsq2()
-        setEstrelaCheiaDir2(true);
-
-
-
-    }
-
-    function unselectEstEsq2() {
-
-        if (clicado == false) {
-
-            setEstrelaCheiaEsq2(false);
-            unselectEstrelaDir()
-            unselectEstrelaEsq()
-
-        }
-
-
-    }
-
-    function unselectEstDir2() {
-
-
-        if (clicado == false) {
-
-
-            setEstrelaCheiaDir2(false)
-            unselectEstEsq2();
-
-
-        }
-
-
-    }
-
-    function unselectEstrelaEsq() {
-
-        if (clicado == false) {
-
-            setEstrelaCheiaEsq1(false)
-
-        }
-
-    }
-
-    function selectEstrelaDir() {
-
-
-        setEstrelaCheiaDir1(true);
-
-
-    }
-
-    function unselectEstrelaDir() {
-
-        if (clicado == false) {
-
-            setEstrelaCheiaDir1(false);
-
-
-        }
-
-
-
-
-    }
-
-    function ClickEsq() {
-
-        setClicado((current) => !current);
-
-
-    }
-
-    function ClickDir() {
-
-        setClicado((current) => !current);
-        selectEstrelaDir();
-        selectEstrelaEsq();
-
-
-    }
 
 
 
@@ -191,6 +70,7 @@ export default function CardProdutoCtlg(props) {
                 produto: idProduto,
                 qtd: qtdProdutos
             });
+
             let limite = limiteQtd - qtdProdutos;
             setLimiteQtd(limiteQtd - qtdProdutos);
 
@@ -199,6 +79,7 @@ export default function CardProdutoCtlg(props) {
 
             }
 
+           
             ProdutoAdicionado();
 
 
@@ -212,6 +93,7 @@ export default function CardProdutoCtlg(props) {
 
         }
 
+      
 
     }
 

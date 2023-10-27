@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ListagemCarrinho.scss'
 import axios from 'axios';
 
@@ -8,6 +8,8 @@ export default function ListagemCarrinho(props) {
 
   const [border, setBorder] = useState('none');
   const [idProduto, setIdProduto] = useState(props.idProduto);
+  const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
+  const [apagar, setApagar] = useState('');
 
     async function ApagarProduto(){
 
@@ -17,9 +19,12 @@ export default function ListagemCarrinho(props) {
 
     }
 
+
+
     function Hover(){
 
-      setBorder('1px solid black')
+      setBorder('1px solid black');
+      setApagar('X');
 
 
     }
@@ -28,9 +33,11 @@ export default function ListagemCarrinho(props) {
 
 
       setBorder('none');
+      setApagar('');
 
 
     }
+
 
 
     return (<div className='lista-carrinho'>
@@ -38,7 +45,6 @@ export default function ListagemCarrinho(props) {
               <div className='linha-produtos'
               onMouseEnter={Hover}
               onMouseLeave={Unset} 
-              onClick={ApagarProduto}
               style={{border: `${border}`}}>
               <p>{props.qtd}</p>
               <p>{props.nome}</p>
@@ -49,6 +55,20 @@ export default function ListagemCarrinho(props) {
 
                 :<p>${props.precoOriginal}</p>
               }
+
+              { 
+
+              (apagar == 'X')
+
+              ?<p className='apagar' onClick={ApagarProduto}>{apagar}</p>
+
+
+              :<></>
+
+
+
+              }
+
               
               </div>
 
