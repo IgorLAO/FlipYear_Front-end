@@ -7,7 +7,7 @@ import Corvo from '../../../../ui/assets/images/perfil-publico_assets/download 2
 import cam from '../../../../ui/assets/images/edit_profi/cam.png'
 
 import { useEffect, useState } from 'react';
-import { EnviarImagem, GetBannerImage, GetProfileImage, GetUserById } from '../../../../api/usuario';
+import { EnviarImagem, GetProfileImage, GetUserById } from '../../../../api/usuario';
 
 
 export default function EditarPerfil(props) {
@@ -51,10 +51,8 @@ export default function EditarPerfil(props) {
             let infos = localStorage('NORMAL_USER_Logado');
             let id = infos.data.Id
             let das = await GetUserById(id);
-            let Banner = GetBannerImage(das.data[0].ImageBanner);
             let profile = GetProfileImage(das.data[0].ImageProfile);
             setCurrentProfilePic(profile);
-            setCurrentBanner(Banner);
             return { profile }
         
      

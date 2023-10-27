@@ -281,7 +281,7 @@ export default function CardProdutoCtlg(props) {
                             <p className='hover-opt' onClick={AddQtdProduto}>+</p>
                         </div>
 
-                        <img src={Atari}></img>
+                        <img onClick={processoCompra} src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
                         <div className='desc-info'>

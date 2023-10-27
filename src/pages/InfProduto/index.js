@@ -18,6 +18,7 @@ import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
 import { ConsultarProdPorId } from "../../api/produtos";
+import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
@@ -44,7 +45,7 @@ export default function InfProduto() {
     async function CarregarProdutos(){    
         const resp  = await ConsultarProdPorId(idParam);
         setProduto(resp); 
-        console.log(resp);
+        console.log(idParam);
     }
 
     function processPag25(){
