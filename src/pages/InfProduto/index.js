@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
-
+import { useParams } from "react-router-dom";
 
 import './index.scss'
 import axios from "axios";
@@ -46,7 +46,6 @@ export default function InfProduto() {
 
     }
     //peguei o id_produto do catálogo e joguei aqui
-    
     async function GetComments(){
         let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
