@@ -25,16 +25,7 @@ export default function EditarPerfil(props) {
 
 
 
-    async function ShowImagesProfile() {
-        if (SendNewProfilePic) {
-            let Profile = URL.createObjectURL(SendNewProfilePic);
-            setNewProfilePicShow(Profile);
-        }
-
-    }
-
-    // esse envia imagem
-    // essa função vai dar erro provavelmente. Vou dar uma encurtada dps
+  
     async function Save() {
         const infos = localStorage("NORMAL_USER_Logado");
         console.log(SendNewProfilePic);
@@ -51,18 +42,12 @@ export default function EditarPerfil(props) {
             let infos = localStorage('NORMAL_USER_Logado');
             let id = infos.data.Id
             let das = await GetUserById(id);
-            let Banner = GetBannerImage(das.data[0].ImageBanner);
-            let profile = GetProfileImage(das.data[0].ImageProfile);
-            setCurrentProfilePic(profile);
-            setCurrentBanner(Banner);
-            return { profile }
+       
         
      
     }
 
     async function TESTES() {
-
-        ShowImagesProfile();
     }
 
     useEffect(() => {
