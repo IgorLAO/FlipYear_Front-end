@@ -22,7 +22,6 @@ export async function GetUserById(id) {
 export async function EnviarImagem(id, Profile, Banner) {
     const formData = new FormData();
     formData.append('profile', Profile);
-    formData.append('banner', Banner);
 
     const res = await server.put(`/usuario/${id}/images`, formData, {
         headers: {
@@ -33,11 +32,6 @@ export async function EnviarImagem(id, Profile, Banner) {
     return res;
 }
 
-
-export function GetBannerImage(BannerIMG) {
-    console.log(`${server.getUri()}/${BannerIMG}`)
-    return `${server.getUri()}/${BannerIMG}`
-}
 
 export function GetProfileImage(ProfIMG) {
     console.log(`${server.getUri()}/${ProfIMG}`)

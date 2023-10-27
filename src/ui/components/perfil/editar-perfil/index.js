@@ -23,12 +23,7 @@ export default function EditarPerfil(props) {
     const [CurrentBannerPic, setCurrentBanner] = useState('');
 
 
-    async function ShowImagesBanner() {
-        if (SendNewBannerPic) {
-            let Banner = URL.createObjectURL(SendNewBannerPic);
-            setNewBannerPicShow(Banner);
-        }
-    }
+
 
     async function ShowImagesProfile() {
         if (SendNewProfilePic) {
@@ -46,27 +41,26 @@ export default function EditarPerfil(props) {
 
         let das = await GetUserById(infos.data.Id);
 
-        EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
+        EnviarImagem(infos.data.Id, SendNewProfilePic);
 
         setIsHide(false);
         // window.location.reload();
     }
 
     async function GETImages() {
-            let infos = localStorage('NORMAL_USER_Logado');
-            let id = infos.data.Id
-            let das = await GetUserById(id);
-            let Banner = GetBannerImage(das.data[0].ImageBanner);
-            let profile = GetProfileImage(das.data[0].ImageProfile);
-            setCurrentProfilePic(profile);
-            setCurrentBanner(Banner);
-            return { profile, Banner }
-        
-     
+        let infos = localStorage('NORMAL_USER_Logado');
+        let id = infos.data.Id
+        let das = await GetUserById(id);
+        let profile = GetProfileImage(das.data[0].ImageProfile);
+        setCurrentProfilePic(profile);
+
+        return { profile }
+
+
     }
 
     async function TESTES() {
-        ShowImagesBanner();
+
         ShowImagesProfile();
     }
 
@@ -74,7 +68,6 @@ export default function EditarPerfil(props) {
         const fetchData = async () => {
             try {
                 const images = await GETImages();
-                props.SendBannerToD(images.Banner);
                 props.SendProfileToD(images.profile);
             } catch (error) {
                 console.error('Erro ao buscar imagens:', error);
@@ -84,7 +77,7 @@ export default function EditarPerfil(props) {
 
 
 
-        
+
     }, [GETImages, props]);
 
     // ---------------------------------------------
@@ -126,7 +119,7 @@ export default function EditarPerfil(props) {
                                         // (<div style={{backgroundImage: `url(${CurrentBannerPic})`, backgroundSize: 'cover'}}></div>)
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
-                                    {!NewBannerPic ?
+                                    {/* {!NewBannerPic ?
                                         (<span className='IMG' style={{ width: '100%' }} >
                                             <img src={CurrentBannerPic} style={{
                                                 width: '100%',
@@ -147,7 +140,20 @@ export default function EditarPerfil(props) {
                                                 }} />
                                             </span>
                                         )
-                                    }
+                                    } */}
+
+                                    <span className='IMG' style={{ width: '100%' }} >
+                                        <div style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            maxHeight: '200px',
+                                            objectFit: 'cover',
+                                            backgroundColor: 'blue'
+                                        }}>
+
+                                        </div>
+
+                                    </span>
 
 
                                     <span className='blockCam' id='cam' style={{
