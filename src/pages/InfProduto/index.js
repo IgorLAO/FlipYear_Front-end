@@ -41,6 +41,12 @@ export default function InfProduto() {
         setPageComments(pageComments + 1)
     }
 
+    function prevPagComments(){
+        if(pageComments > 1){
+        setPageComments(pageComments - 1)
+        }
+    }
+
 
 
     async function GetProducts(){
@@ -96,7 +102,6 @@ export default function InfProduto() {
 
     return (
         <div className="pagina-produto">
-            <NavBar />
           
             <div className="infos">
                 <div className="txt-img">
@@ -225,9 +230,13 @@ export default function InfProduto() {
                 Likes={item.LIKES}
                 />    
                 )}
+                <div className="setas">
+                    <h2 id="seta" onClick={prevPagComments} style={{ fontSize: 70 }} > {'<'} </h2>
+                    <h2 id="seta" onClick={nextPagComments} style={{ fontSize: 70 }} > {'>'} </h2>
+                </div>
             </div>
 
-            <button onClick={nextPagComments}>aaaaaa</button>
+            
 
             <div className="other-products">
                 <div className="ot-tittle">

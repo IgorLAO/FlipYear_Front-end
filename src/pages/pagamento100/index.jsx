@@ -8,9 +8,17 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import SonicEspera from '../../ui/assets/images/progress_pag_assets/sonic_esperando_progresso_100% 1.png';
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 export default function Pagamento100() {
 
+    const navigate = useNavigate();
+
+
+    function ConcluirCompra(){
+        
+    }
     return (
         <>
             <CabecalhoSimples />

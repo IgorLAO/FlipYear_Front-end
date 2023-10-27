@@ -48,15 +48,16 @@ export default function EditarPerfil(props) {
     }
 
     async function GETImages() {
-        let infos = localStorage('NORMAL_USER_Logado');
-        let id = infos.data.Id
-        let das = await GetUserById(id);
-        let profile = GetProfileImage(das.data[0].ImageProfile);
-        setCurrentProfilePic(profile);
-
-        return { profile }
-
-
+            let infos = localStorage('NORMAL_USER_Logado');
+            let id = infos.data.Id
+            let das = await GetUserById(id);
+            let Banner = GetBannerImage(das.data[0].ImageBanner);
+            let profile = GetProfileImage(das.data[0].ImageProfile);
+            setCurrentProfilePic(profile);
+            setCurrentBanner(Banner);
+            return { profile }
+        
+     
     }
 
     async function TESTES() {
@@ -77,14 +78,16 @@ export default function EditarPerfil(props) {
 
 
 
-
+        
     }, [GETImages, props]);
 
     // ---------------------------------------------
     if (IsHide) {
         document.body.style.overflow = 'hidden';
+
     } else {
         document.body.style.overflow = 'auto';
+        
     }
 
     return (

@@ -41,7 +41,7 @@ function App() {
       let produtos = (sql.data)
       let a = produtos.length
       setMostrarAllDestaques(a)
-      console.log(mostrarAllDestaques)
+      console.log(a)
   }
   
 
@@ -50,8 +50,6 @@ function App() {
     if(pageDestaqueNum < mostrarAllDestaques){
     setPageDestaqueNum(pageDestaqueNum + 1)
   }
-
-    setPageDestaqueNum(pageDestaqueNum + 1)
     console.log(mostrarDestaques.length)
   }
 
