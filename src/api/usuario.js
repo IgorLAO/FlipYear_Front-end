@@ -10,7 +10,7 @@ export async function Login2(email, senha) {
         Senha: senha
     });
 
-    console.log(r)
+    console.log(r);
     return r
 }
 
@@ -22,8 +22,10 @@ export async function GetUserById(id) {
 export async function EnviarImagem(id, Profile, Banner) {
     const formData = new FormData();
     formData.append('profile', Profile);
+    formData.append('Banner', Banner);
+    alert('oi')
 
-    const res = await server.put(`/usuario/${id}/images`, formData, {
+    const res = await server.put(`/usuario/${id}/image`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
@@ -37,3 +39,8 @@ export function GetProfileImage(ProfIMG) {
     console.log(`${server.getUri()}/${ProfIMG}`)
     return `${server.getUri()}/${ProfIMG}`
 }
+
+// export function GetProfileImage(BannerIMG) {
+//     console.log(`${server.getUri()}/${ProfIMG}`)
+//     return `${server.getUri()}/${ProfIMG}`
+// }
