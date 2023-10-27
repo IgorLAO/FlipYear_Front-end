@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function CardProdutoCtlg(props) {
 
@@ -15,133 +16,15 @@ export default function CardProdutoCtlg(props) {
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
 
-    const [estrelaCheiaEsq1, setEstrelaCheiaEsq1] = useState(false);
-    const [estrelaCheiaDir1, setEstrelaCheiaDir1] = useState(false);
+    const navigate = useNavigate();
 
-    const [estrelaCheiaEsq2, setEstrelaCheiaEsq2] = useState(false);
-    const [estrelaCheiaDir2, setEstrelaCheiaDir2] = useState(false);
-
-    const [estrelaCheiaEsq3, setEstrelaCheiaEsq3] = useState(false);
-    const [estrelaCheiaDir3, setEstrelaCheiaDir3] = useState(false);
-
-    const [estrelaCheiaEsq4, setEstrelaCheiaEsq4] = useState(false);
-    const [estrelaCheiaDir4, setEstrelaCheiaDir4] = useState(false);
-
-    const [estrelaCheiaEsq5, setEstrelaCheiaEsq5] = useState(false);
-    const [estrelaCheiaDir5, setEstrelaCheiaDir5] = useState(false);
-
-    const [clicado, setClicado] = useState(false);
-
-    function selectEstrelaEsq(){
-
-        setEstrelaCheiaEsq1(true);
-
-
-
-
-    }
-
-    function selectEstEsq2(){
-
-        setEstrelaCheiaEsq2(true);
-        setEstrelaCheiaDir1(true);
-        setEstrelaCheiaEsq1(true);
-        
-
-
-
-    }
-
-    function selectEstDir2(){
-
-        selectEstEsq2()
-        setEstrelaCheiaDir2(true);
-
-
-
-    }
-
-    function unselectEstEsq2(){
-
-        if(clicado == false){
-
-            setEstrelaCheiaEsq2(false);
-            unselectEstrelaDir()
-            unselectEstrelaEsq()
-
-        }
-
-
-    }
-
-    function unselectEstDir2(){
-
-
-        if(clicado == false){
-
-
-            setEstrelaCheiaDir2(false)
-            unselectEstEsq2();
-
-
-        }
-
-
-    }
-
-    function unselectEstrelaEsq(){
-
-        if(clicado == false){
-
-            setEstrelaCheiaEsq1(false)
-
-        }
-
-    }
-
-    function selectEstrelaDir(){
-
-
-        setEstrelaCheiaDir1(true);
-
-
-    }
-
-    function unselectEstrelaDir(){
-
-        if(clicado == false){
-
-            setEstrelaCheiaDir1(false);
-
-
-        }
-
-
-
-
-    }
-
-    function ClickEsq(){
-
-        setClicado((current) => !current);
-
-
-    }
-
-    function ClickDir(){
-
-        setClicado((current) => !current);
-        selectEstrelaDir();
-        selectEstrelaEsq();
-
-
-    }
 
 
 
 
 
     function AddQtdProduto() {
+        
         SetQtdProdutos(qtdProdutos + 1);
 
         if (qtdProdutos >= limiteQtd) {
@@ -187,6 +70,7 @@ export default function CardProdutoCtlg(props) {
                 produto: idProduto,
                 qtd: qtdProdutos
             });
+
             let limite = limiteQtd - qtdProdutos;
             setLimiteQtd(limiteQtd - qtdProdutos);
 
@@ -195,6 +79,7 @@ export default function CardProdutoCtlg(props) {
 
             }
 
+           
             ProdutoAdicionado();
 
 
@@ -208,10 +93,14 @@ export default function CardProdutoCtlg(props) {
 
         }
 
-
-
+      
 
     }
+
+    //utilizei o id do produto para seguir para a pág de produto
+    function processoCompra() {
+        navigate(`/produto/${props.idProduto}`)
+    }   
 
     return (
         <div className='card-produto-ctlg'>
@@ -219,7 +108,7 @@ export default function CardProdutoCtlg(props) {
             <ToastContainer></ToastContainer>
             {
                 (colecionador == true)
-                    ? <div id='colecionador' className='card'>
+                    ? <div style={{ cursor: "pointer" }} id='colecionador' className='card'>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
@@ -229,7 +118,7 @@ export default function CardProdutoCtlg(props) {
                         </div>
 
 
-                        <img src={Atari}></img>
+                        <img onClick={processoCompra} src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
                         <div className='desc-info'>
@@ -274,7 +163,7 @@ export default function CardProdutoCtlg(props) {
                             <p className='hover-opt' onClick={AddQtdProduto}>+</p>
                         </div>
 
-                        <img src={Atari}></img>
+                        <img onClick={processoCompra} src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
                         <div className='desc-info'>
@@ -299,17 +188,17 @@ export default function CardProdutoCtlg(props) {
                                     <p className='preco-produto-original' id='cinza-pequeno'> ${props.preco} </p>
                                 </>
 
-                                 : <p className='preco-produto'> ${props.preco} </p>
-                         }
+                                : <p className='preco-produto'> ${props.preco} </p>
+                        }
 
                         <div className='avaliacao-produto'>
-                           <EstrelasAvaliacao></EstrelasAvaliacao>
+                            <EstrelasAvaliacao></EstrelasAvaliacao>
                             <p className='avaliacao-decimal'>({props.avaliacao})</p>
 
-                         </div>
-                     </div>
-             }
-         </div>
+                        </div>
+                    </div>
+            }
+        </div>
 
-     )
- };
+    )
+};

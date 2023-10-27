@@ -1,5 +1,4 @@
 import './index.scss';
-
 import Carrinho from '../../ui/assets/images/progress_pag_assets/carrinho_logo.png';
 import Cartao from '../../ui/assets/images/progress_pag_assets/cartao_progresso_pagamento 1.png';
 import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progresso_pagamento 1.png';
@@ -15,26 +14,15 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { BuscarProdutosId } from '../../api/produtos.js';
+    import { AlterarProduto } from '../../api/produtos.js';
 
-export default function Pagamento75(props) {
-    const [QtdProduto, setQtdProduto] = useState('');
-    const [id, setId] = useState();
+    export default function Pagamento75(props) {
+        const [QtdProduto, setQtdProduto] = useState('');
+        const [id, setId] = useState();
 
-    const { idParams } = useParams();
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (idParams) {
-            ConcluirPedido();
+        async function ConcluirPedido(){
+            
         }
-    }, []);
-
-    async function ConcluirPedido() {
-        const resp = await BuscarProdutosId(idParams);
-        setQtdProduto(resp.QtdProduto - 1);
-    }
 
     return (
         <>

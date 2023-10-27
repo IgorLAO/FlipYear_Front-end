@@ -7,33 +7,37 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonicRunning_gif.png';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { set } from 'local-storage';
 import { useHref, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+import { ConsultarProdPorId } from '../../api/produtos';    
 
 export default function Pagamento25(){
     const [id, setId] = useState();
     const [list, setList] = useState([]);
     const [Discount, setDiscount] = useState();
 
-    const TotalDiscount = 20;
-    const codig = 'italac';
-
+    const { idParam } = useParams()
     const navigate = useNavigate();
 
+    useEffect(() =>{
+        ListProduct();
+    });
+
     async function ListProduct(){
+        const resp = await ConsultarProdPorId(idParam);
+        setList(resp);
+    }
 
-         const url = await axios.get(`http://localhost:5000/produtos`);
-
-         console.log(url.data[0].QTD_ESTOQUE)
-          setList(url.data[0]);
-
-        navigate("/pagamento50");
-
-    };
-
+    function processPag50(){
+        navigate(`/pagamento50/${idParam}`);
+    ;
+    
+}
     return (
         <>
             <CabecalhoSimples />
@@ -84,7 +88,7 @@ export default function Pagamento25(){
                                         <tbody>
                                             <tr>
                                                 <td>{list.NM_PRODUTO}</td>
-                                                <td></td>
+                                                <td>{list.VL_PRECO}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -127,7 +131,7 @@ export default function Pagamento25(){
                                 <a>Aplicar</a>
                             </div>
                         </div>
-                        <div onClick={ListProduct} className='finalizar'>
+                        <div onClick={processPag50} className='finalizar'>
                             <img src={CarrinhoBranco} />
                             <p>Finalizar</p>
                         </div>

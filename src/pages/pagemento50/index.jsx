@@ -63,24 +63,29 @@ export default function Pagamento() {
                                 case 1:
                                     setPix(true);
                                 case 2:
-                                    return (<div>aaaaaaaaaaa</div> );
+                                    return (<div>aaaaaaaaaaa</div>);
                                 case 3:
                                     setIsHideCartao(true);
                             }
                         }}
 
-                        <div id='Pix' onClick={() => setVNumbers(1)}>
+                        <div id='Pix' value={isHidePix}
+                            onChange={(e) => setPix(e.target.value)}
+                                onClick={() => setVNumbers(1)}>
                             <p>Pix</p>
                         </div>
 
-                        <div onClick={() => setVNumbers(2)}>
-                            <p >Boleto Bancário</p>
+                        <div value={isHideBoleto}
+                        onChange={(e) => setIsHideBoleto(e.target.value)} 
+                            onClick={() => setVNumbers(2)}>
+                            <p>Boleto Bancário</p>
                         </div>
 
-                        <div onClick={() => setVNumbers(3)}>
+                        <div value={isHideCartao}
+                        onChange={(e)  => setIsHideCartao(e.target.value)} 
+                            onClick={() => setVNumbers(3)}>
                             <p>Cartão de Crédito</p>
                         </div>
-
                     </div>
                     <div className='contents'>
 
