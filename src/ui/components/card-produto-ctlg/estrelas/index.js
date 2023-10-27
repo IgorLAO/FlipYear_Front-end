@@ -28,7 +28,7 @@ export default function EstrelasAvaliacao(){
     const [estrelaCheiaDir5, setEstrelaCheiaDir5] = useState(false);
 
 
-
+    const [nCliques, setNCliques] = useState(0);
     const [clicado, setClicado] = useState(false);
 
     //Selects da esquerda
@@ -337,19 +337,312 @@ export default function EstrelasAvaliacao(){
 
         if(clicado == true){
 
-                    if(id == 'vd5'){
+                    //cheio
 
-                        setEstrelaCheiaDir5(true);
-
-
-                    }
-            
                     if(id == 'ce5'){
             
                         setEstrelaCheiaDir5(false);
                        
             
                     }
+
+                    if (id == 'cd4'){
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaDir5(false);
+
+
+                    }
+
+                    if(id == 'ce4'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+
+
+                    }
+
+                    if(id == 'cd3'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                      
+
+
+
+                    }
+
+                    if(id == 'ce3'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                        setEstrelaCheiaDir3(false);
+                        
+
+
+
+                    }
+
+                    if(id == 'cd2'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                        setEstrelaCheiaDir3(false);
+                        setEstrelaCheiaEsq3(false);
+
+
+                    }
+
+                    if(id == 'ce2'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                        setEstrelaCheiaDir3(false);
+                        setEstrelaCheiaEsq3(false);
+                        setEstrelaCheiaDir2(false);
+
+
+                    }
+
+                    if(id == 'cd1'){
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                        setEstrelaCheiaDir3(false);
+                        setEstrelaCheiaEsq3(false);
+                        setEstrelaCheiaDir2(false);
+                        setEstrelaCheiaEsq2(false);
+
+
+
+                    }
+
+                    if(id == 'ce1'){
+
+
+                        setEstrelaCheiaEsq5(false);
+                        setEstrelaCheiaEsq4(false);
+                        setEstrelaCheiaDir5(false);
+                        setEstrelaCheiaDir4(false);
+                        setEstrelaCheiaDir3(false);
+                        setEstrelaCheiaEsq3(false);
+                        setEstrelaCheiaDir2(false);
+                        setEstrelaCheiaEsq2(false);
+                        setEstrelaCheiaDir1(false);
+
+
+
+                    }
+
+                    //vazios
+
+                    if(id == 'vd5'){
+
+                        setEstrelaCheiaDir5(true);
+                        setEstrelaCheiaEsq5(true);
+
+                        
+                        setEstrelaCheiaDir4(true);
+                        setEstrelaCheiaEsq4(true);
+
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+                    }
+
+                    if(id == 've5'){
+
+
+                        setEstrelaCheiaEsq5(true);
+
+                        
+                        setEstrelaCheiaDir4(true);
+                        setEstrelaCheiaEsq4(true);
+
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    
+                    if(id == 've5'){
+
+
+                        setEstrelaCheiaEsq5(true);
+
+                        
+                        setEstrelaCheiaDir4(true);
+                        setEstrelaCheiaEsq4(true);
+
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    
+                    if(id == 'vd4'){
+
+                        
+                        setEstrelaCheiaDir4(true);
+                        setEstrelaCheiaEsq4(true);
+
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    if(id == 've4'){
+
+                        
+                        setEstrelaCheiaEsq4(true);
+
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    
+                    if(id == 'vd3'){
+                        
+                        setEstrelaCheiaDir3(true);
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+                    
+                    if(id == 've3'){
+                        
+                        setEstrelaCheiaEsq3(true);
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    if(id == 'vd2'){
+                        
+
+                        
+                        setEstrelaCheiaDir2(true);
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    if(id == 've2'){
+                        
+                        setEstrelaCheiaEsq2(true);
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    
+                    if(id == 'vd1'){
+                        
+
+                        setEstrelaCheiaDir1(true);
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+
+                    if(id == 've1'){
+                        
+                        setEstrelaCheiaEsq1(true);
+
+
+
+                    }
+   
+
 
 
         }
