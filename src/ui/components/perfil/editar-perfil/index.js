@@ -23,14 +23,11 @@ export default function EditarPerfil(props) {
     const [CurrentBannerPic, setCurrentBanner] = useState('');
 
 
-
-
     async function ShowImagesProfile() {
         if (SendNewProfilePic) {
             let Profile = URL.createObjectURL(SendNewProfilePic);
             setNewProfilePicShow(Profile);
         }
-
     }
 
     // esse envia imagem
@@ -41,43 +38,42 @@ export default function EditarPerfil(props) {
 
         let das = await GetUserById(infos.data.Id);
 
-        EnviarImagem(infos.data.Id, SendNewProfilePic);
+        EnviarImagem(infos.data.Id, SendNewProfilePic, SendNewBannerPic);
 
         setIsHide(false);
         // window.location.reload();
     }
 
-    async function GETImages() {
-            let infos = localStorage('NORMAL_USER_Logado');
-            let id = infos.data.Id
-            let das = await GetUserById(id);
-            let profile = GetProfileImage(das.data[0].ImageProfile);
-            setCurrentProfilePic(profile);
-            return { profile }
-        
-     
+    async function GetImages() {
+        let infos = localStorage('NORMAL_USER_Logado');
+        let id = infos.data.Id
+        let das = await GetUserById(id);
+        let profile = GetProfileImage(das.data[0].ImageProfile);
+        setCurrentProfilePic(profile);
+
+        return { profile }
+
     }
 
     async function TESTES() {
-
+        const infos = localStorage("NORMAL_USER_Logado");
         ShowImagesProfile();
+        let das = await GetUserById(infos.data.Id);
+        console.log(das)
     }
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const images = await GETImages();
+                const images = await GetImages();
                 props.SendProfileToD(images.profile);
             } catch (error) {
                 console.error('Erro ao buscar imagens:', error);
             }
         }
+
         fetchData();
-
-
-
-        
-    }, [GETImages, props]);
+    }, [GetImages, props]);
 
     // ---------------------------------------------
     if (IsHide) {
@@ -85,7 +81,7 @@ export default function EditarPerfil(props) {
 
     } else {
         document.body.style.overflow = 'auto';
-        
+
     }
 
     return (
@@ -102,7 +98,7 @@ export default function EditarPerfil(props) {
                                 borderRadius: '15px',
                                 margin: '15px'
                             }} >
-                            TESTES NESSA PORRA
+                            TESTES kkkkk
                         </button>
                         <header>
                             <span>
@@ -120,7 +116,8 @@ export default function EditarPerfil(props) {
                                         // (<div style={{backgroundImage: `url(${CurrentBannerPic})`, backgroundSize: 'cover'}}></div>)
                                         :
                                         (NewBannerPic(() => document.getElementById('banner').style.backgroundImage = `url(${NewBannerPic})`))} */}
-                                    {/* {!NewBannerPic ?
+                                    
+                                    {!NewBannerPic ?
                                         (<span className='IMG' style={{ width: '100%' }} >
                                             <img src={CurrentBannerPic} style={{
                                                 width: '100%',
@@ -141,7 +138,7 @@ export default function EditarPerfil(props) {
                                                 }} />
                                             </span>
                                         )
-                                    } */}
+                                    } 
 
                                     <span className='IMG' style={{ width: '100%' }} >
                                         <div style={{
@@ -164,7 +161,7 @@ export default function EditarPerfil(props) {
                                     }} >
                                         {() => document.getElementById('cam').style.backgroundColor = 'transparent'}
 
-                                        <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
+                                         <input style={{ border: 'red solid' }} type='file' id='fileBanner' onChange={e => setSendNewBannerPic(e.target.files[0])} />
 
                                     </span>
                                 </div>
@@ -180,7 +177,7 @@ export default function EditarPerfil(props) {
                                     <span className='blockCam' id='cam'>
                                         <img src={cam} alt='CameraIcon' />
 
-                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} onMouseEnter={ShowImagesProfile} />
+                                        <input type='file' id='fileProfile' onChange={e => setSendNewProfilePic(e.target.files[0])} />
                                     </span>
                                 </span>
                             </div>
