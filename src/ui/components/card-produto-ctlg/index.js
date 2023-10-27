@@ -145,6 +145,7 @@ export default function CardProdutoCtlg(props) {
 
 
     function AddQtdProduto() {
+        
         SetQtdProdutos(qtdProdutos + 1);
 
         if (qtdProdutos >= limiteQtd) {
@@ -214,7 +215,7 @@ export default function CardProdutoCtlg(props) {
 
     }
 
-    //só utilizei o id do produto para seguir para a pág de produto
+    //utilizei o id do produto para seguir para a pág de produto
     function processoCompra() {
         navigate(`/produto/${props.idProduto}`)
     }   
@@ -225,7 +226,7 @@ export default function CardProdutoCtlg(props) {
             <ToastContainer></ToastContainer>
             {
                 (colecionador == true)
-                    ? <div style={{ cursor: "pointer" }} id='colecionador' className='card' onClick={processoCompra}>
+                    ? <div style={{ cursor: "pointer" }} id='colecionador' className='card'>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
@@ -235,7 +236,7 @@ export default function CardProdutoCtlg(props) {
                         </div>
 
 
-                        <img src={Atari}></img>
+                        <img onClick={processoCompra} src={Atari}></img>
                         <p className='nm-produto'> {props.nome} </p>
 
                         <div className='desc-info'>

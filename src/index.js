@@ -37,11 +37,19 @@ root.render(
         <Route path='/cadastro' element={<Cadastro />} />
         <Route path='/login' element={<Login />} />
         <Route path='/catalogo' element={<Catalogo />}/>
+        
         <Route path='/produto' element={<InfProduto/>} />
         <Route path='/produto/:idParam' element={<InfProduto/>}/>
+        
         <Route path='/pagamento25' element={<Pagamento25/>}/>
+        <Route path='/pagamento25/:idParam' element={<Pagamento25/>}/>
+        
         <Route path='/pagamento50' element={<Pagamento50 />} />
+        <Route path='/pagamento50/:idParam' element={<Pagamento50 />} />
+
         <Route path='/pagamento75' element={<Pagamento75 />} />
+        <Route path='/pagamento75/:idParam' element={<Pagamento75 />} />
+
         <Route path='/pagamento100' element={<Pagamento100/>}/>
         <Route path='/perfil-publico' element={<PerfilPublico />} />
         <Route path='/status-pedido' element={<StatusPedido />} />

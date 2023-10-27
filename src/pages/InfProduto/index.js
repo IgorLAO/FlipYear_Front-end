@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -32,6 +32,8 @@ export default function InfProduto() {
     const [allProducts, SetAllProducts] = useState([]);
 
     //    
+    const navigate = useNavigate();
+
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
 
@@ -43,9 +45,13 @@ export default function InfProduto() {
         const resp  = await ConsultarProdPorId(idParam);
         setProduto(resp); 
         console.log(resp);
+    }
 
+    function processPag25(){
+        navigate(`/pagamento25/${idParam}`);
     }
     //peguei o id_produto do catálogo e joguei aqui
+    
     async function GetComments(){
         let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
@@ -216,7 +222,7 @@ export default function InfProduto() {
 
                     </div>
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
-                        <button id="button-compra">Compre já</button>
+                        <button id="button-compra" onClick={processPag25}>Compre já</button>
                         <button id="button-carrinho">Adicionar ao Carrinho</button>
                     </div>
                 </div>
