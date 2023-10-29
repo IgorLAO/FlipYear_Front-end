@@ -62,8 +62,15 @@ export default function NavBar() {
                 setErro(res);
                 console.log(res);
 
-                if (res.data <= 0)
+                document.getElementById("sR").style.display = "flex";
+
+                if (res.data <= 0) {
                     setIshideNotFound(false);
+                   
+                }
+            }
+            else{
+                document.getElementById("sR").style.display = "none";
             }
 
         } catch (err) {
@@ -91,10 +98,14 @@ export default function NavBar() {
         navigate('/');
     }
 
+    function HandleHide() {
+        document.getElementById("sR").style.display = "none"
+    }
+
 
     return (
         <>
-        
+
             <div className="Nav">
 
                 <div onClick={NavToHome} className="Logo">
@@ -103,10 +114,18 @@ export default function NavBar() {
                         <h1>2000</h1>
                     </h3>
                 </div>
+                
                 <span className="SearchBox">
                     <span className="boxInput">
                         <img src={Lupa} />
-                        <input type="text" value={SearchValue} placeholder="Oque esta buscando?" onChange={GetSearchRes} onKeyDown={NavTo} />
+                        <input 
+                        type="text" 
+                        value={SearchValue} 
+                        placeholder="Oque esta buscando?" 
+                        onChange={GetSearchRes} 
+                        onKeyDown={NavTo} 
+                        onBlur={HandleHide} />
+
                         <img src={Filtro} />
                     </span>
                 </span>
@@ -140,7 +159,8 @@ export default function NavBar() {
 
                 }
             </div>
-            <div className="searchResults">
+            
+            <div className="searchResults" id="sR" style={{display: 'none'}}>
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}

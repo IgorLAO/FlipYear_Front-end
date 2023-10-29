@@ -4,16 +4,12 @@ import localStorage from 'local-storage'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import Corvo from '../../../ui/assets/images/perfil-publico_assets/download 2.png'
-import Lapis from '../../../ui/assets/images/perfil-pessoal/105b06c79bc402f 1.png'
-import Carrinho from '../../../ui/assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
+
 import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg'
 
 import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
-import Adm_leftNavBar from '../../../ui/components/ADM_components/left_navbar';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
 import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
-import Report from '../../../ui/components/report';
 
 
 export default function PerfilPessoal() {
@@ -23,6 +19,7 @@ export default function PerfilPessoal() {
     const [IsHideEdit, setIsHideEdit] = useState(false);
     const [dados, setDadosRecebidos] = useState('');
     const [ReceivedBanner, setReceivedBanner] = useState('');
+    const [ReceivedBannerColor, setReceivedBannerColor] = useState('');
     const [ReceivedProfile, setReceivedProfile] = useState('');
 
     useEffect(() => {
@@ -37,36 +34,33 @@ export default function PerfilPessoal() {
         }
     }, []);
 
-    function is() {
-        setIsHideEdit(true)
-    }
-
-    const sendBannerToS = (dados) => {
-        setReceivedBanner(dados);
-    };
-
     const sendProfileToS = (dados) => {
         setReceivedProfile(dados);
     };
 
+    const sendColorToS = (dados) => {
+        setReceivedBannerColor(dados);
+    };
+
     useEffect(() => {
         sendProfileToS();
-        sendBannerToS();
-        console.log(dados);
+        sendColorToS();
     }, [])
 
     return (
         <>
             <div className='MainPerfil-P'>
-                <EditarPerfil IsHideEdit={IsHideEdit}
-                    SendBannerToD={sendBannerToS}
-                    SendProfileToD={sendProfileToS} />
+                 <EditarPerfil 
+                    SendProfileToD={sendProfileToS}
+                    SendColorToD={sendColorToS} />
 
                 <div className='perfil-pag'>
-                    <img src={ReceivedBanner} style={{
-                                        width: '100%', 
-                                        objectFit: 'cover', 
-                                        height: '15%'}} />
+                    <div src={ReceivedBanner} style={{
+                        width: '100%',
+                        objectFit: 'cover',
+                        height: '400px',
+                        backgroundColor: localStorage('color')
+                    }} ></div>
 
                     <span style={{ display: 'flex' }}>
                         <SideBarUsers />
@@ -74,10 +68,11 @@ export default function PerfilPessoal() {
                             <div className='Perfil'>
                                 <span className='InfoP'>
                                     <img src={ReceivedProfile} style={{
-                                        height: '150px', 
-                                        width: '100%', 
-                                        maxWidth: '150px', 
-                                        objectFit: 'cover'}} />
+                                        height: '150px',
+                                        width: '100%',
+                                        maxWidth: '150px',
+                                        objectFit: 'cover'
+                                    }} />
 
                                     <a> {NomeUser} </a>
                                 </span>

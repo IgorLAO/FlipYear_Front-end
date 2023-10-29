@@ -19,13 +19,12 @@ export async function GetUserById(id) {
     return resp
 }
 
-export async function EnviarImagem(id, Profile, Banner) {
+export async function EnviarImagem(id, Profile) {
     const formData = new FormData();
     formData.append('profile', Profile);
-    formData.append('Banner', Banner);
-    alert('oi')
+    alert('oi');
 
-    const res = await server.put(`/usuario/${id}/image`, formData, {
+    const res = await server.put(`/usuario/${id}/ProfImage`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
@@ -34,13 +33,8 @@ export async function EnviarImagem(id, Profile, Banner) {
     return res;
 }
 
-
 export function GetProfileImage(ProfIMG) {
-    console.log(`${server.getUri()}/${ProfIMG}`)
+    console.log(`${server.getUri()}/${ProfIMG}`);
+
     return `${server.getUri()}/${ProfIMG}`
 }
-
-// export function GetProfileImage(BannerIMG) {
-//     console.log(`${server.getUri()}/${ProfIMG}`)
-//     return `${server.getUri()}/${ProfIMG}`
-// }

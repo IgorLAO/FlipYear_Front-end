@@ -4,7 +4,7 @@ import EstrelasAvaliacao from './estrelas';
 import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
 import { useState } from 'react';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ export default function CardProdutoCtlg(props) {
 
     function ProdutoAdicionado() {
 
-        toast.success("Produto Adicionado ao Carrinho!")
+        // toast.success("Produto Adicionado ao Carrinho!")
 
 
     }
@@ -44,7 +44,7 @@ export default function CardProdutoCtlg(props) {
     function ErroAdicionarProduto() {
 
 
-        toast.error("Produto Não Adicionado ao Carrinho");
+        // toast.error("Produto Não Adicionado ao Carrinho");
 
 
     }
@@ -105,10 +105,12 @@ export default function CardProdutoCtlg(props) {
     return (
         <div className='card-produto-ctlg'>
 
-            <ToastContainer></ToastContainer>
+            {/* <ToastContainer></ToastContainer> */}
+
             {
                 (colecionador == true)
-                    ? <div style={{ cursor: "pointer" }} id='colecionador' className='card'>
+                    ?
+                     <div style={{ cursor: "pointer" }} id='colecionador' className='card'>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
