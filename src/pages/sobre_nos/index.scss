@@ -113,7 +113,6 @@
 
                         }
                     }
-                 
                 }
             }
         }
@@ -121,4 +120,62 @@
     }
 
 }
-    
+
+
+@media (min-width: 414px) {
+    .container_sobrenos{
+        .conteudo{
+            display:flex;
+            flex-direction: column;
+            margin-top: -50px;
+            .descricao{
+            font-size: 8.5px;
+            width: 30vh;
+            }
+            .container_perfil{
+                .perfil{
+                    .conteudo_perfil{
+                        width: 35vh;
+                        margin-top: 100px;
+                        #corvo{
+                            padding-right: 38vh;
+                            img{
+                                margin-left: 50vh;
+                                width: 110px;
+                                height: 110px;
+                            }
+                            p{
+                                padding-top: 30px;
+                                margin-left: -25vh;
+                            }
+                        }
+                        .dados_integrantes{
+                            .cargo{
+                                div{
+                                    h5{
+                                        font-size: 13px;
+                                    }
+                                    p{
+                                        font-size: 8.5px; 
+                                    }
+                                }
+                            }
+                            .memorias{
+                                p{
+                                    font-size: 9.3px;
+                                }
+                                div{
+                                    
+                                    p{
+                                        font-size: 8.5px;
+                                        width: 20vh;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
