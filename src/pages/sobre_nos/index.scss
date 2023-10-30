@@ -9,10 +9,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
+        
         .descricao{
             display: flex;
             align-items: center;
@@ -35,87 +35,6 @@
             
             .perfil{
             
-                .conteudo_perfil{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-
-                    background-color: #6E95F9;
-                    border-radius: 15px;
-                    padding: 25px 20px;
-
-                    #corvo{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-
-                        padding-right: 90px;
-                        p{
-                            margin-top: 10px;
-                            font-size: 24px;
-                        }
-                        
-                        img{
-                            width: 135px;
-                            position: relative;
-                            right: 70px;
-                            bottom: 80px;
-
-                            border: 4px solid black;
-                            border-radius: 100px; 
-                        }
-                    }
-                    .dados_integrantes{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        
-                        font-size:  18px;
-                        .cargo{
-                            display: flex;
-                            flex-direction: column;
-
-                            gap: 12px;
-                            width: 100%;
-                            padding: 5px 0px;
-                            div{
-                                display: flex;
-                                flex-direction: column;
-                                gap: 5px;
-                                h5{
-                                    font-size: 16px;
-                                    font-weight: 100;
-                                }
-                                p{
-                                    width: 100%;
-                                    background-color: #A2CBF1;
-                                    padding: 10px;
-                                    font-size: 15px;
-                                }
-                            }
-                        }
-                        .memorias{
-                            display: flex;
-                            flex-direction: column;
-                            
-
-                           p{
-                            font-size: 10px;
-                            padding: 10px 0px;
-                           } 
-                            div{
-                                padding: 40px;
-                                background-color: #A2CBF1;
-                                font-size: 14px;
-                            }
-
-                        }
-                    }
-                    
-                }
-            }
             h2{
                 margin-left: 1s0px;
             }
@@ -271,6 +190,7 @@
             }
         }
     }
+}
 }
 
 
