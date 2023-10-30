@@ -174,7 +174,6 @@ export default function EstrelasAvaliacao(){
 
 
 
-
     }
 
 
@@ -334,14 +333,46 @@ export default function EstrelasAvaliacao(){
         
 
       setClicado(true)
+      
 
         if(clicado == true){
 
                     //cheio
 
+                    if(id == 'cd5'){
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+                            unselectEstDir5()
+                        }
+
+                    }
+
                     if(id == 'ce5'){
             
                         setEstrelaCheiaDir5(false);
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+                            unselectEstDir5()
+                        }
+
+
                        
             
                     }
@@ -350,6 +381,19 @@ export default function EstrelasAvaliacao(){
 
                         setEstrelaCheiaEsq5(false);
                         setEstrelaCheiaDir5(false);
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
 
 
                     }
@@ -361,6 +405,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaDir5(false);
                         setEstrelaCheiaDir4(false);
 
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
+
 
                     }
 
@@ -371,6 +428,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaEsq4(false);
                         setEstrelaCheiaDir5(false);
                         setEstrelaCheiaDir4(false);
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
                       
 
 
@@ -385,6 +455,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaDir5(false);
                         setEstrelaCheiaDir4(false);
                         setEstrelaCheiaDir3(false);
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
                         
 
 
@@ -401,6 +484,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaDir3(false);
                         setEstrelaCheiaEsq3(false);
 
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
+
 
                     }
 
@@ -415,6 +511,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaEsq3(false);
                         setEstrelaCheiaDir2(false);
 
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
+
 
                     }
 
@@ -428,6 +537,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaEsq3(false);
                         setEstrelaCheiaDir2(false);
                         setEstrelaCheiaEsq2(false);
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
 
 
 
@@ -445,6 +567,19 @@ export default function EstrelasAvaliacao(){
                         setEstrelaCheiaDir2(false);
                         setEstrelaCheiaEsq2(false);
                         setEstrelaCheiaDir1(false);
+
+                        let num = nCliques + 1
+                        setNCliques(num);
+                       
+
+                        if(nCliques == 0){
+
+                            
+                            setClicado(false);
+                            setNCliques(0);
+                           
+
+                        }
 
 
 
@@ -494,8 +629,6 @@ export default function EstrelasAvaliacao(){
 
                         setEstrelaCheiaDir1(true);
                         setEstrelaCheiaEsq1(true);
-
-
 
                     }
 
