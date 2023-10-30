@@ -27,24 +27,7 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <NavBar/>
                 <h1 className='ctlg'>Catálogo</h1>
-                <div className="bloco-filtro-ctlg">
-                    <div>
-                        <p>Tipo de Produto</p>
 
-                    </div>
-                    <div className="filtros-ctlg">
-                        <div>
-                            <a>Jogos</a>
-                            <a>Consoles</a>
-                            <a>Super Nintendo</a>
-                        </div>
-                        <div>
-                            <a>Colecionador</a>
-                            <a>Funcionando</a>
-                            <a>Mega Drive</a>
-                        </div>
-                    </div>
-                </div>
 
                 <div className='resultados'>
                     {list.map((item) => <>

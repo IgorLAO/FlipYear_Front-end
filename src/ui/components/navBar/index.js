@@ -20,6 +20,7 @@ import SideBarLogado from "../perfil/side-bar-logado";
 import PopUpCarrinho from "../popupCarrinho";
 import SearchCard from "../SearchCards/cardBusca";
 import SearchCard_NotFound from "../SearchCards/NotFoundCard";
+import FiltroCard from "../filtro";
 
 import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
@@ -30,7 +31,9 @@ export default function NavBar() {
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
+    const [popUpFiltro, setPopUpFiltro] = useState(false);
     const [IsComp, setIsComp] = useState(false);
+    const [tamanhoSearch, setTamanhoSearch] = useState('')
 
     const [NomeUser, setNomeUser] = useState('');
     const [searchRes, SetSearchRes] = useState([]);
@@ -51,12 +54,18 @@ export default function NavBar() {
         setPopUpCarro((current) => !current);
     }
 
+    function MostrarFiltro(){
+
+        setPopUpFiltro((current) => !current);
+
+
+    }
+
     const GetSearchRes = async (e) => {
         setSearchValue(e.target.value);
-        console.log(e.key);
-        let i = e.target.value.length;
+        setTamanhoSearch(e.target.value.length)
         try {
-            if (i > 0) {
+            if (tamanhoSearch > 0) {
                 let res = await GetSearchProd(SearchValue);
                 SetSearchRes(res.data);
                 setErro(res);
@@ -71,6 +80,7 @@ export default function NavBar() {
             }
             else{
                 document.getElementById("sR").style.display = "none";
+              
             }
 
         } catch (err) {
@@ -87,10 +97,15 @@ export default function NavBar() {
 
 
     const NavTo = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && tamanhoSearch > 0) {
             navigate('/search');
             localStorage('SearchValue', SearchValue);
             window.location.reload();
+        }
+
+        else{
+
+            navigate("/catalogo")
         }
     }
 
@@ -126,7 +141,13 @@ export default function NavBar() {
                         onKeyDown={NavTo} 
                         onBlur={HandleHide} />
 
-                        <img src={Filtro} />
+                        <img src={Filtro} 
+                        className="filtro"
+                        onClick={MostrarFiltro}/>
+
+                        
+                <FiltroCard
+                popUpFiltro={popUpFiltro}></FiltroCard>
                     </span>
                 </span>
                 <span className="Options">
@@ -134,6 +155,7 @@ export default function NavBar() {
                     <img src={Carrinho_logo} onClick={mostrarCarrinho} />
                     <img src={Suporte} />
                 </span>
+
 
                 {
                     (menuLateralHidden === true)
