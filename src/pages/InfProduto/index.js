@@ -31,6 +31,7 @@ export default function InfProduto() {
     const [pageComments, setPageComments] = useState(1);
     const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
+    const [parcela, SetParcela] = useState(0)
 
     //    
     const navigate = useNavigate();
@@ -44,8 +45,13 @@ export default function InfProduto() {
 
     async function CarregarProdutos(){    
         const resp  = await ConsultarProdPorId(idParam);
-        setProduto(resp); 
-        console.log(idParam);
+        setProduto(resp);
+    }
+
+    function parcelas(){
+        const parcela = produto.VL_PRECO / 10
+        SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela))
+        console.log(parcela)
     }
 
     function processPag25(){
@@ -116,6 +122,7 @@ export default function InfProduto() {
     }
 
     useEffect(() =>{
+    parcelas()
     GetProducts()
     GetComments()
     GetAllProduttc()
@@ -165,7 +172,7 @@ export default function InfProduto() {
 
                     <div className="preco">
                         <h2>R${produto.VL_PRECO}</h2>
-                        <p>Ou 10x de R$80,00</p>
+                        <p>Ou 10x de {parcela}</p>
                         <div></div>
                     </div>
 
