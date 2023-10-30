@@ -47,6 +47,7 @@ export default function SearchResults(props) {
                             promocao={item.IsPromo} avaliacao={item.Avaliacao}
                             fabricante={item.Fabricante}
                             estado={item.Estado}
+                            colecionador={item.Colecionador}
                             />
              
                     </>)}
