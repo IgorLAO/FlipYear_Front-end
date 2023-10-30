@@ -81,3 +81,33 @@
     cursor: pointer;
 
 }
+
+@media (max-width: 414px) {
+    .Nav{
+        .Logo{
+            img{
+                margin-left: -10px;
+            }
+            h3{
+                width: 20px;
+                h1{
+                    font-size: 13px;
+                }
+            }
+        }
+        .SearchBox{
+            .boxInput{
+                margin-left: 25px;
+            }
+        }
+        .Options{
+            border: solid 2px black;
+            padding-left: 0px;
+            img{
+                width: 23px;
+                height: 23px;
+                
+            }
+        }
+    }
+}
