@@ -13,8 +13,16 @@ import Youtube from '../../assets/images/rodape_assets/youtube_logo.png'
 import Instagram from '../../assets/images/rodape_assets/instagram_logo.png'
 import Facebook from '../../assets/images/rodape_assets/facebook_logo.png'
 
+import { useNavigate } from 'react-router-dom'
 
 export default function Rodape(){
+
+    const navigate = useNavigate();
+
+    function teste(){
+        navigate('/sobrenos');
+    }
+    
     return(
         <>
             <div className="container_rodape">
@@ -24,7 +32,7 @@ export default function Rodape(){
 
                         <a>Suporte</a>
                         <a>Minha Conta</a>
-                        <a>Sobre Nós</a>
+                        <a onClick={teste} >Sobre Nós</a>
                         <a>Catálogo</a>
 
                     </div>
