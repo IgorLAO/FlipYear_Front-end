@@ -145,10 +145,19 @@ export default function NavBar() {
                         className="filtro"
                         onClick={MostrarFiltro}/>
 
-                        
-                <FiltroCard
-                popUpFiltro={popUpFiltro}></FiltroCard>
                     </span>
+
+                    {
+                (popUpFiltro == true)
+
+                ?<FiltroCard
+                popUpFiltro={popUpFiltro}></FiltroCard>
+
+                :<></>
+
+
+                   
+                } 
                 </span>
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
