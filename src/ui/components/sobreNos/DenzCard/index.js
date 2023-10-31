@@ -1,11 +1,12 @@
 import './style.scss';
+import Corvo from '../../../assets/images/perfil-publico_assets/download 2.png';
 
 
 export default function DenzCard() {
 
     return (
         <main className='Main_DenzCard'>
-            <div className='conteudo_perfil'>
+            <div className='Card'>
                 <div id='corvo'>
                     <img src={Corvo} />
                     <p>{ } Denzel </p>

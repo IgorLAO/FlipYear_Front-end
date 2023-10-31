@@ -1,10 +1,10 @@
-.container_sobrenos{
+.container_sobrenos {
     background-color: #081820;
     font-size: 18px;
     color: white;
     padding: 150px 50px;
 
-    .conteudo{
+    .conteudo {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -12,19 +12,20 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
-        
-        .descricao{
+
+        .descricao {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
 
             line-height: 20px;
-            gap: 35px; 
+            gap: 35px;
             width: 40%;
             font-weight: 100;
         }
-        .container_perfil{
+
+        .container_perfil {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -32,240 +33,285 @@
 
             max-width: 60vh;
             width: 100%;
-            
-            .perfil{
-            
-            h2{
-                margin-left: 1s0px;
+
+            .perfil {
+                .conteudo_perfil {
+                    overflow: hidden;
+                    border:  red solid;
+                    height: 700px;
+                    align-items: center;
+                    justify-content: end;
+                    transition: all 0.5s;
+                    width: 440px;
+                    padding: 15px;
+
+                    div{
+                        margin-left: 20px;
+                    }
+                }
+
+                h2 {
+                    margin-left: 1s0px;
+                }
             }
+
         }
-        
+
     }
 
-}
+    @media (max-width: 768px) {
+        .container_sobrenos {
+            .conteudo {
+                display: flex;
+                flex-direction: column;
+                margin-top: -130px;
+                width: 60vh;
 
-@media (max-width: 768px) {
-    .container_sobrenos{
-        .conteudo{
-            display:flex;
-            flex-direction: column;
-            margin-top: -130px;
-            width: 60vh;
-            .descricao{
-            font-size: 15px;
-            width: 50vh;
-            }
-            .container_perfil{
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 40px;
+                .descricao {
+                    font-size: 15px;
+                    width: 50vh;
                 }
-                .perfil{
-                    .conteudo_perfil{
-                        width: 50vh;
-                        margin-top: 100px;
-                        #corvo{
-                            padding-right: 40vh;
-                            img{
-                                margin-left: 50vh;
-                                width: 110px;
-                                height: 110px;
+
+                .container_perfil {
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 40px;
+                    }
+
+                    .perfil {
+                        .conteudo_perfil {
+                            width: 50vh;
+                            margin-top: 100px;
+
+                            #corvo {
+                                padding-right: 40vh;
+
+                                img {
+                                    margin-left: 50vh;
+                                    width: 110px;
+                                    height: 110px;
+                                }
+
+                                p {
+                                    padding-top: 40px;
+                                    margin-left: -23vh;
+                                }
                             }
-                            p{
-                                padding-top: 40px;
-                                margin-left: -23vh;
-                            }
-                        }
-                        .dados_integrantes{
-                            .cargo{
-                                div{
-                                    h5{
-                                        font-size: 15px;
+
+                            .dados_integrantes {
+                                .cargo {
+                                    div {
+                                        h5 {
+                                            font-size: 15px;
+                                            margin-left: 5px;
+                                        }
+
+                                        p {
+                                            font-size: 13px;
+                                            width: 45vh;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+
+                                .memorias {
+                                    p {
+                                        font-size: 14px;
                                         margin-left: 5px;
                                     }
-                                    p{
-                                        font-size: 13px;
+
+                                    div {
                                         width: 45vh;
                                         margin-left: 5px;
-                                    }
-                                }
-                            }
-                            .memorias{
-                                p{
-                                    font-size: 14px;
-                                    margin-left: 5px;
-                                }
-                                div{
-                                    width: 45vh;
-                                    margin-left: 5px;
-                                    
-                                    p{
-                                        font-size: 13px;
+
+                                        p {
+                                            font-size: 13px;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 0px;
+
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-left: 0px;
+                    }
                 }
             }
         }
     }
-}
 
 
 
-@media (max-width: 414px) {
-    .container_sobrenos{
-        .conteudo{
-            width: 35vh;
-            flex-direction: column;
-            margin-top: -130px;
-            .descricao{
-            font-size: 8.5px;
-            width: 30vh;
-            }
-            .container_perfil{
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 60px;
+    @media (max-width: 414px) {
+        .container_sobrenos {
+            .conteudo {
+                width: 35vh;
+                flex-direction: column;
+                margin-top: -130px;
+
+                .descricao {
+                    font-size: 8.5px;
+                    width: 30vh;
                 }
-                .perfil{
-                    .conteudo_perfil{
-                        width: 30vh;
-                        margin-top: 100px;
-                        #corvo{
-                            padding-right: 25vh;
-                            img{
-                                margin-left: 35vh;
-                                width: 110px;
-                                height: 110px;
+
+                .container_perfil {
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 60px;
+                    }
+
+                    .perfil {
+                        .conteudo_perfil {
+                            width: 30vh;
+                            margin-top: 100px;
+
+                            #corvo {
+                                padding-right: 25vh;
+
+                                img {
+                                    margin-left: 35vh;
+                                    width: 110px;
+                                    height: 110px;
+                                }
+
+                                p {
+                                    padding-top: 40px;
+                                    margin-left: -22vh;
+                                }
                             }
-                            p{
-                                padding-top: 40px;
-                                margin-left: -22vh;
-                            }
-                        }
-                        .dados_integrantes{
-                            .cargo{
-                                div{
-                                    h5{
-                                        font-size: 13px;
+
+                            .dados_integrantes {
+                                .cargo {
+                                    div {
+                                        h5 {
+                                            font-size: 13px;
+                                            margin-left: 5px;
+                                        }
+
+                                        p {
+                                            font-size: 8.5px;
+                                            width: 25vh;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+
+                                .memorias {
+                                    p {
+                                        font-size: 9.3px;
                                         margin-left: 5px;
                                     }
-                                    p{
-                                        font-size: 8.5px;
+
+                                    div {
                                         width: 25vh;
                                         margin-left: 5px;
-                                    }
-                                }
-                            }
-                            .memorias{
-                                p{
-                                    font-size: 9.3px;
-                                    margin-left: 5px;
-                                }
-                                div{
-                                    width: 25vh;
-                                    margin-left: 5px;
-                                    
-                                    p{
-                                        font-size: 8.5px;
+
+                                        p {
+                                            font-size: 8.5px;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 20px;
+
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-left: 20px;
+                    }
                 }
             }
         }
     }
-}
 
-@media (max-width: 768px) {
-    .container_sobrenos{
-        .conteudo{
-            display:flex;
-            flex-direction: column;
-            margin-top: -130px;
-            width: 80vh;
-            .descricao{
-            font-size: 15px;
-            width: 50vh;
-            }
-            .container_perfil{
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 50px;
+    @media (max-width: 768px) {
+        .container_sobrenos {
+            .conteudo {
+                display: flex;
+                flex-direction: column;
+                margin-top: -130px;
+                width: 80vh;
+
+                .descricao {
+                    font-size: 15px;
+                    width: 50vh;
                 }
-                .perfil{
-                    .conteudo_perfil{
-                        width: 50vh;
-                        margin-top: 100px;
-                        #corvo{
-                            padding-right: 40vh;
-                            img{
-                                margin-left: 50vh;
-                                width: 110px;
-                                height: 110px;
+
+                .container_perfil {
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 50px;
+                    }
+
+                    .perfil {
+                        .conteudo_perfil {
+                            width: 50vh;
+                            margin-top: 100px;
+
+                            #corvo {
+                                padding-right: 40vh;
+
+                                img {
+                                    margin-left: 50vh;
+                                    width: 110px;
+                                    height: 110px;
+                                }
+
+                                p {
+                                    padding-top: 40px;
+                                    margin-left: -23vh;
+                                }
                             }
-                            p{
-                                padding-top: 40px;
-                                margin-left: -23vh;
-                            }
-                        }
-                        .dados_integrantes{
-                            .cargo{
-                                div{
-                                    h5{
-                                        font-size: 15px;
+
+                            .dados_integrantes {
+                                .cargo {
+                                    div {
+                                        h5 {
+                                            font-size: 15px;
+                                            margin-left: 5px;
+                                        }
+
+                                        p {
+                                            font-size: 13px;
+                                            width: 45vh;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                }
+
+                                .memorias {
+                                    p {
+                                        font-size: 14px;
                                         margin-left: 5px;
                                     }
-                                    p{
-                                        font-size: 13px;
+
+                                    div {
                                         width: 45vh;
                                         margin-left: 5px;
-                                    }
-                                }
-                            }
-                            .memorias{
-                                p{
-                                    font-size: 14px;
-                                    margin-left: 5px;
-                                }
-                                div{
-                                    width: 45vh;
-                                    margin-left: 5px;
-                                    
-                                    p{
-                                        font-size: 13px;
+
+                                        p {
+                                            font-size: 13px;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                h2{
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 10px;
+
+                    h2 {
+                        width: 20px;
+                        height: 20px;
+                        margin-left: 10px;
+                    }
                 }
             }
         }
     }
 }
-
-
-    

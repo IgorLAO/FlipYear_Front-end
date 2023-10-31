@@ -6,7 +6,7 @@ export default function JaoCard() {
 
     return (
         <main className='Main_JaoCard'>
-            <div className='conteudo_perfil'>
+            <div className='Card'>
                 <div id='corvo'>
                     <img src={Corvo} />
                     <p>{ }João</p>
