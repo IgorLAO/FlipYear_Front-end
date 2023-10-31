@@ -19,7 +19,7 @@ export default function ItaloCard() {
                 <div className='memorias'>
                     <p>Uma memória com videogame</p>
                     <div>
-                        <p>Zerar Top Gear com meu pai. Malditas uvas!!!</p>
+                        <p style={{fontSize: '13px'}} >Zerar Top Gear com meu pai. Malditas uvas!!!</p>
                     </div>
                 </div>
             </div>
