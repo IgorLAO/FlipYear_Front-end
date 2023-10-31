@@ -146,6 +146,7 @@
         padding: 12px;
         font-family: flipfont;
         font-size: 10px;
+
         height: 100%;
         width: 100%;
         background: none;
@@ -495,13 +496,12 @@
         padding: 10px;
     }
 
-    .products{
-        padding: 70px;
+    .rec.rec-arrow {
+        background-color: none;
+        font-family: 'flipFont';
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
+
 
     #seta{
         cursor: pointer;

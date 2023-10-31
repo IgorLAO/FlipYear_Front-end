@@ -2,6 +2,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import Carousel from 'react-elastic-carousel'
+
 import './index.scss'
 import axios from "axios";
 
@@ -25,8 +27,9 @@ export default function InfProduto() {
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
-    
+
     const [comments, setComments] = useState([]);
+    const [allComments, setAllComments] = useState([])
     const [otherProducts, setOtherProducts] = useState([]);
     const [pageComments, setPageComments] = useState(1);
     const [pageProducts, setPageProducts] = useState(1);
@@ -39,51 +42,62 @@ export default function InfProduto() {
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
 
-    useEffect(() =>{    
+    useEffect(() => {
         CarregarProdutos();
     }, []);
 
-    async function CarregarProdutos(){    
-        const resp  = await ConsultarProdPorId(idParam);
+    async function CarregarProdutos() {
+        const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
     }
 
-    function parcelas(){
+    function parcelas() {
         const parcela = produto.VL_PRECO / 10
         SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela))
         console.log(parcela)
     }
 
-    function processPag25(){
+    function processPag25() {
         navigate(`/pagamento25/${idParam}`);
     }
     //peguei o id_produto do catálogo e joguei aqui
-    
-    async function GetComments(){
+
+    async function GetComments() {
         let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
 
         setComments(res.data)
     }
 
-    function nextPagComments(){
-        setPageComments(pageComments + 1)
+    async function GetAllComments() {
+        let res = await axios.get('http://localhost:5000/AllComentarios')
+        let t = (res.data)
+        let a = t.length
+
+        let c = a / comments.length
+        setAllComments(c)
     }
 
-    function prevPagComments(){
-        if(pageComments > 1){
-        setPageComments(pageComments - 1)
+    function nextPagComments() {
+        if (pageComments <= allComments) {
+            setPageComments(pageComments + 1)
+        }
+    }
+
+    function prevPagComments() {
+        if (pageComments > 1) {
+            setPageComments(pageComments - 1)
         }
     }
 
 
 
-    async function GetProducts(){
-        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina='+ pageProducts)
+    async function GetProducts() {
+        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=' + pageProducts)
 
         setOtherProducts(res.data)
     }
 
-    async function GetAllProduttc(){
+    async function GetAllProduttc() {
         let res = await axios.get('http://localhost:5000/produtos')
 
         let data = (res.data)
@@ -91,20 +105,20 @@ export default function InfProduto() {
 
         let length = a / otherProducts.length
 
-        SetAllProducts(length)
+        SetAllProducts(data)
         console.log(length)
     }
 
 
 
-    function nextPagProducts(){
-        if(pageProducts <= allProducts){
-        setPageProducts(pageProducts + 1)
+    function nextPagProducts() {
+        if (pageProducts <= allProducts) {
+            setPageProducts(pageProducts + 1)
         }
     }
 
-    function prevPagProducts(){
-        if(pageProducts > 1){
+    function prevPagProducts() {
+        if (pageProducts > 1) {
             setPageProducts(pageProducts - 1)
         }
     }
@@ -121,17 +135,20 @@ export default function InfProduto() {
         }
     }
 
-    useEffect(() =>{
-    parcelas()
-    GetProducts()
-    GetComments()
-    GetAllProduttc()
+
+
+    useEffect(() => {
+        parcelas()
+        GetProducts()
+        GetComments()
+        GetAllProduttc()
+        GetAllComments()
     }, [pageProducts, pageComments]);
 
 
     return (
         <div className="pagina-produto">
-          
+
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
@@ -163,7 +180,7 @@ export default function InfProduto() {
                 <div className="compra">
                     <div className="nome-produto">
                         <h1>{produto.NM_PRODUTO}</h1>
-                        <div></div> 
+                        <div></div>
                     </div>
 
                     <div className="estado">
@@ -253,12 +270,12 @@ export default function InfProduto() {
                 </div>
 
                 {comments.map((item) =>
-                <Comments
-                Nome={item.NOME}
-                Data={item.PUBLICACAO}
-                Conteudo={item.COMENTARIO}
-                Likes={item.LIKES}
-                />    
+                    <Comments
+                        Nome={item.NOME}
+                        Data={item.PUBLICACAO}
+                        Conteudo={item.COMENTARIO}
+                        Likes={item.LIKES}
+                    />
                 )}
                 <div className="setas">
                     <h2 id="seta" onClick={prevPagComments} style={{ fontSize: 70 }} > {'<'} </h2>
@@ -266,19 +283,26 @@ export default function InfProduto() {
                 </div>
             </div>
 
-            
+
 
             <div className="other-products">
                 <div className="ot-tittle">
                     <h1>Outros Produtos</h1>
                 </div>
 
+
                 <div className="products">
-                <h2 id="seta" onClick={prevPagProducts} style={{ fontSize: 70 }} > {'<'} </h2>
-                    {otherProducts.map((item) =>(
-          <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
-          ))}
-                    <h2 id="seta" onClick={nextPagProducts} style={{ fontSize: 70 }} > {'>'} </h2>
+                        
+                    <Carousel renderArrow={this.myArrow} itemsToShow={4}>
+                    {allProducts.map((item) => (
+                        <CardProdutoCtlg preco={item.VL_PRECO}
+                            idProduto={item.ID_PRODUTO}
+                            nome={item.NM_PRODUTO}
+                            precoPromocao={item.VL_PRECO_PROMOCIONA}
+                            promocao={item.BT_PRMOCAO} />
+                    ))}
+</Carousel>
+
                 </div>
             </div>
             <Rodape />
