@@ -8,6 +8,7 @@ import NavBar from '../../ui/components/navBar';
 import { GetAllProd } from '../../api/produtos';
 
 export default function Catalogo() {
+
     const [list, setList] = useState([]);
 
     const GetProds = async () => {

@@ -19,10 +19,21 @@ export default function Rodape(){
 
     const navigate = useNavigate();
 
+    function suporte(){
+        navigate('/Suporte');
+    }
+    function sobrenos(){
+        navigate('/sobrenos');
+    }
+    function catalogo(){
+        navigate('/catalogo');
+    }
     function teste(){
         navigate('/sobrenos');
     }
-    
+    function teste(){
+        navigate('/sobrenos');
+    }
     return(
         <>
             <div className="container_rodape">
@@ -30,10 +41,10 @@ export default function Rodape(){
                     <div >
                         <h1>CONTEÚDO</h1>
 
-                        <a>Suporte</a>
+                        <a onClick={suporte}>Suporte</a>
                         <a>Minha Conta</a>
-                        <a onClick={teste} >Sobre Nós</a>
-                        <a>Catálogo</a>
+                        <a onClick={sobrenos} >Sobre Nós</a>
+                        <a onClick={catalogo}>Catálogo</a>
 
                     </div>
                     <div>

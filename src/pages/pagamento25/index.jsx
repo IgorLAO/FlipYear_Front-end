@@ -30,7 +30,7 @@ export default function Pagamento25(){
 
     async function ListProduct(){
         const resp = await ConsultarProdPorId(idParam);
-        setList(resp);
+        setList(resp.data[0]);
     }
 
     function processPag50(){

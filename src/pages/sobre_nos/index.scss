@@ -34,200 +34,197 @@
             max-width: 60vh;
             width: 100%;
 
-            .perfil {
-                .conteudo_perfil {
-                    height: 700px;
-                    align-items: center;
-                    justify-content: end;
-                    width: 400px;
-                    padding: 0  50px 0 600px ;
+            .conteudo_perfil {
+                height: 700px;
+                align-items: center;
+                justify-content: end;
+                width: 400px;
+                overflow: hidden;
 
-                    div{
-                        margin-left: 20px;
-                        
-                        #C{
-                            margin-left: 300px ;
-                            margin-right: 100px;
+                div {
+                    margin-left: 20px;
+
+                    #C {
+                        margin-left: 300px;
+                        margin-right: 100px;
+                    }
+                }
+            }
+
+            h2 {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container_sobrenos {
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            margin-top: -130px;
+            width: 60vh;
+
+            .descricao {
+                font-size: 15px;
+                width: 50vh;
+            }
+
+            .container_perfil {
+                h2 {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 40px;
+                }
+
+                .perfil {
+                    .conteudo_perfil {
+                        width: 50vh;
+                        margin-top: 100px;
+
+                        #corvo {
+                            padding-right: 40vh;
+
+                            img {
+                                margin-left: 50vh;
+                                width: 110px;
+                                height: 110px;
+                            }
+
+                            p {
+                                padding-top: 40px;
+                                margin-left: -23vh;
+                            }
+                        }
+
+                        .dados_integrantes {
+                            .cargo {
+                                div {
+                                    h5 {
+                                        font-size: 15px;
+                                        margin-left: 5px;
+                                    }
+
+                                    p {
+                                        font-size: 13px;
+                                        width: 45vh;
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+
+                            .memorias {
+                                p {
+                                    font-size: 14px;
+                                    margin-left: 5px;
+                                }
+
+                                div {
+                                    width: 45vh;
+                                    margin-left: 5px;
+
+                                    p {
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
 
                 h2 {
-                    margin-left: 10px;
-                }
-            }
-        }
-     }
-
-     @media (max-width: 768px) {
-        .container_sobrenos {
-            .conteudo {
-                display: flex;
-                flex-direction: column;
-                margin-top: -130px;
-                width: 60vh;
-
-                .descricao {
-                    font-size: 15px;
-                    width: 50vh;
-                }
-
-                .container_perfil {
-                    h2 {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 40px;
-                    }
-
-                    .perfil {
-                        .conteudo_perfil {
-                            width: 50vh;
-                            margin-top: 100px;
-
-                            #corvo {
-                                padding-right: 40vh;
-
-                                img {
-                                    margin-left: 50vh;
-                                    width: 110px;
-                                    height: 110px;
-                                }
-
-                                p {
-                                    padding-top: 40px;
-                                    margin-left: -23vh;
-                                }
-                            }
-
-                            .dados_integrantes {
-                                .cargo {
-                                    div {
-                                        h5 {
-                                            font-size: 15px;
-                                            margin-left: 5px;
-                                        }
-
-                                        p {
-                                            font-size: 13px;
-                                            width: 45vh;
-                                            margin-left: 5px;
-                                        }
-                                    }
-                                }
-
-                                .memorias {
-                                    p {
-                                        font-size: 14px;
-                                        margin-left: 5px;
-                                    }
-
-                                    div {
-                                        width: 45vh;
-                                        margin-left: 5px;
-
-                                        p {
-                                            font-size: 13px;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    h2 {
-                        width: 20px;
-                        height: 20px;
-                        margin-left: 0px;
-                    }
-                }
-            }
-        }
-    }
-
-
-
-    @media (max-width: 414px) {
-        .container_sobrenos {
-            .conteudo {
-                width: 35vh;
-                flex-direction: column;
-                margin-top: -130px;
-
-                .descricao {
-                    font-size: 8.5px;
-                    width: 30vh;
-                }
-
-                .container_perfil {
-                    h2 {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 60px;
-                    }
-
-                    .perfil {
-                        .conteudo_perfil {
-                            width: 30vh;
-                            margin-top: 100px;
-
-                            #corvo {
-                                padding-right: 25vh;
-
-                                img {
-                                    margin-left: 35vh;
-                                    width: 110px;
-                                    height: 110px;
-                                }
-
-                                p {
-                                    padding-top: 40px;
-                                    margin-left: -22vh;
-                                }
-                            }
-
-                            .dados_integrantes {
-                                .cargo {
-                                    div {
-                                        h5 {
-                                            font-size: 13px;
-                                            margin-left: 5px;
-                                        }
-
-                                        p {
-                                            font-size: 8.5px;
-                                            width: 25vh;
-                                            margin-left: 5px;
-                                        }
-                                    }
-                                }
-
-                                .memorias {
-                                    p {
-                                        font-size: 9.3px;
-                                        margin-left: 5px;
-                                    }
-
-                                    div {
-                                        width: 25vh;
-                                        margin-left: 5px;
-
-                                        p {
-                                            font-size: 8.5px;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    h2 {
-                        width: 20px;
-                        height: 20px;
-                        margin-left: 20px;
-                    }
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 0px;
                 }
             }
         }
     }
 }
-    
+
+
+
+@media (max-width: 414px) {
+    .container_sobrenos {
+        .conteudo {
+            width: 35vh;
+            flex-direction: column;
+            margin-top: -130px;
+
+            .descricao {
+                font-size: 8.5px;
+                width: 30vh;
+            }
+
+            .container_perfil {
+                h2 {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 60px;
+                }
+
+                .perfil {
+                    .conteudo_perfil {
+                        width: 10px;
+                        margin-top: 100px;
+
+                        #corvo {
+                            padding-right: 25vh;
+
+                            img {
+                                margin-left: 35vh;
+                                width: 110px;
+                                height: 110px;
+                            }
+
+                            p {
+                                padding-top: 40px;
+                                margin-left: -22vh;
+                            }
+                        }
+
+                        .dados_integrantes {
+                            .cargo {
+                                div {
+                                    h5 {
+                                        font-size: 13px;
+                                        margin-left: 5px;
+                                    }
+
+                                    p {
+                                        font-size: 8.5px;
+                                        width: 25vh;
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+
+                            .memorias {
+                                p {
+                                    font-size: 9.3px;
+                                    margin-left: 5px;
+                                }
+
+                                div {
+                                    width: 25vh;
+                                    margin-left: 5px;
+
+                                    p {
+                                        font-size: 8.5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                h2 {
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

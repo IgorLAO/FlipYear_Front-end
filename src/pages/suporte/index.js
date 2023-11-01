@@ -3,10 +3,12 @@ import './style.scss';
 import NavBar from '../../ui/components/navBar';
 
 import pc from '../../ui/assets/images/suporte/pc.gif'
-import blockG from '../../ui/assets/images/suporte/blockGreen.svg'
+import blockG from '../../ui/assets/images/suporte/blockGreen.svg';
+import { Navigate } from 'react-router-dom';
 
 
 export default function Suporte() {
+    
 
     return (
         <div className="Main_suporte">
