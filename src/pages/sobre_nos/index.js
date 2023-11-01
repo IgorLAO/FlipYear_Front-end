@@ -2,7 +2,7 @@ import './index.scss';
 
 import { useEffect, useState } from 'react';
 
-import Carousel from 'react-elastic-carousel'
+// import Carousel from 'react-elastic-carousel'
 
 import Rodape from '../../ui/components/rodape';
 import NavBar from '../../ui/components/navBar';
@@ -36,7 +36,6 @@ export default function SobreNos() {
 
     }, [Position])
 
-    // --------------********@************@***************@*******---------------
 
     return (
         <>
@@ -78,7 +77,7 @@ export default function SobreNos() {
 
                             <div style={{ display: 'flex' }}  >
                                 <div style={{ display: 'flex', border: 'red solid', width: '700px', height: '800px', alignItems: 'center' }}>
-                                    <Carousel itemsToShow={1}>
+                                    {/* <Carousel itemsToShow={1}>
                                         <div>
                                             <DenzCard />
                                         </div>
@@ -98,7 +97,7 @@ export default function SobreNos() {
                                         <div >
                                             <IgoCard />
                                         </div>
-                                    </Carousel>
+                                    </Carousel> */}
 
                                 </div>
                             </div>

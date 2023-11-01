@@ -1,9 +1,8 @@
+import "./style.scss";
+
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 
-import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png';
-
-import "./style.scss"
 
 export default function Estatisticas() {
 
@@ -21,7 +20,7 @@ export default function Estatisticas() {
                         <span>
                             <a>Intervalo</a>
                             <select>
-                                <option> aaaaaaaa </option>
+                                <option> aaaaaaa</option>
                                 <option> aaaaaaaa </option>
                             </select>
                         </span>
@@ -45,6 +44,35 @@ export default function Estatisticas() {
 
                     <button> Aplicar </button>
                 </div>
+
+                <section>
+                    <div className="dash">
+                        <div >
+                            <span style={{backgroundColor: 'green', height: '12%'}}> </span>
+                            <h2> Consoles </h2>
+                        </div>
+                       
+                        <div>
+                            <span style={{backgroundColor: 'green', height: '100%'}} > </span>
+                            <h2> Fliperamas </h2>
+                        </div>
+                       
+                        <div>
+                            <span style={{backgroundColor: 'green', height: '45%'}} > </span>
+                            <h2> Jogos </h2>
+                        </div>
+                       
+                        <div>
+                            <span style={{backgroundColor: 'green', height: '50%'}} > </span>
+                            <h2> Colecionador </h2>
+                        </div>
+                       
+                        <div>
+                            <span style={{backgroundColor: 'green', height: '25%'}} > </span>
+                            <h2> 2000/03/21 </h2>
+                        </div>
+                    </div>
+                </section>
 
             </div>
         </div>

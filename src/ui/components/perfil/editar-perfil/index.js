@@ -13,6 +13,7 @@ import { EnviarImagem, GetProfileImage, GetUserById } from '../../../../api/usua
 export default function EditarPerfil(props) {
     const navigate = useNavigate();
     const [IsHide, setIsHide] = useState(true);
+
     const [NewProfilePic, setNewProfilePicShow] = useState();
 
     const [SendNewProfilePic, setSendNewProfilePic] = useState();
@@ -23,14 +24,20 @@ export default function EditarPerfil(props) {
     // esse envia imagem
     // essa função vai dar erro provavelmente. Vou dar uma encurtada dps
     async function Save() {
-        const infos = localStorage("NORMAL_USER_Logado");
-        console.log(SendNewProfilePic);
-        let das = await GetUserById(infos.data.Id);
-        if (SendNewProfilePic) {
-            EnviarImagem(infos.data.Id, SendNewProfilePic);
+        try {
+            const infos = localStorage("NORMAL_USER_Logado");
+            console.log(SendNewProfilePic);
+            let das = await GetUserById(infos.data.Id);
+            if (SendNewProfilePic) {
+                EnviarImagem(infos.data.Id, SendNewProfilePic);
+            }
+            setIsHide(false);
+
+            window.location.reload();
+
+        } catch (err) {
+            console.log({ Erro: err.message })
         }
-        setIsHide(false);
-        // window.location.reload();
 
 
     }
@@ -46,17 +53,24 @@ export default function EditarPerfil(props) {
         return { profile }
     }
 
+    function GetNewImage() {
+        
+    }
+
     async function TESTES() {
 
     }
 
-    // ---------------------------------------------
+    const HideDisplay = () => {
+        document.getElementById('editP').style.display = `${props.DisplayHide}`
+
+    }
+
+    // ---------****--------------****---------------****--------
     if (IsHide) {
         document.body.style.overflow = 'hidden';
-
     } else {
         document.body.style.overflow = 'auto';
-
     }
 
     useEffect(() => {
@@ -64,37 +78,36 @@ export default function EditarPerfil(props) {
 
         props.SendProfileToD(CurrentProfilePic);
         props.SendColorToD(BannerColor);
-    
-    }, [props, CurrentProfilePic, BannerColor])
+
+        console.log(props.DisplayHide)
+    }, [props, CurrentProfilePic, BannerColor, IsHide])
 
     return (
         <>
             {IsHide &&
-                <div className='MainPerfil-edit' id='MainPerfil-edit'>
+                <div className='MainPerfil-edit' style={{ display: props.DisplayHide }} id='editP' >
                     <div className='EditFrame'>
-                        <button
-                            onClick={TESTES}
-                            style={{
-                                backgroundColor: '#6BAEFF',
-                                padding: '15px 30px',
-                                color: 'fff', border: 'solid #fff',
-                                borderRadius: '15px',
-                                margin: '15px'
-                            }} >
-                            TESTES kkkkk
-                        </button>
                         <header>
                             <span>
-                                <a onClick={() => setIsHide(false)}>X</a>
-                                <h5>Edit Profile</h5>
+                                <a style={{ fontSize: '15px' }} onClick={() => { setIsHide(false); window.location.reload() }}>X</a>
+                                <h5 style={{ color: "black" }} >Edit Profile</h5>
                             </span>
                             <a className='SaveBtn' onClick={Save}>SAVE</a>
                         </header>
 
                         <section>
                             <div className='ProfilePic' >
-                                <div className='banner' style={{ backgroundColor: localStorage('color') }} onClick={() => document.getElementById('color').click()}>
-                                    <input type='color' id='color' value={BannerColor} onChange={e => { setBannerColor(e.target.value); localStorage('color', e.target.value) }} />
+                                <div className='banner'
+                                    style={{ backgroundColor: localStorage('color') }}
+                                    onClick={() => document.getElementById('color').click()}>
+
+                                    <input type='color'
+                                        id='color'
+                                        value={BannerColor}
+                                        onChange={e => {
+                                            setBannerColor(e.target.value);
+                                            localStorage('color', e.target.value)
+                                        }} />
 
                                 </div>
 

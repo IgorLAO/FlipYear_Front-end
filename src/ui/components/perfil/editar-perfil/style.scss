@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     height: 100%;
     min-height: 120vh;
     width: 100%;
@@ -29,6 +29,12 @@
                 a {
                     margin: 5px;
                     cursor: pointer;
+                    transition: all 0.1s ease;
+                    color: #000;
+                    &:hover{
+                        color: red;
+                        transform: scale(1.1);
+                    }
                 }
             }
 
@@ -39,6 +45,12 @@
                 border-radius: 12px;
                 cursor: pointer;
                 
+                transition: all 0.5s ease;
+                    &:hover{
+                        color: black;
+                        background-color: #fff;
+                        transform: scale(1.1);
+                    }
             }
         }
 
@@ -72,6 +84,7 @@
                         height: 100%;
                         border: 5px #fff solid;
                         border-radius: 100%;
+                        object-fit: cover;
                     }
 
                     .blockCam {
