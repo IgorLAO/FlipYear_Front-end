@@ -19,7 +19,7 @@ import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllProd } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -41,6 +41,7 @@ export default function InfProduto() {
 
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
+    console.log(idParam);
 
     useEffect(() => {
         CarregarProdutos();
@@ -92,13 +93,13 @@ export default function InfProduto() {
 
 
     async function GetProducts() {
-        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=' + pageProducts)
+        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=' + pageProducts);
 
         setOtherProducts(res.data)
     }
 
     async function GetAllProduttc() {
-        let res = await axios.get('http://localhost:5000/produtos')
+        let res = await GetAllProd()
 
         let data = (res.data)
         let a = data.length

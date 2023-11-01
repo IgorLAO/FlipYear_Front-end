@@ -24,7 +24,6 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
         setLogado(false);
     }
 
-
     document.body.style.overflow = 'hidden';
     
     return (

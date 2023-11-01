@@ -16,50 +16,49 @@ import pixel_s2 from "../../ui/assets/images/Home_assets/pixel_block2.png";
 import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
+import { GetAllProdDestaque, GetPagProdDestaque } from '../../api/produtos';
 
 function App() {
-  const [mostrarDestaques, setMostrarDestaques]= useState([]);
+  const [mostrarDestaques, setMostrarDestaques] = useState([]);
   const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
+  const [mostrarAllDestaques, setMostrarAllDestaques] = useState([])
 
-  const [mostrarAllDestaques, setMostrarAllDestaques] =useState([])
-
-  async function ConsultaDestaqueProdutos(){
-    
+  async function ConsultaDestaqueProdutos() {
     try {
-      let sql= await axios.get('http://localhost:5000/produtosDestaque?pagina='+ pageDestaqueNum)
+      let sql = await GetPagProdDestaque(pageDestaqueNum);
+      let produtos = sql.data;
+      setMostrarDestaques(produtos);
 
-      let produtos = sql.data
-      setMostrarDestaques(produtos)  
     } catch (error) {
-      throw new Error('Erro ao buscar produtos em destaque', error)
+      throw new Error('Erro ao buscar produtos em destaque', error);
     }
   }
 
-  async function ListAllProdDestaques(){
-      let sql = await axios.get('http://localhost:5000/produtosAllDestaque')
-      
-      let produtos = (sql.data)
-      let a = produtos.length
-      setMostrarAllDestaques(a)
-      console.log(a)
-  }
-  
+  async function ListAllProdDestaques() {
+    let sql = await GetAllProdDestaque();
 
-  function nextPag(){
-
-    if(pageDestaqueNum < mostrarAllDestaques){
-    setPageDestaqueNum(pageDestaqueNum + 1)
+    let produtos = (sql.data);
+    let a = produtos.length;
+    setMostrarAllDestaques(a);
+    console.log(a);
   }
+
+
+  function nextPag() {
+
+    if (pageDestaqueNum < mostrarAllDestaques) {
+      setPageDestaqueNum(pageDestaqueNum + 1)
+    }
     console.log(mostrarDestaques.length)
   }
 
-  function prevPag(){
-    if(pageDestaqueNum > 1){
+  function prevPag() {
+    if (pageDestaqueNum > 1) {
       setPageDestaqueNum(pageDestaqueNum - 1)
     }
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     ConsultaDestaqueProdutos()
     ListAllProdDestaques()
   }, [pageDestaqueNum])
@@ -67,7 +66,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar />
       <section className='s1'>
         <div className='block'>
           <div className='texts'>
@@ -132,7 +131,7 @@ function App() {
             <img src={alucard} className='alucard' />
           </span>
         </div>
-        <img src={pixel_s2} style={{width: 100 + "%", marginTop: -10}} />
+        <img src={pixel_s2} style={{ width: 100 + "%", marginTop: -10 }} />
       </section>
       <section className='s4'>
         <h2> Em destaque </h2>
@@ -140,8 +139,8 @@ function App() {
         <div className='produtos' style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 50 }}>
           <h2 onClick={prevPag} style={{ fontSize: 70 }} > {'<'} </h2>
 
-          {mostrarDestaques.map((item) =>(
-          <CardProdutoCtlg idProduto={item.ID_PRODUTO} preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
+          {mostrarDestaques.map((item) => (
+            <CardProdutoCtlg idProduto={item.ID_PRODUTO} preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO} />
           ))}
           <h2 onClick={nextPag} style={{ fontSize: 70 }} > {'>'} </h2>
         </div>

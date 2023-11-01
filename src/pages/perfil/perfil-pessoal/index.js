@@ -1,13 +1,13 @@
 import './index.scss';
 
-import localStorage from 'local-storage'
+import localStorage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg'
+import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
 
 import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
-import CardPedido2 from '../../../ui/components/perfil/card-pedido2'
+import CardPedido2 from '../../../ui/components/perfil/card-pedido2';
 import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
 
 export default function PerfilPessoal() {
@@ -29,6 +29,7 @@ export default function PerfilPessoal() {
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
+        
     }, []);
 
     const sendProfileToS = (dados) => {
@@ -52,11 +53,12 @@ export default function PerfilPessoal() {
         sendProfileToS();
         sendColorToS();
         HideDisplay();
-    }, [])
+    }, []);
 
+    document.body.style.overflow = 'auto';
     return (
         <>
-            <div className='MainPerfil-P'>
+            <div className='MainPerfil-P' id='Main-P'>
                 {DisplayHide &&
                     <EditarPerfil
                         SendProfileToD={sendProfileToS}

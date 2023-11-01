@@ -48,10 +48,10 @@ export default function SobreNos() {
                     </div>
                     <div className='container_perfil'>
                         <h2 style={{ fontSize: 70, cursor: "pointer" }} onClick={Next}> {'<'} </h2>
-                        <div className='perfil'>
-                            {/* 
-                            <div className='conteudo_perfil' style={{ display: 'flex' }}  >
-                                <div id='DC' style={{ display: 'flex', border: 'red solid' }}>
+                        <div className=''>
+
+                            <div className='conteudo_perfil' style={{ display: 'flex', border: 'blue solid' }}  >
+                                <div id='DC' style={{ display: 'flex', border: 'blue solid' }}>
 
                                     <div id='C'>
                                         <DenzCard />
@@ -73,8 +73,9 @@ export default function SobreNos() {
                                         <IgoCard />
                                     </div>
 
-                                </div> */}
-
+                                </div>
+                            </div>
+{/* 
                             <div style={{ display: 'flex' }}  >
                                 <div style={{ display: 'flex', border: 'red solid', width: '700px', height: '800px', alignItems: 'center' }}>
                                     {/* <Carousel itemsToShow={1}>
@@ -97,10 +98,11 @@ export default function SobreNos() {
                                         <div >
                                             <IgoCard />
                                         </div>
-                                    </Carousel> */}
+                                    </Carousel>
 
                                 </div>
-                            </div>
+                            </div> */}
+
                         </div>
                         <h2 style={{ fontSize: 70, cursor: "pointer" }} onClick={Previous}> {'>'}</h2>
                     </div>
