@@ -1,21 +1,19 @@
-  import './index.scss';
+import './index.scss';
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
+import { GetAllProd } from '../../api/produtos';
 
 export default function Catalogo() {
     const [list, setList] = useState([]);
 
-    
-
     const GetProds = async () => {
-        let res = await axios.get('http://localhost:5000/produtos');
+        ;
+        let res = await GetAllProd();
         setList(res.data);
-
-
     }
 
     useEffect(() => {
@@ -25,26 +23,26 @@ export default function Catalogo() {
     return (
         <>
             <div className="container-ctlg">
-                <NavBar/>
+                <NavBar />
                 <h1 className='ctlg'>Catálogo</h1>
 
 
                 <div className='resultados'>
                     {list.map((item) => <>
 
-                        <CardProdutoCtlg 
-                            preco={item.VL_PRECO} 
-                            nome={item.NM_PRODUTO} 
-                            precoPromocao={item.VL_PRECO_PROMOCIONAL} 
-                            promocao={item.BT_PROMOCAO} 
+                        <CardProdutoCtlg
+                            preco={item.VL_PRECO}
+                            nome={item.NM_PRODUTO}
+                            precoPromocao={item.VL_PRECO_PROMOCIONAL}
+                            promocao={item.BT_PROMOCAO}
                             avaliacao={item.VL_AVALIACAO}
                             fabricante={item.NM_FABRICANTE}
                             estado={item.TP_ESTADO}
                             estoque={item.QTD_ESTOQUE}
                             idProduto={item.ID_PRODUTO}
                             colecionador={item.TP_COLECIONADOR}
-                            />
-             
+                        />
+
                     </>)}
                 </div>
 
