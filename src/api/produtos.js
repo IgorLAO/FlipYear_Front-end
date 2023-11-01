@@ -10,5 +10,5 @@ export async function GetSearchProd(infos){
 }
 export async function ConsultarProdPorId(id){
     const resp = await serverP.get(`http://localhost:5000/produtos/${id}`);
-    return resp.data[0];
+    return resp;    
 }

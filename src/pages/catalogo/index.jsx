@@ -7,15 +7,12 @@ import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 
 export default function Catalogo() {
-    const [list, setList] = useState([]);
-
     
+    const [list, setList] = useState([]);
 
     const GetProds = async () => {
         let res = await axios.get('http://localhost:5000/produtos');
         setList(res.data);
-
-
     }
 
     useEffect(() => {
