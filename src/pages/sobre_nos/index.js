@@ -51,7 +51,7 @@ export default function SobreNos() {
                         <div className=''>
 
                             <div className='conteudo_perfil' style={{ display: 'flex', border: 'blue solid' }}  >
-                                <div id='DC' style={{ display: 'flex', border: 'blue solid' }}>
+                                <div id='DC' style={{ display: 'flex'}}>
 
                                     <div id='C'>
                                         <DenzCard />
@@ -77,7 +77,7 @@ export default function SobreNos() {
                             </div>
 {/* 
                             <div style={{ display: 'flex' }}  >
-                                <div style={{ display: 'flex', border: 'red solid', width: '700px', height: '800px', alignItems: 'center' }}>
+                                <div style={{ display: 'flex', width: '700px', height: '800px', alignItems: 'center' }}>
                                     {/* <Carousel itemsToShow={1}>
                                         <div>
                                             <DenzCard />
