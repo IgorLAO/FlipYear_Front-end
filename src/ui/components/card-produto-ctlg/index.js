@@ -19,10 +19,6 @@ export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
 
 
-
-
-
-
     function AddQtdProduto() {
         
         SetQtdProdutos(qtdProdutos + 1);

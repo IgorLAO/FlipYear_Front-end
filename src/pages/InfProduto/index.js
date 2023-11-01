@@ -41,6 +41,7 @@ export default function InfProduto() {
 
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
+    console.log(idParam);
 
     useEffect(() => {
         CarregarProdutos();
