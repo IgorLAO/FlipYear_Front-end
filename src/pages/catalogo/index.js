@@ -12,7 +12,6 @@ export default function Catalogo() {
     const [list, setList] = useState([]);
 
     const GetProds = async () => {
-        ;
         let res = await GetAllProd();
         setList(res.data);
     }
