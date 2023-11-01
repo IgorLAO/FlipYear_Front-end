@@ -36,28 +36,30 @@
 
             .perfil {
                 .conteudo_perfil {
-                    overflow: hidden;
-                    border:  red solid;
                     height: 700px;
                     align-items: center;
                     justify-content: end;
-                    transition: all 0.5s;
-                    width: 440px;
-                    padding: 15px;
+                    width: 400px;
+                    padding: 0  50px 0 600px ;
 
                     div{
                         margin-left: 20px;
+                        
+                        #C{
+                            margin-left: 300px ;
+                            margin-right: 100px;
+                        }
                     }
                 }
 
                 h2 {
-                    margin-left: 1s0px;
+                    margin-left: 10px;
                 }
             }
         }
      }
-
-     @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
         .container_sobrenos {
             .conteudo {
                 display: flex;
@@ -227,5 +229,4 @@
             }
         }
     }
-}
     

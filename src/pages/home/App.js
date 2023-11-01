@@ -141,7 +141,7 @@ function App() {
           <h2 onClick={prevPag} style={{ fontSize: 70 }} > {'<'} </h2>
 
           {mostrarDestaques.map((item) =>(
-          <CardProdutoCtlg preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
+          <CardProdutoCtlg idProduto={item.ID_PRODUTO} preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO}/>
           ))}
           <h2 onClick={nextPag} style={{ fontSize: 70 }} > {'>'} </h2>
         </div>
