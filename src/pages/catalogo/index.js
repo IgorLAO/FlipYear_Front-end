@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 import { GetAllProd } from '../../api/produtos';
+import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 
 export default function Catalogo() {
 
@@ -22,12 +23,17 @@ export default function Catalogo() {
 
     return (
         <>
-            <div className="container-ctlg">
                 <NavBar />
+
+            <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
+                
+                
 
+                <div className='resultados-ctlg'>
+                <FiltroCtlg></FiltroCtlg>
 
-                <div className='resultados'>
+                <div className='produtos-result'>
                     {list.map((item) => <>
 
                         <CardProdutoCtlg
@@ -44,7 +50,12 @@ export default function Catalogo() {
                         />
 
                     </>)}
+
+
                 </div>
+
+                </div>
+
 
                 <div className='paginacao'>
                     <p>1</p>
@@ -56,10 +67,11 @@ export default function Catalogo() {
                     <p>7</p>
                     <p> {">"} </p>
                 </div>
+
+                </div>
+                
+
                 <Rodape></Rodape>
-
-
-            </div>
 
         </>
     )
