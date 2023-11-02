@@ -5,7 +5,7 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonic-running.gif';
 import Atari from '../../ui/assets/images/imageExamples/atari_console.png';
-//import CabecalhoVazio from '../../ui/components/cabecalhoSimples/index.jsx';
+import CabecalhoVazio from '../../ui/components/cabecalhoSimples/index.js';
 import Rodape from '../../ui/components/rodape/index.js';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
 
@@ -27,7 +27,7 @@ import { useParams } from 'react-router-dom';
     return (
         <>
             <div className='container_pag75'>
-                {/*<CabecalhoVazio />*/}
+                <CabecalhoVazio />
                 <div className='estado_pag'>
                     <div className='icons_pag'>
                         <div>
