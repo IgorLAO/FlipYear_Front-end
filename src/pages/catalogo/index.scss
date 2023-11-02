@@ -2,8 +2,17 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100%;
     background-image: linear-gradient(#346856 20%,38%, #132F3D 80%);
+
+    .cont-filtro{
+
+        display: flex;
+        flex-direction: row;
+
+
+    }
 
     .bloco-filtro-ctlg{
         display: flex;
@@ -71,75 +80,85 @@
     
     }
 
+    .container-ctlg h1{
+    
+        color: white;
+    
+    
+    
+    }
+    
+    .ctlg {
+    
+        font-size: 48px;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    
+    
+    
+    }
+    
+    .exib {
+    
+        margin-top: 50px;
+        margin-bottom: 50px;
+    
+    
+    
+    }
+    
+    .filtro:hover{
+    
+        cursor: pointer;
+    
+    
+    
+    }
+    .paginacao{
+    
+        display: flex;
+        flex-direction: row;
+    
+        margin-top: 105px;
+        margin-bottom: 105px;
+    
+    }
+    .paginacao p {
+    
+        font-family: 'flipFont';
+        color: white;
+        margin: 15px;
+    
+    
+    
+    
+    }
+    
+    .paginacao p:hover{
+    
+        cursor: pointer;
+    
+    }
+    
+    .resultados-ctlg{
+    
+        display: flex;
+        flex-direction: row;
+
+        .produtos-result{
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+
+        }
+
+    
+    
+    }
+
+
 }
 
-.container-ctlg h1{
-
-    color: white;
-
-
-
-}
-
-.ctlg {
-
-    font-size: 48px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-
-
-
-}
-
-.exib {
-
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-
-
-}
-
-.filtro:hover{
-
-    cursor: pointer;
-
-
-
-}
-.paginacao{
-
-    display: flex;
-    flex-direction: row;
-
-    margin-top: 105px;
-    margin-bottom: 105px;
-
-}
-.paginacao p {
-
-    font-family: 'flipFont';
-    color: white;
-    margin: 15px;
-
-
-
-
-}
-
-.paginacao p:hover{
-
-    cursor: pointer;
-
-}
-
-.resultados{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-
-
-}
 

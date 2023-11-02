@@ -99,7 +99,7 @@ export default function CardProdutoCtlg(props) {
     }   
 
     return (
-        <div className='card-produto-ctlg'>
+        <>
 
             {/* <ToastContainer></ToastContainer> */}
 
@@ -196,7 +196,7 @@ export default function CardProdutoCtlg(props) {
                         </div>
                     </div>
             }
-        </div>
+        </>
 
     )
 };
