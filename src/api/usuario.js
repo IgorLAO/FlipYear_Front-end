@@ -44,3 +44,14 @@ export async function InsertUser(infosEndereco, infosPessoa) {
     let respUser = await server.post('usuarios', infosPessoa);
     return respEndereco
 }
+
+// -----ADM
+export async function ADMSearchUsers(searchText) {
+    const resp = await server.get(axios.get(`/usuarios/busca?search=${searchText}`));
+    return resp
+}
+
+export async function GeAlltUsers(){
+    const resp = await server.get(`/usuarios`);
+    return resp
+}

@@ -45,7 +45,6 @@ function App() {
 
 
   function nextPag() {
-
     if (pageDestaqueNum < mostrarAllDestaques) {
       setPageDestaqueNum(pageDestaqueNum + 1)
     }

@@ -19,7 +19,7 @@ import Comments from "../../ui/components/comments";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllProd } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, GetOthersProd } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -54,7 +54,7 @@ export default function InfProduto() {
 
     function parcelas() {
         const parcela = produto.VL_PRECO / 10
-        SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela))
+        SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela));
         console.log(parcela)
     }
 
@@ -64,18 +64,17 @@ export default function InfProduto() {
     //peguei o id_produto do catálogo e joguei aqui
 
     async function GetComments() {
-        let res = await axios.get('http://localhost:5000/comentarios?pagina=' + pageComments)
-
-        setComments(res.data)
+        let res = await GetCmtsPage(pageComments);
+        setComments(res.data);
     }
 
     async function GetAllComments() {
-        let res = await axios.get('http://localhost:5000/AllComentarios')
-        let t = (res.data)
+        let res = await GetAllCmts();
+        let t = (res.data);
         let a = t.length
 
         let c = a / comments.length
-        setAllComments(c)
+        setAllComments(c);
     }
 
     function nextPagComments() {
@@ -90,10 +89,8 @@ export default function InfProduto() {
         }
     }
 
-
-
     async function GetProducts() {
-        let res = await axios.get('http://localhost:5000/outrosprodutos?pagina=' + pageProducts);
+        let res = await GetOthersProd(pageProducts)
 
         setOtherProducts(res.data)
     }
@@ -109,8 +106,6 @@ export default function InfProduto() {
         SetAllProducts(data)
         console.log(length)
     }
-
-
 
     function nextPagProducts() {
         if (pageProducts <= allProducts) {
@@ -136,8 +131,6 @@ export default function InfProduto() {
         }
     }
 
-
-
     useEffect(() => {
         parcelas()
         GetProducts()
@@ -149,7 +142,6 @@ export default function InfProduto() {
 
     return (
         <div className="pagina-produto">
-
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
@@ -293,7 +285,7 @@ export default function InfProduto() {
 
 
                 <div className="products">
-                        
+
                     {/* <Carousel renderArrow={this.myArrow} itemsToShow={4}>
                     {allProducts.map((item) => (
                         <CardProdutoCtlg preco={item.VL_PRECO}

@@ -5,8 +5,8 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonic-running.gif';
 import Atari from '../../ui/assets/images/imageExamples/atari_console.png';
-import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
-import Rodape from '../../ui/components/rodape';
+import CabecalhoVazio from '../../ui/components/cabecalhoSimples/index.jsx';
+import Rodape from '../../ui/components/rodape/index.js';
 import CarrinhoBranco from '../../ui/assets/images/progress_pag_assets/carrinhoBranco.png';
 
 import { Link, useNavigate } from 'react-router-dom';

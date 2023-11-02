@@ -13,29 +13,22 @@ export default function Butao(props){
         setSelecX((current) => !current);
 
         if(selecX == false){
-
             setButtonFonte('white');
             setButtonFundo('#413E3E');
-
 
         }
 
         else{
-
             setButtonFonte('');
             setButtonFundo('');
 
-
         }
-
-
 
     }
 
 
 
     return(
-
         <button className='opc' onClick={Selecionado}
                 style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}`}}>
                     {

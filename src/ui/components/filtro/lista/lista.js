@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+
+import { useEffect, useState } from "react";
+import { GetAllProd } from "../../../../api/produtos";
 
 export default function ListaFiltro(props) {
 
@@ -13,7 +15,7 @@ export default function ListaFiltro(props) {
 
     async function PuxarListagem() {
 
-        let resp = await axios.get('http://localhost:5000/produtos');
+        let resp = await GetAllProd();
         let dados = resp.data;
 
         let pushEstado = '';
@@ -25,23 +27,17 @@ export default function ListaFiltro(props) {
         dados.map((item) => {
 
             if(item.TP_ESTADO !== pushEstado){
-
                 pushEstado = item.TP_ESTADO;
                 arrEstado.push(pushEstado);
-
 
             }
 
             if(item.NM_FABRICANTE !== pushEmpresa){
-
                 pushEmpresa = item.NM_FABRICANTE;
                 arrEmpresa.push(pushEmpresa)
 
             }
-
-
-
-        })
+        });
 
         SetEstados(arrEstado);
         setEmpresas(arrEmpresa);

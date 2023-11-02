@@ -20,9 +20,6 @@ export default function ADM_pedidos() {
         }
     }
 
-    
-
-
     return (<div className="ADM_usersConsulta">
         <AdmTopNavBar />
         <div className="s">
