@@ -12,6 +12,7 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
+        margin-left: -20vh;
         
 
         .descricao {
@@ -59,13 +60,13 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1920px) {
     .container_sobrenos {
         .conteudo {
             display: flex;
             flex-direction: row;
-            margin: -130px -10px;
-            width: 128vh;
+            margin: -130px -7px;
+            width: 200vh;
 
             .descricao {
                 font-size: 15px;
@@ -84,6 +85,7 @@
                         width: 70vh;
                         margin-top: 100px;
                         border: solid 2px blue;
+
 
                         #corvo {
                             padding-right: 40vh;
@@ -150,12 +152,13 @@
         .conteudo {
             display: flex;
             flex-direction: column;
-            margin: -130px -10px;
-            width: 73vh;
+            margin: -130px -20px;
+            width: 77vh;
 
             .descricao {
                 font-size: 15px;
-                width: 50vh;
+                width: 56vh;
+                padding-left: 5vh;
             }
 
             .container_perfil {
@@ -235,23 +238,23 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 57vh;
+        width: 60vh;
         .conteudo {
-            width: 49vh;
+            width: 53.5vh;
             flex-direction: column;
-            margin: -130px -15px;
+            margin: -130px -23px;
 
             .descricao {
-                font-size: 8.5px;
-                width: 30vh;
-                margin-left: 40px;
+                font-size: 13px;
+                width: 50vh;
+                margin-left: 0px;
             }
 
             .container_perfil {
                 h2 {
                     width: 20px;
                     height: 20px;
-                    margin-right: 37px;
+                    margin-right: 45px;
                 }
 
                 .perfil {

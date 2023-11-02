@@ -50,7 +50,7 @@ export default function SobreNos() {
                         <h2 style={{ fontSize: 70, cursor: "pointer" }} onClick={Next}> {'<'} </h2>
                         <div className=''>
 
-                            <div className='conteudo_perfil' style={{ display: 'flex', width: '45vh' }}  >
+                            <div className='conteudo_perfil' style={{ display: 'flex', width: '45vh'}}  >
                                 <div id='DC' style={{ display: 'flex'}}>
 
                                     <div id='C'>
