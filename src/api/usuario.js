@@ -1,7 +1,7 @@
 import axios from "axios";
 const server = axios.create({
-    // baseURL: "http://129.148.42.252:5010"
-    baseURL: "http://localhost:5000"
+     baseURL: "http://129.148.42.252:5010"
+    // baseURL: "http://localhost:5000"
 });
 
 export async function Login2(email, senha) {
@@ -43,4 +43,15 @@ export async function InsertUser(infosEndereco, infosPessoa) {
     const respEndereco = await server.post('/enderecos', infosEndereco);
     let respUser = await server.post('usuarios', infosPessoa);
     return respEndereco
+}
+
+// -----ADM
+export async function ADMSearchUsers(searchText) {
+    const resp = await server.get(axios.get(`/usuarios/busca?search=${searchText}`));
+    return resp
+}
+
+export async function GeAlltUsers(){
+    const resp = await server.get(`/usuarios`);
+    return resp
 }

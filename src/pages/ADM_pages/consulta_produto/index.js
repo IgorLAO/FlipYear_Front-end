@@ -9,6 +9,7 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png';
 import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
 import Filter from "../../../ui/components/ADM_components/Filter";
+import { GetAllProd } from "../../../api/produtos";
 
 export default function Produtos_ConsultaADM() {
     const [listProdutos, setListProdutos] = useState([]);
@@ -20,24 +21,20 @@ export default function Produtos_ConsultaADM() {
     const Hide = () => {
         setIsHideFilterMenu(true);
 
-        if (IsHideFilterMenu ) {
+        if (IsHideFilterMenu) {
             setIsHideFilterMenu(false);
         }
     }
 
-   const GetProducts = async () =>{
-    let res = await axios.get('http://localhost:5000/produtos')
+    const GetProducts = async () => {
+        let res = await GetAllProd();
 
-    console.log(res)
+        setListProdutos(res.data)
+    }
 
-    setListProdutos(res.data)
-   }
-   
-
-   useEffect(() => {
-    GetProducts();
-}, []);
-
+    useEffect(() => {
+        GetProducts();
+    }, []);
 
     return (<div className="ADM_usersConsulta">
         <AdmTopNavBar />
@@ -59,8 +56,7 @@ export default function Produtos_ConsultaADM() {
 
                 </span>
                 {IsHideFilterMenu &&
-
-                    <Filter/>
+                    <Filter />
                 }
 
                 <table>
@@ -81,7 +77,7 @@ export default function Produtos_ConsultaADM() {
                         </tr>
                     </thead>
                     <tbody>
-                    {listProdutos.map((item) => (
+                        {listProdutos.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.id || item.ID_PRODUTO}</td>
                                 <td>{item.nome || item.NM_PRODUTO}</td>

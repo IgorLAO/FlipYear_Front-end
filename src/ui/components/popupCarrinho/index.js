@@ -23,16 +23,12 @@ export default function PopUpCarrinho({setPopUpCarro}){
 
     
     async function PuxarCarrinho(){
-       
         SetTotal(0);
         let respCarrinho = await axios.get('http://localhost:5000/carrinho/' + 3);
         setDataCarrinho(respCarrinho.data);
-      
-        
     }
-    async function LimparCarrinho(){
 
-       
+    async function LimparCarrinho(){
         let resp = await axios.delete("http://localhost:5000/carrinho/" + 3);
    
     }
