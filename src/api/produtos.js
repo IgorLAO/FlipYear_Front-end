@@ -46,7 +46,7 @@ export async function GetAllCmts(){
 }
 
 export async function GetCmtsPage() {
-    const resp = await serverP.get(`/comentarios?pagina=${pageComments}`)
+    const resp = await serverP.get(`/comentarios?pagina`)
     return resp
 }
 
