@@ -59,6 +59,48 @@ export default function Catalogo() {
 
     }
 
+    async function FiltroPromocao(){
+
+        setFiltroColecionadorSwitch((current) => !current);
+
+        let arr = [];
+
+
+
+        if(filtroColecionadorSwitch == true){
+
+
+            list.map((item) =>{
+                if(item.BT_PROMOCAO == true){
+
+                    arr.push(item);
+
+                }
+
+
+
+            })
+
+            setList(arr);
+
+
+
+        }
+
+        else{
+
+            let res = await GetAllProd();
+            setList(res.data);
+
+        }
+        
+
+
+
+    }
+
+
+
     useEffect(() => {
         GetProds();
     }, [])
@@ -70,7 +112,6 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
-                <button onClick={FiltroColecionador}> teste oie</button>
                 
                 
 
