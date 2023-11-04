@@ -174,3 +174,9 @@
     font-family: fonte;
     src: url('../../../ui/assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
 }
+
+@media (max-width: 414px) {
+    .container_rodape{
+        width: 60.1vh;
+    }
+}

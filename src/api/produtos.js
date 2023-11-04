@@ -1,5 +1,4 @@
 import axios from "axios";
-import server from "./server";
 
 
 export async function GetSearchProd(infos) {
@@ -42,7 +41,7 @@ export async function GetAllCmts(){
 }
 
 export async function GetCmtsPage(pageComments) {
-    const resp = await server.get(`/comentarios?pagina=${pageComments}`)
+    const resp = await serverP.get(`/comentarios?pagina=${pageComments}`)
     return resp
 }
 

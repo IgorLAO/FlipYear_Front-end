@@ -9,6 +9,7 @@ import NavBar from '../../ui/components/navBar';
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
+import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 
 export default function SearchResults(props) {
     const [list, setList] = useState([]);
@@ -38,6 +39,9 @@ export default function SearchResults(props) {
             <div className="container-ctlg">
                 <NavBar/>
                 <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
+                <div className='resultados-ctlg'>
+
+                <FiltroCtlg></FiltroCtlg>
 
                 <div  iv className='resultados'>
                     {list?.map((item) => <>
@@ -51,6 +55,7 @@ export default function SearchResults(props) {
                             />
              
                     </>)}
+                </div>
                 </div>
 
                 <div className='paginacao'>
