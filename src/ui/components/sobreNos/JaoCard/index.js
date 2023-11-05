@@ -1,5 +1,5 @@
 import './style.scss';
-import Corvo from '../../../assets/images/perfil-publico_assets/download 2.png';
+import ben from '../../../assets/images/sobreNos/ben.gif';
 
 
 export default function JaoCard() {
@@ -8,7 +8,7 @@ export default function JaoCard() {
         <main className='Main_Card'>
             <div className='Card'>
                 <div id='corvo'>
-                    <img src={Corvo} />
+                    <img src={ben} />
                     <p>{ }João</p>
                 </div>
 

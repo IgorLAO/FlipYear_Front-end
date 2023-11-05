@@ -1,6 +1,6 @@
 import './style.scss';
 
-import Corvo from '../../../assets/images/perfil-publico_assets/download 2.png';
+import Corvo from '../../../assets/images/sobreNos/pyram-unscreen.gif';
 
 export default function DenzCard() {
 
@@ -8,7 +8,7 @@ export default function DenzCard() {
         <main className='Main_Card'>
             <div className='Card'>
                 <div id='corvo'>
-                    <img src={Corvo} />
+                    <img src={Corvo} style={{width: '85%'}} />
                     <p>{ } Denzel </p>
                 </div>
 
@@ -26,7 +26,7 @@ export default function DenzCard() {
                     <div className='memorias'>
                         <p>Uma memória com videogame</p>
                         <div>
-                            <p style={{fontSize: '13px'}} >Acordar 5h da manha, logo depois da minha mãe sair, para jogar Ben 10 de ps2</p>
+                            <p style={{fontSize: '13px'}} >Zerar Top Gear com meu pai. Malditas uvas!!!</p>
                         </div>
                     </div>
                 </div>

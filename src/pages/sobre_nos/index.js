@@ -1,8 +1,7 @@
 import './index.scss';
 
 import { useEffect, useState } from 'react';
-
-// import Carousel from 'react-elastic-carousel'
+import Carousel, { consts } from 'react-elastic-carousel';
 
 import Rodape from '../../ui/components/rodape';
 import NavBar from '../../ui/components/navBar';
@@ -13,6 +12,11 @@ import DenzCard from '../../ui/components/sobreNos/DenzCard';
 import IgoCard from '../../ui/components/sobreNos/IgoCard';
 
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default function SobreNos() {
     const [Position, setPosition] = useState(0);
@@ -34,8 +38,7 @@ export default function SobreNos() {
             divElement.style.transform = `translateX(${Position}px)`;
         }
 
-    }, [Position])
-
+    }, [Position]);
 
     return (
         <>
@@ -44,67 +47,19 @@ export default function SobreNos() {
                 <div className='conteudo'>
                     <div className='descricao'>
                         <h1>Sobre nós</h1>
-                        <p>Nós somos 5 jovens aficionados por videogames antigos e criamos esse site com a missão de trazer as boas memórias que só uma tarde videogame podem proporcionar. </p>
+                        <p style={{font: '17px'}}>Nós somos 5 jovens aficionados por videogames antigos e criamos esse site com a missão de trazer as boas memórias que só uma tarde videogame podem proporcionar. </p>
                     </div>
                     <div className='container_perfil'>
-                        <h2 style={{ fontSize: 70, cursor: "pointer" }} onClick={Next}> {'<'} </h2>
-                        <div className=''>
 
-                            <div className='conteudo_perfil' style={{ display: 'flex', width: '45vh'}}  >
-                                <div id='DC' style={{ display: 'flex'}}>
+                        <div className='sw' style={{ display: 'flex', width: '700px', height: '800px', alignItems: 'center' }}>
+                            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                                <SwiperSlide> <DenzCard /></SwiperSlide>
+                                <SwiperSlide> <JaoCard /></SwiperSlide>
+                                <SwiperSlide> <IgoCard /></SwiperSlide>
 
-                                    <div id='C'>
-                                        <DenzCard />
-                                    </div>
-
-                                    <div id='C' >
-                                        <JaoCard />
-                                    </div>
-
-                                    <div id='C' >
-                                        <IgoCard />
-                                    </div>
-
-                                    <div id='C' >
-                                        <IgoCard />
-                                    </div>
-
-                                    <div id='C' >
-                                        <IgoCard />
-                                    </div>
-
-                                </div>
-                            </div>
-{/* 
-                            <div style={{ display: 'flex' }}  >
-                                <div style={{ display: 'flex', width: '700px', height: '800px', alignItems: 'center' }}>
-                                    {/* <Carousel itemsToShow={1}>
-                                        <div>
-                                            <DenzCard />
-                                        </div>
-
-                                        <div >
-                                            <JaoCard />
-                                        </div>
-
-                                        <div >
-                                            <IgoCard />
-                                        </div>
-
-                                        <div >
-                                            <IgoCard />
-                                        </div>
-
-                                        <div >
-                                            <IgoCard />
-                                        </div>
-                                    </Carousel>
-
-                                </div>
-                            </div> */}
-
+                            </Swiper>
                         </div>
-                        <h2 style={{ fontSize: 70, cursor: "pointer" }} onClick={Previous}> {'>'}</h2>
+
                     </div>
                 </div>
             </div>

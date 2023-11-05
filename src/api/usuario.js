@@ -1,8 +1,5 @@
-import axios from "axios";
-const server = axios.create({
-     baseURL: "http://129.148.42.252:5010"
-    // baseURL: "http://localhost:5000"
-});
+import server from "./server";
+
 
 export async function Login2(email, senha) {
     const r = await server.post("/usuarios/login", {
@@ -47,11 +44,11 @@ export async function InsertUser(infosEndereco, infosPessoa) {
 
 // -----ADM
 export async function ADMSearchUsers(searchText) {
-    const resp = await server.get(axios.get(`/usuarios/busca?search=${searchText}`));
+    const resp = await server.get(`/usuarios/busca?search=${searchText}`);
     return resp
 }
 
-export async function GeAlltUsers(){
+export async function GeAllUsers(){
     const resp = await server.get(`/usuarios`);
     return resp
 }

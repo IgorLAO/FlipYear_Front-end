@@ -1,8 +1,8 @@
 import "./style.scss";
 
-import { useEffect, useState } from "react";
-import { ADMSearchUsers, GeAlltUsers } from "../../../api/usuario";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { ADMSearchUsers, GeAllUsers } from "../../../api/usuario";
 
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
@@ -35,9 +35,10 @@ export default function Users_Consulta() {
     }
 
     const GetUsers = async () => {
-        let res = await GeAlltUsers();
-        let res2 = await ADMSearchUsers(searchText);
+        const res = await GeAllUsers();
+        const res2 = await ADMSearchUsers(searchText);
 
+        console.log(res)
         if (searchText != '')
             setlistUsuarios(res2.data);
 
@@ -53,6 +54,7 @@ export default function Users_Consulta() {
         <AdmTopNavBar />
         <div className="s">
             <Adm_leftNavBar />
+    
             <div className="content">
                 <h1> Buscar Usuario </h1>
 
@@ -159,8 +161,8 @@ export default function Users_Consulta() {
                     </thead>
                     <tbody>
                         {listUsusarios.map((item) => (
-                            <tr key={item.id}>
-                                <td>{item.id || item.ID_USUARIO}</td>
+                            <tr key={item.Id}>
+                                <td>{item.Id || item.ID_USUARIO}</td>
                                 <td>{item.Nome || item.NM_USUARIO}</td>
                                 <td>{item.CPF || item.DS_CPF}</td>
                                 <td>{item.Email || item.DS_EMAIL}</td>
