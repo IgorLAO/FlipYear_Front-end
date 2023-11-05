@@ -22,17 +22,17 @@ export default function ListaFiltro(props) {
         let arrEstado = [];
 
         let pushEmpresa = '';
-        let arrEmpresa =  [];
-        
+        let arrEmpresa = [];
+
         dados.map((item) => {
 
-            if(item.TP_ESTADO !== pushEstado){
+            if (item.TP_ESTADO !== pushEstado) {
                 pushEstado = item.TP_ESTADO;
                 arrEstado.push(pushEstado);
 
             }
 
-            if(item.NM_FABRICANTE !== pushEmpresa){
+            if (item.NM_FABRICANTE !== pushEmpresa) {
                 pushEmpresa = item.NM_FABRICANTE;
                 arrEmpresa.push(pushEmpresa)
 
@@ -74,56 +74,66 @@ export default function ListaFiltro(props) {
 
     })
 
+    switch (props.item) {
 
-    return (
+        case 'Empresa':
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
 
-        <>
-
-            {
-
-                (props.item == 'Empresa')
-
-                    ? <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
-
-                        <option>{props.item}</option>
-                        {
+                <option>{props.item}</option>
+                {
 
 
-                            empresas.map((it) =>
+                    empresas.map((it) =>
 
-                                <option>{it}</option>
-
-
-                            )
-
-                        }
-                    </select>
-
-                    : <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
-
-                        <option>{props.item}</option>
-                        {
+                        <option>{it}</option>
 
 
-                            estados.map((it) =>
+                    )
 
-                                <option>{it}</option>
+                }
+            </select>
 
+        case 'Estado':
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
 
-                            )
-
-                        }
-                    </select>
-
-
-
+                <option>{props.item}</option>
+                {
 
 
-            }
-        </>
+                    estados.map((it) =>
+
+                        <option>{it}</option>
+
+
+                    )
+
+                }
+            </select>
+
+        case 'Ordavaliacao':
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
+
+                <option>Melhores Avaliados</option>
+                <option>Piores Avaliados</option>
+
+
+            </select>
+
+        case 'Ordpreco':
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
+
+                <option>Menores Preços</option>
+                <option>Maiores Preços</option>
+
+
+            </select>
+
+
+    }
 
 
 
-    )
 
 }
+
+

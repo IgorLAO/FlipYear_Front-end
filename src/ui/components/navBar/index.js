@@ -151,7 +151,7 @@ export default function NavBar() {
                 (popUpFiltro == true)
 
                 ?<FiltroCard
-                popUpFiltro={popUpFiltro}></FiltroCard>
+                popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
 
                 :<></>
 

@@ -13,9 +13,25 @@ export default function FiltroCtlg() {
 
             <div className='card-filtro-ctlg'>
 
+            <div className='titulo'>
+                <div>
+                <img src={filtro} className='filtro-card'></img>
+                <h2>Ordenar Por</h2>    
+                </div>
+                <div className='linha'></div>
+            </div>
+
+            <div className='opc-selec'>
+
+                <ListaFiltro item={'Ordavaliacao'}></ListaFiltro>
+                <ListaFiltro item={'Ordpreco'}></ListaFiltro>
+                <Butao item = {'Alfabética'}></Butao>
+
+            </div>
+
+
                 <div className='titulo'>
                     <div>
-                        <img src={filtro} className='filtro-card'></img>
                         <h2>Tipo de Produto</h2>
                     </div>
                     <div className='linha'></div>

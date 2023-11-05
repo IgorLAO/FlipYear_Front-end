@@ -11,93 +11,13 @@ import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 export default function Catalogo() {
 
     const [list, setList] = useState([]);
-    const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
-
+   
     const GetProds = async () => {
         let res = await GetAllProd();
         setList(res.data);
     }
 
-    async function FiltroColecionador(){
-
-        setFiltroColecionadorSwitch((current) => !current);
-
-        let arr = [];
-
-
-
-        if(filtroColecionadorSwitch == true){
-
-
-            list.map((item) =>{
-                if(item.TP_COLECIONADOR == true){
-
-
-                    arr.push(item);
-
-                }
-
-
-
-            })
-
-            setList(arr);
-
-
-
-        }
-
-        else{
-
-            let res = await GetAllProd();
-            setList(res.data);
-
-        }
-        
-
-
-
-    }
-
-    async function FiltroPromocao(){
-
-        setFiltroColecionadorSwitch((current) => !current);
-
-        let arr = [];
-
-
-
-        if(filtroColecionadorSwitch == true){
-
-
-            list.map((item) =>{
-                if(item.BT_PROMOCAO == true){
-
-                    arr.push(item);
-
-                }
-
-
-
-            })
-
-            setList(arr);
-
-
-
-        }
-
-        else{
-
-            let res = await GetAllProd();
-            setList(res.data);
-
-        }
-        
-
-
-
-    }
+    
 
 
 
@@ -112,11 +32,9 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
-                
-                
-
                 <div className='resultados-ctlg'>
-                <FiltroCtlg></FiltroCtlg>
+                <FiltroCtlg>
+                </FiltroCtlg>
 
                 <div className='produtos-result'>
                     {list.map((item) => <>
