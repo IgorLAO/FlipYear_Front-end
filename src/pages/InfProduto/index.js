@@ -2,7 +2,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-// import Carousel from 'react-elastic-carousel'
+    import Carousel from 'react-elastic-carousel'
 
 import './index.scss'
 import axios from "axios";
@@ -286,7 +286,7 @@ export default function InfProduto() {
 
                 <div className="products">
 
-                    {/* <Carousel renderArrow={this.myArrow} itemsToShow={4}>
+                    <Carousel renderArrow={this.myArrow} itemsToShow={4}>
                     {allProducts.map((item) => (
                         <CardProdutoCtlg preco={item.VL_PRECO}
                             idProduto={item.ID_PRODUTO}
@@ -294,7 +294,7 @@ export default function InfProduto() {
                             precoPromocao={item.VL_PRECO_PROMOCIONA}
                             promocao={item.BT_PRMOCAO} />
                     ))}
-</Carousel> */}
+</Carousel> 
 
                 </div>
             </div>
