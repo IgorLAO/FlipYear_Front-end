@@ -7,26 +7,22 @@ export default function DenzCard() {
     return (
         <main className='Main_Card2'>
             <div className='Card'>
+              <header>
+                <span>DEV</span>
+                <h4>
+                    Denzel N.
+                </h4>
+              </header>
+              <div className='img'>
+                <img src={pyram} />
+              </div>
+              <div className='infos'>
                 <header>
-                    <img src={pyram} />
-                    <h4>
-                        Denzel
-                    </h4>
+                    <a>Ability</a>
+                    <h4>Excited Heart</h4>
                 </header>
-                <section>
-                    <div>
-                        <h5>Cargo</h5>
-                        <a>DEV</a>
-                    </div>
-
-                    <div>
-                        <h5>Jogo Favorito</h5>
-                        <a>Silent Hill 2</a>
-                    </div>
-                    <div>
-                        <h5>Uma memoria com videogames</h5>
-                    </div>
-                </section>
+                <p>DEV FODA MUITI KKKKKKK OIAAA ELAAAA</p>
+              </div>
             </div>
         </main>
     );

@@ -1,90 +1,54 @@
-.Main_Card {
+.Main_Card2 {
 
-    border: red solid;
     .Card {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        background-color: #65c09abe;
+        background-color: aqua;
         border-radius: 15px;
-        padding: 25px 20px;
-        margin-right: 7px;
-        #corvo {
+        height: 550px;
+        width: 400px;
+        border: yellow solid 7px;
+
+        header {
             display: flex;
-            flex-direction: row;
+        }
+
+        .img {
+            display: flex;
             justify-content: center;
-
-            padding-right: 90px;
-
-            p {
-                margin-top: 10px;
-                font-size: 24px;
-            }
+            border: red solid;
+            padding: 15px;
 
             img {
-                width: 135px;
-                position: relative;
-                right: 70px;
-                bottom: 80px;
-
-                
+                background-color: aliceblue;
+                width: 80%;
+                object-fit: contain;
             }
         }
 
-        .dados_integrantes {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .infos {
+            padding: 15px;
 
-            font-size: 18px;
-
-            .cargo {
+            header {
                 display: flex;
-                flex-direction: column;
-
-                gap: 12px;
-                width: 100%;
-                padding: 5px 0px;
-
-                div {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 5px;
-
-                    h5 {
-                        font-size: 16px;
-                        font-weight: 100;
-                    }
-
-                    p {
-                        width: 100%;
-                        background-color: #a2f1d362;
-                        padding: 10px;
-                        font-size: 15px;
-                    }
+                font-size: 10px;
+                margin-bottom: 10px;
+                align-items: center;
+                border: red solid;
+                a {
+                    margin-right: 35px;
+                    background-color: blue;
+                    padding: 5px;
+                    border-radius:  10px 0 10px 0;
+                }
+                h4 {
+                    color: red;
+                    font-size: 12px;
                 }
             }
 
-            .memorias {
-                display: flex;
-                flex-direction: column;
-
-
-                p {
-                    font-size: 10px;
-                    padding: 10px 0px;
-                    margin-left: 20px;
-                }
-
-                div {
-                    padding: 40px;
-                    background-color: #a2f1d362;
-                    font-size: 14px;
-                }
-
+            p {
+                font-size: 10px;
             }
         }
     }
