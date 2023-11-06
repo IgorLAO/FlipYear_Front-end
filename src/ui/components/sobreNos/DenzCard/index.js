@@ -1,35 +1,32 @@
 import './style.scss';
 
-import Corvo from '../../../assets/images/sobreNos/pyram-unscreen.gif';
+import pyram from '../../../assets/images/sobreNos/pyram-unscreen.gif';
 
 export default function DenzCard() {
 
     return (
-        <main className='Main_Card'>
+        <main className='Main_Card2'>
             <div className='Card'>
-                <div id='corvo'>
-                    <img src={Corvo} style={{width: '85%'}} />
-                    <p>{ } Denzel </p>
-                </div>
+                <header>
+                    <img src={pyram} />
+                    <h4>
+                        Denzel
+                    </h4>
+                </header>
+                <section>
+                    <div>
+                        <h5>Cargo</h5>
+                        <a>DEV</a>
+                    </div>
 
-                <div className='dados_integrantes'>
-                    <div className='cargo'>
-                        <div>
-                            <h5>{ }Cargo</h5>
-                            <p>{ }DEV Full-Stack</p>
-                        </div>
-                        <div>
-                            <h5>Jogo Favorito</h5>
-                            <p>{ }Silent Hill 2</p>
-                        </div>
+                    <div>
+                        <h5>Jogo Favorito</h5>
+                        <a>Silent Hill 2</a>
                     </div>
-                    <div className='memorias'>
-                        <p>Uma memória com videogame</p>
-                        <div>
-                            <p style={{fontSize: '13px'}} >Zerar Top Gear com meu pai. Malditas uvas!!!</p>
-                        </div>
+                    <div>
+                        <h5>Uma memoria com videogames</h5>
                     </div>
-                </div>
+                </section>
             </div>
         </main>
     );
