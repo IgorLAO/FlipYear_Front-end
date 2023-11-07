@@ -1,15 +1,20 @@
 import Butao from '../butao/butao'
 import ListaFiltro from '../lista/lista'
+import OrdenaçãoAvaliados from '../lista/listaAvaliados'
+import OrdenacaoPreco from '../lista/listaPreco'
 import ValoresFiltro from '../valores/valores'
 import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
 import './index.scss'
 
-export default function FiltroCtlg() {
+export default function FiltroCtlg({OrdMelhoresAvaliados, OrdPioresAvaliados, OrdMaioresPrecos, OrdMenoresPrecos}) {
+   
+
 
     return (
 
 
         <div>
+
 
             <div className='card-filtro-ctlg'>
 
@@ -23,9 +28,14 @@ export default function FiltroCtlg() {
 
             <div className='opc-selec'>
 
-                <ListaFiltro item={'Ordavaliacao'}></ListaFiltro>
-                <ListaFiltro item={'Ordpreco'}></ListaFiltro>
-                <Butao item = {'Alfabética'}></Butao>
+                <OrdenaçãoAvaliados 
+                OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                OrdPioresAvaliados={OrdPioresAvaliados}>
+                </OrdenaçãoAvaliados>
+                <OrdenacaoPreco 
+                OrdMaioresPrecos={OrdMaioresPrecos}
+                OrdMenoresPrecos={OrdMenoresPrecos}>   
+                </OrdenacaoPreco>
 
             </div>
 

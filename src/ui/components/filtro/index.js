@@ -28,7 +28,6 @@ export default function Filtro({setPopUpFiltro}) {
 
                     <ListaFiltro item={'Ordavaliacao'}></ListaFiltro>
                     <ListaFiltro item={'Ordpreco'}></ListaFiltro>
-                    <Butao item={'Alfabética'}></Butao>
 
                 </div>
 
