@@ -31,7 +31,6 @@ export default function Comments(props) {
         const publicacao = new Date(props.Data)
         const FixedData = moment(publicacao).format('DD/MM/YYYY');
         setDataPublicacao(FixedData)
-        console.log(dataPublicacao)
     }
 
     useEffect(() =>{

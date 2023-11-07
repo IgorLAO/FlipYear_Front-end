@@ -72,7 +72,7 @@ export default function ListaFiltro(props) {
 
         PuxarListagem();
 
-    })
+    }, [])
 
     switch (props.item) {
 

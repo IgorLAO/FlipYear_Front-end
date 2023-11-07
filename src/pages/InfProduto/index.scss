@@ -512,5 +512,33 @@
         color: #346856;
     }
 
+    .products{
+        .swiper {
+            width: 95%;
+            height: 90%;
+          }
+          .swiper-button-prev{
+            color: rgb(32, 218, 88);
+            font-weight: 1000;
+            opacity: 1;
+        }
+
+        .swiper-button-next{
+            color: rgb(32, 218, 88);
+            font-weight: 1000;
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        .swiper-button-next:hover{
+            color: rgb(84, 197, 118);
+        }
+          .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
 }
 
