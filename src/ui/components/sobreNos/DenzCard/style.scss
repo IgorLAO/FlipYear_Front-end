@@ -3,7 +3,7 @@
     .Card {
         display: flex;
         flex-direction: column;
-        background-color: rgb(75, 122, 95);
+        background-color: #4b7a5f;
         border-radius: 15px;
         height: 550px;
         width: 400px;
@@ -66,6 +66,7 @@
             background-color: aliceblue;
             padding: 15px;
             margin: 5px 20px 0 20px;
+            border: solid grey 4px;
 
             img {
                 background-color: aliceblue;
@@ -84,33 +85,75 @@
                 align-items: center;
                 width: 100%;
 
+                .Bottoms {
+                    a {
+                        background-color: #416;
+                        font-size: 10px;
+                        box-shadow: 0px 0 3px 3px white;
+                        border-radius: 100%;
+                        padding: 3.5px 3px 2px 3.5px;
+
+                        &:nth-child(1) {
+                            background-color: rgb(146, 92, 92);
+
+                        }
+
+                        &:nth-child(2) {
+                            background-color: #afcfeb;
+                            color: #000;
+                        }
+
+                        &:nth-child(3) {
+                            background-color: rgb(86, 37, 179);
+                        }
+                    }
+                }
+
                 a {
                     margin-right: 35px;
                     background-color: blue;
                     padding: 5px;
                     border-radius: 10px 0 10px 0;
+                    margin-right: 13px;
                 }
 
                 h4 {
-                    color: red;
+                    color: rgb(116, 38, 38);
                     font-size: 12px;
                 }
             }
 
             p {
-                font-size: 10px;
-                margin-bottom: 15px;
+                font-size: 11px;
+                margin-bottom: 35px;
                 color: black;
+                line-height: 14px;
             }
         }
 
         .AirLine {
-            font-size: 12px;
-           background-color: grey;
-           span{
-            border-left: aqua solid 7px;
-            border-radius: 50px
-           }
+            display: flex;
+            position: relative;
+            left: -11px;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            width: 390px;
+            padding: 5px 15px;
+            background-color: grey;
+            border-radius: 25px;
+
+            span {
+                border-left: #4b7a5f solid 8px;
+                border-radius: 10px;
+                padding: 3px;
+
+                a {
+                    border-radius: 90px;
+                    border: #4b7a5f solid 8px;
+                    padding: 5px;
+                    height: 5px;
+                }
+            }
         }
     }
 }

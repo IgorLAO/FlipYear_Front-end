@@ -2,7 +2,6 @@ import './index.scss';
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 import { GetAllProd } from '../../api/produtos';
@@ -32,14 +31,29 @@ export default function Catalogo() {
 
     function OrdMaioresPrecos(){
 
-        const maioresPrecos = [...list].sort((a,b) => {b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL});
+        const maioresPrecos = [...list].sort((a,b) => {
+            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO_PROMOCIONAL
+            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO
+            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return a.VL_PRECO - b.VL_PRECO_PROMOCIONAL
+            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return a.VL_PRECO - b.VL_PRECO
+
+
+        });
         setList(maioresPrecos);
 
     }
 
     function OrdMenoresPrecos(){
 
-        const menoresPrecos = [...list].sort((a,b) => a.VL_PRECO_PROMOCIONAL - b.VL_PRECO_PROMOCIONAL);
+        const menoresPrecos = [...list].sort((a,b) => {
+            
+            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL
+            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO_PROMOCIONAL
+            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO
+            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO
+
+        });
+        
         setList(menoresPrecos);
 
     }
@@ -58,7 +72,6 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
-                <button onClick={OrdMaioresPrecos}>aaa</button>
                 
                 <div className='resultados-ctlg'>
                 <FiltroCtlg 
