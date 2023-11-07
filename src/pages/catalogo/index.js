@@ -2,7 +2,6 @@ import './index.scss';
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 import { GetAllProd } from '../../api/produtos';

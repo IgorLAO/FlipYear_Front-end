@@ -31,20 +31,26 @@ export default function DenzCard() {
             <a>Ability</a>
             <h4>JOGO PREFERIDO</h4>
           </header>
-          <p>Silent Hill</p>
+          <p>Silent Hill 2</p>
 
           <header className='H2'>
-            <h4>Memoria</h4>
+            <span className='Bottoms'>
+              <a>+</a>
+              <a>@</a>
+              <a>#</a>
+            </span>
+            <h4 style={{ color: '#000' }}>Memoria</h4>
           </header>
-          <p>DEV FODA MUITI KKKKKKK OIAsdasddasdaKAsdKK OIAsdasddasadassadsdaSdaASdK OIAsdasddasdaasdsdaKKK OIAsdasddasdaA ELAAAA</p>
+          <p>Zerar Top Gear com meu pai. Malditas uvas!!!</p>
         </div>
 
         <div className='AirLine'>
           <div>
             <a>Fraqueza</a>
             <span>
-              forca
+              <a>forca</a>
             </span>
+
           </div>
         </div>
 
