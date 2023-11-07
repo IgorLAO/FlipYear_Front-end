@@ -1,35 +1,53 @@
 import './style.scss';
 
-import Corvo from '../../../assets/images/sobreNos/mrKarate.gif';
+import mrKarate from '../../../assets/images/sobreNos/takuma-stance.gif';
 
 export default function IgoCard() {
 
     return (
-        <main className='Main_Card'>
+        <main className='Main_Card2'>
             <div className='Card'>
-                <div id='corvo'>
-                    <img src={Corvo} />
-                    <p>{ }Igor</p>
+                <header className='H1'>
+                    <span className='NameTier'>
+                        <span className='basic'>Basic</span>
+                        <h4>
+                           Igor L.
+                        </h4>
+                    </span>
+
+                    <span className='hp'>
+                        <a >HP</a>
+                        <h5>400</h5>
+                        <h4>I</h4>
+                    </span>
+                </header>
+
+                <div className='img'>
+                    <img src={mrKarate} />
                 </div>
 
-                <div className='dados_integrantes'>
-                    <div className='cargo'>
-                        <div>
-                            <h5>{ }Cargo</h5>
-                            <p>{ }DEV Full-Stack</p>
-                        </div>
-                        <div>
-                            <h5>Jogo Favorito</h5>
-                            <p>{ }Shadown of the Colossus</p>
-                        </div>
-                    </div>
-                    <div className='memorias'>
-                        <p>Uma memória com videogame</p>
-                        <div>
-                            <p style={{fontSize: '13px'}}> Tiltar jogando The King of Fighters. IMPOSSIVEL VENCER O RUGAL </p>
-                        </div>
+                <div className='infos'>
+                    <header className='H2'>
+                        <a>Ability</a>
+                        <h4>JOGO PREFERIDO</h4>
+                    </header>
+                    <p>The King of Fighters 2002</p>
+
+                    <header className='H2'>
+                        <h4>Memoria</h4>
+                    </header>
+                    <p>DEV FODA MUITI KKKKKKK OIAsdasddasdaKAsdKK OIAsdasddasadassadsdaSdaASdK OIAsdasddasdaasdsdaKKK OIAsdasddasdaA ELAAAA</p>
+                </div>
+
+                <div className='AirLine'>
+                    <div>
+                        <a>Fraqueza</a>
+                        <span>
+                            forca
+                        </span>
                     </div>
                 </div>
+
             </div>
         </main>
     );

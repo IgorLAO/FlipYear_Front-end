@@ -4,26 +4,51 @@ import pyram from '../../../assets/images/sobreNos/pyram-unscreen.gif';
 
 export default function DenzCard() {
 
-    return (
-        <main className='Main_Card2'>
-            <div className='Card'>
-              <header>
-                <span>DEV</span>
-                <h4>
-                    Denzel N.
-                </h4>
-              </header>
-              <div className='img'>
-                <img src={pyram} />
-              </div>
-              <div className='infos'>
-                <header>
-                    <a>Ability</a>
-                    <h4>Excited Heart</h4>
-                </header>
-                <p>DEV FODA MUITI KKKKKKK OIAAA ELAAAA</p>
-              </div>
-            </div>
-        </main>
-    );
+  return (
+    <main className='Main_Card2'>
+      <div className='Card'>
+        <header className='H1'>
+          <span className='NameTier'>
+            <span className='basic'>Basic</span>
+            <h4>
+              Denzel N.
+            </h4>
+          </span>
+
+          <span className='hp'>
+            <a >HP</a>
+            <h5>450</h5>
+            <h4>D</h4>
+          </span>
+        </header>
+
+        <div className='img'>
+          <img src={pyram} />
+        </div>
+
+        <div className='infos'>
+          <header className='H2'>
+            <a>Ability</a>
+            <h4>JOGO PREFERIDO</h4>
+          </header>
+          <p>Silent Hill</p>
+
+          <header className='H2'>
+            <h4>Memoria</h4>
+          </header>
+          <p>DEV FODA MUITI KKKKKKK OIAsdasddasdaKAsdKK OIAsdasddasadassadsdaSdaASdK OIAsdasddasdaasdsdaKKK OIAsdasddasdaA ELAAAA</p>
+        </div>
+
+        <div className='AirLine'>
+          <div>
+            <a>Fraqueza</a>
+            <span>
+              forca
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  );
 }
