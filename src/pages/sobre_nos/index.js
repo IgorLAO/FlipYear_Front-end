@@ -33,7 +33,7 @@ export default function SobreNos() {
                     </div>
                     <div className='container_perfil'>
 
-                        <div className='sw' style={{ display: 'flex', width: '700px', height: '800px', alignItems: 'center' }}>
+                        <div className='sw' style={{ display: 'flex', width: '400px', alignItems: 'center' }}>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 <SwiperSlide> <DenzCard /></SwiperSlide>
                                 <SwiperSlide> <JaoCard /></SwiperSlide>

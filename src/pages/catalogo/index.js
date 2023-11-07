@@ -16,10 +16,36 @@ export default function Catalogo() {
         setList(res.data);
     }
 
+    function OrdMelhoresAvaliados(){
+        const melhoresAval = [...list].sort((a,b) => b.VL_AVALIACAO - a.VL_AVALIACAO);
+        setList(melhoresAval);
+
+    }
+
+    function OrdPioresAvaliados(){
+        const pioresAval = [...list].sort((a,b) => a.VL_AVALIACAO - b.VL_AVALIACAO);
+        setList(pioresAval);
+
+    }
+
+
+    function OrdMaioresPrecos(){
+
+        const maioresPrecos = [...list].sort((a,b) => {b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL});
+        setList(maioresPrecos);
+
+    }
+
+    function OrdMenoresPrecos(){
+
+        const menoresPrecos = [...list].sort((a,b) => a.VL_PRECO_PROMOCIONAL - b.VL_PRECO_PROMOCIONAL);
+        setList(menoresPrecos);
+
+    }
+
+
     
-
-
-
+    
     useEffect(() => {
         GetProds();
     }, [])
@@ -31,8 +57,15 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
+                <button onClick={OrdMaioresPrecos}>aaa</button>
+                
                 <div className='resultados-ctlg'>
-                <FiltroCtlg>
+                <FiltroCtlg 
+                    OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                    OrdPioresAvaliados = {OrdPioresAvaliados}
+                    OrdMaioresPrecos={OrdMaioresPrecos}
+                    OrdMenoresPrecos={OrdMenoresPrecos}
+                >
                 </FiltroCtlg>
 
                 <div className='produtos-result'>
