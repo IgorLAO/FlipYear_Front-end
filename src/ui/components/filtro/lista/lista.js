@@ -70,12 +70,7 @@ export default function ListaFiltro(props) {
     useEffect(() => {
 
         PuxarListagem();
-
-<<<<<<< HEAD
-    }, [])
-=======
-    }, [selecX])
->>>>>>> 6fed4c6dff5e4a97a83aa21ff0e58ec18fe9b4d5
+    },[])
 
     switch (props.item) {
 
