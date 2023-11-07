@@ -21,25 +21,7 @@ import 'swiper/css/navigation';
 export default function SobreNos() {
     const [Position, setPosition] = useState(0);
 
-    const Next = () => {
-        setPosition(Position + 800);
-        console.log(Position)
-    }
-
-    const Previous = () => {
-        setPosition(Position - 800);
-        console.log(Position)
-    }
-
-    useEffect(() => {
-        if (Position < 3600 && Position > 0) {
-            let divElement = document.getElementById("DC");
-            divElement.style.transition = `transform 500ms ease`;
-            divElement.style.transform = `translateX(${Position}px)`;
-        }
-
-    }, [Position]);
-
+  
     return (
         <>
             <NavBar />
