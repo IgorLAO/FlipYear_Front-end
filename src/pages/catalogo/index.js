@@ -73,7 +73,6 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
-                <button onClick={OrdMaioresPrecos}>aaa</button>
                 
                 <div className='resultados-ctlg'>
                 <FiltroCtlg 
