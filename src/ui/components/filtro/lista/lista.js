@@ -9,7 +9,6 @@ export default function ListaFiltro(props) {
     const [buttonFundo, setButtonFundo] = useState('');
     const [buttonFonte, setButtonFonte] = useState('');
 
-    const [listagem, setListagem] = useState([]);
     const [estados, SetEstados] = useState([]);
     const [empresas, setEmpresas] = useState([]);
 
@@ -72,7 +71,7 @@ export default function ListaFiltro(props) {
 
         PuxarListagem();
 
-    })
+    }, [selecX])
 
     switch (props.item) {
 

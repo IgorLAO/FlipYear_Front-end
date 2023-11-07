@@ -18,9 +18,6 @@ export default function Catalogo() {
     }
 
     
-
-
-
     useEffect(() => {
         GetProds();
     }, [])
@@ -31,7 +28,7 @@ export default function Catalogo() {
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
-
+                
                 <div className='resultados-ctlg'>
                 <FiltroCtlg>
                 </FiltroCtlg>
