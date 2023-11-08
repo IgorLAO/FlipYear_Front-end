@@ -17,15 +17,14 @@ import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import { GetAllProdDestaque, GetPagProdDestaque } from '../../api/produtos';
+import Produtos from '../../ui/components/produtos';
 
 function App() {
   const [mostrarDestaques, setMostrarDestaques] = useState([]);
-  const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
-  const [mostrarAllDestaques, setMostrarAllDestaques] = useState([])
 
   async function ConsultaDestaqueProdutos() {
     try {
-      let sql = await GetPagProdDestaque(pageDestaqueNum);
+      let sql = await GetAllProdDestaque();
       let produtos = sql.data;
       setMostrarDestaques(produtos);
 
@@ -34,33 +33,10 @@ function App() {
     }
   }
 
-  async function ListAllProdDestaques() {
-    let sql = await GetAllProdDestaque();
-
-    let produtos = (sql.data);
-    let a = produtos.length;
-    setMostrarAllDestaques(a);
-    console.log(a);
-  }
-
-
-  function nextPag() {
-    if (pageDestaqueNum < mostrarAllDestaques) {
-      setPageDestaqueNum(pageDestaqueNum + 1)
-    }
-    console.log(mostrarDestaques.length)
-  }
-
-  function prevPag() {
-    if (pageDestaqueNum > 1) {
-      setPageDestaqueNum(pageDestaqueNum - 1)
-    }
-  }
 
   useEffect(() => {
     ConsultaDestaqueProdutos()
-    ListAllProdDestaques()
-  }, [pageDestaqueNum])
+  }, [])
 
 
   return (
@@ -135,13 +111,8 @@ function App() {
       <section className='s4'>
         <h2> Em destaque </h2>
         <hr />
-        <div className='produtos' style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 50 }}>
-          <h2 onClick={prevPag} style={{ fontSize: 70 }} > {'<'} </h2>
-
-          {mostrarDestaques.map((item) => (
-            <CardProdutoCtlg idProduto={item.ID_PRODUTO} preco={item.VL_PRECO} nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONA} promocao={item.BT_PRMOCAO} />
-          ))}
-          <h2 onClick={nextPag} style={{ fontSize: 70 }} > {'>'} </h2>
+        <div className='produtos'>
+          <Produtos products={mostrarDestaques} />
         </div>
       </section>
       <Rodape />

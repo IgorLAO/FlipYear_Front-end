@@ -3,6 +3,8 @@
     font-size: 18px;
     color: white;
     padding: 150px 50px;
+    width: 30vh;
+    
 
     .conteudo {
         display: flex;
@@ -15,6 +17,7 @@
         padding: 80px;
         margin-left: -20vh;
         height: 900px;
+        width: 20vh;
 
         .descricao {
             display: flex;
@@ -22,7 +25,7 @@
             justify-content: center;
             flex-direction: column;
             margin-right: 20px;
-            line-height: 20px;
+            line-height: 25px;
             gap: 35px;
             font-weight: 100;
             padding: 50px;
@@ -83,86 +86,17 @@
 
 @media (max-width: 1920px) {
     .container_sobrenos {
+        width: 131.6vh;
         .conteudo {
             display: flex;
             flex-direction: row;
             margin: -130px -7px;
+            width: 123vh;
             
 
             .descricao {
                 font-size: 15px;
                 width: 40vh;
-            }
-
-            .container_perfil {
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 40px;
-                }
-
-                .perfil {
-                    .conteudo_perfil {
-                        width: 70vh;
-                        margin-top: 100px;
-                        border: solid 2px blue;
-
-
-                        #corvo {
-                            padding-right: 40vh;
-
-                            img {
-                                margin-left: 50vh;
-                                width: 110px;
-                                height: 110px;
-                            }
-
-                            p {
-                                padding-top: 40px;
-                                margin-left: -23vh;
-                            }
-                        }
-
-                        .dados_integrantes {
-                            .cargo {
-                                div {
-                                    h5 {
-                                        font-size: 15px;
-                                        margin-left: 5px;
-                                    }
-
-                                    p {
-                                        font-size: 13px;
-                                        width: 45vh;
-                                        margin-left: 5px;
-                                    }
-                                }
-                            }
-
-                            .memorias {
-                                p {
-                                    font-size: 14px;
-                                    margin-left: 5px;
-                                }
-
-                                div {
-                                    width: 45vh;
-                                    margin-left: 5px;
-
-                                    p {
-                                        font-size: 13px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 0px;
-                }
             }
         }
     }
@@ -170,87 +104,18 @@
 
 @media (max-width: 768px) {
     .container_sobrenos {
+        width: 68vh;
         .conteudo {
             display: flex;
             flex-direction: column;
-            margin: -150px -20px;
-            width: 85vh;
+            margin: -130px -20px;
+            width:61vh;
 
             .descricao {
                 font-size: 15px;
                 width: 56vh;
-                padding-left: 5vh;
+                padding-left: 8vh;
                 margin-top: 0vh;
-            }
-
-            .container_perfil {
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 40px;
-                }
-
-                .perfil {
-                    .conteudo_perfil {
-                        width: 70vh;
-                        margin-top: 100px;
-                        border: solid 2px blue;
-
-                        #corvo {
-                            padding-right: 40vh;
-
-                            img {
-                                margin-left: 50vh;
-                                width: 110px;
-                                height: 110px;
-                            }
-
-                            p {
-                                padding-top: 40px;
-                                margin-left: -23vh;
-                            }
-                        }
-
-                        .dados_integrantes {
-                            .cargo {
-                                div {
-                                    h5 {
-                                        font-size: 15px;
-                                        margin-left: 5px;
-                                    }
-
-                                    p {
-                                        font-size: 13px;
-                                        width: 45vh;
-                                        margin-left: 5px;
-                                    }
-                                }
-                            }
-
-                            .memorias {
-                                p {
-                                    font-size: 14px;
-                                    margin-left: 5px;
-                                }
-
-                                div {
-                                    width: 45vh;
-                                    margin-left: 5px;
-
-                                    p {
-                                        font-size: 13px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 0px;
-                }
             }
         }
     }
@@ -260,83 +125,21 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 60.1vh;
+        width: 37.6vh;
         .conteudo {
-            width: 53vh;
+            width: 31vh;
             flex-direction: column;
             margin: -130px -22px;
 
             .descricao {
-                font-size: 13px;
-                width: 50vh;
-                margin-top: 20px;
+                font-size: 10px;
+                width: 35vh;
+                margin: 20px 20px;
             }
 
-            .container_perfil {
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 45px;
-                }
-
-                .perfil {
-                    .conteudo_perfil {
-                        margin: 100px 20vh;
-                        border: solid 2px blue;
-                        #corvo {
-                            padding-right: 25vh;
-
-                            img {
-                                margin-left: 35vh;
-                                width: 110px;
-                                height: 110px;
-                            }
-
-                            p {
-                                padding-top: 40px;
-                                margin-left: -22vh;
-                            }
-                        }
-
-                        .dados_integrantes {
-                            .cargo {
-                                div {
-                                    h5 {
-                                        font-size: 13px;
-                                        margin-left: 5px;
-                                    }
-
-                                    p {
-                                        font-size: 8.5px;
-                                        width: 25vh;
-                                        margin-left: 5px;
-                                    }
-                                }
-                            }
-
-                            .memorias {
-                                p {
-                                    font-size: 9.3px;
-                                    margin-left: 5px;
-                                }
-
-                                div {
-                                    width: 25vh;
-                                    margin-left: 5px;
-
-                                    p {
-                                        font-size: 8.5px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                h2 {
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 3px;
+            .container_perfil{
+                .sw{
+                    margin-top: -70px;
                 }
             }
         }
