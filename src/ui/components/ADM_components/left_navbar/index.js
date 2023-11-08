@@ -36,49 +36,39 @@ export default function Adm_leftNavBar() {
 
                     <div className="Options">
                         <span className="">
-                            <Link to="/">
-                                <div>
+                                <div onClick={() => navigate('/')}>
                                     <img src={Home} />
                                     <h4> Home </h4>
                                 </div>
-                            </Link>
 
-                            <Link>
-                                <div>
+                                <div onClick={() => navigate('/caixa')}>
                                     <img src={Mail} />
                                     <h4> Caixa de Entrada </h4>
                                 </div>
-                            </Link>
-                            <Link to='/ADM_Produtos'>
-                                <div>
-                                    <img src={searchIcon} />
+
+                                <div  onClick={() => navigate('/ADM_Produtos')}>
+                                    <img src={searchIcon}/>
                                     <h4> Produtos </h4>
                                 </div>
-                            </Link>
 
-                            <Link to='/ADM_RegistroProd'>
-                                <div>
+                                <div onClick={() => navigate('/ADM_RegistroProd')}>
                                     <img src={penIcon} />
                                     <h4> Registro </h4>
                                 </div>
-                            </Link>
 
-                            <Link to='/ADM_Users'>
-                                <div>
+                                <div onClick={() => navigate('/ADM_Users')}>
                                     <img src={userIcon} />
                                     <h4> Usuarios </h4>
                                 </div>
-                            </Link>
 
-                            <Link to="ADM_Pedidos">
-                                <div>
+                          
+                                <div onClick={() => navigate('/ADM_Pedidos')}>
                                     <img src={clockIcon} />
                                     <h4> Pedidos Pendentes </h4>
                                 </div>
-                            </Link>
 
 
-                            <div>
+                            <div onClick={() => navigate('/ADM_estatisticas')}>
                                 <img src={statisticsIcon} />
                                 <h4> Estatísticas</h4>
                             </div>

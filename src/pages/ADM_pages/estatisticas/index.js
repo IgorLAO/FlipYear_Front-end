@@ -21,12 +21,16 @@ export default function Estatisticas() {
 
     async function GetAllPedidos() {
         let d = await axios.get('http://localhost:5000/pedidos');
+        setListPed(d.data)
         let JogoCount = 0
         let ItCount = 0
         let ConsoleCount = 0
         let FlipCount = 0
+
+        console.log(d.data);
         
         listPed.map((item) => {
+
             console.log(item.Categoria);
             if (item.Categoria === 'Fliperama')
                 FlipCount += 1
@@ -61,52 +65,30 @@ export default function Estatisticas() {
     const data = [
         {
             name: 'Consoles',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
+            uv: QtdConsoles * 100,
+            amt: 2000,
         },
         {
             name: 'Jogos',
-            uv: 3000,
-            pv: 1398,
+            uv: QtdJogos * 100,
             amt: 2210,
         },
         {
             name: 'Fliperamas',
-            uv: 2000,
-            pv: 9800,
+            uv: QtdFliperamas * 100,
             amt: 2290,
         },
         {
             name: 'Items Colecionaveis',
-            uv: 2780,
-            pv: 3908,
+            uv: QtdColeItems * 100,
             amt: 2000,
         },
-        {
-            name: '',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
     ];
-
-    useEffect(() => {
-        GetAllPedidos();
-    }, [])
-
+    
+    
+        useEffect(() => {
+            GetAllPedidos();
+        }, []);
     return (<div className="ADM_Estatisticas">
         <AdmTopNavBar />
         <div className="s">
@@ -118,9 +100,6 @@ export default function Estatisticas() {
                 <span className="Title">
                     <h1> Estatisticas </h1>
                 </span>
-
-
-
 
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart

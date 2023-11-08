@@ -39,7 +39,7 @@ export default function DenzCard() {
               <a>@</a>
               <a>#</a>
             </span>
-            <h4 style={{ color: '#000' }}>Memoria</h4>
+            <h4 style={{ color: '#000' }}>Memorias Com Jogos</h4>
           </header>
           <p>Zerar Top Gear com meu pai. Malditas uvas!!!</p>
         </div>
@@ -53,7 +53,7 @@ export default function DenzCard() {
 
           </div>
         </div>
-
+        <a className='copy'>&copy; 2023 FlipYear 2000 </a>
       </div>
     </main>
   );
