@@ -10,20 +10,22 @@ import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 export default function Catalogo() {
 
     const [list, setList] = useState([]);
-   
+    const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
+    const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
+
     const GetProds = async () => {
         let res = await GetAllProd();
         setList(res.data);
     }
 
     function OrdMelhoresAvaliados(){
-        const melhoresAval = [...list].sort((a,b) => b.VL_AVALIACAO - a.VL_AVALIACAO);
+        const melhoresAval = [...list].sort((a,b) => a.VL_AVALIACAO - b.VL_AVALIACAO);
         setList(melhoresAval);
 
     }
 
     function OrdPioresAvaliados(){
-        const pioresAval = [...list].sort((a,b) => a.VL_AVALIACAO - b.VL_AVALIACAO);
+        const pioresAval = [...list].sort((a,b) => b.VL_AVALIACAO - a.VL_AVALIACAO);
         setList(pioresAval);
 
     }
@@ -58,11 +60,122 @@ export default function Catalogo() {
 
     }
 
+    async function FiltroColecionador(){
+
+        setFiltroColecionadorSwitch((current) => !current);
+        
+        let arr = [];
+        let backupArr = [];
+    
+    
+    
+        if(filtroColecionadorSwitch !== true){
+
+            backupArr = list;   
+            list.map((item) =>{
+                if(item.TP_COLECIONADOR == true){
+    
+                    arr.push(item);
 
     
+                }
+    
+    
+    
+            })
+
+
+    
+            setList(arr);
+
+        
+    
+    
+        }
+    
+        else{
+            if(backupArr.length > 0){
+
+                setList(backupArr);
+
+
+            }
+
+            else{
+
+                GetProds();
+
+            }
+    
+    
+    
+        }
+
+
+
+
+    }
+
+    async function FiltroPromocao(){
+
+        setFiltroPromocaoSwitch((current) => !current);
+        
+        let arr = [];
+        let backupArr = [];
+    
+    
+    
+        if(filtroPromocaoSwitch !== true){
+
+            backupArr = list;   
+            list.map((item) =>{
+                if(item.BT_PROMOCAO == true){
+    
+                    arr.push(item);
+
+    
+                }
+    
+    
+    
+            })
+
+
+    
+            setList(arr);
+
+        
+    
+    
+        }
+    
+        else{
+            if(backupArr.length > 0){
+
+                setList(backupArr);
+
+
+            }
+
+            else{
+
+                GetProds();
+
+            }
+    
+    
+    
+        }
+
+
+
+
+    }
     
     useEffect(() => {
         GetProds();
+       
+       
     }, [])
 
     return (
@@ -72,6 +185,7 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
+
                 
                 <div className='resultados-ctlg'>
                 <FiltroCtlg 
@@ -79,6 +193,8 @@ export default function Catalogo() {
                     OrdPioresAvaliados = {OrdPioresAvaliados}
                     OrdMaioresPrecos={OrdMaioresPrecos}
                     OrdMenoresPrecos={OrdMenoresPrecos}
+                    FiltroColecionador={FiltroColecionador}
+                    FiltroPromocao={FiltroPromocao}
                 >
                 </FiltroCtlg>
 
