@@ -276,20 +276,19 @@
     }
   }
   .s4{
-    padding: 100px;
+    padding: 100px 50px;
     h2{
       color: aliceblue;
       font-size: 30px;
     }
   }
 
+  .produtos{
 
-  .produtos h2{
-    cursor: pointer;
-    transition: 0.2s;
+    .swiper{
+     width: 100%;
+    }
+
   }
 
-  .produtos h2:hover{
-    color: #346856;
-  }
 }

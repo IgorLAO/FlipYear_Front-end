@@ -96,6 +96,8 @@ export default function CardProdutoCtlg(props) {
     //utilizei o id do produto para seguir para a pág de produto
     function processoCompra() {
         navigate(`/produto/${props.idProduto}`)
+        window.location.reload();
+        window.scrollTo(0, 0);
     }   
 
     return (
