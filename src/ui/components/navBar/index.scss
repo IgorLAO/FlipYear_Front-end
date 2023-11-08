@@ -90,33 +90,22 @@
 
 }
 
+@media (max-width: 1920px) {
+    .Nav {
+        width: 131.5vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .Nav {
+        width: 68vh;
+    }
+}
+
+
+
 @media (max-width: 414px) {
-    .Nav{
-        width: 60.1vh;
-        .Logo{
-            img{
-                margin-left: -10px;
-            }
-            h3{
-                width: 20px;
-                h1{
-                    font-size: 13px;
-                }
-            }
-        }
-        .SearchBox{
-            .boxInput{
-                margin-left: 25px;
-            }
-        }
-        .Options{
-            border: solid 2px black;
-            padding-left: 0px;
-            img{
-                width: 23px;
-                height: 23px;
-                
-            }
-        }
+    .Nav {
+        width: 37.6vh;
     }
 }
