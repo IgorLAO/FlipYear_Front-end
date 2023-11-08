@@ -10,8 +10,10 @@ import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 export default function Catalogo() {
 
     const [list, setList] = useState([]);
+    const [backupArr, setBackupArr] = useState([]);
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
+
 
     const GetProds = async () => {
         let res = await GetAllProd();
@@ -65,14 +67,12 @@ export default function Catalogo() {
         setFiltroColecionadorSwitch((current) => !current);
         
         let arr = [];
-        let backupArr = [];
-    
-    
     
         if(filtroColecionadorSwitch !== true){
 
-            backupArr = list;   
-            list.map((item) =>{
+                setBackupArr(list);
+
+                list.map((item) =>{
                 if(item.TP_COLECIONADOR == true){
     
                     arr.push(item);
@@ -94,7 +94,7 @@ export default function Catalogo() {
         }
     
         else{
-            if(backupArr.length > 0){
+            if(backupArr.length !== list){
 
                 setList(backupArr);
 
@@ -121,13 +121,13 @@ export default function Catalogo() {
         setFiltroPromocaoSwitch((current) => !current);
         
         let arr = [];
-        let backupArr = [];
     
     
     
         if(filtroPromocaoSwitch !== true){
 
-            backupArr = list;   
+            setBackupArr(list);
+
             list.map((item) =>{
                 if(item.BT_PROMOCAO == true){
     
@@ -150,7 +150,7 @@ export default function Catalogo() {
         }
     
         else{
-            if(backupArr.length > 0){
+            if(backupArr !== list){
 
                 setList(backupArr);
 
