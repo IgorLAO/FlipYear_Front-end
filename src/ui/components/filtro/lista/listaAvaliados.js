@@ -43,7 +43,7 @@ export default function OrdenaçãoAvaliados({OrdMelhoresAvaliados, OrdPioresAva
 
         setValue(e.target.value);
 
-        if(value !== 'Melhores Avaliados'){
+        if(value == 'Melhores Avaliados'){
 
             OrdMelhoresAvaliados();
 
