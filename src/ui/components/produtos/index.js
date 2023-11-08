@@ -8,16 +8,14 @@ import 'swiper/css/navigation';
 import './index.scss'
 
 import CardProdutoCtlg from '../card-produto-ctlg';
-import { useState } from 'react';
 
 export default function Produtos(props) {
-    const [produto, setProduto] = useState(props)
 
     return (
 
         <div className="products">
             <Swiper navigation={true} slidesPerView={4} modules={[Navigation]} className="mySwiper">
-                {props.allProducts.map((item) => (
+                {props.products.map((item) => (
                     <SwiperSlide><CardProdutoCtlg
                         preco={item.VL_PRECO}
                         idProduto={item.ID_PRODUTO}

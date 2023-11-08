@@ -259,7 +259,7 @@ export default function InfProduto() {
 
                 <div className="products">
 
-                    <Produtos allProducts={allProducts}/>
+                    <Produtos products={allProducts}/>
                     
 
                 </div>
