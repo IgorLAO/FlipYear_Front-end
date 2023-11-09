@@ -22,136 +22,141 @@ export default function Estatisticas() {
     const [End, setEnd] = useState(0);
 
 
-    async function GetAllPedidos() {
-        let intervals = {
-            Start: Start,
-            End: End,
+    async function GetPedidosInterval() {
+        let Infos = {
+            Start: String(Start),
+            End: String(End)
         }
 
-        let d = await axios.get('http://localhost:5000/pedidosInterval', Start, End );
+        console.log(Infos);
+        const d = await axios.get('http://localhost:5000/pedidosInterval', { params: Infos });
 
-        console.log(d, intervals);
-        
         setListPed(d.data)
-        let JogoCount = 0
-        let ItCount = 0
-        let ConsoleCount = 0
-        let FlipCount = 0
-
-
-        listPed.map((item) => {
-
-            console.log(item.Categoria);
-            if (item.Categoria === 'Fliperama')
-                FlipCount += 1
-
-            setQtdFliperamas(FlipCount);
-
-            if (item.Categoria === 'Items Colecionaveis') {
-                ItCount += 1
-
-                setQtdColeItems(ItCount);
-            }
-
-            if (item.Categoria === 'Jogo') {
-                JogoCount += 1
-
-                setQtdJogos(JogoCount);
-            }
-
-            if (item.Categoria === 'Console') {
-                ConsoleCount += 1
-
-                setQtdConsoles(ConsoleCount);
-            }
-        });
+        console.log(d.data);
     }
 
+    useEffect(() => {
+        function table() {
+            let JogoCount = 0
+            let ItCount = 0
+            let ConsoleCount = 0
+            let FlipCount = 0
+    
+    
+            listPed.map((item) => {
+                console.log(item.Categoria);
+                if (item.Categoria === 'Fliperama')
+                    FlipCount += 1
+    
+                setQtdFliperamas(FlipCount);
+    
+                if (item.Categoria === 'Items Colecionaveis') {
+                    ItCount += 1
+    
+                    setQtdColeItems(ItCount);
+                }
+    
+                if (item.Categoria === 'Jogo') {
+                    JogoCount += 1
+    
+                    setQtdJogos(JogoCount);
+                }
+    
+                if (item.Categoria === 'Console') {
+                    ConsoleCount += 1
+    
+                    setQtdConsoles(ConsoleCount);
+                }
+            });
+        }
+        table();
+    }, [table()])
+    
 
-    const data = [
-        {
-            name: 'Consoles',
-            Vendas: QtdConsoles,
-            amt: 2000,
-        },
-        {
-            name: 'Jogos',
-            Vendas: QtdJogos,
-            amt: 2210,
-        },
-        {
-            name: 'Fliperamas',
-            Vendas: QtdFliperamas,
-            amt: 2290,
-        },
-        {
-            name: 'Items Colecionaveis',
-            Vendas: QtdColeItems,
-            amt: 2000,
-        },
-    ];
+
+
+const data = [
+    {
+        name: 'Consoles',
+        Vendas: QtdConsoles,
+        amt: 2000,
+    },
+    {
+        name: 'Jogos',
+        Vendas: QtdJogos,
+        amt: 2210,
+    },
+    {
+        name: 'Fliperamas',
+        Vendas: QtdFliperamas,
+        amt: 2290,
+    },
+    {
+        name: 'Items Colecionaveis',
+        Vendas: QtdColeItems,
+        amt: 2000,
+    },
+];
 
 
 
+return (
+    <div className="ADM_Estatisticas">
+        <AdmTopNavBar />
 
-    return (
-        <div className="ADM_Estatisticas">
-            <AdmTopNavBar />
+        <section >
 
-            <section >
+            <div className="s">
+                <Adm_leftNavBar />
+                <div className="content">
+                    <div className="dataRange">
+                        <div>
+                            <span>
+                                <a>Intervalo</a>
+                            </span>
 
-                <div className="s">
-                    <Adm_leftNavBar />
-                    <div className="content">
-                        <div className="dataRange">
-                            <div>
-                                <span>
-                                    <a>Intervalo</a>
+                            <span>
+                                <a>Começo: </a>
+                                <input type="date" onChange={e => { setStart(e.target.value); console.log(Start) }} />
 
-                                </span>
+                            </span>
 
-                                <span>
-                                    <a>Começo: </a>
-                                    <input type="date" onChange={e => {setStart(e.target.value); console.log(Start)}} />
+                            <span>
+                                <a>Final:</a>
+                                <input type="date" onChange={e => { setEnd(e.target.value); console.log(End) }} />
 
-                                </span>
-
-                                <span>
-                                    <a>Final:</a>
-                                    <input type="date" onChange={(e) => {setEnd(e.target.value); console.log(End)}} />
-
-                                </span>
-                            </div>
-                            <button onClick={GetAllPedidos}> Aplicar </button>
+                            </span>
                         </div>
-                        <span className="Title" style={{ marginBottom: '50px' }}>
-                            <h1> Estatisticas </h1>
-                        </span>
-
-                        <ResponsiveContainer width="100%" height="100%">
-                            <LineChart
-                                width={300}
-                                height={200}
-                                data={data}
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5,
-                                }}
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                                <Line type="monotone" dataKey="Vendas" stroke="#82ca9d" />
-                            </LineChart>
-                        </ResponsiveContainer>
+                        <button onClick={GetPedidosInterval}> Aplicar </button>
                     </div>
+                    <span className="Title" style={{ marginBottom: '50px' }}>
+                        <h1> Estatisticas </h1>
+                    </span>
+
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart
+                            width={300}
+                            height={200}
+                            data={data}
+                            margin={{
+                                top: 5,
+                                right: 30,
+                                left: 20,
+                                bottom: 5,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="Vendas" stroke="#82ca9d" />
+                        </LineChart>
+                    </ResponsiveContainer>
                 </div>
-            </section>
-        </div>
-    );
+            </div>
+        </section>
+    </div>
+);
 }
