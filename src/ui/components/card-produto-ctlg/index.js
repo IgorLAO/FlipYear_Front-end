@@ -7,6 +7,7 @@ import axios from 'axios';
 // import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function CardProdutoCtlg(props) {
 
@@ -15,6 +16,9 @@ export default function CardProdutoCtlg(props) {
     const [idUser, setIdUser] = useState(3);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
+    const [fundoBranco, setFundoBranco] = useState('white ')
+    const [fontePreta, setFontePreta] =  useState('black ')
+    const [fonteCinza, setFonteCinza] =  useState('#252525')
 
     const navigate = useNavigate();
 
@@ -98,81 +102,64 @@ export default function CardProdutoCtlg(props) {
         navigate(`/produto/${props.idProduto}`)
         window.location.reload();
         window.scrollTo(0, 0);
-    }   
+    }
+    
+    function NaoColecionadorCard(){
+
+        if(colecionador == true){
+
+            setFonteCinza('');
+            setFontePreta('');
+            setFundoBranco('');
+
+
+        }
+
+        else{
+
+            setFonteCinza('#252525');
+            setFontePreta('black ');
+            setFundoBranco('white ');
+
+
+        }
+
+
+
+
+
+    }
+
+    useEffect(() => {
+
+        NaoColecionadorCard();
+
+    }, [])
 
     return (
         <>
 
             {/* <ToastContainer></ToastContainer> */}
 
-            {
-                (colecionador == true)
-                    ?
-                     <div style={{ cursor: "pointer" }} id='colecionador' className='card'>
+            <div className='card' style={{ background: `${fundoBranco}`}}>
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
-                            <p className='hover-opt' onClick={MinusQtdProduto}>-</p>
-                            <p>{qtdProdutos}</p>
-                            <p className='hover-opt' onClick={AddQtdProduto}>+</p>
-                        </div>
-
-
-                        <img onClick={processoCompra} src={Atari}></img>
-                        <p className='nm-produto'> {props.nome} </p>
-
-                        <div className='desc-info'>
-
-                            <p className='infor-produto' id='cinza-pequeno'> {props.fabricante} </p>
-                            <div className='ponto'>
-                                <p>•</p>
-                            </div>
-                            <p className='estado-produto' id='cinza-pequeno'>{props.estado}</p>
-
-                        </div>
-
-                        <svg className='linha' xmlns="http://www.w3.org/2000/svg" width="284" height="2" viewBox="0 0 284 2" fill="none">
-
-                            <path d="M0.816406 1.22266H282.724" stroke="#0D3A3D" stroke-linecap="round" />
-                        </svg>
-                        {
-                            (props.promocao == 1)
-                                ? <>
-                                    <p className='preco-produto'> ${props.precoPromocao} </p>
-                                    <p className='preco-produto-original' id='cinza-pequeno'> ${props.preco} </p>
-                                </>
-                                : <p className='preco-produto'> ${props.preco} </p>
-
-                        }
-
-                        <div className='avaliacao-produto'>
-
-                            <EstrelasAvaliacao></EstrelasAvaliacao>
-                            <p className='avaliacao-decimal'>({props.avaliacao})</p>
-
-                        </div>
-
-                    </div>
-
-                    : <div className='card'>
-
-                        <div className='qtd-produtos'>
-                            <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
-                            <p className='hover-opt' onClick={MinusQtdProduto}>-</p>
-                            <p>{qtdProdutos}</p>
-                            <p className='hover-opt' onClick={AddQtdProduto}>+</p>
+                            <p className='hover-opt' onClick={MinusQtdProduto} style={{color: `${fontePreta}`}}>-</p>
+                            <p style={{color: `${fontePreta}`}}>{qtdProdutos}</p>
+                            <p className='hover-opt' onClick={AddQtdProduto}style={{color: `${fontePreta}`}}>+</p>
                         </div>
 
                         <img onClick={processoCompra} src={Atari}></img>
-                        <p className='nm-produto'> {props.nome} </p>
+                        <p className='nm-produto' style={{color: `${fontePreta}`}}> {props.nome} </p>
 
                         <div className='desc-info'>
 
-                            <p className='infor-produto' id='cinza-pequeno'> {props.fabricante} </p>
+                            <p className='infor-produto' id='cinza-pequeno' style={{color: `${fonteCinza}`}}> {props.fabricante} </p>
                             <div className='ponto'>
-                                <p>•</p>
+                                <p style={{color: `${fonteCinza}`}}>•</p>
                             </div>
-                            <p className='estado-produto' id='cinza-pequeno'>{props.estado}</p>
+                            <p className='estado-produto' id='cinza-pequeno'style={{color: `${fonteCinza}`}}>{props.estado}</p>
 
                         </div>
 
@@ -184,20 +171,20 @@ export default function CardProdutoCtlg(props) {
                             (props.promocao == 1)
 
                                 ? <>
-                                    <p className='preco-produto'> ${props.precoPromocao} </p>
-                                    <p className='preco-produto-original' id='cinza-pequeno'> ${props.preco} </p>
+                                    <p className='preco-produto' style={{color: `${fontePreta}`}}> ${props.precoPromocao} </p>
+                                    <p className='preco-produto-original' id='cinza-pequeno' style={{color: `${fonteCinza}`}}> ${props.preco} </p>
                                 </>
 
-                                : <p className='preco-produto'> ${props.preco} </p>
+                                : <p className='preco-produto' style={{color: `${fontePreta}`}}> ${props.preco} </p>
                         }
 
                         <div className='avaliacao-produto'>
                             <EstrelasAvaliacao></EstrelasAvaliacao>
-                            <p className='avaliacao-decimal'>({props.avaliacao})</p>
+                            <p className='avaliacao-decimal' style={{color: `${fontePreta}`}}>({props.avaliacao})</p>
 
                         </div>
                     </div>
-            }
+            
         </>
 
     )

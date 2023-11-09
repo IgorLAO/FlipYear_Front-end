@@ -11,6 +11,7 @@ export default function Catalogo() {
 
     const [list, setList] = useState([]);
     const [backupArr, setBackupArr] = useState([]);
+    const [redundaciaArr, setRedudanciaArr] = useState([]);
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
 
@@ -67,6 +68,8 @@ export default function Catalogo() {
         setFiltroColecionadorSwitch((current) => !current);
         
         let arr = [];
+
+        setRedudanciaArr(backupArr);
     
         if(filtroColecionadorSwitch !== true){
 
@@ -88,13 +91,14 @@ export default function Catalogo() {
     
             setList(arr);
 
+
         
     
     
         }
     
         else{
-            if(backupArr.length !== list){
+            if(backupArr !== list){
 
                 setList(backupArr);
 
@@ -103,8 +107,7 @@ export default function Catalogo() {
 
             else{
 
-                GetProds();
-
+                setList(redundaciaArr)
             }
     
     
@@ -122,7 +125,8 @@ export default function Catalogo() {
         
         let arr = [];
     
-    
+        setRedudanciaArr(backupArr);
+
     
         if(filtroPromocaoSwitch !== true){
 
@@ -150,6 +154,7 @@ export default function Catalogo() {
         }
     
         else{
+
             if(backupArr !== list){
 
                 setList(backupArr);
@@ -159,8 +164,7 @@ export default function Catalogo() {
 
             else{
 
-                GetProds();
-
+                setList(redundaciaArr);
             }
     
     
