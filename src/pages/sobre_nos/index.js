@@ -38,7 +38,6 @@ export default function SobreNos() {
                                 <SwiperSlide> <DenzCard /></SwiperSlide>
                                 <SwiperSlide> <JaoCard /></SwiperSlide>
                                 <SwiperSlide> <IgoCard /></SwiperSlide>
-
                             </Swiper>
                         </div>
 

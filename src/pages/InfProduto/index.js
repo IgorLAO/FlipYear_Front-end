@@ -155,7 +155,7 @@ export default function InfProduto() {
 
                     <div className="preco">
                         <h2>R${produto.VL_PRECO}</h2>
-                        <p>Ou 10x de {parcela}</p>
+                        <p>Ou 10x de 100{}</p>
                         <div></div>
                     </div>
 
