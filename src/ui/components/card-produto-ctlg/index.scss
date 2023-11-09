@@ -1,18 +1,24 @@
 .card {
-    background-color: white;
+    background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 250px;
-    height: 400px;
-
-    margin: 25px;
-
-    color: #000;
 
     font-family: 'flipFont';
     font-size: 20px;
+
+    margin: 25px;
+    color: white !important;
+    color: #252525;
+
 
     .card-prod-carrinho {
 
@@ -52,16 +58,9 @@
 
 
 
-    .nm-produto {
-        color: #000;
-        font-size: 14px;
 
-
-
-    }
 
     .preco-produto-original {
-        color: #000;
         text-decoration: line-through;
         margin-top: 5px;
         font-size: 10px !important;
@@ -75,7 +74,6 @@
 
     #cinza-pequeno {
 
-        color: rgba(0, 0, 0, 0.76);
         font-size: 8px;
 
 
@@ -110,8 +108,8 @@
     }
 
     .nm-produto {
-        color: #000;
         text-align: center;
+        font-size: 14px;
 
     }
 
@@ -120,6 +118,7 @@
         font-size: 9px !important;
         margin-bottom: 5px;
         margin-top: 5px;
+        
 
 
     }
@@ -134,7 +133,6 @@
     }
 
     .avaliacao-produto {
-        color: #000;
         margin-top: 20px;
         margin-bottom: 15px;
         display: flex;
@@ -180,45 +178,6 @@
 
 }
 
-
-#colecionador {
-    background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
-    background-size: 600% 600%;
-
-    -webkit-animation: AnimationName 5s ease infinite;
-    -moz-animation: AnimationName 5s ease infinite;
-    animation: AnimationName 5s ease infinite;
-
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-
-    font-family: 'flipFont';
-    font-size: 20px;
-
-    margin: 25px;
-    color: white !important;
-
-    #cinza-pequeno {
-
-        color: white !important;
-
-
-    }
-
-    p {
-
-        color: white !important;
-
-    }
-
-
-
-
-
-}
 
 @-webkit-keyframes AnimationName {
     0% {
