@@ -1,7 +1,7 @@
 import './index.scss';
 
 import { useEffect, useState } from 'react';
-import Carousel, { consts } from 'react-elastic-carousel';
+
 
 import Rodape from '../../ui/components/rodape';
 import NavBar from '../../ui/components/navBar';
