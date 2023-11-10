@@ -26,7 +26,7 @@
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 1;
 
 
     .Logo {
@@ -67,13 +67,8 @@
             }
         }
 
-        .filtro{
 
-            z-index: 1;
-
-        }
-
-        .filtro:hover{
+        .filtro:hover {
 
             cursor: pointer;
 
@@ -97,14 +92,14 @@
 
 @media (max-width: 1920px) {
     .Nav {
-    width: 100%;
+        width: 145.1vh;
 
-}
+    }
 }
 
 @media (max-width: 768px) {
     .Nav {
-        width: 100%;
+        width: 86.1vh;
     }
 }
 
@@ -112,6 +107,23 @@
 
 @media (max-width: 414px) {
     .Nav {
-        width: 100%;
+        .Logo {
+            .h3 {
+                .h1 {
+                    font-size: 1px;
+                }
+            }
+        }
+
+        .Options {
+            .img {
+                height: 5px;
+                width: 5px;
+            }
+
+            width: 40vh;
+        }
+
+        width: 49vh;
     }
 }
