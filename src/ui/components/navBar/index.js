@@ -96,17 +96,12 @@ export default function NavBar() {
 
 
     const NavTo = (e) => {
-        
-        setTamanhoSearch(e.target.value.length)
-        console.log('Key:', e.key);
-        console.log('Tamanho da busca:', tamanhoSearch);
 
-
-        if (e.key === 'Enter' && tamanhoSearch !== 0) {
+        if (e.key === 'Enter' && tamanhoSearch > 0) {
           navigate('/search');
           localStorage.setItem('SearchValue', SearchValue);
           window.location.reload();
-        } else {
+        } else if(e.key === 'Enter' && tamanhoSearch == 0) {
           navigate("/catalogo");
         }
       }
@@ -118,6 +113,10 @@ export default function NavBar() {
     function HandleHide() {
         document.getElementById("sR").style.display = "none"
     }
+
+    useEffect(() => {
+        setTamanhoSearch(SearchValue.length);
+      }, [SearchValue]);
 
 
     return (
