@@ -86,17 +86,17 @@
 
 @media (max-width: 1920px) {
     .container_sobrenos {
-        width: 189vh;
+        width: 145.1vh;
         .conteudo {
             display: flex;
             flex-direction: row;
             margin: -130px -7px;
-            width: 180vh;
+            width: 139vh;
             
 
             .descricao {
                 font-size: 15px;
-                width: 55vh;
+                width: 50vh;
             }
 
             .container_perfil{
@@ -111,12 +111,12 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 79.6vh;
+        width: 86.1vh;
         .conteudo {
             display: flex;
             flex-direction: column;
             margin: -130px -20px;
-            width:73vh;
+            width:78vh;
 
             .descricao {
                 font-size: 15px;
@@ -139,9 +139,9 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 44.5vh;
+        width: 46.3vh;
         .conteudo {
-            width: 39vh;
+            width: 40.5vh;
             flex-direction: column;
             margin: -130px -25px;
 
@@ -154,7 +154,7 @@
             .container_perfil{
                 .sw{
                     margin-top: -70px;
-                    width: 39vh;
+                    width: 40vh;
                 }
             }
         }
