@@ -68,7 +68,7 @@
         }
 
 
-        .filtro:hover{
+        .filtro:hover {
 
             cursor: pointer;
 
@@ -107,6 +107,23 @@
 
 @media (max-width: 414px) {
     .Nav {
-        width: 46.3vh;
+        .Logo {
+            .h3 {
+                .h1 {
+                    font-size: 1px;
+                }
+            }
+        }
+
+        .Options {
+            .img {
+                height: 5px;
+                width: 5px;
+            }
+
+            width: 40vh;
+        }
+
+        width: 49vh;
     }
 }

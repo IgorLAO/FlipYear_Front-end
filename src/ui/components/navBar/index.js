@@ -54,7 +54,7 @@ export default function NavBar() {
         setPopUpCarro((current) => !current);
     }
 
-    function MostrarFiltro(){
+    function MostrarFiltro() {
 
         setPopUpFiltro((current) => !current);
 
@@ -75,12 +75,12 @@ export default function NavBar() {
 
                 if (res.data <= 0) {
                     setIshideNotFound(false);
-                   
+
                 }
             }
-            else{
+            else {
                 document.getElementById("sR").style.display = "none";
-              
+
             }
 
         } catch (err) {
@@ -98,13 +98,13 @@ export default function NavBar() {
     const NavTo = (e) => {
 
         if (e.key === 'Enter' && tamanhoSearch > 0) {
-          navigate('/search');
-          localStorage.setItem('SearchValue', SearchValue);
-          window.location.reload();
-        } else if(e.key === 'Enter' && tamanhoSearch == 0) {
-          navigate("/catalogo");
+            navigate('/search');
+            localStorage.setItem('SearchValue', SearchValue);
+            window.location.reload();
+        } else if (e.key === 'Enter' && tamanhoSearch == 0) {
+            navigate("/catalogo");
         }
-      }
+    }
 
     function NavToHome() {
         navigate('/');
@@ -116,7 +116,7 @@ export default function NavBar() {
 
     useEffect(() => {
         setTamanhoSearch(SearchValue.length);
-      }, [SearchValue]);
+    }, [SearchValue]);
 
 
     return (
@@ -130,35 +130,35 @@ export default function NavBar() {
                         <h1>2000</h1>
                     </h3>
                 </div>
-                
+
                 <span className="SearchBox">
                     <span className="boxInput">
                         <img src={Lupa} />
-                        <input 
-                        type="text" 
-                        value={SearchValue} 
-                        placeholder="Oque esta buscando?" 
-                        onChange={GetSearchRes} 
-                        onKeyDown={NavTo} 
-                        onBlur={HandleHide} />
+                        <input
+                            type="text"
+                            value={SearchValue}
+                            placeholder="Oque esta buscando?"
+                            onChange={GetSearchRes}
+                            onKeyDown={NavTo}
+                            onBlur={HandleHide} />
 
-                        <img src={Filtro} 
-                        className="filtro"
-                        onClick={MostrarFiltro}/>
+                        <img src={Filtro}
+                            className="filtro"
+                            onClick={MostrarFiltro} />
 
                     </span>
 
                     {
-                (popUpFiltro == true)
+                        (popUpFiltro == true)
 
-                ?<FiltroCard
-                popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
+                            ? <FiltroCard
+                                popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
 
-                :<></>
+                            : <></>
 
 
-                   
-                } 
+
+                    }
                 </span>
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
@@ -191,8 +191,8 @@ export default function NavBar() {
 
                 }
             </div>
-            
-            <div className="searchResults" id="sR" style={{display: 'none'}}>
+
+            <div className="searchResults" id="sR" style={{ display: 'none' }}>
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}

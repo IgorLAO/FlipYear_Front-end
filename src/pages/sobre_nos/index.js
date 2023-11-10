@@ -29,11 +29,11 @@ export default function SobreNos() {
                 <div className='conteudo'>
                     <div className='descricao'>
                         <h1>Sobre nós</h1>
-                        <p style={{font: '17px', border:' red solid'}}>Nós somos 5 jovens aficionados por videogames antigos e criamos esse site com a missão de trazer as boas memórias que só uma tarde videogame podem proporcionar. </p>
+                        <p style={{font: '17px'}}>Nós somos 5 jovens aficionados por videogames antigos e criamos esse site com a missão de trazer as boas memórias que só uma tarde videogame podem proporcionar. </p>
                     </div>
                     <div className='container_perfil'>
 
-                        <div className='sw' style={{ display: 'flex', alignItems: 'center', border: 'red solid' }}>
+                        <div className='sw' style={{ display: 'flex', alignItems: 'center'}}>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 <SwiperSlide> <DenzCard /></SwiperSlide>
                                 <SwiperSlide> <JaoCard /></SwiperSlide>
