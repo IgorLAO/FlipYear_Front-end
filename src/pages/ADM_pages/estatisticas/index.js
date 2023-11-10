@@ -45,7 +45,7 @@ export default function Estatisticas() {
 
 
         listPed.map((item) => {
-            if (item.Situacao === "Concluído") {
+            if (item.Situacao === "Concluído" || item.Situacao === "Entregue") {
                 console.log(item);
                 if (item.Categoria === 'Fliperama')
                     FlipCount += 1
