@@ -95,19 +95,16 @@ export default function NavBar() {
     }
 
 
-
     const NavTo = (e) => {
+
         if (e.key === 'Enter' && tamanhoSearch > 0) {
-            navigate('/search');
-            localStorage('SearchValue', SearchValue);
-            window.location.reload();
+          navigate('/search');
+          localStorage.setItem('SearchValue', SearchValue);
+          window.location.reload();
+        } else if(e.key === 'Enter' && tamanhoSearch == 0) {
+          navigate("/catalogo");
         }
-
-        else{
-
-            navigate("/catalogo")
-        }
-    }
+      }
 
     function NavToHome() {
         navigate('/');
@@ -116,6 +113,10 @@ export default function NavBar() {
     function HandleHide() {
         document.getElementById("sR").style.display = "none"
     }
+
+    useEffect(() => {
+        setTamanhoSearch(SearchValue.length);
+      }, [SearchValue]);
 
 
     return (
