@@ -30,6 +30,7 @@
                 justify-content: end;
                 border: red solid;
                 width: 50%;
+
                 span {
                     background-color: black;
                     padding: 15px;
@@ -37,18 +38,15 @@
                     transition: all 0.5s ease-in-out;
                     transform: scale(0);
                 }
-                h5 {
-                }
-                    color: #40985E;
-                    padding: 5px;
-                    &:hover {
-                        span {
-                            transform: scale(1.1);
-                        }
+
+                color: #40985E;
+                padding: 5px;
+
+                &:hover {
+                    span {
+                        transform: scale(1.1);
                     }
-
-             
-
+                }
             }
         }
 
@@ -82,5 +80,4 @@
             }
         }
     }
-
 }

@@ -30,8 +30,10 @@ export default function Pagamento25(){
 
     async function ListProduct(){
         const resp = await ConsultarProdPorId(idParam);
-        setList(resp.data[0]);
+
+        setList(resp)
     }
+
 
     function processPag50(){
         navigate(`/pagamento50/${idParam}`);
@@ -80,15 +82,23 @@ export default function Pagamento25(){
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th></th>
-                                                <th>Qtd</th>
-                                                <th>Preço</th>
+                                                <th>Poduto</th>
+                                                <div>
+                                                    <th>Qtd</th>
+                                                    <th>Preço</th>
+                                                </div>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
+                                              
                                                 <td>{list.NM_PRODUTO}</td>
-                                                <td>{list.VL_PRECO}</td>
+                                                <div>
+                                                    <td>{list.DS_DETALHES}</td>
+                                                    <td>{list.VL_PRECO}</td>
+                                                </div>
+                                                
                                             </tr>
                                         </tbody>
                                     </table>
@@ -110,11 +120,11 @@ export default function Pagamento25(){
                             <div className='dados_pedido'>
                                 <div>
                                     <p>SUBTOTAL</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${list.VL_PRECO}</p>
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0,00</p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
@@ -123,7 +133,7 @@ export default function Pagamento25(){
                             </div>
                             <div className='total_pedido'>
                                 <p>TOTAL</p>
-                                <p>R${ } 999</p>
+                                <p>R${list.VL_PRECO}</p>
                             </div>
                             <div value={Discount} onChange={(e) => setDiscount(e.target.value)} 
                                 className='cupom_desconto'>
