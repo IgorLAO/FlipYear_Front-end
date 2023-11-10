@@ -7,7 +7,7 @@ import axios from 'axios';
 import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
 
 const Cadastro = () => {
-    const [Erro, setErro] = useState('')
+    const [Erro, setErro] = useState('');
     const [Nome, setNome] = useState('');
     const [Telefone, setTelefone] = useState('');
     const [CPF, setCPF] = useState('');
@@ -22,32 +22,32 @@ const Cadastro = () => {
 
     const InsertUser = async () => {
         try {
-            // let infosEndereco = {
-            //     CEP: CEP,
-            //     Cidade: Cidade,
-            //     Rua: Rua,
-            //     Complemento: Complemento,
-            //     Numero: Numero
-            // }
-
+           let infosEndereco = {
+               CEP: CEP,
+               Cidade: Cidade,
+               Rua: Rua,
+               Complemento: Complemento,
+               Numero: Numero
+           }
+           
+           const respEndereco = await axios.post('http://localhost:5000/enderecos');
          
-            // let id_endereco = respEndereco.data[0].insertId;
+           let id_endereco = respEndereco.data[0].insertId;
 
-            // let infosPessoa = {
-            //     id_endereco: id_endereco,
-            //     Nome: Nome,
-            //     Telefone: Telefone,
-            //     CPF: CPF,
-            //     Email: Email,
-            //     Senha: Senha,
-            //     Tier: "NORMAL_USER"
-            // }
-            // if (Senha != confirmSenha)
-            //     setErro("As senhas devem ser iguais!")
+           let infosPessoa = {
+               id_endereco: id_endereco,
+               Nome: Nome,
+               Telefone: Telefone,
+               CPF: CPF,
+               Email: Email,
+               Senha: Senha,
+               Tier: "NORMAL_USER"
+           }
+           if (Senha != confirmSenha)
+               setErro("As senhas devem ser iguais!");
             
-                
+               InsertUser(infosPessoa, infosEndereco);
 
-            // let respUser = await axios.post('http://localhost:5000/usuarios', infosPessoa);
 
             
         } catch (err) {
