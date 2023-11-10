@@ -26,7 +26,7 @@
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 3;
 
 
     .Logo {
@@ -67,6 +67,11 @@
             }
         }
 
+        .filtro{
+
+            z-index: 1;
+
+        }
 
         .filtro:hover{
 
@@ -92,17 +97,14 @@
 
 @media (max-width: 1920px) {
     .Nav {
-<<<<<<< HEAD
-        width: 100%;
-=======
-        width: 189vh;
->>>>>>> 070e863252ee79370322ee9a8edb906d3e3c1d03
-    }
+    width: 100%;
+
+}
 }
 
 @media (max-width: 768px) {
     .Nav {
-        width: 84.4vh;
+        width: 100%;
     }
 }
 

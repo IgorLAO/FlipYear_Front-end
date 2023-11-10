@@ -95,19 +95,21 @@ export default function NavBar() {
     }
 
 
-
     const NavTo = (e) => {
-        if (e.key === 'Enter' && tamanhoSearch > 0) {
-            navigate('/search');
-            localStorage('SearchValue', SearchValue);
-            window.location.reload();
-        }
+        
+        setTamanhoSearch(e.target.value.length)
+        console.log('Key:', e.key);
+        console.log('Tamanho da busca:', tamanhoSearch);
 
-        else{
 
-            navigate("/catalogo")
+        if (e.key === 'Enter' && tamanhoSearch !== 0) {
+          navigate('/search');
+          localStorage.setItem('SearchValue', SearchValue);
+          window.location.reload();
+        } else {
+          navigate("/catalogo");
         }
-    }
+      }
 
     function NavToHome() {
         navigate('/');
