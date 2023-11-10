@@ -16,9 +16,32 @@ export default function Catalogo() {
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
 
 
+
+
+    useEffect(() => {
+        filtrarResultados();
+    }, [filtroColecionadorSwitch, filtroPromocaoSwitch])
+
+
+    function filtrarResultados() {
+        let filtro = [...backupArr];
+
+        if (filtroPromocaoSwitch)
+            filtro = filtro.filter(item => item.BT_PROMOCAO == true);
+
+        if (filtroColecionadorSwitch){
+            filtro = filtro.filter(item => item.TP_COLECIONADOR == true);
+        }
+
+        setList(filtro);
+    }
+
+
+
     const GetProds = async () => {
         let res = await GetAllProd();
         setList(res.data);
+        setBackupArr(res.data);
     }
 
     function OrdMelhoresAvaliados(){
@@ -61,126 +84,24 @@ export default function Catalogo() {
         
         setList(menoresPrecos);
 
+    }   
+
+
+    function FiltroColecionador() {
+        setFiltroColecionadorSwitch(!filtroColecionadorSwitch);
     }
 
-    async function FiltroColecionador(){
-
-        setFiltroColecionadorSwitch((current) => !current);
-        
-        let arr = [];
-
-        setRedudanciaArr(backupArr);
-    
-        if(filtroColecionadorSwitch !== true){
-
-                setBackupArr(list);
-
-                list.map((item) =>{
-                if(item.TP_COLECIONADOR == true){
-    
-                    arr.push(item);
-
-    
-                }
-    
-    
-    
-            })
-
-
-    
-            setList(arr);
-
-
-        
-    
-    
-        }
-    
-        else{
-            if(backupArr !== list){
-
-                setList(backupArr);
-
-
-            }
-
-            else{
-
-                setList(redundaciaArr)
-            }
-    
-    
-    
-        }
-
-
-
-
+    function FiltroPromocao() {
+        setFiltroPromocaoSwitch(!filtroPromocaoSwitch);
     }
 
-    async function FiltroPromocao(){
-
-        setFiltroPromocaoSwitch((current) => !current);
-        
-        let arr = [];
-    
-        setRedudanciaArr(backupArr);
-
-    
-        if(filtroPromocaoSwitch !== true){
-
-            setBackupArr(list);
-
-            list.map((item) =>{
-                if(item.BT_PROMOCAO == true){
-    
-                    arr.push(item);
-
-    
-                }
-    
-    
-    
-            })
-
-
-    
-            setList(arr);
-
-        
-    
-    
-        }
-    
-        else{
-
-            if(backupArr !== list){
-
-                setList(backupArr);
-
-
-            }
-
-            else{
-
-                setList(redundaciaArr);
-            }
-    
-    
-    
-        }
-
-
-
-
-    }
     
     useEffect(() => {
         GetProds();
-       
-       
     }, [])
+
+
+
 
     return (
         <>

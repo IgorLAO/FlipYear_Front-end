@@ -8,21 +8,27 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import localStorage from 'local-storage';
 
 export default function CardProdutoCtlg(props) {
 
+    const navigate = useNavigate();
+    const estoragemLocal = localStorage('ADM_Logado')
+    
+
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState(props.estoque);
-    const [idUser, setIdUser] = useState(3);
+    const [idUser, setIdUser] = useState(estoragemLocal.Id);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
     const [fontePreta, setFontePreta] =  useState('black ')
     const [fonteCinza, setFonteCinza] =  useState('#252525')
 
-    const navigate = useNavigate();
 
 
+
+    
     function AddQtdProduto() {
         
         SetQtdProdutos(qtdProdutos + 1);
@@ -62,6 +68,8 @@ export default function CardProdutoCtlg(props) {
 
 
     async function AddNoCarrinho() {
+
+  
 
         if (qtdProdutos >= 1) {
 
@@ -106,7 +114,7 @@ export default function CardProdutoCtlg(props) {
     
     function NaoColecionadorCard(){
 
-        if(colecionador == true){
+        if(props.colecionador == true){
 
             setFonteCinza('');
             setFontePreta('');
@@ -134,7 +142,7 @@ export default function CardProdutoCtlg(props) {
 
         NaoColecionadorCard();
 
-    }, [])
+    }, [props])
 
     return (
         <>
@@ -151,6 +159,7 @@ export default function CardProdutoCtlg(props) {
                         </div>
 
                         <img onClick={processoCompra} src={Atari}></img>
+
                         <p className='nm-produto' style={{color: `${fontePreta}`}}> {props.nome} </p>
 
                         <div className='desc-info'>

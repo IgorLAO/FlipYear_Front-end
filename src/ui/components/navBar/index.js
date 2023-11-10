@@ -75,8 +75,10 @@ export default function NavBar() {
 
                 if (res.data <= 0) {
                     setIshideNotFound(false);
+                    
                    
                 }
+
             }
             else{
                 document.getElementById("sR").style.display = "none";
@@ -92,6 +94,7 @@ export default function NavBar() {
         }
         if (Erro != 'Produto Não Encontrado')
             setIshideNotFound(false);
+            alert('caiu aq')
     }
 
 
@@ -197,9 +200,10 @@ export default function NavBar() {
                     <SearchCard i={i} />
                 ))}
 
-                {IshideNotFount &&
-                    <SearchCard_NotFound Erro={Erro} />
-
+                {
+                    (IshideNotFount == true)
+                    ?<SearchCard_NotFound Erro={Erro} />
+                    : <></>
                 }
 
                 {IsComp &&
