@@ -86,17 +86,24 @@
 
 @media (max-width: 1920px) {
     .container_sobrenos {
-        width: 207.4vh;
+        width: 189vh;
         .conteudo {
             display: flex;
             flex-direction: row;
             margin: -130px -7px;
-            width: 198vh;
+            width: 180vh;
             
 
             .descricao {
                 font-size: 15px;
-                width: 40vh;
+                width: 55vh;
+            }
+
+            .container_perfil{
+                .sw{
+                    margin-top: -70px;
+                    width: 400px;
+                }
             }
         }
     }
@@ -104,18 +111,24 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 84.4vh;
+        width: 79.6vh;
         .conteudo {
             display: flex;
             flex-direction: column;
             margin: -130px -20px;
-            width:78vh;
+            width:73vh;
 
             .descricao {
                 font-size: 15px;
                 width: 56vh;
                 padding-left: 8vh;
                 margin-top: 0vh;
+            }
+
+            .container_perfil{
+                .sw{
+                    margin-top: -70px;
+                }
             }
             
         }
@@ -126,21 +139,22 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 48vh;
+        width: 44.5vh;
         .conteudo {
-            width: 42vh;
+            width: 39vh;
             flex-direction: column;
             margin: -130px -25px;
 
             .descricao {
                 font-size: 10px;
-                width: 50vh;
-                margin: 20px -20px;
+                width: 45vh;
+                margin: 20px 50px;
             }
 
             .container_perfil{
                 .sw{
                     margin-top: -70px;
+                    width: 39vh;
                 }
             }
         }
