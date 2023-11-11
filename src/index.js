@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom/client';
 
 import Login from './pages/loginPage/login';
 import App from './pages/home/App';
-import Cadastro from './pages/cadastroPage/cadastroPage';
+import Cadastro from './pages/cadastro/index';
 import InfProduto from './pages/InfProduto';
 import Catalogo from './pages/catalogo';
 import Pagamento50 from './pages/pagemento50';

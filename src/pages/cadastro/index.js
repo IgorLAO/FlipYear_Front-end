@@ -1,10 +1,11 @@
-import './cadastro.scss';
+import './style.scss';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
+import { InsertUsuario } from '../../api/usuario';
 
 const Cadastro = () => {
     const [Erro, setErro] = useState('');
@@ -31,6 +32,7 @@ const Cadastro = () => {
            }
            
            const respEndereco = await axios.post('http://localhost:5000/enderecos');
+           console.log(respEndereco);
          
            let id_endereco = respEndereco.data[0].insertId;
 
@@ -45,10 +47,8 @@ const Cadastro = () => {
            }
            if (Senha != confirmSenha)
                setErro("As senhas devem ser iguais!");
-            
-               InsertUser(infosPessoa, infosEndereco);
 
-
+               InsertUsuario(infosPessoa, infosEndereco);
             
         } catch (err) {
             console.log(err.response.data)
@@ -58,7 +58,6 @@ const Cadastro = () => {
     }
 
     return (
-
         <div className="mainCad">
             <div className='Card'>
 

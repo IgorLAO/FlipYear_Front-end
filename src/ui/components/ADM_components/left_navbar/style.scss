@@ -10,7 +10,7 @@
     overflow: hidden;
     min-height: 100vh; /* Alterado para ocupar 100% da altura da viewport */
 
-
+    z-index: 1;
     h4 {
         line-height: 12px;
         width: 210px;
@@ -52,6 +52,7 @@
                 color: #fff;
                 letter-spacing: 1px;
                 padding: 10px 10px;
+                margin-bottom: 20px;
 
                 &:hover {
                     background-color: #000;

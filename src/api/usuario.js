@@ -36,7 +36,7 @@ export function GetProfileImage(ProfIMG) {
 }
 
 
-export async function InsertUser(infosEndereco, infosPessoa) {
+export async function InsertUsuario(infosEndereco, infosPessoa) {
     const respEndereco = await server.post('/enderecos', infosEndereco);
     const respUser = await server.post('/usuarios', infosPessoa);
     return respEndereco

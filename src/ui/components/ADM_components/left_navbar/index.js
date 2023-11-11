@@ -1,21 +1,22 @@
+import "./style.scss";
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import storage from 'local-storage';
 
-import "./style.scss";
 
 import MenuIcon from "../../../assets/images/adm_assets/menuIcon.png";
-import Mail from "../../../assets/images/adm_assets/mail_adm.png";
-import penIcon from "../../../assets/images/adm_assets/lapis_icon.png";
-import searchIcon from "../../../assets/images/adm_assets/search_adm.png";
-import clockIcon from "../../../assets/images/adm_assets/relogio_icon_adm.png";
-import userIcon from "../../../assets/images/adm_assets/usuarioADM_icon.png";
+import Mail from "../../../assets/images/adm_assets/mail.png";
+import penIcon from "../../../assets/images/adm_assets/pen.png";
+import searchIcon from "../../../assets/images/adm_assets/lupa.png";
+import clockIcon from "../../../assets/images/adm_assets/relogio.png";
+import userIcon from "../../../assets/images/adm_assets/group.png";
 import statisticsIcon from "../../../assets/images/adm_assets/estatisticasADM_icon.png";
 import logOutIcon from "../../../assets/images/adm_assets/logOut.png";
-import Home from "../../../assets/images/perfil-side-bar/Home.png";
+import Home from "../../../assets/images/adm_assets/home.png";
 
 export default function Adm_leftNavBar() {
-    const [splitNav, setSplitNav] = useState();
+
     const navigate = useNavigate();
 
     const logOut = () => {
@@ -36,36 +37,36 @@ export default function Adm_leftNavBar() {
 
                     <div className="Options">
                         <span className="">
-                                <div onClick={() => navigate('/')}>
-                                    <img src={Home} />
-                                    <h4> Home </h4>
-                                </div>
+                            <div onClick={() => navigate('/')}>
+                                <img src={Home} />
+                                <h4> Home </h4>
+                            </div>
 
-                                <div onClick={() => navigate('/caixa')}>
-                                    <img src={Mail} />
-                                    <h4> Caixa de Entrada </h4>
-                                </div>
+                            <div onClick={() => navigate('/caixa')}>
+                                <img style={{width: '25px'}} src={Mail} />
+                                <h4> Mensagens </h4>
+                            </div>
 
-                                <div  onClick={() => navigate('/ADM_Produtos')}>
-                                    <img src={searchIcon}/>
-                                    <h4> Produtos </h4>
-                                </div>
+                            <div onClick={() => navigate('/ADM_Produtos')}>
+                                <img src={searchIcon} />
+                                <h4> Produtos </h4>
+                            </div>
 
-                                <div onClick={() => navigate('/ADM_RegistroProd')}>
-                                    <img src={penIcon} />
-                                    <h4> Registro </h4>
-                                </div>
+                            <div onClick={() => navigate('/ADM_RegistroProd')}>
+                                <img style={{width: '25px', transform: 'scaleX(-1)'}} src={penIcon} />
+                                <h4> Registro </h4>
+                            </div>
 
-                                <div onClick={() => navigate('/ADM_Users')}>
-                                    <img src={userIcon} />
-                                    <h4> Usuarios </h4>
-                                </div>
+                            <div onClick={() => navigate('/ADM_Users')}>
+                                <img src={userIcon} />
+                                <h4> Usuarios </h4>
+                            </div>
 
-                          
-                                <div onClick={() => navigate('/ADM_Pedidos')}>
-                                    <img src={clockIcon} />
-                                    <h4> Pedidos Pendentes </h4>
-                                </div>
+
+                            <div onClick={() => navigate('/ADM_Pedidos')}>
+                                <img src={clockIcon} />
+                                <h4> Pedidos Pendentes </h4>
+                            </div>
 
 
                             <div onClick={() => navigate('/ADM_estatisticas')}>

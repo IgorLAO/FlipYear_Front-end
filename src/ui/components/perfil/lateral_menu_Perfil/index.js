@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import storage from 'local-storage';
 
 import MenuIcon from "../../../assets/images/adm_assets/menuIcon.png";
-import Mail from "../../../assets/images/adm_assets/mail_adm.png";
-import clockIcon from "../../../assets/images/adm_assets/relogio_icon_adm.png";
+import Mail from "../../../assets/images/adm_assets/mail.png";
+import clockIcon from "../../../assets/images/adm_assets/relogio.png";
 import logOutIcon from "../../../assets/images/adm_assets/logOut.png";
 import Home from "../../../assets/images/perfil-side-bar/Home.png";
 
