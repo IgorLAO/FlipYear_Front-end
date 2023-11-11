@@ -61,6 +61,8 @@
             background-color: #E0F8D0;
             border: none;
             font: 12px 'flipFont';
+            z-index: 2;
+
 
           }
         }
@@ -154,6 +156,8 @@
         margin-bottom: 25px;
         margin-right: 115px;
         font: 10px 'flipFont';
+        z-index: 2;
+
       }
 
     }
@@ -185,6 +189,8 @@
         margin-right: 115px;
         font: 10px 'flipFont';
         cursor: pointer;
+        z-index: 2;
+
       }
 
     }

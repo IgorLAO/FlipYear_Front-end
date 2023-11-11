@@ -14,13 +14,21 @@ export default function Catalogo() {
     const [redundaciaArr, setRedudanciaArr] = useState([]);
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
-
+    const [filtroDestaqueSwitch, setFiltroDestaqueSwitch] = useState(false);
+    const [filtroPreco, setFiltroPreco] = useState({
+        inicial: '',
+        final: ''
+    })
 
 
 
     useEffect(() => {
         filtrarResultados();
-    }, [filtroColecionadorSwitch, filtroPromocaoSwitch])
+        FiltrarValores();
+    }, [filtroColecionadorSwitch, 
+        filtroPromocaoSwitch, 
+        filtroDestaqueSwitch, 
+        filtroPreco])
 
 
     function filtrarResultados() {
@@ -33,8 +41,32 @@ export default function Catalogo() {
             filtro = filtro.filter(item => item.TP_COLECIONADOR == true);
         }
 
+        if (filtroDestaqueSwitch){
+            filtro = filtro.filter(item => item.BT_DESTAQUE == true)
+        }
+
         setList(filtro);
     }
+
+    function FiltrarValores(){
+
+        let filtro = [...backupArr];
+
+        if(filtroPreco.inicial !== '' && filtroPreco.final !== ''){
+            filtro =  filtro.filter(item => item.BT_PROMOCAO == true && 
+                item.VL_PRECO_PROMOCIONAL >= filtroPreco.inicial && 
+                item.VL_PRECO_PROMOCIONAL <= filtroPreco.final ||
+                item.BT_PROMOCAO == false && 
+                item.VL_PRECO >= filtroPreco.inicial && 
+                item.VL_PRECO <= filtroPreco.final)
+                
+        }
+
+        setList(filtro);
+
+    }
+
+
 
 
 
@@ -94,6 +126,13 @@ export default function Catalogo() {
     function FiltroPromocao() {
         setFiltroPromocaoSwitch(!filtroPromocaoSwitch);
     }
+    function FiltroDestaque() {
+        setFiltroDestaqueSwitch(!filtroDestaqueSwitch);
+    }
+
+    function FiltroPromocao() {
+        setFiltroPromocaoSwitch(!filtroPromocaoSwitch);
+    }
 
     
     useEffect(() => {
@@ -110,8 +149,6 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
-
-                
                 <div className='resultados-ctlg'>
                 <FiltroCtlg 
                     OrdMelhoresAvaliados={OrdMelhoresAvaliados}
@@ -120,6 +157,9 @@ export default function Catalogo() {
                     OrdMenoresPrecos={OrdMenoresPrecos}
                     FiltroColecionador={FiltroColecionador}
                     FiltroPromocao={FiltroPromocao}
+                    FiltroDestaque={FiltroDestaque}
+                    setFiltroPreco ={setFiltroPreco}
+
                 >
                 </FiltroCtlg>
 

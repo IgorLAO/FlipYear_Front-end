@@ -3,11 +3,33 @@ import { useEffect, useState } from 'react';
 
 export default function ValoresFiltro(props){
 
+    const {setFiltroPreco} = props;
+
     const [buttonFundo, setButtonFundo] = useState('');
     const [buttonFonte, setButtonFonte] = useState('');
 
+
     const[input1, setInput1] = useState('');
     const[input2, setInput2] = useState('');
+
+    function setarValores(){
+
+        if(props.item == 'Preço'){
+
+            let obj = {
+                inicial: input1,
+                final: input2
+            }
+
+            setFiltroPreco(obj);
+
+
+
+        }
+
+
+
+    } 
 
     useEffect(()=>{
         
@@ -29,12 +51,14 @@ export default function ValoresFiltro(props){
 
 
         }
+
+        setarValores();
         
 
         
 
 
-    }, [input1, input2])
+    }, [input1, input2, props])
 
 
 
@@ -53,11 +77,11 @@ export default function ValoresFiltro(props){
             <p>{props.item}</p>
             <input type='number' 
             placeholder={props.inter}
-            onChange={(e) => {setInput1(e.target.value); }} ></input>
+            onChange={(e) => {setInput1(e.target.value); setarValores()}} ></input>
             <p>e</p>
             <input type='number'
             placeholder={props.inter}
-            onChange={(e) => {setInput2(e.target.value); }} ></input>
+            onChange={(e) => {setInput2(e.target.value); setarValores()}} ></input>
         </div>
 
 

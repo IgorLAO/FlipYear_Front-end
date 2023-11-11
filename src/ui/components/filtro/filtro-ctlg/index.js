@@ -7,6 +7,8 @@ import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
 import './index.scss'
 
 export default function FiltroCtlg(props) {
+
+    const {setFiltroPreco} = props;
    
 
 
@@ -75,12 +77,12 @@ export default function FiltroCtlg(props) {
                 <div className='opc-selec'>
 
                     <div onClick={props.FiltroPromocao}>
-
                     <Butao item={'Promoção'}></Butao>
                     </div>
 
-
+                    <div onClick={props.FiltroDestaque}>
                     <Butao item={'Destaque'}></Butao>
+                    </div>
 
                     <div onClick={props.FiltroColecionador}>
                     <Butao 
@@ -109,6 +111,7 @@ export default function FiltroCtlg(props) {
                     <ValoresFiltro
                         item={'Preço'}
                         inter={'?????'}
+                        setFiltroPreco={setFiltroPreco}
                     ></ValoresFiltro>
 
                     <ValoresFiltro
