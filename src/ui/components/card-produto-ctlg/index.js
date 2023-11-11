@@ -18,7 +18,7 @@ export default function CardProdutoCtlg(props) {
 
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState(props.estoque);
-    const [idUser, setIdUser] = useState(estoragemLocal.Id);
+    const [idUser, setIdUser] = useState('');
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
