@@ -1,6 +1,6 @@
 import './App.scss';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 import axios from 'axios'
@@ -22,6 +22,7 @@ function App() {
   const [mostrarDestaques, setMostrarDestaques] = useState([]);
   const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
   const [mostrarAllDestaques, setMostrarAllDestaques] = useState([])
+  const navigate = useNavigate('');
 
   async function ConsultaDestaqueProdutos() {
     try {
@@ -109,7 +110,10 @@ function App() {
 
         <span className='cover3' id='covers'>
           <a> Nos Conheça </a>
-          <button> SOBRE NÓS </button>
+        
+          <button onClick={() =>{ navigate('/sobrenos')}}>
+            SOBRE NOS
+            </button>
         </span>
       </section>
 

@@ -102,7 +102,7 @@ export default function Rodape(){
                 </div>
                     <div className="copyright">
                         <div></div>
-                        <p>Copyright © 2023 FLIPER2000 Inc. Todos os direitos reservados.</p>
+                        <p>Copyright © 2023 FLIPYEAR2000 Inc. Todos os direitos reservados.</p>
                     </div>
             </div>
         </>
