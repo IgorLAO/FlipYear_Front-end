@@ -112,10 +112,6 @@ const Cadastro = () => {
                         </div>
 
                         <div className='boxInput'>
-                            <button onClick={end}>
-                                aaaaaaaaaaa
-                            </button>
-
                             <span style={{ width: 75 + '%' }}>
                                 <a> CPF* </a>
                                 <input
@@ -190,7 +186,7 @@ const Cadastro = () => {
                                 </span>
 
                                 <span>
-                                    <a> Digite a senha novamente* </a>
+                                    <a style={{width: '100%'}}> Digite a senha novamente* </a>
                                     <input
                                         type='password'
                                         value={confirmSenha}
