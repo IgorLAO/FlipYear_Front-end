@@ -36,10 +36,16 @@ export function GetProfileImage(ProfIMG) {
 }
 
 
-export async function InsertUser(infosEndereco, infosPessoa) {
+export async function InsertEnderecos(infosEndereco) {
     const respEndereco = await server.post('/enderecos', infosEndereco);
-    let respUser = await server.post('usuarios', infosPessoa);
+    alert('oi')
+    console.log(respEndereco)   
     return respEndereco
+}
+
+export async function InsertUsuario(infosPessoa) {
+    const respUser = await server.post('/usuarios', infosPessoa);
+    return respUser
 }
 
 // -----ADM
@@ -48,7 +54,7 @@ export async function ADMSearchUsers(searchText) {
     return resp
 }
 
-export async function GeAllUsers(){
+export async function GeAllUsers() {
     const resp = await server.get(`/usuarios`);
     return resp
 }

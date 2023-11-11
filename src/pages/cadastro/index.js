@@ -1,13 +1,14 @@
-import './cadastro.scss';
+import './style.scss';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
+import { InsertEnderecos, InsertUsuario } from '../../api/usuario';
 
 const Cadastro = () => {
-    const [Erro, setErro] = useState('')
+    const [Erro, setErro] = useState('');
     const [Nome, setNome] = useState('');
     const [Telefone, setTelefone] = useState('');
     const [CPF, setCPF] = useState('');
@@ -22,54 +23,72 @@ const Cadastro = () => {
 
     const InsertUser = async () => {
         try {
-            // let infosEndereco = {
-            //     CEP: CEP,
-            //     Cidade: Cidade,
-            //     Rua: Rua,
-            //     Complemento: Complemento,
-            //     Numero: Numero
-            // }
 
-         
-            // let id_endereco = respEndereco.data[0].insertId;
+            let infosEndereco = {
+                CEP: CEP,
+                Cidade: Cidade,
+                Rua: Rua,
+                Complemento: Complemento,
+                Numero: Numero
+            }
+            const respEndereco = await InsertEnderecos(infosEndereco);
 
-            // let infosPessoa = {
-            //     id_endereco: id_endereco,
-            //     Nome: Nome,
-            //     Telefone: Telefone,
-            //     CPF: CPF,
-            //     Email: Email,
-            //     Senha: Senha,
-            //     Tier: "NORMAL_USER"
-            // }
-            // if (Senha != confirmSenha)
-            //     setErro("As senhas devem ser iguais!")
-            
-                
+            const respImages = await axios.get('http://localhost:5000/images');
 
-            // let respUser = await axios.post('http://localhost:5000/usuarios', infosPessoa);
+            const id_endereco = respEndereco.data[0].insertId;
 
-            
+            console.log(id_endereco);
+
+            const idImage = respImages.data[0].Id;
+
+            let infosPessoa = {
+                id_endereco: id_endereco,
+                Id_Img: idImage,
+                Nome: Nome,
+                Telefone: Telefone,
+                CPF: CPF,
+                Email: Email,
+                Senha: Senha,
+                Tier: "NORMAL_USER"
+            }
+
+            if (Senha != confirmSenha)
+                setErro("As senhas devem ser iguais!");
+
+            let data = await InsertUsuario(infosPessoa);
+
         } catch (err) {
-            console.log(err.response.data)
-            console.log('err')
-            setErro(err.response.data)
+            console.log(err.response.data);
+            console.log('err');
+            setErro(err.response.data);
         }
     }
 
-    return (
+    async function end() {
+       
+        const respEndereco = await InsertEnderecos({
+            CEP: CEP,
+            Cidade: Cidade,
+            Rua: Rua,
+            Complemento: Complemento,
+            Numero: Numero
+        }
+);
+        console.log(respEndereco);
+    }
 
+    return (
         <div className="mainCad">
             <div className='Card'>
-
-
                 <div className='Banner'>
                     <img src={MarioGif} />
+
                 </div>
+
                 <div className='CardCad'>
                     <span className='Title'>
-                                <h1> Cadastro </h1>
-                    <p> Informe os seus dados abaixo para criar sua conta </p>
+                        <h1> Cadastro </h1>
+                        <p> Informe os seus dados abaixo para criar sua conta </p>
                     </span>
 
                     <div className="inputs">
@@ -167,7 +186,7 @@ const Cadastro = () => {
                                 </span>
 
                                 <span>
-                                    <a> Digite a senha novamente* </a>
+                                    <a style={{width: '100%'}}> Digite a senha novamente* </a>
                                     <input
                                         type='password'
                                         value={confirmSenha}
@@ -215,9 +234,9 @@ const Cadastro = () => {
                             Enviar
                         </a>
                     </div>
-                                
+
                     <span className='Entre'> <p>Já tem conta? <Link to='/login'> <b>Entre aqui </b> </Link> </p>  </span>
-                                
+
                 </div>
             </div>
         </div>

@@ -9,7 +9,6 @@ export default function ListaFiltro(props) {
     const [buttonFundo, setButtonFundo] = useState('');
     const [buttonFonte, setButtonFonte] = useState('');
 
-    const [listagem, setListagem] = useState([]);
     const [estados, SetEstados] = useState([]);
     const [empresas, setEmpresas] = useState([]);
 
@@ -71,8 +70,7 @@ export default function ListaFiltro(props) {
     useEffect(() => {
 
         PuxarListagem();
-
-    })
+    },[])
 
     switch (props.item) {
 
@@ -110,23 +108,7 @@ export default function ListaFiltro(props) {
                 }
             </select>
 
-        case 'Ordavaliacao':
-            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
-
-                <option>Melhores Avaliados</option>
-                <option>Piores Avaliados</option>
-
-
-            </select>
-
-        case 'Ordpreco':
-            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
-
-                <option>Menores Preços</option>
-                <option>Maiores Preços</option>
-
-
-            </select>
+     
 
 
     }

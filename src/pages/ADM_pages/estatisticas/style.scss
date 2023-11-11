@@ -5,10 +5,12 @@
     }
 
     background-color: #081820;
+    
 
     .s {
         display: flex;
-        height: 100vh;
+        height: 200vh;
+        
 
         .content {
             display: flex;
@@ -36,6 +38,7 @@
                 border: solid #88C070;
                 border-radius: 5px;
                 margin: 15px;
+                margin-top: -15px;
 
                 span {
                     margin: 20px;
@@ -51,7 +54,7 @@
                     color: #fff;
                 }
 
-                select {
+                input {
                     padding: 5px 10px;
                     font: 8.5px "flipFont";
                     color: #fff;

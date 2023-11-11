@@ -20,29 +20,54 @@
         justify-content: space-between;
         border-radius: 10px;
 
-        .carProgress{
-            border:  red solid;
+        .carProgress {
+            border: red solid;
             padding: 15px;
             width: 100%;
+
+            .destino {
+                display: flex;
+                justify-content: end;
+                border: red solid;
+                width: 50%;
+
+                span {
+                    background-color: black;
+                    padding: 15px;
+                    width: 150px;
+                    transition: all 0.5s ease-in-out;
+                    transform: scale(0);
+                }
+
+                color: #40985E;
+                padding: 5px;
+
+                &:hover {
+                    span {
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
 
-        header{
+        header {
             display: flex;
             justify-content: space-evenly;
             width: 100%;
             padding: 10px 20px;
-            h4{
+
+            h4 {
                 width: 100%;
             }
         }
 
-        .btns{
+        .btns {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             width: 80%;
- 
-            button{
+
+            button {
                 background-color: #40985E;
                 padding: 15px 20px;
                 margin: 10px;
@@ -55,5 +80,4 @@
             }
         }
     }
-
 }

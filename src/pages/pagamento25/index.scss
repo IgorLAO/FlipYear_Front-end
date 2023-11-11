@@ -95,7 +95,7 @@
                 flex-direction: column;
                 background-color: #346856;
 
-                padding: 10px 20px;
+                padding:    10px 0px;
                 
                 .lista_produtos{
 
@@ -112,6 +112,44 @@
                             display: flex;
                             flex-direction: row;
                             gap: 30px;
+                        }
+                        table{
+                            
+                            max-width: 80vh;
+                            width: 100%;
+                        }
+                        thead{
+                            width: 100%;
+                            display: flex;
+                            align-items:flex-start;
+                            border-bottom: 1px solid #B5FFCE;
+                            align-items: center;
+
+                            
+                            tr{
+                                display: flex;
+                                width: 100%;
+                                justify-content: space-between;                                
+
+                                padding: 10px;
+                            div{
+                                gap: 60px;
+                            }                          
+                          }
+                        }
+                        tbody{
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            color: #fff;
+                            padding: 20PX 10PX;
+                            border-bottom: 1px solid #B5FFCE;
+                            tr{
+                                display: flex;
+                                justify-content: space-between;
+                                
+                                width: 100%;
+                            }
                         }
                     }
                 }

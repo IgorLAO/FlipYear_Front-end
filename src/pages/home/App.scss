@@ -123,8 +123,7 @@
         margin-right: 115px;
         font: 10px 'flipFont';
         cursor: pointer;
-        z-index: 1;
-
+        z-index: 2;
       }
     }
 
@@ -155,8 +154,6 @@
         margin-bottom: 25px;
         margin-right: 115px;
         font: 10px 'flipFont';
-        z-index: 1;
-
       }
 
     }
@@ -188,9 +185,6 @@
         margin-right: 115px;
         font: 10px 'flipFont';
         cursor: pointer;
-        z-index: 1;
-
-
       }
 
     }
@@ -200,6 +194,7 @@
       width: 330px;
       height: 450px;
       object-fit: cover;
+      
     }
   }
 
@@ -284,20 +279,19 @@
     }
   }
   .s4{
-    padding: 100px;
+    padding: 100px 50px;
     h2{
       color: aliceblue;
       font-size: 30px;
     }
   }
 
+  .produtos{
 
-  .produtos h2{
-    cursor: pointer;
-    transition: 0.2s;
+    .swiper{
+     width: 100%;
+    }
+
   }
 
-  .produtos h2:hover{
-    color: #346856;
-  }
 }

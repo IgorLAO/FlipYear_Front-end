@@ -1,24 +1,25 @@
 import './index.scss'
 
 import { Link } from "react-router-dom";
-import Carrinho from '../../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png';
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 
+import Carrinho from '../../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png';
 import Pfp from '../../../assets/images/perfil-publico_assets/download 2.png';
-import Lapis from '../../../assets/images/perfil-pessoal/105b06c79bc402f 1.png';
+import Lapis from '../../../assets/images/adm_assets/pen.png';
 import Adm from '../../../assets/images/perfil-side-bar/usuario icon.png';
 import Seta from '../../../assets/images/perfil-side-bar/setapabaixo.png';
 import Logo from '../../../assets/images/perfil-side-bar/arcade_Logo 21.png';
 import Checkbox from '../../../assets/images/perfil-side-bar/checkbox(correct).png';
 import Uncheckbox from '../../../assets/images/perfil-side-bar/checkbox(incorrect).png';
-import User from '../../../assets/images/adm_assets/u.png';
+import User from '../../../assets/images/adm_assets/user.png';
 import Atari from '../../../assets/images/imagesCardProduto/nintendo_Console-removebg-preview 102.png';
 import Controle from '../../../assets/images/perfil-side-bar/controle-removebg-preview.png';
-import Users from '../../../assets/images/adm_assets/usuarioADM_icon.png';
+import Users from '../../../assets/images/adm_assets/group.png';
 import Grafico from '../../../assets/images/adm_assets/estatisticasADM_icon.png';
 import Caminhao from '../../../assets/images/status_produtos_assets/caminhao_icon.png';
-import Registro from '../../../assets/images/adm_assets/lapis_adm.png';
+import Registro from '../../../assets/images/adm_assets/pen.png';
+import produto from '../../../assets/images/adm_assets/lupa.png';
 
 
 
@@ -41,10 +42,7 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
         seta: '-90'
     });
 
-
-
     function renderCssPedidos() {
-
         setFundoTopo('#88C070')
         setCorFonte('black');
     }
@@ -61,19 +59,16 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
 
     function ListarPedidos() {
         setMenuPedidos((current) => !current);
-
+        
         if (menuPedidos == true) {
             setSetaLado('-90');
-            setFundoTopo('#88C070')
+            setFundoTopo('#88c070af')
             setCorFonte('black');
-
-        }
-        else {
+            
+        }   else {
             setSetaLado('0');
             UnrenderCssPedidos();
-
         }
-
     }
 
     function renderCssADM() {
@@ -95,10 +90,9 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                     fonte: 'white',
                     fundo: '#081820',
                     seta: '-90',
-
                 }
-                setCoresHover(obj);
 
+                setCoresHover(obj);
             }
         }
     }
@@ -121,15 +115,10 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
 
             setCoresHover({
                 fonte: 'white',
-                fundo: '#081820',
+                fundo: '#000',
                 seta: '-90'
             });
-
-
         }
-
-
-
     }
 
 
@@ -141,25 +130,22 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
             SetNavTo('/ADM');
             const infos = localStorage('ADM_Logado');
             setNomeUser(infos.data.Nome);
-        }
-        else {
+
+        } else {
             SetNavTo('/perfil-pessoal');
             const infos = localStorage('NORMAL_USER_Logado');
             setNomeUser(infos.data.Nome);
-        }
 
-    }, [])
+        }
+    }, []);
+
 
     document.body.style.overflow = 'hidden';
-
 
     return (
         <>
             <div className='MainSide'>
-
-
                 <div className="escurecer-fundo" onClick={Condeu}></div>
-
                 <div className='side-bar-logado'>
 
                     <p className='fechar-sb' onClick={Condeu}>X</p>
@@ -168,16 +154,17 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                         <div className='foto'>
                             <img src={Pfp}></img>
                         </div>
-
                         <p className='nome-side-bar'>{NomeUser}</p>
+
                     </div>
 
                     <div className='menu-side-bar'>
                         <div className='linha-side-bar'></div>
                         <Link to={NavTo}>
-                            <div className='item-side-bar' id='editar-perfil'>
-                                <img src={Lapis} className='lapis'></img>
-                                <p>Editar Perfil</p>
+                            <div  className='item-side-bar' id='editar-perfil'>
+                                <img style={{width: '20px', objectFit: 'contain'}} src={Lapis} className='lapis'></img>
+                                <p >Editar Perfil</p>
+                        
                             </div>
                         </Link>
 
@@ -187,21 +174,22 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                                 <img src={Carrinho} className='carrinho-side-bar'></img>
                                 <p>Meus Pedidos</p>
                                 <img src={Seta} style={{ transform: `rotate(${setaLado}deg)` }} className='seta-baixo' onClick={ListarPedidos}></img>
+                        
                             </div>
                         }
 
                         <div className='linha-side-bar'></div>
-
                         {menuPedidos &&
 
                             <div className='lista-pedidos'>
-
                                 <div className='pedido'>
                                     <div className='fundo-atari'>
                                         <img className='Atari' src={Atari}></img>
+
                                     </div>
                                     <p className='prod-nome'>ATARI 3000</p>
                                     <img className='status-sidebar' src={Checkbox}></img>
+
                                 </div>
                                 <div className='linha-side-bar'></div>
 
@@ -234,88 +222,73 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
 
                                     </div>
                                 </div>
-
-
-
-
-
-
                             </div>
-
                         }
 
-                        {
+                        {(menuPedidos == false)
+                            ?
+                            (isHideAdmOpt &&
+                                <div>
+                                    <div className='item-side-bar'
+                                        onMouseEnter={() => renderCssADM()}
+                                        onMouseLeave={() => renderCssADM()}
 
-                            (menuPedidos == false)
-                                ?
-                                (isHideAdmOpt &&
-                                    <div>
-                                        <div className='item-side-bar'
-                                            onMouseEnter={() => renderCssADM()}
-                                            onMouseLeave={() => renderCssADM()}
+                                        style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}` }}>
+                                        <img src={User} className='adm'></img>
+                                        <p >Administrador</p>
 
-
-                                            style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}` }}>
-                                            <img src={Adm} className='adm'></img>
-                                            <p >Administrador</p>
-
-
-                                            <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} onClick={PagADM}></img>
-
-                                        </div>
-                                        <div className='linha-side-bar'></div>
+                                        <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} onClick={PagADM}></img>
                                     </div>
-                                )
 
-                                : <></>
+                                    <div className='linha-side-bar'></div>
 
+                                </div>
+                            )
+                            : <></>
                         }
-
 
                         {
                             (coresHover.seta == 0)
-
-
                                 ?
                                 <div className='adm-menu'>
                                     <div className='rota-adm'>
                                         <p>Perfil de Adm</p>
-                                        <img src={User}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={User}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
                                     <div className='rota-adm'>
                                         <p>Produtos</p>
-                                        <img src={Controle}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={produto}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
                                     <div className='rota-adm'>
                                         <p>Usuários</p>
-                                        <img src={Users}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={Users}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
                                     <div className='rota-adm'>
                                         <p>Estatíscas</p>
-                                        <img src={Grafico}></img>
+                                        <img style={{width: '40px',objectFit: 'contain'}} src={Grafico}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
                                     <div className='rota-adm'>
                                         <p>Pedidos</p>
-                                        <img src={Caminhao}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={Caminhao}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
                                     <div className='rota-adm'>
                                         <p>Registro Produto</p>
-                                        <img src={Registro}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={Registro}></img>
 
                                     </div>
                                     <div className='linha-side-bar'></div>
@@ -330,20 +303,14 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                                 </div>
 
                                 : <></>
-
-
                         }
 
-
-
-                        <div className='logo'>
-
+                        <div className='logo' id='adm-logo'>
                             <img src={Logo} />
                             <p>FLIP-YEAR</p>
                             <p className='doisk'>2000</p>
 
                         </div>
-
                     </div>
                 </div>
             </div>

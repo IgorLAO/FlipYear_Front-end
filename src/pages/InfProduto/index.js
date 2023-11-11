@@ -2,8 +2,6 @@ import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-    import Carousel from 'react-elastic-carousel'
-
 import './index.scss'
 import axios from "axios";
 
@@ -16,10 +14,11 @@ import red_star from '../../ui/assets/images/compraPage_assets/re_star_company.p
 import seta from '../../ui/assets/images/compraPage_assets/seta.png'
 import NavBar from "../../ui/components/navBar"
 import Comments from "../../ui/components/comments";
+import Produtos from '../../ui/components/produtos'
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, GetOthersProd } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage} from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -30,7 +29,6 @@ export default function InfProduto() {
 
     const [comments, setComments] = useState([]);
     const [allComments, setAllComments] = useState([])
-    const [otherProducts, setOtherProducts] = useState([]);
     const [pageComments, setPageComments] = useState(1);
     const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
@@ -41,11 +39,6 @@ export default function InfProduto() {
 
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
-    console.log(idParam);
-
-    useEffect(() => {
-        CarregarProdutos();
-    }, []);
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
@@ -55,7 +48,6 @@ export default function InfProduto() {
     function parcelas() {
         const parcela = produto.VL_PRECO / 10
         SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela));
-        console.log(parcela)
     }
 
     function processPag25() {
@@ -66,6 +58,7 @@ export default function InfProduto() {
     async function GetComments() {
         let res = await GetCmtsPage(pageComments);
         setComments(res.data);
+        console.log(comments)
     }
 
     async function GetAllComments() {
@@ -89,35 +82,14 @@ export default function InfProduto() {
         }
     }
 
-    async function GetProducts() {
-        let res = await GetOthersProd(pageProducts)
-
-        setOtherProducts(res.data)
-    }
 
     async function GetAllProduttc() {
         let res = await GetAllProd()
 
         let data = (res.data)
-        let a = data.length
-
-        let length = a / otherProducts.length
-
         SetAllProducts(data)
-        console.log(length)
     }
 
-    function nextPagProducts() {
-        if (pageProducts <= allProducts) {
-            setPageProducts(pageProducts + 1)
-        }
-    }
-
-    function prevPagProducts() {
-        if (pageProducts > 1) {
-            setPageProducts(pageProducts - 1)
-        }
-    }
 
     function hideValid() {
         setIsHideOptions(true)
@@ -132,8 +104,8 @@ export default function InfProduto() {
     }
 
     useEffect(() => {
+        CarregarProdutos();
         parcelas()
-        GetProducts()
         GetComments()
         GetAllProduttc()
         GetAllComments()
@@ -142,6 +114,7 @@ export default function InfProduto() {
 
     return (
         <div className="pagina-produto">
+            <NavBar/>
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
@@ -182,7 +155,7 @@ export default function InfProduto() {
 
                     <div className="preco">
                         <h2>R${produto.VL_PRECO}</h2>
-                        <p>Ou 10x de {parcela}</p>
+                        <p>Ou 10x de 100{}</p>
                         <div></div>
                     </div>
 
@@ -286,15 +259,8 @@ export default function InfProduto() {
 
                 <div className="products">
 
-                    <Carousel renderArrow={this.myArrow} itemsToShow={4}>
-                    {allProducts.map((item) => (
-                        <CardProdutoCtlg preco={item.VL_PRECO}
-                            idProduto={item.ID_PRODUTO}
-                            nome={item.NM_PRODUTO}
-                            precoPromocao={item.VL_PRECO_PROMOCIONA}
-                            promocao={item.BT_PRMOCAO} />
-                    ))}
-</Carousel> 
+                    <Produtos products={allProducts}/>
+                    
 
                 </div>
             </div>

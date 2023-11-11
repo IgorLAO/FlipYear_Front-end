@@ -33,7 +33,7 @@ export default function RegistroProdutos() {
             <AdmTopNavBar />
             <div className="s">
                 <Adm_leftNavBar />
-                <div className="content">
+                <div className="content2">
                     <span className="Title">
                         <h1> Estatisticas </h1>
                     </span>

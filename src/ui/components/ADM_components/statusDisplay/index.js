@@ -15,7 +15,13 @@ export default function StatusDisplay() {
                         Selecionar Status do Produto
                     </h4>
                 </header>
-                <div className='carProgress' style={{ display: 'flex', justifyContent: 'center' }}>
+                <div className='carProgress' style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                    <a className='destino'>
+                        <h5>Destino</h5>
+                        <span>
+                            Rua da silva medeiro campos, n23
+                        </span>
+                    </a>
                     <div style={{   display: 'flex', 
                                     padding: '0px', 
                                     width: '50%', 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './ListagemCarrinho.scss'
 import axios from 'axios';
+import localStorage from 'local-storage';
 
 
 
@@ -11,9 +12,12 @@ export default function ListagemCarrinho(props) {
   const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
   const [apagar, setApagar] = useState('');
 
+
     async function ApagarProduto(){
 
-      let resp = await axios.delete('http://localhost:5000/carrinho/produto/'+ 3 + '/' + idProduto);
+      let local = localStorage('ADM_Logado')
+
+      let resp = await axios.delete('http://localhost:5000/carrinho/produto/'+ local.data.Id + '/' + idProduto);
 
 
 

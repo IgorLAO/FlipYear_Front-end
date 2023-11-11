@@ -68,7 +68,7 @@
         }
 
 
-        .filtro:hover{
+        .filtro:hover {
 
             cursor: pointer;
 
@@ -90,33 +90,40 @@
 
 }
 
+@media (max-width: 1920px) {
+    .Nav {
+        width: 145.1vh;
+
+    }
+}
+
+@media (max-width: 768px) {
+    .Nav {
+        width: 86.1vh;
+    }
+}
+
+
+
 @media (max-width: 414px) {
-    .Nav{
-        width: 60.1vh;
-        .Logo{
-            img{
-                margin-left: -10px;
-            }
-            h3{
-                width: 20px;
-                h1{
-                    font-size: 13px;
+    .Nav {
+        .Logo {
+            .h3 {
+                .h1 {
+                    font-size: 1px;
                 }
             }
         }
-        .SearchBox{
-            .boxInput{
-                margin-left: 25px;
+
+        .Options {
+            .img {
+                height: 5px;
+                width: 5px;
             }
+
+            width: 40vh;
         }
-        .Options{
-            border: solid 2px black;
-            padding-left: 0px;
-            img{
-                width: 23px;
-                height: 23px;
-                
-            }
-        }
+
+        width: 49vh;
     }
 }

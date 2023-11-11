@@ -1,15 +1,20 @@
 import Butao from '../butao/butao'
 import ListaFiltro from '../lista/lista'
+import OrdenaçãoAvaliados from '../lista/listaAvaliados'
+import OrdenacaoPreco from '../lista/listaPreco'
 import ValoresFiltro from '../valores/valores'
 import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
 import './index.scss'
 
-export default function FiltroCtlg() {
+export default function FiltroCtlg(props) {
+   
+
 
     return (
 
 
         <div>
+
 
             <div className='card-filtro-ctlg'>
 
@@ -23,9 +28,14 @@ export default function FiltroCtlg() {
 
             <div className='opc-selec'>
 
-                <ListaFiltro item={'Ordavaliacao'}></ListaFiltro>
-                <ListaFiltro item={'Ordpreco'}></ListaFiltro>
-                <Butao item = {'Alfabética'}></Butao>
+                <OrdenaçãoAvaliados 
+                OrdMelhoresAvaliados={props.OrdMelhoresAvaliados}
+                OrdPioresAvaliados={props.OrdPioresAvaliados}>
+                </OrdenaçãoAvaliados>
+                <OrdenacaoPreco 
+                OrdMaioresPrecos={props.OrdMaioresPrecos}
+                OrdMenoresPrecos={props.OrdMenoresPrecos}>   
+                </OrdenacaoPreco>
 
             </div>
 
@@ -47,7 +57,9 @@ export default function FiltroCtlg() {
 
                     <Butao item={'Fliperamas'}></Butao>
 
-                    <ListaFiltro item={'Empresa'}></ListaFiltro>
+                    <ListaFiltro 
+                    item={'Empresa'}>    
+                    </ListaFiltro>
 
 
                 </div>
@@ -62,11 +74,23 @@ export default function FiltroCtlg() {
 
                 <div className='opc-selec'>
 
+                    <div onClick={props.FiltroPromocao}>
+
                     <Butao item={'Promoção'}></Butao>
+                    </div>
+
 
                     <Butao item={'Destaque'}></Butao>
 
-                    <Butao item={'Colecionador'}></Butao>
+                    <div onClick={props.FiltroColecionador}>
+                    <Butao 
+                    item={'Colecionador'}>
+                    </Butao>
+                        
+                    </div>
+            
+
+
 
                     <ListaFiltro item={'Estado'}></ListaFiltro>
 

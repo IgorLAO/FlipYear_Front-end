@@ -1,7 +1,7 @@
 import './index.scss';
 
 import { useEffect, useState } from 'react';
-import Carousel, { consts } from 'react-elastic-carousel';
+
 
 import Rodape from '../../ui/components/rodape';
 import NavBar from '../../ui/components/navBar';
@@ -21,25 +21,7 @@ import 'swiper/css/navigation';
 export default function SobreNos() {
     const [Position, setPosition] = useState(0);
 
-    const Next = () => {
-        setPosition(Position + 800);
-        console.log(Position)
-    }
-
-    const Previous = () => {
-        setPosition(Position - 800);
-        console.log(Position)
-    }
-
-    useEffect(() => {
-        if (Position < 3600 && Position > 0) {
-            let divElement = document.getElementById("DC");
-            divElement.style.transition = `transform 500ms ease`;
-            divElement.style.transform = `translateX(${Position}px)`;
-        }
-
-    }, [Position]);
-
+  
     return (
         <>
             <NavBar />
@@ -51,12 +33,11 @@ export default function SobreNos() {
                     </div>
                     <div className='container_perfil'>
 
-                        <div className='sw' style={{ display: 'flex', width: '700px', height: '800px', alignItems: 'center' }}>
+                        <div className='sw' style={{ display: 'flex', alignItems: 'center'}}>
                             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                                 <SwiperSlide> <DenzCard /></SwiperSlide>
                                 <SwiperSlide> <JaoCard /></SwiperSlide>
                                 <SwiperSlide> <IgoCard /></SwiperSlide>
-
                             </Swiper>
                         </div>
 
