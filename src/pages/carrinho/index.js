@@ -19,14 +19,18 @@ export default function Carrinho() {
     const [listaCarrinho, setListaCarrrinho] = useState([]);
 
     async function consultaProdutos() {
-        let resposta = await ConsultaCarrinho();
-        setListaCarrrinho(resposta.data[0]);
+        try {
+            let resposta = await ConsultaCarrinho();
+            setListaCarrrinho(resposta);
+            console.log(resposta[0]);
+        } catch (error) {
+            throw new Error(`Erro ao buscar produtos ): `)
+        }
     }
-
     useEffect(() => {
         consultaProdutos();
 
-    }, [])
+    }, []);
 
     return (
         <div className='pag-carrinho'>
@@ -41,24 +45,30 @@ export default function Carrinho() {
             </div>
 
             {
-                (mostrarCarrinho === true)
-
-                    ? <div className='lista-carrinho'>       
+                (mostrarCarrinho === true) ? (
+                    <div className='lista-carrinho'>
+                        {listaCarrinho.map((produto, index) => (
                             <CardProdutoCtlg
-                                preco={listaCarrinho.VL_PRECO}
-                                nome={listaCarrinho.NM_PRODUTO} precoPromocao={listaCarrinho.VL_PRECO_PROMOCIONAL}
-                                promocao={listaCarrinho.BT_PROMOCAO} avaliacao={listaCarrinho.VL_AVALIACAO}
-                                fabricante={listaCarrinho.NM_FABRICANTE}
-                                estado={listaCarrinho.TP_ESTADO}
+                                key={index}
+                                preco={produto.VL_PRECO}
+                                nome={produto.NM_PRODUTO}
+                                precoPromocao={produto.VL_PRECO_PROMOCIONAL}
+                                promocao={produto.BT_PROMOCAO}
+                                avaliacao={produto.VL_AVALIACAO}
+                                fabricante={produto.NM_FABRICANTE}
+                                estado={produto.TP_ESTADO}
                             />
+                        ))}
+                    </div>
+                ) : (
+                    <div className='vazio'>
+                        <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
+                        <p>Parece que está vazio :{`(`}</p>
+                        <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
+                    </div>
+                )
+}
 
-                    </div>
-                    : <div className='vazio'>
-                        <img src={Fantasma2} className='fantasma2'></img>
-                        <p>Parece que esta vazio :{`(`}</p>
-                        <img src={Fantasma1} className='fantasma1'></img>
-                    </div>
-            }
             <Rodape></Rodape>
         </div>
     )

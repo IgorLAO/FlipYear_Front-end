@@ -29,6 +29,7 @@ function App() {
     try {
       let sql = await GetAllProdDestaque();
       let produtos = sql.data;
+
       setMostrarDestaques(produtos);
 
     } catch (error) {
