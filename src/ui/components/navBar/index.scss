@@ -77,6 +77,8 @@
     }
 
     .Options {
+        display: flex;
+        flex-direction: row;
         img {
             margin: 5px;
 

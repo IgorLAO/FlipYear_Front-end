@@ -22,6 +22,8 @@ import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage} from "../../ap
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
+    const navigate = useNavigate();
+
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
@@ -32,14 +34,13 @@ export default function InfProduto() {
     const [pageComments, setPageComments] = useState(1);
     const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
-    const [parcela, SetParcela] = useState(0)
-
-    //    
-    const navigate = useNavigate();
-
+    const [parcela, SetParcela] = useState(0)    
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
 
+    function AddNoCarrinho(){
+        
+    }
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
@@ -110,7 +111,6 @@ export default function InfProduto() {
         GetAllProduttc()
         GetAllComments()
     }, [pageProducts, pageComments]);
-
 
     return (
         <div className="pagina-produto">
@@ -214,7 +214,7 @@ export default function InfProduto() {
                     </div>
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
                         <button id="button-compra" onClick={processPag25}>Compre já</button>
-                        <button id="button-carrinho">Adicionar ao Carrinho</button>
+                        <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>

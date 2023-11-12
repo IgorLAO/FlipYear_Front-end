@@ -11,16 +11,16 @@ import CarrinhoIMG from '../../ui/assets/images/perfil-pessoal/image-removebg-pr
 import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
+import { ConsultaCarrinho } from '../../api/carrinho';
+import ListagemCarrinho from '../../ui/components/popupCarrinho/ListagemCarrinho';
 
 export default function Carrinho() {
     const [mostrarCarrinho, SetMostrarCarrrinho] = useState(true);
     const [listaCarrinho, setListaCarrrinho] = useState([]);
 
     async function consultaProdutos() {
-        let resposta = await GetBusca();
-        let produtos = resposta.data;
-
-        setListaCarrrinho(produtos);
+        let resposta = await ConsultaCarrinho();
+        setListaCarrrinho(resposta.data[0]);
     }
 
     useEffect(() => {
@@ -43,18 +43,14 @@ export default function Carrinho() {
             {
                 (mostrarCarrinho === true)
 
-                    ? <div className='lista-carrinho'>
-
-                        {listaCarrinho.map((item) => (
+                    ? <div className='lista-carrinho'>       
                             <CardProdutoCtlg
-                                preco={item.VL_PRECO}
-                                nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL}
-                                promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
-                                fabricante={item.NM_FABRICANTE}
-                                estado={item.TP_ESTADO}
+                                preco={listaCarrinho.VL_PRECO}
+                                nome={listaCarrinho.NM_PRODUTO} precoPromocao={listaCarrinho.VL_PRECO_PROMOCIONAL}
+                                promocao={listaCarrinho.BT_PROMOCAO} avaliacao={listaCarrinho.VL_AVALIACAO}
+                                fabricante={listaCarrinho.NM_FABRICANTE}
+                                estado={listaCarrinho.TP_ESTADO}
                             />
-
-                        ))}
 
                     </div>
                     : <div className='vazio'>
