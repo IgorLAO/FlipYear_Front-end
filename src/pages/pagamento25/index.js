@@ -34,12 +34,11 @@ export default function Pagamento25(){
         setList(resp)
     }
 
-
     function processPag50(){
         navigate(`/pagamento50/${idParam}`);
-    ;
     
-}
+    }
+    
     return (
         <>
             <CabecalhoSimples />

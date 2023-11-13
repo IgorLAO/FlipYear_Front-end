@@ -8,11 +8,10 @@ import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import localStorage from "local-storage";
 
-
+import CartStatus from "../CartStatus";
 import LogoArcade from "../../assets/images/NavBar_assets/arcade_Logo 1.png";
 import Lupa from "../../assets/images/NavBar_assets/lupa.png";
 import Filtro from "../../assets/images/NavBar_assets/filtro_logo.png";
-import Carrinho_logo from "../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
 import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
 import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
 import SideBarFazerConta from '../perfil/side-bar'
@@ -163,7 +162,7 @@ export default function NavBar() {
                 </span>
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <img src={Carrinho_logo} onClick={mostrarCarrinho} />
+                    <CartStatus mostrarCarrinho={mostrarCarrinho}/>
                     <img src={Suporte} />
                 </span>
 

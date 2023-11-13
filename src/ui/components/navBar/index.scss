@@ -77,6 +77,8 @@
     }
 
     .Options {
+        display: flex;
+        flex-direction: row;
         img {
             margin: 5px;
 
@@ -88,4 +90,37 @@
 
     cursor: pointer;
 
+}
+
+@media (max-width: 1920px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+
+
+@media (max-width: 414px) {
+    .Nav {
+        .Logo {
+            .h3 {
+                .h1 {
+                    font-size: 1px;
+                }
+            }
+        }
+
+        .Options {
+            .img {
+                height: 5px;
+                width: 5px;
+            }
+
+            width: 40vh;
+        }
+
+        width: 49vh;
+    }
 }
