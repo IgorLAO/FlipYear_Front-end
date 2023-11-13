@@ -91,18 +91,12 @@
 
 }
 
-@media (max-width: 1920px) {
 
-}
 
 @media (max-width: 768px) {
-
-}
-
-
-
-@media (max-width: 414px) {
     .Nav {
+        width: 83.5vh;
+        padding-left: 10vh;
         .Logo {
             .h3 {
                 .h1 {
@@ -111,15 +105,61 @@
             }
         }
 
+        .SearchBox{
+            display: flex;
+            padding-left: 5vh;
+        }
+
         .Options {
             .img {
                 height: 5px;
                 width: 5px;
             }
 
-            width: 40vh;
+            width: 30vh;
+            padding-left: 7vh;
+        }
+    }
+}
+
+
+
+@media (max-width: 414px) {
+    .Nav {
+        
+        width: 60vh;
+        padding-right: 25vh;
+        .Logo {
+            
+            margin-left: -80px ;
+            padding: 0px 10px 0px 0px;
+            .h3 {
+                .h1 {
+                    font-size: 1px;
+                }
+            }
+            
         }
 
-        width: 49vh;
+        .SearchBox{
+            margin-left: 10px;
+            padding-left: 0px 0px 0px 0px;
+           
+            width: 300px;
+        }
+
+        .Options {
+            
+            padding: 0px;
+            margin-left: 50px;
+            
+            .img {
+                height: 5px;
+                width: 5px;
+                
+            }
+
+            width: 30vh;
+        }
     }
 }

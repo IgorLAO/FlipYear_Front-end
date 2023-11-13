@@ -3,8 +3,8 @@
     font-size: 18px;
     color: white;
     padding: 150px 50px;
-    width: 30vh;
-    
+    width: 100%;
+        
 
     .conteudo {
         display: flex;
@@ -15,9 +15,9 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
-        margin-left: -20vh;
+        margin-left: -50vh;
         height: 900px;
-        width: 20vh;
+        width: 100%;
 
         .descricao {
             display: flex;
@@ -111,7 +111,7 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 86.1vh;
+        width: 83.6vh;
         .conteudo {
             display: flex;
             flex-direction: column;
@@ -127,7 +127,7 @@
 
             .container_perfil{
                 .sw{
-                    margin-top: -70px;
+                    margin-top: -20px;
                 }
             }
             
@@ -139,9 +139,9 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 49vh;
+        width: 60vh;
         .conteudo {
-            width: 43vh;
+            width: 54vh;
             flex-direction: column;
             margin: -130px -25px;
 
@@ -154,7 +154,7 @@
             .container_perfil{
                 .sw{
                     margin-top: -70px;
-                    width: 40vh;
+                    width: 37vh;
                 }
             }
         }
