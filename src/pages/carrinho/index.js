@@ -12,11 +12,27 @@ import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
 import { ConsultaCarrinho } from '../../api/carrinho';
+import { ConsultarProdPorId } from '../../api/produtos';
 import ListagemCarrinho from '../../ui/components/popupCarrinho/ListagemCarrinho';
+
+import { useParams } from 'react-router-dom';
 
 export default function Carrinho() {
     const [mostrarCarrinho, SetMostrarCarrrinho] = useState(true);
     const [listaCarrinho, setListaCarrrinho] = useState([]);
+    const [produtos, setProdutos] = useState({});
+    
+    const {idParam} =  useParams();
+
+    useEffect(() => {
+        CarregarProdutos()
+    },[]);
+
+    async function CarregarProdutos() {
+        const resp = await ConsultarProdPorId(idParam);
+        setProdutos(resp);
+    }
+
 
     async function consultaProdutos() {
         try {
@@ -27,6 +43,7 @@ export default function Carrinho() {
             throw new Error(`Erro ao buscar produtos ): `)
         }
     }
+
     useEffect(() => {
         consultaProdutos();
 
@@ -35,7 +52,6 @@ export default function Carrinho() {
     return (
         <div className='pag-carrinho'>
             <NavBar />
-
             <div className='pedidos'>
                 <img src={CarrinhoIMG}></img>
                 <div className='titulo'>
@@ -47,8 +63,10 @@ export default function Carrinho() {
             {
                 (mostrarCarrinho === true) ? (
                     <div className='lista-carrinho'>
+                        
                         {listaCarrinho.map((produto, index) => (
-                            <CardProdutoCtlg
+                            
+                            <CardProdutoCtlg produtos={produtos}
                                 key={index}
                                 preco={produto.VL_PRECO}
                                 nome={produto.NM_PRODUTO}
@@ -59,6 +77,7 @@ export default function Carrinho() {
                                 estado={produto.TP_ESTADO}
                             />
                         ))}
+                        
                     </div>
                 ) : (
                     <div className='vazio'>
@@ -68,7 +87,6 @@ export default function Carrinho() {
                     </div>
                 )
 }
-
             <Rodape></Rodape>
         </div>
     )

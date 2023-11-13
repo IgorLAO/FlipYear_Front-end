@@ -60,7 +60,10 @@ root.render(
         <Route path='/ADM_Produtos' element={<Produtos_ConsultaADM />} />
         <Route path='/ADM_Estatisticas' element={<Estatisticas />} />
         <Route path='/ADM_RegistroProd' element={<RegistroProdutos />} />
+
         <Route path='/carrinho' element={<Carrinho />} />
+        <Route path='/carrinho/:idParam' element={<Carrinho />} />
+        
         <Route path='/search' element={<SearchResults />} />
         <Route path='/Suporte' element={<Suporte />} />
         <Route path='/sobrenos' element={<SobreNos/>} />

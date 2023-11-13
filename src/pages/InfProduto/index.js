@@ -36,11 +36,9 @@ export default function InfProduto() {
     const [allProducts, SetAllProducts] = useState([]);
     const [parcela, SetParcela] = useState(0)    
     const [produto, setProduto] = useState({});
+    const [carrinho, setCarrinho] = useState([]);
     const { idParam } = useParams();
 
-    function AddNoCarrinho(){
-        
-    }
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
@@ -214,7 +212,7 @@ export default function InfProduto() {
                     </div>
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
                         <button id="button-compra" onClick={processPag25}>Compre já</button>
-                        <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho</button>
+                        <button id="button-carrinho" onClick={''}>Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>
