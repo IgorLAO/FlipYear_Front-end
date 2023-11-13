@@ -109,6 +109,7 @@ export default function NavBar() {
             else{
                 setIshideNotFound(false);
                 SetSearchRes([]);
+                document.getElementById('sR').style.display = 'none'
 
             }
           };
