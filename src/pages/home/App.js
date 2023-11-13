@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 import axios from 'axios'
+import { GetAllProdDestaque, GetPagProdDestaque } from '../../api/produtos';
 
 import NavBar from '../../ui/components/navBar';
 import Rodape from '../../ui/components/rodape'
@@ -15,8 +16,6 @@ import pixel_s2 from "../../ui/assets/images/Home_assets/pixel_block2.png";
 
 import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
-import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
-import { GetAllProdDestaque, GetPagProdDestaque } from '../../api/produtos';
 import Produtos from '../../ui/components/produtos';
 
 function App() {
