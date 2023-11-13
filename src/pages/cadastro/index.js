@@ -41,8 +41,13 @@ const Cadastro = () => {
 
             const idImage = respImages.data[0].Id;
 
-            let infosPessoa = {
-                id_endereco: id_endereco,
+  
+
+            if (Senha != confirmSenha) 
+            setErro("As senhas devem ser iguais!");
+
+            const data = await InsertUsuario({
+                Id_endereco: id_endereco,
                 Id_Img: idImage,
                 Nome: Nome,
                 Telefone: Telefone,
@@ -50,12 +55,7 @@ const Cadastro = () => {
                 Email: Email,
                 Senha: Senha,
                 Tier: "NORMAL_USER"
-            }
-
-            if (Senha != confirmSenha)
-                setErro("As senhas devem ser iguais!");
-
-            let data = await InsertUsuario(infosPessoa);
+            });
 
         } catch (err) {
             console.log(err.response.data);
@@ -65,16 +65,21 @@ const Cadastro = () => {
     }
 
     async function end() {
-       
-        const respEndereco = await InsertEnderecos({
+
+        let infosEndereco = {
             CEP: CEP,
             Cidade: Cidade,
             Rua: Rua,
             Complemento: Complemento,
             Numero: Numero
         }
-);
-        console.log(respEndereco);
+        const respEndereco = await InsertEnderecos(infosEndereco);
+
+        const respImages = await axios.get('http://localhost:5000/images');
+
+        const res = respEndereco.data[0].insertId;
+
+        console.log();
     }
 
     return (
@@ -95,6 +100,7 @@ const Cadastro = () => {
                         <div className='boxInput'>
                             <span style={{ width: 45 + '%' }}>
                                 <a> Nome Completo* </a>
+                        
                                 <input
                                     type='text'
                                     style={{ width: 100 + '%' }}
@@ -186,7 +192,7 @@ const Cadastro = () => {
                                 </span>
 
                                 <span>
-                                    <a style={{width: '100%'}}> Digite a senha novamente* </a>
+                                    <a style={{ width: '100%' }}> Digite a senha novamente* </a>
                                     <input
                                         type='password'
                                         value={confirmSenha}

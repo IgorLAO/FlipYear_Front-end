@@ -45,6 +45,7 @@ export async function InsertEnderecos(infosEndereco) {
 
 export async function InsertUsuario(infosPessoa) {
     const respUser = await server.post('/usuarios', infosPessoa);
+    console.log(respUser)
     return respUser
 }
 
