@@ -34,11 +34,20 @@
 
     }
 
+    .menu-add-cart{
+
+        display: flex;
+        flex-direction: row;
+        margin-top: 14px;
+    }
+
     .qtd-produtos {
 
         display: flex;
         flex-direction: row;
         align-items: center;
+
+     
 
         .hover-opt:hover {
 

@@ -152,9 +152,12 @@ export default function CardProdutoCtlg(props) {
 
                         <div className='qtd-produtos'>
                             <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
+                            <div className='menu-add-cart'>
+
                             <p className='hover-opt' onClick={MinusQtdProduto} style={{color: `${fontePreta}`}}>-</p>
                             <p style={{color: `${fontePreta}`}}>{qtdProdutos}</p>
                             <p className='hover-opt' onClick={AddQtdProduto}style={{color: `${fontePreta}`}}>+</p>
+                            </div>
                         </div>
 
                         <img onClick={processoCompra} src={Atari}></img>

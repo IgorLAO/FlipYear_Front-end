@@ -38,7 +38,7 @@ export default function NavBar() {
     const [SearchValue, setSearchValue] = useState('');
     const [Erro, setErro] = useState('');
     const [limit, setLimit] = useState(5);
-    const [IshideNotFound, setIshideNotFound] = useState(false);
+    const [IshideNotFound, setIshideNotFound] = useState(true);
 
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
@@ -93,24 +93,20 @@ export default function NavBar() {
     useEffect(() => {
         const fetchData = async () => {
             if (tamanhoSearch > 0) {
-              try {
                 let res = await GetSearchProd(SearchValue);
-      
                 if (res !== 'nada') {
                   SetSearchRes(res.data);
                   document.getElementById('sR').style.display = 'flex';
                   setIshideNotFound(false)
                 } else {
                   setIshideNotFound(true);
+                  console.log(IshideNotFound + 'pinto')
                   SetSearchRes([]);
                 }
-              } catch (error) {
-                // Tratar erros, se necessário
-                console.error('Erro ao buscar resultados de pesquisa:', error);
-              }
+      
             }
 
-            else{
+            else if(tamanhoSearch == 0){
                 setIshideNotFound(false);
                 SetSearchRes([]);
                 document.getElementById('sR').style.display = 'none'
@@ -200,7 +196,7 @@ export default function NavBar() {
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
 
             {
-                    (IshideNotFound == true)
+                    (IshideNotFound == true )
                     ?<SearchCard_NotFound/>
                     : <></>
                 }
