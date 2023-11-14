@@ -11,27 +11,47 @@ import CarrinhoIMG from '../../ui/assets/images/perfil-pessoal/image-removebg-pr
 import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
+import { ConsultaCarrinho } from '../../api/carrinho';
+import { ConsultarProdPorId } from '../../api/produtos';
+import ListagemCarrinho from '../../ui/components/popupCarrinho/ListagemCarrinho';
+
+import { useParams } from 'react-router-dom';
 
 export default function Carrinho() {
     const [mostrarCarrinho, SetMostrarCarrrinho] = useState(true);
     const [listaCarrinho, setListaCarrrinho] = useState([]);
+    const [produtos, setProdutos] = useState({});
+    
+    const {idParam} =  useParams();
+
+    useEffect(() => {
+        CarregarProdutos()
+    },[]);
+
+    async function CarregarProdutos() {
+        const resp = await ConsultarProdPorId(idParam);
+        setProdutos(resp);
+    }
+
 
     async function consultaProdutos() {
-        let resposta = await GetBusca();
-        let produtos = resposta.data;
-
-        setListaCarrrinho(produtos);
+        try {
+            let resposta = await ConsultaCarrinho();
+            setListaCarrrinho(resposta);
+            console.log(resposta[0]);
+        } catch (error) {
+            throw new Error(`Erro ao buscar produtos ): `)
+        }
     }
 
     useEffect(() => {
         consultaProdutos();
 
-    }, [])
+    }, []);
 
     return (
         <div className='pag-carrinho'>
             <NavBar />
-
             <div className='pedidos'>
                 <img src={CarrinhoIMG}></img>
                 <div className='titulo'>
@@ -41,28 +61,32 @@ export default function Carrinho() {
             </div>
 
             {
-                (mostrarCarrinho === true)
-
-                    ? <div className='lista-carrinho'>
-
-                        {listaCarrinho.map((item) => (
-                            <CardProdutoCtlg
-                                preco={item.VL_PRECO}
-                                nome={item.NM_PRODUTO} precoPromocao={item.VL_PRECO_PROMOCIONAL}
-                                promocao={item.BT_PROMOCAO} avaliacao={item.VL_AVALIACAO}
-                                fabricante={item.NM_FABRICANTE}
-                                estado={item.TP_ESTADO}
+                (mostrarCarrinho === true) ? (
+                    <div className='lista-carrinho'>
+                        
+                        {listaCarrinho.map((produto, index) => (
+                            
+                            <CardProdutoCtlg produtos={produtos}
+                                key={index}
+                                preco={produto.VL_PRECO}
+                                nome={produto.NM_PRODUTO}
+                                precoPromocao={produto.VL_PRECO_PROMOCIONAL}
+                                promocao={produto.BT_PROMOCAO}
+                                avaliacao={produto.VL_AVALIACAO}
+                                fabricante={produto.NM_FABRICANTE}
+                                estado={produto.TP_ESTADO}
                             />
-
                         ))}
-
+                        
                     </div>
-                    : <div className='vazio'>
-                        <img src={Fantasma2} className='fantasma2'></img>
-                        <p>Parece que esta vazio :{`(`}</p>
-                        <img src={Fantasma1} className='fantasma1'></img>
+                ) : (
+                    <div className='vazio'>
+                        <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
+                        <p>Parece que está vazio :{`(`}</p>
+                        <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
                     </div>
-            }
+                )
+}
             <Rodape></Rodape>
         </div>
     )

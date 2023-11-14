@@ -2,13 +2,19 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .linha-produtos{
     
     
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 210px;
+        justify-content: space-between;
         font-size: 8px;
         margin-top: 2px;
         margin-bottom: 2px;

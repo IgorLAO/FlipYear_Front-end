@@ -8,11 +8,10 @@ import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import localStorage from "local-storage";
 
-
+import CartStatus from "../CartStatus";
 import LogoArcade from "../../assets/images/NavBar_assets/arcade_Logo 1.png";
 import Lupa from "../../assets/images/NavBar_assets/lupa.png";
 import Filtro from "../../assets/images/NavBar_assets/filtro_logo.png";
-import Carrinho_logo from "../../assets/images/NavBar_assets/carrinho_logo_cabecalho.png";
 import Suporte from "../../assets/images/NavBar_assets/suporte_logo.png";
 import Usuario from "../../assets/images/NavBar_assets/usuario_logo.png";
 import SideBarFazerConta from '../perfil/side-bar'
@@ -32,7 +31,6 @@ export default function NavBar() {
     const [logado, setLogado] = useState(false);
     const [popUpCarro, setPopUpCarro] = useState(false);
     const [popUpFiltro, setPopUpFiltro] = useState(false);
-    const [IsComp, setIsComp] = useState(false);
     const [tamanhoSearch, setTamanhoSearch] = useState('')
 
     const [NomeUser, setNomeUser] = useState('');
@@ -40,7 +38,7 @@ export default function NavBar() {
     const [SearchValue, setSearchValue] = useState('');
     const [Erro, setErro] = useState('');
     const [limit, setLimit] = useState(5);
-    const [IshideNotFount, setIshideNotFound] = useState(false);
+    const [IshideNotFound, setIshideNotFound] = useState(false);
 
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
@@ -64,43 +62,16 @@ export default function NavBar() {
     const GetSearchRes = async (e) => {
         setSearchValue(e.target.value);
         setTamanhoSearch(e.target.value.length)
-        try {
-            if (tamanhoSearch > 0) {
-                let res = await GetSearchProd(SearchValue);
-                SetSearchRes(res.data);
-                setErro(res);
-                console.log(res);
 
-                document.getElementById("sR").style.display = "flex";
 
-                if (res.data <= 0) {
-                    setIshideNotFound(false);
-                }
-
-            }
-            else {
-                document.getElementById("sR").style.display = "none";
-
-            }
-
-        } catch (err) {
-            setErro('Produto Não Encontrado');
-            console.log(Erro);
-            setIshideNotFound(true);
-
-            SetSearchRes([]);
+    
         }
-        if (Erro != 'Produto Não Encontrado')
-            setIshideNotFound(false);
-            alert('caiu aq')
-    }
-
 
     const NavTo = (e) => {
 
         if (e.key === 'Enter' && tamanhoSearch > 0) {
             navigate('/search');
-            localStorage.setItem('SearchValue', SearchValue);
+            localStorage('SearchValue', SearchValue);
             window.location.reload();
         } else if (e.key === 'Enter' && tamanhoSearch == 0) {
             navigate("/catalogo");
@@ -116,8 +87,36 @@ export default function NavBar() {
     }
 
     useEffect(() => {
-        setTamanhoSearch(SearchValue.length);
-    }, [SearchValue]);
+        const fetchData = async () => {
+            if (tamanhoSearch > 0) {
+              try {
+                let res = await GetSearchProd(SearchValue);
+      
+                if (res !== 'nada') {
+                  SetSearchRes(res.data);
+                  document.getElementById('sR').style.display = 'flex';
+                  setIshideNotFound(false)
+                } else {
+                  setIshideNotFound(true);
+                  SetSearchRes([]);
+                }
+              } catch (error) {
+                // Tratar erros, se necessário
+                console.error('Erro ao buscar resultados de pesquisa:', error);
+              }
+            }
+
+            else{
+                setIshideNotFound(false);
+                SetSearchRes([]);
+                document.getElementById('sR').style.display = 'none'
+
+            }
+          };
+      
+          fetchData();
+        
+    }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
 
     return (
@@ -135,7 +134,7 @@ export default function NavBar() {
                 <span className="SearchBox">
                     <span className="boxInput">
                         <img src={Lupa} />
-                        <input
+                        <input className="foda"
                             type="text"
                             value={SearchValue}
                             placeholder="Oque esta buscando?"
@@ -163,7 +162,7 @@ export default function NavBar() {
                 </span>
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <img src={Carrinho_logo} onClick={mostrarCarrinho} />
+                    <CartStatus mostrarCarrinho={mostrarCarrinho}/>
                     <img src={Suporte} />
                 </span>
 
@@ -194,19 +193,20 @@ export default function NavBar() {
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
+
+            {
+                    (IshideNotFound == true)
+                    ?<SearchCard_NotFound/>
+                    : <></>
+                }
+                
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
 
-                {
-                    (IshideNotFount == true)
-                    ?<SearchCard_NotFound Erro={Erro} />
-                    : <></>
-                }
 
-                {IsComp &&
-                    <SearchResults SearchValue={SearchValue} />
-                }
+
+
 
             </div>
 

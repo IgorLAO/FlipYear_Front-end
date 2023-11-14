@@ -30,16 +30,13 @@ export default function Pagamento25(){
 
     async function ListProduct(){
         const resp = await ConsultarProdPorId(idParam);
-
-        setList(resp)
+        setList(resp);
     }
-
 
     function processPag50(){
         navigate(`/pagamento50/${idParam}`);
-    ;
+    }
     
-}
     return (
         <>
             <CabecalhoSimples />

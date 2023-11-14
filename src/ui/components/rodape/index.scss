@@ -175,38 +175,16 @@
     src: url('../../../ui/assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
 }
 
-@media (max-width: 1920px) {
-    .container_rodape {
-        .topicos{
-            .contato{
-                margin-left: -80px;
-            }
-        }
-    }
-}
-
 @media (max-width: 768px) {
-    .container_rodape {
-        .topicos{
-            .contato{
-                margin-left: 10px;
-            }
-        }
+    .container_rodape{
+        width: 83.6vh;
     }
 }
-
 
 @media (max-width: 414px) {
-    .container_rodape {
-        .topicos{
-            .contato{
-                margin-left: 3px;
-            }
-        }
-        .cert_seguranca{
-            img{
-                margin-left: -20px;
-            }
-        }
+    .container_rodape{
+        width: 60vh;
     }
 }
+
+
