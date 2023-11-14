@@ -12,6 +12,8 @@ export default function ListaFiltro(props) {
     const [estados, SetEstados] = useState([]);
     const [empresas, setEmpresas] = useState([]);
 
+    const {setFiltroEmpresa} = props;
+
     async function PuxarListagem() {
 
         let resp = await GetAllProd();
@@ -40,6 +42,13 @@ export default function ListaFiltro(props) {
 
         SetEstados(arrEstado);
         setEmpresas(arrEmpresa);
+
+    }
+
+    function filtrarEmpresa(e){
+
+        setFiltroEmpresa(e.target.value)
+
 
     }
 
@@ -75,7 +84,9 @@ export default function ListaFiltro(props) {
     switch (props.item) {
 
         case 'Empresa':
-            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} 
+            onClick={Selecionado}
+            onChange={filtrarEmpresa}>
 
                 <option>{props.item}</option>
                 {

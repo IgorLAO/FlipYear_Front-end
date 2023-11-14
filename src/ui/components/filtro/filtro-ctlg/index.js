@@ -5,12 +5,19 @@ import OrdenacaoPreco from '../lista/listaPreco'
 import ValoresFiltro from '../valores/valores'
 import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
 import './index.scss'
+import { useEffect } from 'react'
 
 export default function FiltroCtlg(props) {
 
-    const {setFiltroPreco} = props;
-   
-
+    const {setFiltroPreco, 
+        FiltroDestaque, 
+        FiltroColecionador, 
+        FiltroPromocao,
+        OrdMaioresPrecos,
+        OrdMenoresPrecos, 
+        OrdMelhoresAvaliados,
+        OrdPioresAvaliados,
+        setFiltroEmpresa} = props;
 
     return (
 
@@ -31,12 +38,12 @@ export default function FiltroCtlg(props) {
             <div className='opc-selec'>
 
                 <OrdenaçãoAvaliados 
-                OrdMelhoresAvaliados={props.OrdMelhoresAvaliados}
-                OrdPioresAvaliados={props.OrdPioresAvaliados}>
+                OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                OrdPioresAvaliados={OrdPioresAvaliados}>
                 </OrdenaçãoAvaliados>
                 <OrdenacaoPreco 
-                OrdMaioresPrecos={props.OrdMaioresPrecos}
-                OrdMenoresPrecos={props.OrdMenoresPrecos}>   
+                OrdMaioresPrecos={OrdMaioresPrecos}
+                OrdMenoresPrecos={OrdMenoresPrecos}>   
                 </OrdenacaoPreco>
 
             </div>
@@ -60,7 +67,8 @@ export default function FiltroCtlg(props) {
                     <Butao item={'Fliperamas'}></Butao>
 
                     <ListaFiltro 
-                    item={'Empresa'}>    
+                    item={'Empresa'}
+                    setFiltroEmpresa={setFiltroEmpresa}>    
                     </ListaFiltro>
 
 
@@ -76,15 +84,15 @@ export default function FiltroCtlg(props) {
 
                 <div className='opc-selec'>
 
-                    <div onClick={props.FiltroPromocao}>
+                    <div onClick={FiltroPromocao}>
                     <Butao item={'Promoção'}></Butao>
                     </div>
 
-                    <div onClick={props.FiltroDestaque}>
+                    <div onClick={FiltroDestaque}>
                     <Butao item={'Destaque'}></Butao>
                     </div>
 
-                    <div onClick={props.FiltroColecionador}>
+                    <div onClick={FiltroColecionador}>
                     <Butao 
                     item={'Colecionador'}>
                     </Butao>

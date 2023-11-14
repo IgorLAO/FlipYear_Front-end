@@ -61,8 +61,6 @@ export default function OrdenaçãoAvaliados({OrdMelhoresAvaliados, OrdPioresAva
       };
 
 
-
-
     return(
 
         <>
