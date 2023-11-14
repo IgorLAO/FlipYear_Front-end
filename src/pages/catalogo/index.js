@@ -21,7 +21,16 @@ export default function Catalogo() {
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
     const [filtroDestaqueSwitch, setFiltroDestaqueSwitch] = useState(false);
     const [filtroEmpresa, setFiltroEmpresa] = useState('Empresa');
+    const [filtroEstado, setFiltroEstado] = useState('Estado')
     const [filtroPreco, setFiltroPreco] = useState({
+        inicial: '',
+        final: ''
+    })
+    const [filtroAvaliacao, setFiltroAvaliacao] = useState({
+        inicial: '',
+        final: ''
+    })
+    const [filtroEstoque, setFiltroEstoque] = useState({
         inicial: '',
         final: ''
     })
@@ -55,8 +64,20 @@ export default function Catalogo() {
                 
         }
 
+        if(filtroAvaliacao.inicial !== '' && filtroAvaliacao.final !== ''){
+            filtro = filtro.filter(item => item.VL_AVALIACAO >= filtroAvaliacao.inicial && item.VL_AVALIACAO <= filtroAvaliacao.final)
+        }
+
+        if(filtroEstoque.inicial !== '' && filtroEstoque.final !== ""){
+            filtro = filtro.filter(item => item.QTD_ESTOQUE >= filtroEstoque.inicial && item.QTD_ESTOQUE <= filtroEstoque.final)
+        }
+
         if(filtroEmpresa !== 'Empresa'){
             filtro = filtro.filter(item => item.NM_FABRICANTE == filtroEmpresa)
+        }
+
+        if (filtroEstado !== 'Estado'){
+            filtro = filtro.filter(item => item.TP_ESTADO == filtroEstado)
         }
 
 
@@ -205,6 +226,9 @@ export default function Catalogo() {
                     FiltroDestaque={FiltroDestaque}
                     setFiltroPreco ={setFiltroPreco}
                     setFiltroEmpresa={setFiltroEmpresa}
+                    setFiltroEstado={setFiltroEstado}
+                    setFiltroAvaliacao={setFiltroAvaliacao}
+                    setFiltroEstoque={setFiltroEstoque}
 
                 >
                 </FiltroCtlg>

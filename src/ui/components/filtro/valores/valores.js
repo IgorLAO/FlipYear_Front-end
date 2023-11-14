@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function ValoresFiltro(props){
 
-    const {setFiltroPreco} = props;
+    const {setFiltroPreco, setFiltroAvaliacao, setFiltroEstoque} = props;
 
     const [buttonFundo, setButtonFundo] = useState('');
     const [buttonFonte, setButtonFonte] = useState('');
@@ -14,17 +14,21 @@ export default function ValoresFiltro(props){
 
     function setarValores(){
 
+        let obj = {
+            inicial: input1,
+            final: input2
+        }
+
         if(props.item == 'Preço'){
-
-            let obj = {
-                inicial: input1,
-                final: input2
-            }
-
             setFiltroPreco(obj);
+        }
 
+        if(props.item == 'Avaliação'){
+            setFiltroAvaliacao(obj);
+        }
 
-
+        if(props.item == 'Estoque'){
+            setFiltroEstoque(obj);
         }
 
 
