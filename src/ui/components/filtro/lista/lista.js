@@ -12,7 +12,7 @@ export default function ListaFiltro(props) {
     const [estados, SetEstados] = useState([]);
     const [empresas, setEmpresas] = useState([]);
 
-    const {setFiltroEmpresa} = props;
+    const {setFiltroEmpresa, setFiltroEstado} = props;
 
     async function PuxarListagem() {
 
@@ -40,14 +40,26 @@ export default function ListaFiltro(props) {
             }
         });
 
-        SetEstados(arrEstado);
-        setEmpresas(arrEmpresa);
+        let copiaArrEstado = [... new Set(arrEstado)]
+        let copiaArrEmpresa = [... new Set(arrEmpresa)]
+
+
+
+        SetEstados(copiaArrEstado);
+        setEmpresas(copiaArrEmpresa);
 
     }
 
     function filtrarEmpresa(e){
 
         setFiltroEmpresa(e.target.value)
+
+
+    }
+
+    function filtrarEstado(e){
+
+        setFiltroEstado(e.target.value)
 
 
     }
@@ -79,7 +91,7 @@ export default function ListaFiltro(props) {
     useEffect(() => {
 
         PuxarListagem();
-    },[])
+    }, [])
 
     switch (props.item) {
 
@@ -103,7 +115,9 @@ export default function ListaFiltro(props) {
             </select>
 
         case 'Estado':
-            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} onClick={Selecionado}>
+            return <select className='empresa' style={{ backgroundColor: `${buttonFundo}`, color: `${buttonFonte}` }} 
+            onClick={Selecionado}
+            onChange={filtrarEstado}>
 
                 <option>{props.item}</option>
                 {
