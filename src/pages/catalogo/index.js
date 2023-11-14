@@ -11,10 +11,11 @@ export default function Catalogo() {
 
     const [list, setList] = useState([]);
     const [backupArr, setBackupArr] = useState([]);
-    const [redundaciaArr, setRedudanciaArr] = useState([]);
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
     const [filtroDestaqueSwitch, setFiltroDestaqueSwitch] = useState(false);
+    const [filtroEmpresa, setFiltroEmpresa] = useState('Empresa');
+    const [ordenacaoSwitch, setOrdenacaoSwitch] = useState(false);
     const [filtroPreco, setFiltroPreco] = useState({
         inicial: '',
         final: ''
@@ -24,11 +25,11 @@ export default function Catalogo() {
 
     useEffect(() => {
         filtrarResultados();
-        FiltrarValores();
     }, [filtroColecionadorSwitch, 
         filtroPromocaoSwitch, 
         filtroDestaqueSwitch, 
-        filtroPreco])
+        filtroPreco,
+        filtroEmpresa])
 
 
     function filtrarResultados() {
@@ -45,13 +46,6 @@ export default function Catalogo() {
             filtro = filtro.filter(item => item.BT_DESTAQUE == true)
         }
 
-        setList(filtro);
-    }
-
-    function FiltrarValores(){
-
-        let filtro = [...backupArr];
-
         if(filtroPreco.inicial !== '' && filtroPreco.final !== ''){
             filtro =  filtro.filter(item => item.BT_PROMOCAO == true && 
                 item.VL_PRECO_PROMOCIONAL >= filtroPreco.inicial && 
@@ -62,11 +56,13 @@ export default function Catalogo() {
                 
         }
 
+        if(filtroEmpresa !== 'Empresa'){
+            filtro = filtro.filter(item => item.NM_FABRICANTE == filtroEmpresa)
+        }
+
+
         setList(filtro);
-
     }
-
-
 
 
 
@@ -105,6 +101,8 @@ export default function Catalogo() {
 
     function OrdMenoresPrecos(){
 
+        setOrdenacaoSwitch(!ordenacaoSwitch)
+
         const menoresPrecos = [...list].sort((a,b) => {
             
             if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL
@@ -128,10 +126,6 @@ export default function Catalogo() {
     }
     function FiltroDestaque() {
         setFiltroDestaqueSwitch(!filtroDestaqueSwitch);
-    }
-
-    function FiltroPromocao() {
-        setFiltroPromocaoSwitch(!filtroPromocaoSwitch);
     }
 
     
@@ -159,6 +153,7 @@ export default function Catalogo() {
                     FiltroPromocao={FiltroPromocao}
                     FiltroDestaque={FiltroDestaque}
                     setFiltroPreco ={setFiltroPreco}
+                    setFiltroEmpresa={setFiltroEmpresa}
 
                 >
                 </FiltroCtlg>

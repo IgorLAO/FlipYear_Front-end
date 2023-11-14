@@ -6,7 +6,9 @@ import Butao from './butao/butao';
 import ListaFiltro from './lista/lista';
 import ValoresFiltro from './valores/valores';
 
-export default function Filtro({setPopUpFiltro}) {
+export default function Filtro(props) {
+
+    const {setPopUpFiltro} = props;
 
     return (
         <>
