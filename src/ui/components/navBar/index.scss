@@ -61,7 +61,7 @@
             width: 100%;
 
             input {
-                width: 75%;
+                width: 100%;
                 border: none;
                 outline: none;
             }
@@ -79,6 +79,7 @@
     .Options {
         display: flex;
         flex-direction: row;
+        
         img {
             margin: 5px;
 
@@ -92,33 +93,59 @@
 
 }
 
+@media (max-width: 1280px) {
+    .Nav {
+        .Options {
+            width: 15vh;
+            padding-left: 1vh;
+            #menu{
+                display: none;
+                
+            }
+            img {
+                display: flex;
+                margin-left: -0vh;
+               
+            }
+            
+        }
+    }
+}
+
+
 
 
 @media (max-width: 768px) {
     .Nav {
-        width: 83.5vh;
+        width: 81.9vh;
         padding-left: 10vh;
         .Logo {
+            display: none;
             .h3 {
                 .h1 {
                     font-size: 1px;
                 }
             }
         }
-
         .SearchBox{
             display: flex;
             padding-left: 5vh;
-        }
-
-        .Options {
-            .img {
-                height: 5px;
-                width: 5px;
+            .boxInput{
+                width: 40vh;
+                margin-left: 7vh;
             }
-
+        }
+        .Options {
             width: 30vh;
             padding-left: 7vh;
+            #menu{
+                display: flex;
+                margin-left: 16vh;
+            }
+            img {
+                display: none;
+            }
+            
         }
     }
 }
@@ -127,11 +154,10 @@
 
 @media (max-width: 414px) {
     .Nav {
-        
-        width: 60vh;
+        width: 96%;
         padding-right: 25vh;
         .Logo {
-            
+            display: none;
             margin-left: -80px ;
             padding: 0px 10px 0px 0px;
             .h3 {
@@ -139,27 +165,27 @@
                     font-size: 1px;
                 }
             }
-            
         }
-
         .SearchBox{
             margin-left: 10px;
-            padding-left: 0px 0px 0px 0px;
-           
-            width: 300px;
+            padding-left: 0px;
+            display: flex;
+            width: 20vh;
+            .boxInput{
+                width: 30vh;
+                margin-left: -50px;
+            }
         }
-
         .Options {
-            
             padding: 0px;
             margin-left: 50px;
-            
-            .img {
-                height: 5px;
-                width: 5px;
-                
+            #menu{
+                display: flex;
+                margin-left: 30px;
             }
-
+            img{
+                display: none;
+            }
             width: 30vh;
         }
     }

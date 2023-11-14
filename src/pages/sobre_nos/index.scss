@@ -84,14 +84,14 @@
     }
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1280px) {
     .container_sobrenos {
-        width: 145.1vh;
+        width: 137.7vh;
         .conteudo {
             display: flex;
             flex-direction: row;
             margin: -130px -7px;
-            width: 139vh;
+            width: 130vh;
             
 
             .descricao {
@@ -111,12 +111,12 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 83.6vh;
+        width: 82vh;
         .conteudo {
             display: flex;
             flex-direction: column;
             margin: -130px -20px;
-            width:78vh;
+            width:75.3vh;
 
             .descricao {
                 font-size: 15px;
@@ -128,6 +128,7 @@
             .container_perfil{
                 .sw{
                     margin-top: -20px;
+                    width: 400px;
                 }
             }
             
@@ -139,16 +140,16 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 60vh;
+        width: 96%;
         .conteudo {
-            width: 54vh;
+            width: 39vh;
             flex-direction: column;
             margin: -130px -25px;
 
             .descricao {
                 font-size: 10px;
                 width: 45vh;
-                margin: 20px 50px;
+                margin: 20px 0px;
             }
 
             .container_perfil{
