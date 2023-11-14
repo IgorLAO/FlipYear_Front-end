@@ -34,9 +34,9 @@ export default function JaoCard() {
                     <p>Ben 10 Protector of the Earth</p>
 
                     <header className='H2'>
-                        <h4>Memoria</h4>
+                        <h4>Memória</h4>
                     </header>
-                    <p>DEV FODA MUITI KKKKKKK OIAsdasddasdaKAsdKK OIAsdasddasadassadsdaSdaASdK OIAsdasddasdaasdsdaKKK OIAsdasddasdaA ELAAAA</p>
+                    <p>Jogar Chrono Trigger com o primo na casa da minha tia. (Não emulei o Super Nintendo, confia!)</p>
                 </div>
 
                 <div className='AirLine'>

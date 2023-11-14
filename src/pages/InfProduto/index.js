@@ -18,7 +18,7 @@ import Produtos from '../../ui/components/produtos'
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage} from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -34,10 +34,11 @@ export default function InfProduto() {
     const [pageComments, setPageComments] = useState(1);
     const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
-    const [parcela, SetParcela] = useState(0)    
+    const [parcela, SetParcela] = useState(0)
     const [produto, setProduto] = useState({});
     const [carrinho, setCarrinho] = useState([]);
     const { idParam } = useParams();
+    const [idproduto, SetIdproduto] = useState(0)
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
@@ -56,13 +57,17 @@ export default function InfProduto() {
 
     async function GetComments() {
         let res = await GetCmtsPage(pageComments);
-        setComments(res.data);
+        //setComments(res.data);
+        SetIdproduto(res.data.PRODUTO)
         console.log(comments)
     }
 
     async function GetAllComments() {
         let res = await GetAllCmts();
         let t = (res.data);
+
+        setComments(t)
+
         let a = t.length
 
         let c = a / comments.length
@@ -108,11 +113,11 @@ export default function InfProduto() {
         GetComments()
         GetAllProduttc()
         GetAllComments()
-    }, [pageProducts, pageComments]);
+    }, [pageProducts, pageComments, parcela]);
 
     return (
         <div className="pagina-produto">
-            <NavBar/>
+            <NavBar />
             <div className="infos">
                 <div className="txt-img">
                     <div className="imgs-produto">
@@ -153,7 +158,7 @@ export default function InfProduto() {
 
                     <div className="preco">
                         <h2>R${produto.VL_PRECO}</h2>
-                        <p>Ou 10x de 100{}</p>
+                        <p>Ou 10x de {parcela}</p>
                         <div></div>
                     </div>
 
@@ -233,14 +238,22 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-                {comments.map((item) =>
-                    <Comments
-                        Nome={item.NOME}
-                        Data={item.PUBLICACAO}
-                        Conteudo={item.COMENTARIO}
-                        Likes={item.LIKES}
-                    />
-                )}
+            {
+                <div>
+                    {comments.map((item) =>
+                        <Comments
+                            Nome={item.NOME}
+                            Produto={item.PRODUTO}
+                            Data={item.PUBLICACAO}
+                            Conteudo={item.COMENTARIO}
+                            Likes={item.LIKES}
+                            idParam={idParam}
+                        />
+                    )}
+                </div>
+                
+            }              
+            
                 <div className="setas">
                     <h2 id="seta" onClick={prevPagComments} style={{ fontSize: 70 }} > {'<'} </h2>
                     <h2 id="seta" onClick={nextPagComments} style={{ fontSize: 70 }} > {'>'} </h2>
@@ -257,8 +270,8 @@ export default function InfProduto() {
 
                 <div className="products">
 
-                    <Produtos products={allProducts}/>
-                    
+                    <Produtos products={allProducts} />
+
 
                 </div>
             </div>
