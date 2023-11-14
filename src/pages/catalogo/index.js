@@ -11,11 +11,16 @@ export default function Catalogo() {
 
     const [list, setList] = useState([]);
     const [backupArr, setBackupArr] = useState([]);
+    const [prodPorPag, setProdPorPag] = useState(18);
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const [setaAvancar, setSetaAvancar] = useState(true);
+    const [setaRetornar, setSetaRetornar] = useState(false);
+
+
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
     const [filtroDestaqueSwitch, setFiltroDestaqueSwitch] = useState(false);
     const [filtroEmpresa, setFiltroEmpresa] = useState('Empresa');
-    const [ordenacaoSwitch, setOrdenacaoSwitch] = useState(false);
     const [filtroPreco, setFiltroPreco] = useState({
         inicial: '',
         final: ''
@@ -23,13 +28,7 @@ export default function Catalogo() {
 
 
 
-    useEffect(() => {
-        filtrarResultados();
-    }, [filtroColecionadorSwitch, 
-        filtroPromocaoSwitch, 
-        filtroDestaqueSwitch, 
-        filtroPreco,
-        filtroEmpresa])
+
 
 
     function filtrarResultados() {
@@ -101,7 +100,6 @@ export default function Catalogo() {
 
     function OrdMenoresPrecos(){
 
-        setOrdenacaoSwitch(!ordenacaoSwitch)
 
         const menoresPrecos = [...list].sort((a,b) => {
             
@@ -133,6 +131,59 @@ export default function Catalogo() {
         GetProds();
     }, [])
 
+    useEffect(() => {
+        filtrarResultados();
+    }, [filtroColecionadorSwitch, 
+        filtroPromocaoSwitch, 
+        filtroDestaqueSwitch, 
+        filtroPreco,
+        filtroEmpresa]);
+
+
+        const indexUltimoProd = paginaAtual * prodPorPag;
+        const indexPrimeiroProd = indexUltimoProd - prodPorPag;
+        const prodsAtuais =  list.slice(indexPrimeiroProd, indexUltimoProd);
+        const numPagina = [];
+
+        for(let i = 1; i <= Math.ceil(list.length / prodPorPag); i++){
+            numPagina.push(i)
+        }
+
+
+
+        useEffect(() => {
+            // Lógica a ser executada após a atualização de estados
+            if (paginaAtual !== 1) {
+              setSetaRetornar(true);
+            } else {
+              setSetaRetornar(false);
+            }
+        
+            if (paginaAtual === numPagina.length) {
+              setSetaAvancar(false);
+            } else {
+              setSetaAvancar(true);
+            }
+          }, [paginaAtual, numPagina.length]);
+        
+          const paginar = (item) => {
+            setPaginaAtual(item);
+          };
+        
+          const Avancar = () => {
+            if (paginaAtual < numPagina.length) {
+              setPaginaAtual((prevPagina) => prevPagina + 1);
+            }
+          };
+        
+          const Retornar = () => {
+            if (paginaAtual > 1) {
+              setPaginaAtual((prevPagina) => prevPagina - 1);
+            }
+          };
+
+
+      
 
 
 
@@ -159,7 +210,7 @@ export default function Catalogo() {
                 </FiltroCtlg>
 
                 <div className='produtos-result'>
-                    {list.map((item) => <>
+                    {prodsAtuais.map((item) => <>
 
                         <CardProdutoCtlg
                             preco={item.VL_PRECO}
@@ -181,21 +232,38 @@ export default function Catalogo() {
 
                 </div>
 
-
                 <div className='paginacao'>
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
-                    <p>6</p>
-                    <p>7</p>
-                    <p> {">"} </p>
-                </div>
 
-                </div>
+                    {
+                        (setaRetornar == true)
+
+                        ?<p onClick={Retornar}> {"<"} </p>
+                        :<></>
+
+                    }
                 
 
+                    {numPagina.map(item =>
+
+                        <p onClick={() => paginar(item)}>{item}</p>
+                    )}
+
+                    {
+                        (setaAvancar == true)
+                        ?<p onClick={Avancar}> {">"} </p>
+                        :<></>
+
+                    }
+ 
+                   
+                   
+
+                </div>                
+
+                </div>
+                        
+
+                
                 <Rodape></Rodape>
 
         </>
