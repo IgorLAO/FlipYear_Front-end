@@ -28,11 +28,8 @@ export default function Rodape() {
     function catalogo() {
         navigate('/catalogo');
     }
-    function teste() {
-        navigate('/sobrenos');
-    }
-    function teste() {
-        navigate('/sobrenos');
+    function login() {
+        navigate('/login');
     }
     return (
         <>
@@ -42,8 +39,8 @@ export default function Rodape() {
                         <h1>CONTEÚDO</h1>
 
                         <a onClick={suporte}>Suporte</a>
-                        <a>Minha Conta</a>
-                        <a onClick={sobrenos} >Sobre Nós</a>
+                        <a onClick={login}> Minha Conta</a>
+                        <a onClick={sobrenos}>Sobre Nós</a>
                         <a onClick={catalogo}>Catálogo</a>
 
                     </div>
