@@ -27,59 +27,67 @@ export default function Comments(props) {
 
     }
 
-    function Publicacao(){
+    function Publicacao() {
         const publicacao = new Date(props.Data)
         const FixedData = moment(publicacao).format('DD/MM/YYYY');
         setDataPublicacao(FixedData)
     }
 
-    useEffect(() =>{
+    useEffect(() => {
         Publicacao()
     }, [dataPublicacao])
 
     return (
         <div className='Comment'>
 
-                {(popUpPefil)
-                ? <PopUpPerfil/> 
+            {(popUpPefil)
+                ? <PopUpPerfil />
                 : <></>}
 
-            <div className="comment-block">
-                
-                <div className="comments">
-                    <div className="comment-box">
-                        <div className="content">
-                            <div className="img-perfil">
-                                <img onClick={mostrarPopUpPerfil} src={Usuario} alt="" />
-                            </div>
+            
+            <div>
+                {props.Produto == props.idParam
 
-                            <div className="txt-comment">
-                                <div className="username">
-                                    <h2>{props.Nome}</h2>
-                                    <span>{dataPublicacao}</span>
+                    ? <div className="comment-block">
+
+                        <div className="comments">
+                            <div className="comment-box">
+                                <div className="content">
+                                    <div className="img-perfil">
+                                        <img onClick={mostrarPopUpPerfil} src={Usuario} alt="" />
+                                    </div>
+
+                                    <div className="txt-comment">
+                                        <div className="username">
+                                            <h2>{props.Nome}</h2>
+                                            <span>{dataPublicacao}</span>
+                                        </div>
+
+                                        <div className="comment">
+                                            <p>{props.Conteudo}</p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="comment">
-                                    <p>{props.Conteudo}</p>
+                                <div className="resposta-area">
+                                    <div className="likes-button">
+                                        <img src={estrela} alt="" />
+                                        <h4>X{props.Likes}</h4>
+                                        <button>Responder</button>
+                                    </div>
+
+                                    <div className="show-answers">
+                                        <a>  {'>'} </a>
+                                        <a>2 Respostas</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="resposta-area">
-                            <div className="likes-button">
-                                <img src={estrela} alt="" />
-                                <h4>X{props.Likes}</h4>
-                                <button>Responder</button>
-                            </div>
-
-                            <div className="show-answers">
-                                <a>  {'>'} </a>
-                                <a>2 Respostas</a>
-                            </div>
-                        </div>
+                        <img id="red-flag" src={flag} alt="" onClick={() => setIsHideReportPopUp(true)} />
                     </div>
-                </div>
-                <img id="red-flag" src={flag} alt="" onClick={() => setIsHideReportPopUp(true)} />
+
+                    : <></>
+                }
             </div>
         </div>
     )
