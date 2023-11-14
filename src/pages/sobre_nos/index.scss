@@ -119,10 +119,11 @@
             flex-direction: column;
             margin: -130px -20px;
             width:75.3vh;
+            height: 97vh;
 
             .descricao {
                 font-size: 15px;
-                width: 56vh;
+                width: 65vh;
                 padding-left: 8vh;
                 margin-top: 0vh;
             }
@@ -147,16 +148,17 @@
             width: 39vh;
             flex-direction: column;
             margin: -130px -25px;
+            height: 85vh;
 
             .descricao {
                 font-size: 10px;
-                width: 45vh;
-                margin: 20px 0px;
+                width: 46vh;
+                margin: -90px 0px;
             }
 
             .container_perfil{
                 .sw{
-                    margin-top: -70px;
+                    margin-top: 50px;
                     width: 37vh;
                 }
             }
