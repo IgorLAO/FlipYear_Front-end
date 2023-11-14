@@ -15,7 +15,7 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
-        margin-left: -50vh;
+        margin-left: -47vh;
         height: 900px;
         width: 100%;
 
@@ -90,8 +90,10 @@
         .conteudo {
             display: flex;
             flex-direction: row;
-            margin: -130px -7px;
+            margin-top: -130px;
             width: 130vh;
+            margin-left: -15px;
+            height: 87vh;
             
 
             .descricao {
@@ -117,10 +119,11 @@
             flex-direction: column;
             margin: -130px -20px;
             width:75.3vh;
+            height: 97vh;
 
             .descricao {
                 font-size: 15px;
-                width: 56vh;
+                width: 65vh;
                 padding-left: 8vh;
                 margin-top: 0vh;
             }
@@ -145,16 +148,17 @@
             width: 39vh;
             flex-direction: column;
             margin: -130px -25px;
+            height: 85vh;
 
             .descricao {
                 font-size: 10px;
-                width: 45vh;
-                margin: 20px 0px;
+                width: 46vh;
+                margin: -90px 0px;
             }
 
             .container_perfil{
                 .sw{
-                    margin-top: -70px;
+                    margin-top: 50px;
                     width: 37vh;
                 }
             }
