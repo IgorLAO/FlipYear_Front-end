@@ -15,7 +15,7 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
-        margin-left: -50vh;
+        margin-left: -47vh;
         height: 900px;
         width: 100%;
 
@@ -90,8 +90,11 @@
         .conteudo {
             display: flex;
             flex-direction: row;
-            margin: -130px -7px;
+            margin-top: -130px;
             width: 130vh;
+            border: red solid;
+            margin-left: -15px;
+            height: 87vh;
             
 
             .descricao {
