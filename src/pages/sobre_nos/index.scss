@@ -15,7 +15,7 @@
         background-color: #122833;
         border-radius: 15px;
         padding: 80px;
-        margin-left: -50vh;
+        margin-left: -47vh;
         height: 900px;
         width: 100%;
 
@@ -84,14 +84,16 @@
     }
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1280px) {
     .container_sobrenos {
-        width: 145.1vh;
+        width: 137.7vh;
         .conteudo {
             display: flex;
             flex-direction: row;
-            margin: -130px -7px;
-            width: 139vh;
+            margin-top: -130px;
+            width: 130vh;
+            margin-left: -15px;
+            height: 87vh;
             
 
             .descricao {
@@ -111,16 +113,17 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 83.6vh;
+        width: 82vh;
         .conteudo {
             display: flex;
             flex-direction: column;
             margin: -130px -20px;
-            width:78vh;
+            width:75.3vh;
+            height: 97vh;
 
             .descricao {
                 font-size: 15px;
-                width: 56vh;
+                width: 65vh;
                 padding-left: 8vh;
                 margin-top: 0vh;
             }
@@ -128,6 +131,7 @@
             .container_perfil{
                 .sw{
                     margin-top: -20px;
+                    width: 400px;
                 }
             }
             
@@ -139,21 +143,22 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 60vh;
+        width: 96%;
         .conteudo {
-            width: 54vh;
+            width: 39vh;
             flex-direction: column;
             margin: -130px -25px;
+            height: 85vh;
 
             .descricao {
                 font-size: 10px;
-                width: 45vh;
-                margin: 20px 50px;
+                width: 46vh;
+                margin: -90px 0px;
             }
 
             .container_perfil{
                 .sw{
-                    margin-top: -70px;
+                    margin-top: 50px;
                     width: 37vh;
                 }
             }

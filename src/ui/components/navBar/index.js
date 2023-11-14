@@ -23,7 +23,7 @@ import FiltroCard from "../filtro";
 
 import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
-
+import Menu from "../../assets/images/Vector.png";
 
 export default function NavBar() {
     const navigate = useNavigate('');
@@ -84,6 +84,10 @@ export default function NavBar() {
 
     function HandleHide() {
         document.getElementById("sR").style.display = "none"
+    }
+
+    function Navsuport() {
+        navigate('/Suporte')
     }
 
     useEffect(() => {
@@ -163,7 +167,8 @@ export default function NavBar() {
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
                     <CartStatus mostrarCarrinho={mostrarCarrinho}/>
-                    <img src={Suporte} />
+                    <img onClick={Navsuport} src={Suporte} />
+                    <img id="menu" src={Menu}/>
                 </span>
 
 

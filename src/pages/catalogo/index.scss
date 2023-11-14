@@ -85,6 +85,33 @@
     
     
     }
+
+    .paginacao{
+    
+        display: flex;
+        flex-direction: row;
+    
+        margin-top: 105px;
+        margin-bottom: 105px;
+    
+    }
+    .paginacao p {
+    
+        font-family: 'flipFont';
+        color: white;
+        margin: 15px;
+        font-size: 16px;
+    
+    
+    
+    
+    }
+    
+    .paginacao p:hover{
+    
+        cursor: pointer;
+    
+    }
     
     .ctlg {
     
@@ -112,31 +139,7 @@
     
     
     }
-    .paginacao{
-    
-        display: flex;
-        flex-direction: row;
-    
-        margin-top: 105px;
-        margin-bottom: 105px;
-    
-    }
-    .paginacao p {
-    
-        font-family: 'flipFont';
-        color: white;
-        margin: 15px;
-    
-    
-    
-    
-    }
-    
-    .paginacao p:hover{
-    
-        cursor: pointer;
-    
-    }
+
     
     .resultados-ctlg{
     
