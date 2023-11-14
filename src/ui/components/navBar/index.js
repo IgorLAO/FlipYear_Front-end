@@ -86,6 +86,10 @@ export default function NavBar() {
         document.getElementById("sR").style.display = "none"
     }
 
+    function Navsuport() {
+        navigate('/Suporte')
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             if (tamanhoSearch > 0) {
@@ -163,7 +167,7 @@ export default function NavBar() {
                 <span className="Options">
                     <img src={Usuario} onClick={Mostrar} />
                     <CartStatus mostrarCarrinho={mostrarCarrinho}/>
-                    <img src={Suporte} />
+                    <img onClick={Navsuport} src={Suporte} />
                     <img id="menu" src={Menu}/>
                 </span>
 
