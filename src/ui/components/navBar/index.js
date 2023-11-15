@@ -1,6 +1,5 @@
 import "./index.scss";
 
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -64,8 +63,8 @@ export default function NavBar() {
         setTamanhoSearch(e.target.value.length)
 
 
-    
-        }
+
+    }
 
     const NavTo = (e) => {
 
@@ -95,27 +94,28 @@ export default function NavBar() {
             if (tamanhoSearch > 0) {
                 let res = await GetSearchProd(SearchValue);
                 if (res !== 'nada') {
-                  SetSearchRes(res.data);
-                  document.getElementById('sR').style.display = 'flex';
-                  setIshideNotFound(false)
+                    SetSearchRes(res.data);
+                    document.getElementById('sR').style.display = 'flex';
+                    setIshideNotFound(false);
+
                 } else {
-                  setIshideNotFound(true);
-                  console.log(IshideNotFound + 'pinto')
-                  SetSearchRes([]);
+                    setIshideNotFound(true);
+                    console.log(IshideNotFound + 'pinto')
+                    SetSearchRes([]);
                 }
-      
+
             }
 
-            else if(tamanhoSearch == 0){
+            else if (tamanhoSearch == 0) {
                 setIshideNotFound(false);
                 SetSearchRes([]);
                 document.getElementById('sR').style.display = 'none'
 
             }
-          };
-      
-          fetchData();
-        
+        };
+
+        fetchData();
+
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
 
@@ -123,13 +123,30 @@ export default function NavBar() {
         <>
 
             <div className="Nav">
+                <header className="">
+                    <div onClick={NavToHome} className="Logo">
+                        <img src={LogoArcade} />
+                        <h3> Flip-Year
+                            <h1>2000</h1>
+                        </h3>
+                    </div>
+                    <span className="Options">
+                        <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                        <img id="menu" src={Menu} onClick={() => {
+                            const element = document.getElementById('respOP');
+                            const elementMenu = document.getElementById('menu');
+                            if (element.style.display == 'flex') { element.style.display = 'none'; elementMenu.classList.add = 'mostrar' }
+                            else { element.style.display = 'flex' }
 
-                <div onClick={NavToHome} className="Logo">
-                    <img src={LogoArcade} />
-                    <h3> Flip-Year
-                        <h1>2000</h1>
-                    </h3>
-                </div>
+                        }} />
+                        <span id="respOP" style={{ display: 'none' }}>
+                            <img src={Usuario} onClick={Mostrar} />
+                            <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                            <img onClick={Navsuport} src={Suporte} />
+                        </span>
+                    </span>
+
+                </header>
 
                 <span className="SearchBox">
                     <span className="boxInput">
@@ -160,23 +177,22 @@ export default function NavBar() {
 
                     }
                 </span>
-                <span className="Options">
+                <span id="op" className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <CartStatus mostrarCarrinho={mostrarCarrinho}/>
+                    <CartStatus mostrarCarrinho={mostrarCarrinho} />
                     <img onClick={Navsuport} src={Suporte} />
-                    <img id="menu" src={Menu}/>
                 </span>
 
 
                 {
                     (menuLateralHidden === true)
-                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarFazerConta>
+                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} />
                         : <></>
 
                 }
                 {
                     (logado === true)
-                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado> : <></>
+                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} /> : <></>
                 }
 
                 {
@@ -194,24 +210,16 @@ export default function NavBar() {
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
-
-            {
-                    (IshideNotFound == true )
-                    ?<SearchCard_NotFound/>
-                    : <></>
+                {
+                    (IshideNotFound == true)
+                        ? <SearchCard_NotFound />
+                        : <></>
                 }
-                
+
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
-
-
-
-
-
             </div>
-
-
         </>
     )
 }

@@ -27,21 +27,21 @@
       .texts {
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: 90%;
         color: #346856;
         padding: 50px;
 
 
         h1 {
           font-size: 30px;
-          width: 700px;
+          width: 80%;
           margin-bottom: 70px;
           line-height: 35px;
         }
 
         a {
           font-size: 12px;
-          width: 500px;
+          width: 90%;
           line-height: 17px;
           margin-bottom: 50px;
         }
@@ -214,7 +214,7 @@
       margin-bottom: 10px;
     }
 
-    .block {
+    .block2 {
       display: flex;
       justify-content: space-between;
       background-color: #fff;
@@ -295,9 +295,56 @@
   }
 
   .produtos {
-
     .swiper {
       width: 100%;
     }
   }
+
+}
+
+@media (max-width: 750px) {
+  .App {
+
+    .s1 {
+      .block {
+        .texts {
+          width: 100%;
+          padding: 0;
+
+          h1 {
+            font-size: 25px !important;
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+        .imgs {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+  .App {
+
+    .s1 {
+      .block {
+        .texts {
+          padding: 0;
+
+          h1 {
+            font-size: 15px;
+          }
+        }
+
+        .imgs {
+          display: none;
+        }
+      }
+    }
+  }
+
 }

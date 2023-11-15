@@ -1,5 +1,4 @@
 
-
 .container_rodape{
 
     font-family: fonte;
@@ -169,27 +168,5 @@
 
 }
 
-
-@font-face {
-    font-family: fonte;
-    src: url('../../../ui/assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
-}
-
-@media (max-width: 768px) {
-    .container_rodape{
-        width: 82vh;
-    }
-}
-
-@media (max-width: 414px) {
-    .container_rodape{
-        width: 96%;
-        .cert_seguranca{
-            img{
-                margin-left: -20px;
-            }
-        }
-    }
-}
 
 

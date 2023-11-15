@@ -1,19 +1,20 @@
 import './index.scss';
-import ZAP from '../../assets/images/rodape_assets/whatsapp.png'
-import Tel from '../../assets/images/rodape_assets/telefone.png'
-import Email from '../../assets/images/rodape_assets/email.png'
-import CertSeg from '../../assets/images/rodape_assets/protection_logo.png'
-import Visa from '../../assets/images/rodape_assets/visa.png'
-import MercadoPago from '../../assets/images/rodape_assets/mercado_pago.png'
-import MasterCard from '../../assets/images/rodape_assets/mastercard.png'
-import HyperCard from '../../assets/images/rodape_assets/hypercard.png'
-import Pix from '../../assets/images/rodape_assets/pix.png'
-import Boleto from '../../assets/images/rodape_assets/boleto.png'
-import Youtube from '../../assets/images/rodape_assets/youtube_logo.png'
-import Instagram from '../../assets/images/rodape_assets/instagram_logo.png'
-import Facebook from '../../assets/images/rodape_assets/facebook_logo.png'
 
-import { useNavigate } from 'react-router-dom'
+import ZAP from '../../assets/images/rodape_assets/whatsapp.png';
+import Tel from '../../assets/images/rodape_assets/telefone.png';
+import Email from '../../assets/images/rodape_assets/email.png';
+import CertSeg from '../../assets/images/rodape_assets/protection_logo.png';
+import Visa from '../../assets/images/rodape_assets/visa.png';
+import MercadoPago from '../../assets/images/rodape_assets/mercado_pago.png';
+import MasterCard from '../../assets/images/rodape_assets/mastercard.png';
+import HyperCard from '../../assets/images/rodape_assets/hypercard.png';
+import Pix from '../../assets/images/rodape_assets/pix.png';
+import Boleto from '../../assets/images/rodape_assets/boleto.png';
+import Youtube from '../../assets/images/rodape_assets/youtube_logo.png';
+import Instagram from '../../assets/images/rodape_assets/instagram_logo.png';
+import Facebook from '../../assets/images/rodape_assets/facebook_logo.png';
+
+import { useNavigate } from 'react-router-dom';
 
 export default function Rodape() {
 

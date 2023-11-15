@@ -45,6 +45,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+
       <section className='s1'>
         <div className='block'>
           <div className='texts'>
@@ -88,16 +89,16 @@ function App() {
 
         <span className='cover3' id='covers'>
           <a> Nos Conheça </a>
-        
-          <button onClick={() =>{ navigate('/sobrenos')}}>
+
+          <button onClick={() => { navigate('/sobrenos') }}>
             SOBRE NOS
-            </button>
+          </button>
         </span>
       </section>
 
       <section className='s3'>
         <h2> Raridade no pedaço!!! </h2>
-        <div className='block'>
+        <div className='block2'>
           <span className='texts'>
             <h1> Castlevania Symphony of the Night Akumajo Dracula X  </h1>
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
