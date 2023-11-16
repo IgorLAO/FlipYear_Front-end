@@ -92,6 +92,11 @@
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .Nav{
+        width: 95.6%;
+    }
+}
 
 
 @media (max-width: 600px) {
@@ -169,3 +174,20 @@
         }
     }
 }
+
+@media (max-width: 414px) {
+    .Nav{
+        width: 95.7%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
