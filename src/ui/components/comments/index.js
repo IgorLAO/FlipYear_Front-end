@@ -34,6 +34,7 @@ export default function Comments(props) {
     }
 
     useEffect(() => {
+        console.log(props.PRODUTO)
         Publicacao()
     }, [dataPublicacao])
 

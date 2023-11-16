@@ -30,15 +30,67 @@ export default function InfProduto() {
     const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
     const [comments, setComments] = useState([]);
-    const [allComments, setAllComments] = useState([])
-    const [pageComments, setPageComments] = useState(1);
-    const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
     const [parcela, SetParcela] = useState(0)
     const [produto, setProduto] = useState({});
-    const [carrinho, setCarrinho] = useState([]);
     const { idParam } = useParams();
-    const [idproduto, SetIdproduto] = useState(0)
+
+    const [commentsPagAtual, setCommentsPagAtual] = useState(1)
+    const [commentsPerPag, setCommentsPerPag] = useState(4)
+    const [setaAvancarComments, setSetaAvancarComments] = useState(true)
+    const [setaRetornarComments, setSetaRetornarComments] = useState(false)
+    const [commentsProd, setCommentsProd] = useState([])
+
+    const indexUltimoComment = commentsPagAtual * commentsPerPag;
+    const indexPrimeiroComments = indexUltimoComment - commentsPerPag;
+    const commentsAtuais = commentsProd.slice(indexPrimeiroComments, indexUltimoComment)
+    const numPagComments = []
+
+    for(let i = 1; i <= Math.ceil(commentsProd.length / commentsPerPag); i++){
+        numPagComments.push(i)
+    }
+
+    function sla(){
+        if(comments.PRODUTO === idParam){
+            setCommentsProd([...comments])
+        }
+
+    }
+
+    useEffect(() => {
+        sla()
+
+
+        if (commentsPagAtual !== 1) {
+          setSetaRetornarComments(true);
+        } else {
+          setSetaRetornarComments(false);
+        }
+    
+        if (commentsAtuais === numPagComments.length) {
+          setSetaAvancarComments(false);
+        } else {
+          setSetaAvancarComments(true);
+        }
+      }, [commentsAtuais, numPagComments.length]);
+    
+      const paginarComments = (item) => {
+        setCommentsPagAtual(item);
+      };
+    
+      const AvancarComments = () => {
+        if (commentsPagAtual < numPagComments.length) {
+          setCommentsPagAtual((prevPag) => prevPag + 1);
+        }
+      };
+    
+      const RetornarComments = () => {
+        if (commentsPagAtual > 1) {
+          setCommentsPagAtual((prevPag) => prevPag - 1);
+        }
+      };
+
+
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
@@ -55,35 +107,12 @@ export default function InfProduto() {
     }
     //peguei o id_produto do catálogo e joguei aqui
 
-    async function GetComments() {
-        let res = await GetCmtsPage(pageComments);
-        //setComments(res.data);
-        SetIdproduto(res.data.PRODUTO)
-        console.log(comments)
-    }
 
     async function GetAllComments() {
         let res = await GetAllCmts();
         let t = (res.data);
 
         setComments(t)
-
-        let a = t.length
-
-        let c = a / comments.length
-        setAllComments(c);
-    }
-
-    function nextPagComments() {
-        if (pageComments <= allComments) {
-            setPageComments(pageComments + 1)
-        }
-    }
-
-    function prevPagComments() {
-        if (pageComments > 1) {
-            setPageComments(pageComments - 1)
-        }
     }
 
 
@@ -110,10 +139,9 @@ export default function InfProduto() {
     useEffect(() => {
         CarregarProdutos();
         parcelas()
-        GetComments()
         GetAllProduttc()
         GetAllComments()
-    }, [pageProducts, pageComments, parcela]);
+    }, [parcela]);
 
     return (
         <div className="pagina-produto">
@@ -238,7 +266,7 @@ export default function InfProduto() {
                     <input type="text" placeholder="Deixe um comentário" />
                 </div>
 
-            {
+            
                 <div>
                     {comments.map((item) =>
                         <Comments
@@ -252,11 +280,32 @@ export default function InfProduto() {
                     )}
                 </div>
                 
-            }              
+                          
             
                 <div className="setas">
-                    <h2 id="seta" onClick={prevPagComments} style={{ fontSize: 70 }} > {'<'} </h2>
-                    <h2 id="seta" onClick={nextPagComments} style={{ fontSize: 70 }} > {'>'} </h2>
+
+                        {
+                            (setaRetornarComments == true)
+
+                            ? <h2 id="seta" onClick={RetornarComments} style={{ fontSize: 70 }} > {'<'} </h2>
+                            :<></>
+                        }
+
+                        {numPagComments.map(item =>
+
+                            <p onClick={() => paginarComments(item)}>{item}</p>
+
+                        )}
+
+                        {
+                            (setaAvancarComments == true)
+                            ?<h2 id="seta" onClick={AvancarComments} style={{ fontSize: 70 }} > {'>'} </h2>
+                            :<></>
+                        }
+                   
+
+
+                    
                 </div>
             </div>
 
