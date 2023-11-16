@@ -21,6 +21,7 @@ import Produtos from '../../ui/components/produtos';
 function App() {
   const [mostrarDestaques, setMostrarDestaques] = useState([]);
   const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
+  const [CardResposiveLimit, setCardResposiveLimit] = useState(1);
   const [mostrarAllDestaques, setMostrarAllDestaques] = useState([])
   const navigate = useNavigate('');
 
@@ -36,9 +37,21 @@ function App() {
     }
   }
 
+  function ResposiveCards() {
+    const t = window.innerWidth
+
+    if (t < 650)
+      setCardResposiveLimit(1);
+    else setCardResposiveLimit(5);
+    
+    
+  }
+
 
   useEffect(() => {
-    ConsultaDestaqueProdutos()
+    ResposiveCards();
+    ConsultaDestaqueProdutos();
+    
   }, [])
 
 
@@ -76,7 +89,7 @@ function App() {
         <img style={{ width: 90 + '%', heigth: 100 }} src={block} />
       </section>
 
-      <section className='s2'>
+      {/* <section className='s2'>
         <span className='cover1' id='covers'>
           <a>Os melhores preços!</a>
           <button> CONFIRA </button>
@@ -94,7 +107,7 @@ function App() {
             SOBRE NOS
           </button>
         </span>
-      </section>
+      </section> */}
 
       <section className='s3'>
         <h2> Raridade no pedaço!!! </h2>
@@ -119,7 +132,11 @@ function App() {
         <h2> Em destaque </h2>
         <hr />
         <div className='produtos'>
-          <Produtos products={mostrarDestaques} />
+
+          <Produtos
+            CardResposiveLimit={CardResposiveLimit}
+            products={mostrarDestaques} />
+
         </div>
       </section>
       <Rodape />

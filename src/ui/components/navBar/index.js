@@ -43,8 +43,10 @@ export default function NavBar() {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
             setLogado(true);
         }
-        else
+        else {
+            
             setMenuLateralHidden(true);
+        }
     }
 
     function mostrarCarrinho() {
@@ -52,22 +54,17 @@ export default function NavBar() {
     }
 
     function MostrarFiltro() {
-
         setPopUpFiltro((current) => !current);
-
 
     }
 
     const GetSearchRes = async (e) => {
         setSearchValue(e.target.value);
-        setTamanhoSearch(e.target.value.length)
-
-
+        setTamanhoSearch(e.target.value.length);
 
     }
 
     const NavTo = (e) => {
-
         if (e.key === 'Enter' && tamanhoSearch > 0) {
             navigate('/search');
             localStorage('SearchValue', SearchValue);
@@ -86,7 +83,7 @@ export default function NavBar() {
     }
 
     function Navsuport() {
-        navigate('/Suporte')
+        navigate('/Suporte');
     }
 
     useEffect(() => {
@@ -131,7 +128,12 @@ export default function NavBar() {
                         </h3>
                     </div>
                     <span className="Options">
-                        <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                        {
+                            (!logado)
+                            ? <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                            :
+                            <></>
+                        }
                         <img id="menu" src={Menu} onClick={() => {
                             const element = document.getElementById('respOP');
                             const elementMenu = document.getElementById('menu');

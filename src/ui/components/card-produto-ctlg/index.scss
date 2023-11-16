@@ -1,4 +1,8 @@
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     cursor: pointer;
     background: linear-gradient(35deg, #ff0000, #00ff1b, #1800ff);
     background-size: 600% 600%;
@@ -8,9 +12,6 @@
     animation: AnimationName 5s ease infinite;
 
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 250px;
 
     font-family: 'flipFont';
@@ -20,21 +21,18 @@
     color: white !important;
     color: #252525;
 
-
     .card-prod-carrinho {
-
         width: 40px;
         height: 40px;
 
     }
 
     .card-prod-carrinho:hover {
-
         cursor: pointer;
 
     }
 
-    .menu-add-cart{
+    .menu-add-cart {
 
         display: flex;
         flex-direction: row;
@@ -42,69 +40,42 @@
     }
 
     .qtd-produtos {
-
         display: flex;
         flex-direction: row;
         align-items: center;
 
-     
-
         .hover-opt:hover {
-
             cursor: pointer;
 
         }
 
         p {
-
             font-size: 10px !important;
             padding-left: 5px;
             padding-right: 5px;
 
         }
-
-
     }
-
-
-
-
 
     .preco-produto-original {
         text-decoration: line-through;
         margin-top: 5px;
         font-size: 10px !important;
-
-
     }
 
-
-
-
-
     #cinza-pequeno {
-
         font-size: 8px;
-
-
-
     }
 
     .desc-info {
-
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
         text-align: center;
         margin-top: 5px;
-
-
     }
 
     .ponto {
-
-
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -112,9 +83,6 @@
         p {
             font-size: 10px;
         }
-
-
-
     }
 
     .nm-produto {
@@ -124,21 +92,16 @@
     }
 
     .avaliacao-decimal {
-
         font-size: 9px !important;
         margin-bottom: 5px;
         margin-top: 5px;
-        
-
 
     }
 
     .linha {
-
         margin-top: 25px;
         margin-bottom: 15px;
         width: 100%;
-
 
     }
 
@@ -149,43 +112,37 @@
         flex-direction: column;
         align-items: center;
 
-
-
     }
 
     .estrelas-linha {
-
         display: flex;
         flex-direction: row;
-
-
     }
 
-    .estrelas:hover{
-
+    .estrelas:hover {
         cursor: pointer;
 
     }
 
     .estrelas {
-
         display: flex;
         flex-direction: row;
         padding: 5px;
 
-        img{
-
+        img {
             width: 15px;
             height: 27px;
 
         }
 
-
-
     }
 
+}
 
-
+@media (max-width: 500px) {
+    .card{
+       
+    }
 }
 
 

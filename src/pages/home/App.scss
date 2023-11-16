@@ -323,6 +323,25 @@
         }
       }
     }
+   
+    .s3 {
+      .block2 {
+        .texts {
+          width: 100%;
+          padding: 0;
+
+          h1 {
+            font-size: 25px !important;
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+        .imgs {
+          display: none;
+        }
+      }
+    }
   }
 
 }
