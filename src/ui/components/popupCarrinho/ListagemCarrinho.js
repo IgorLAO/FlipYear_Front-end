@@ -2,13 +2,16 @@ import { useState, useEffect } from 'react';
 import './ListagemCarrinho.scss'
 import axios from 'axios';
 import localStorage from 'local-storage';
-
+import {  useNavigate } from 'react-router-dom';
+ 
 export default function ListagemCarrinho(props) {
 
   const [border, setBorder] = useState('none');
   const [idProduto, setIdProduto] = useState(props.idProduto);
   const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
   const [apagar, setApagar] = useState('');
+
+  const Navigate = useNavigate();
 
   const Hover = () => {
     setBorder('1px solid black');
@@ -27,6 +30,10 @@ export default function ListagemCarrinho(props) {
       throw new Error('Erro ao excluir produto:', err);
     }
   };
+
+  function PagProduto(){
+      Navigate(`/produto/${idProduto}`)
+  }
     return (<div className='lista-carrinho'>
               
               <div className='linha-produtos'
@@ -34,7 +41,7 @@ export default function ListagemCarrinho(props) {
               onMouseLeave={Unset} 
               style={{border: `${border}`}}>
               <p>{props.qtd}</p>
-              <p>{props.nome}</p>
+              <p onClick={PagProduto} id='nomeProduto'>{props.nome}</p>
             
               {
                 (props.promocao == true)

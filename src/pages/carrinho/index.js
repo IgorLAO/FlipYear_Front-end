@@ -46,7 +46,6 @@ export default function Carrinho() {
 
     useEffect(() => {
         consultaProdutos();
-
     }, []);
 
     return (
