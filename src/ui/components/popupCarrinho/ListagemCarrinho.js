@@ -3,8 +3,6 @@ import './ListagemCarrinho.scss'
 import axios from 'axios';
 import localStorage from 'local-storage';
 
-
-
 export default function ListagemCarrinho(props) {
 
   const [border, setBorder] = useState('none');
@@ -12,38 +10,23 @@ export default function ListagemCarrinho(props) {
   const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
   const [apagar, setApagar] = useState('');
 
+  const Hover = () => {
+    setBorder('1px solid black');
+    setApagar('X');
+  };
 
-    async function ApagarProduto(){
+  const Unset = () => {
+    setBorder('none');
+    setApagar('');
+  };
 
-      let local = localStorage('ADM_Logado')
-
-      let resp = await axios.delete('http://localhost:5000/carrinho/produto/'+ local.data.Id + '/' + idProduto);
-
-
-
+  const ExcluirProduto = async () => {
+    try {
+      const r = await axios.delete(`http://localhost:5000/carrinho/produto/1/${idProduto}`);
+        } catch (err) {
+      throw new Error('Erro ao excluir produto:', err);
     }
-
-
-
-    function Hover(){
-
-      setBorder('1px solid black');
-      setApagar('X');
-
-
-    }
-
-    function Unset(){
-
-
-      setBorder('none');
-      setApagar('');
-
-
-    }
-
-
-
+  };
     return (<div className='lista-carrinho'>
               
               <div className='linha-produtos'
@@ -64,7 +47,7 @@ export default function ListagemCarrinho(props) {
 
               (apagar == 'X')
 
-              ?<p className='apagar' onClick={ApagarProduto}>{apagar}</p>
+              ?<p className='apagar' onClick={ExcluirProduto}>{apagar}</p>
 
 
               :<></>
