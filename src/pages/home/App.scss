@@ -35,7 +35,6 @@
         h1 {
           font-size: 30px;
           width: 80%;
-          margin-bottom: 70px;
           line-height: 35px;
         }
 
@@ -43,13 +42,17 @@
           font-size: 12px;
           width: 90%;
           line-height: 17px;
-          margin-bottom: 50px;
+          margin-top:30px;
+          margin-left: 10px;
+          
         }
 
         .btnHome {
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-top: 5vh;
+
 
           svg {
             position: absolute;
