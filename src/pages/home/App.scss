@@ -304,15 +304,17 @@
 
 @media (max-width: 750px) {
   .App {
-
+    height: 80%;
     .s1 {
+      margin-top: -10vh;
       .block {
+        width: 40vh;
+        height: 65vh;
         .texts {
           width: 100%;
           padding: 0;
-
           h1 {
-            font-size: 25px !important;
+            font-size: 20px !important;
             width: 100%;
             text-align: center;
           }
@@ -325,7 +327,14 @@
     }
    
     .s3 {
+      h2{
+        width: 37vh;
+        margin: -7vh -5vh;
+
+      }
       .block2 {
+        width: 40vh;
+        margin-left: -8vh ;
         .texts {
           width: 100%;
           padding: 0;
@@ -367,3 +376,4 @@
   }
 
 }
+
