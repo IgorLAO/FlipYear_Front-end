@@ -44,7 +44,6 @@ export default function NavBar() {
             setLogado(true);
         }
         else {
-            
             setMenuLateralHidden(true);
         }
     }
@@ -130,9 +129,9 @@ export default function NavBar() {
                     <span className="Options">
                         {
                             (!logado)
-                            ? <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
-                            :
-                            <></>
+                                ? <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                                :
+                                <></>
                         }
                         <img id="menu" src={Menu} onClick={() => {
                             const element = document.getElementById('respOP');
@@ -172,10 +171,7 @@ export default function NavBar() {
 
                             ? <FiltroCard
                                 popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
-
                             : <></>
-
-
 
                     }
                 </span>
@@ -190,8 +186,8 @@ export default function NavBar() {
                     (menuLateralHidden === true)
                         ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} />
                         : <></>
-
                 }
+
                 {
                     (logado === true)
                         ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} /> : <></>
@@ -199,23 +195,23 @@ export default function NavBar() {
 
                 {
                     (popUpCarro === true)
-                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
+                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} /> : <></>
                 }
 
                 {(popUpCarro == true) ?
-                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} />
                     :
                     <></>
-
-
                 }
+
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
                 {
                     (IshideNotFound == true)
                         ? <SearchCard_NotFound />
-                        : <></>
+                        :
+                        <></>
                 }
 
                 {searchRes.slice(0, limit).map((i) => (

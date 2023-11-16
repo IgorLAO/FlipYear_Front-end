@@ -97,6 +97,10 @@ export default function InfProduto() {
         setProduto(resp);
     }
 
+    // async function InserirProdutoNoCarrinho(){
+    //     const resp = await InserirProdutoNoCarrinho(idproduto, idUser, qtdProduto);
+
+    // }
     function parcelas() {
         const parcela = produto.VL_PRECO / 10
         SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela));

@@ -5,7 +5,12 @@ export async function ConsultaCarrinho(){
     return resp.data
 }
 
-export async function InserirProdutoNoCarrinho(){
-    const resp = await server.post(`http://localhost:5000/carrinho`)
-    return resp
+export async function InserirProdutoNoCarrinho(idProduto, idUser, qtdProduto){
+    const resp = await server.post(`http://localhost:5000/carrinho/`, {
+        idProduto:idProduto,
+        idUser:idUser,
+        qtdProduto:qtdProduto
+    }); 
+
+    return resp;
 }

@@ -27,6 +27,7 @@ import Carrinho from './pages/carrinho';
 import SearchResults from './pages/SearchResultsPage';
 import Suporte from './pages/suporte';
 import SobreNos from './pages/sobre_nos';
+import MeusPedidos from './pages/pedidos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -63,6 +64,8 @@ root.render(
 
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/carrinho/:idParam' element={<Carrinho />} />
+
+        <Route path='/pedidos' element={<MeusPedidos />}/>  
         
         <Route path='/search' element={<SearchResults />} />
         <Route path='/Suporte' element={<Suporte />} />

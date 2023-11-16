@@ -1,6 +1,6 @@
 import './index.scss'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import localStorage from 'local-storage';
 
@@ -28,6 +28,8 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
     const [IsHideOrders, SetIsHideOrders] = useState(true);
     const [NavTo, SetNavTo] = useState(false);
     const [NomeUser, setNomeUser] = useState('');
+
+    const navigate = useNavigate();
 
     const [selectPerfil, setSelectPerfil] = useState(false);
 
@@ -229,15 +231,15 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                             ?
                             (isHideAdmOpt &&
                                 <div>
-                                    <div className='item-side-bar'
+                                    <div onClick={PagADM} className='item-side-bar'
                                         onMouseEnter={() => renderCssADM()}
                                         onMouseLeave={() => renderCssADM()}
 
-                                        style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}` }}>
+                                        style={{ backgroundColor: `${coresHover.fundo}`, color: `${coresHover.fonte}`, cursor: 'pointer' }}>
                                         <img src={User} className='adm'></img>
                                         <p >Administrador</p>
 
-                                        <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} onClick={PagADM}></img>
+                                        <img src={Seta} className='seta-baixo' style={{ transform: `rotate(${coresHover.seta}deg)` }} ></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
@@ -251,42 +253,42 @@ export default function SideBarLogado({ setMenuLateralHidden, setLogado, setFund
                             (coresHover.seta == 0)
                                 ?
                                 <div className='adm-menu'>
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Perfil de Adm</p>
                                         <img style={{width: '30px',objectFit: 'contain'}} src={User}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Produtos</p>
-                                        <img style={{width: '30px',objectFit: 'contain'}} src={produto}></img>
+                                        <img style={{width: '30px',objectFit: 'contain'}} src={produto}> </img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Usuários</p>
                                         <img style={{width: '30px',objectFit: 'contain'}} src={Users}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Estatíscas</p>
                                         <img style={{width: '40px',objectFit: 'contain'}} src={Grafico}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Pedidos</p>
                                         <img style={{width: '30px',objectFit: 'contain'}} src={Caminhao}></img>
                                     </div>
 
                                     <div className='linha-side-bar'></div>
 
-                                    <div className='rota-adm'>
+                                    <div onClick={() => navigate('/ADM_estatisticas')} className='rota-adm'>
                                         <p>Registro Produto</p>
                                         <img style={{width: '30px',objectFit: 'contain'}} src={Registro}></img>
 
