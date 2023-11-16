@@ -38,13 +38,17 @@ export default function InfProduto() {
     const [produto, setProduto] = useState({});
     const [carrinho, setCarrinho] = useState([]);
     const { idParam } = useParams();
-    const [idproduto, SetIdproduto] = useState(0)
+    const [idproduto, SetIdproduto] = useState(0);
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
     }
 
+    // async function InserirProdutoNoCarrinho(){
+    //     const resp = await InserirProdutoNoCarrinho(idproduto, idUser, qtdProduto);
+
+    // }
     function parcelas() {
         const parcela = produto.VL_PRECO / 10
         SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela));
