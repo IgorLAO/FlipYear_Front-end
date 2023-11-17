@@ -22,7 +22,7 @@ export default function Pagamento100() {
         navigate(`/catalogo`);
     }
     async function ConcluirCompra(){
-        const r = await ConsultarProdPorId
+        const r = await ConsultarProdPorId();
     }
     return (
         <>

@@ -33,7 +33,7 @@ const Cadastro = () => {
             }
             const respEndereco = await InsertEnderecos(infosEndereco);
 
-            const respImages = await axios.get('http://localhost:5000/images');
+            const respImages = await axios.get('http://129.148.42.252:5010/images');
 
             const id_endereco = respEndereco.data[0].insertId;
 
@@ -75,7 +75,7 @@ const Cadastro = () => {
         }
         const respEndereco = await InsertEnderecos(infosEndereco);
 
-        const respImages = await axios.get('http://localhost:5000/images');
+        const respImages = await axios.get('http://129.148.42.252:5010/images');
 
         const res = respEndereco.data[0].insertId;
 

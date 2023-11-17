@@ -30,7 +30,7 @@ export default function Estatisticas() {
             }
 
             console.log(Infos);
-            const d = await axios.get('http://localhost:5000/pedidosInterval', { params: Infos });
+            const d = await axios.get('http://129.148.42.252:5010/pedidosInterval', { params: Infos });
 
             setListPed(d.data);
             console.log(d.data);
