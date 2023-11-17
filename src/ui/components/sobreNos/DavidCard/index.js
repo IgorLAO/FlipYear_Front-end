@@ -1,7 +1,7 @@
 import './style.scss';
 
 
-export default function JaoCard() {
+export default function DavidCard() {
 
     return (
         <main className='Main_JaoCard'>

@@ -3,7 +3,6 @@
     height: 100%;
     position: fixed;
     z-index: 2;
-
 }
 
 .searchResults {
@@ -27,21 +26,27 @@
     width: 100%;
     z-index: 2;
 
-
-    .Logo {
+    header {
         display: flex;
-        align-items: center;
-        cursor: pointer;
 
-        img {
-            margin-right: 10px;
+        .Options {
+            display: none;
         }
 
-        color: aliceblue;
+        .Logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
 
+            img {
+                margin-right: 10px;
+            }
 
-        h1 {
-            margin-top: 5px;
+            color: aliceblue;
+
+            h1 {
+                margin-top: 5px;
+            }
         }
     }
 
@@ -54,112 +59,135 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #fff;
+            background-color: #E0F8D0;
             padding: 4px 10px 4px 10px;
             border: #000 solid;
             width: 100%;
 
             input {
-                width: 75%;
+                width: 100%;
                 border: none;
                 outline: none;
+
+                background-color: #E0F8D0;
             }
         }
 
-
         .filtro:hover {
-
             cursor: pointer;
-
-
         }
     }
 
     .Options {
         display: flex;
         flex-direction: row;
+
         img {
             margin: 5px;
-
         }
     }
 }
 
 .Options>img:hover {
-
     cursor: pointer;
-
 }
-
-
 
 @media (max-width: 768px) {
-    .Nav {
-        width: 83.5vh;
-        padding-left: 10vh;
-        .Logo {
-            .h3 {
-                .h1 {
-                    font-size: 1px;
-                }
-            }
-        }
-
-        .SearchBox{
-            display: flex;
-            padding-left: 5vh;
-        }
-
-        .Options {
-            .img {
-                height: 5px;
-                width: 5px;
-            }
-
-            width: 30vh;
-            padding-left: 7vh;
-        }
+    .Nav{
+        width: 100%;
     }
 }
 
 
-
-@media (max-width: 414px) {
+@media (max-width: 600px) {
     .Nav {
+        flex-direction: column;
+        padding: 6px;
+
+        header {
+            justify-content: space-between;
+            width: 100%;
+
+            .Logo {
+                .h3 {
+                    .h1 {
         
-        width: 60vh;
-        padding-right: 25vh;
-        .Logo {
-            
-            margin-left: -80px ;
-            padding: 0px 10px 0px 0px;
-            .h3 {
-                .h1 {
-                    font-size: 1px;
+                    }
                 }
             }
-            
+
+            .Options {
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                transition: all 0.5s ease-in-out;
+
+                #menu {
+                    height: 25px;
+                    width: 30px;
+                }
+
+                #respOP {
+                    position: absolute;
+                    position: fixed;
+                    animation: slide 0.5s linear;
+                    background-color: #E0F8D0;
+                }
+
+                #menu.mostrar {
+
+                }
+            }
+
+            @keyframes slide {
+                to {
+                    transform: translateX(0%);
+           
+                }
+                from {
+                    width: 100%;
+                    transform: translateX(100%);
+                }
+            }
         }
 
-        .SearchBox{
-            margin-left: 10px;
-            padding-left: 0px 0px 0px 0px;
-           
-            width: 300px;
+        #op {
+            display: none;
+        }
+
+        .SearchBox {
+            display: flex;
+            width: 100%;
+
+            .boxInput {}
         }
 
         .Options {
-            
             padding: 0px;
             margin-left: 50px;
-            
-            .img {
-                height: 5px;
-                width: 5px;
-                
-            }
 
-            width: 30vh;
+            #menu {
+                display: flex;
+                margin-left: 20px;
+                cursor: pointer;
+            }
         }
     }
 }
+
+@media (max-width: 414px) {
+    .Nav{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

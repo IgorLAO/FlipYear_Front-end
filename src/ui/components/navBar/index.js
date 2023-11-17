@@ -1,6 +1,5 @@
 import "./index.scss";
 
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +22,7 @@ import FiltroCard from "../filtro";
 
 import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
-
+import Menu from "../../assets/images/Vector.png";
 
 export default function NavBar() {
     const navigate = useNavigate('');
@@ -38,14 +37,15 @@ export default function NavBar() {
     const [SearchValue, setSearchValue] = useState('');
     const [Erro, setErro] = useState('');
     const [limit, setLimit] = useState(5);
-    const [IshideNotFound, setIshideNotFound] = useState(false);
+    const [IshideNotFound, setIshideNotFound] = useState(true);
 
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
             setLogado(true);
         }
-        else
+        else {
             setMenuLateralHidden(true);
+        }
     }
 
     function mostrarCarrinho() {
@@ -53,22 +53,17 @@ export default function NavBar() {
     }
 
     function MostrarFiltro() {
-
         setPopUpFiltro((current) => !current);
-
 
     }
 
     const GetSearchRes = async (e) => {
         setSearchValue(e.target.value);
-        setTamanhoSearch(e.target.value.length)
+        setTamanhoSearch(e.target.value.length);
 
-
-    
-        }
+    }
 
     const NavTo = (e) => {
-
         if (e.key === 'Enter' && tamanhoSearch > 0) {
             navigate('/search');
             localStorage('SearchValue', SearchValue);
@@ -86,36 +81,37 @@ export default function NavBar() {
         document.getElementById("sR").style.display = "none"
     }
 
+    function Navsuport() {
+        navigate('/Suporte');
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             if (tamanhoSearch > 0) {
-              try {
                 let res = await GetSearchProd(SearchValue);
-      
                 if (res !== 'nada') {
-                  SetSearchRes(res.data);
-                  document.getElementById('sR').style.display = 'flex';
-                  setIshideNotFound(false)
+                    SetSearchRes(res.data);
+                    document.getElementById('sR').style.display = 'flex';
+                    setIshideNotFound(false);
+
                 } else {
-                  setIshideNotFound(true);
-                  SetSearchRes([]);
+                    setIshideNotFound(true);
+                    console.log(IshideNotFound + 'pinto')
+                    SetSearchRes([]);
                 }
-              } catch (error) {
-                // Tratar erros, se necessário
-                console.error('Erro ao buscar resultados de pesquisa:', error);
-              }
+
             }
 
-            else{
+            else if (tamanhoSearch == 0) {
                 setIshideNotFound(false);
                 SetSearchRes([]);
                 document.getElementById('sR').style.display = 'none'
 
             }
-          };
-      
-          fetchData();
-        
+        };
+
+        fetchData();
+
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
 
@@ -123,13 +119,35 @@ export default function NavBar() {
         <>
 
             <div className="Nav">
+                <header className="">
+                    <div onClick={NavToHome} className="Logo">
+                        <img src={LogoArcade} />
+                        <h3> Flip-Year
+                            <h1>2000</h1>
+                        </h3>
+                    </div>
+                    <span className="Options">
+                        {
+                            (!logado)
+                                ? <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                                :
+                                <></>
+                        }
+                        <img id="menu" src={Menu} onClick={() => {
+                            const element = document.getElementById('respOP');
+                            const elementMenu = document.getElementById('menu');
+                            if (element.style.display == 'flex') { element.style.display = 'none'; elementMenu.classList.add = 'mostrar' }
+                            else { element.style.display = 'flex' }
 
-                <div onClick={NavToHome} className="Logo">
-                    <img src={LogoArcade} />
-                    <h3> Flip-Year
-                        <h1>2000</h1>
-                    </h3>
-                </div>
+                        }} />
+                        <span id="respOP" style={{ display: 'none' }}>
+                            <img src={Usuario} onClick={Mostrar} />
+                            <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                            <img onClick={Navsuport} src={Suporte} />
+                        </span>
+                    </span>
+
+                </header>
 
                 <span className="SearchBox">
                     <span className="boxInput">
@@ -153,64 +171,53 @@ export default function NavBar() {
 
                             ? <FiltroCard
                                 popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
-
                             : <></>
-
-
 
                     }
                 </span>
-                <span className="Options">
+                <span id="op" className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <CartStatus mostrarCarrinho={mostrarCarrinho}/>
-                    <img src={Suporte} />
+                    <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                    <img onClick={Navsuport} src={Suporte} />
                 </span>
 
 
                 {
                     (menuLateralHidden === true)
-                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarFazerConta>
+                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} />
                         : <></>
-
                 }
+
                 {
                     (logado === true)
-                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado> : <></>
+                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} /> : <></>
                 }
 
                 {
                     (popUpCarro === true)
-                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
+                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} /> : <></>
                 }
 
                 {(popUpCarro == true) ?
-                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} />
                     :
                     <></>
-
-
                 }
+
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
-
-            {
+                {
                     (IshideNotFound == true)
-                    ?<SearchCard_NotFound/>
-                    : <></>
+                        ? <SearchCard_NotFound />
+                        :
+                        <></>
                 }
-                
+
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
-
-
-
-
-
             </div>
-
-
         </>
     )
 }

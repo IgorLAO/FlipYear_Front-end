@@ -21,6 +21,7 @@ import Produtos from '../../ui/components/produtos';
 function App() {
   const [mostrarDestaques, setMostrarDestaques] = useState([]);
   const [pageDestaqueNum, setPageDestaqueNum] = useState(1);
+  const [CardResposiveLimit, setCardResposiveLimit] = useState(1);
   const [mostrarAllDestaques, setMostrarAllDestaques] = useState([])
   const navigate = useNavigate('');
 
@@ -36,15 +37,28 @@ function App() {
     }
   }
 
+  function ResposiveCards() {
+    const t = window.innerWidth
+
+    if (t < 650)
+      setCardResposiveLimit(1);
+    else setCardResposiveLimit(5);
+    
+    
+  }
+
 
   useEffect(() => {
-    ConsultaDestaqueProdutos()
+    ResposiveCards();
+    ConsultaDestaqueProdutos();
+    
   }, [])
 
 
   return (
     <div className="App">
       <NavBar />
+
       <section className='s1'>
         <div className='block'>
           <div className='texts'>
@@ -75,7 +89,7 @@ function App() {
         <img style={{ width: 90 + '%', heigth: 100 }} src={block} />
       </section>
 
-      <section className='s2'>
+      {/* <section className='s2'>
         <span className='cover1' id='covers'>
           <a>Os melhores preços!</a>
           <button> CONFIRA </button>
@@ -88,16 +102,16 @@ function App() {
 
         <span className='cover3' id='covers'>
           <a> Nos Conheça </a>
-        
-          <button onClick={() =>{ navigate('/sobrenos')}}>
+
+          <button onClick={() => { navigate('/sobrenos') }}>
             SOBRE NOS
-            </button>
+          </button>
         </span>
-      </section>
+      </section> */}
 
       <section className='s3'>
         <h2> Raridade no pedaço!!! </h2>
-        <div className='block'>
+        <div className='block2'>
           <span className='texts'>
             <h1> Castlevania Symphony of the Night Akumajo Dracula X  </h1>
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
@@ -118,7 +132,11 @@ function App() {
         <h2> Em destaque </h2>
         <hr />
         <div className='produtos'>
-          <Produtos products={mostrarDestaques} />
+
+          <Produtos
+            CardResposiveLimit={CardResposiveLimit}
+            products={mostrarDestaques} />
+
         </div>
       </section>
       <Rodape />

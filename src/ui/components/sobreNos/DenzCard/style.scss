@@ -1,14 +1,15 @@
 .Main_Card2 {
-
+    
     .Card {
         display: flex;
         flex-direction: column;
         background-image: linear-gradient(to right bottom, #65a1ae, #44adb2, #1eb8aa, #1ec297, #47c97a);
         border-radius: 15px;
         height: 550px;
-        width: 400px;
+        width: 317px;
         border: yellow solid 13px;
         padding: 5px;
+        margin-left: 0vh;
 
         .H1 {
             display: flex;
@@ -135,10 +136,11 @@
         .AirLine {
             display: flex;
             position: relative;
-            left: -11px;
+            top: -10px;
+            left: -5px;
             font-size: 8px;
             letter-spacing: 1.5px;
-            width: 390px;
+            width: 290px;
             padding: 5px 15px;
             background-color: grey;
             border-radius: 25px;

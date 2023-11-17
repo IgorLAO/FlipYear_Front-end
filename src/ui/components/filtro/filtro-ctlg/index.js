@@ -3,7 +3,7 @@ import ListaFiltro from '../lista/lista'
 import OrdenaçãoAvaliados from '../lista/listaAvaliados'
 import OrdenacaoPreco from '../lista/listaPreco'
 import ValoresFiltro from '../valores/valores'
-import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
+import filtro from '../../../assets/images/filtro/filtroBlanco.png'
 import './index.scss'
 import { useEffect } from 'react'
 
@@ -17,7 +17,10 @@ export default function FiltroCtlg(props) {
         OrdMenoresPrecos, 
         OrdMelhoresAvaliados,
         OrdPioresAvaliados,
-        setFiltroEmpresa} = props;
+        setFiltroEmpresa,
+        setFiltroEstado, 
+        setFiltroAvaliacao,
+        setFiltroEstoque} = props;
 
     return (
 
@@ -102,7 +105,7 @@ export default function FiltroCtlg(props) {
 
 
 
-                    <ListaFiltro item={'Estado'}></ListaFiltro>
+                    <ListaFiltro item={'Estado'} setFiltroEstado={setFiltroEstado}></ListaFiltro>
 
 
                 </div>
@@ -124,12 +127,15 @@ export default function FiltroCtlg(props) {
 
                     <ValoresFiltro
                         item={'Estoque'}
-                        inter={'???'}>
+                        inter={'???'}
+                        setFiltroEstoque={setFiltroEstoque}>
                     </ValoresFiltro>
 
                     <ValoresFiltro
                         item={'Avaliação'}
-                        inter={'?'}>
+                        inter={'?'}
+                        setFiltroAvaliacao={setFiltroAvaliacao}
+                        >
                     </ValoresFiltro>
 
 

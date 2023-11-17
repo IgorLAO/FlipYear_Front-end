@@ -36,7 +36,7 @@ export default function IgoCard() {
                     <header className='H2'>
                         <h4>Memoria</h4>
                     </header>
-                    <p>DEV FODA MUITI KKKKKKK OIAsdasddasdaKAsdKK OIAsdasddasadassadsdaSdaASdK OIAsdasddasdaasdsdaKKK OIAsdasddasdaA ELAAAA</p>
+                    <p>DEV FODA MUITI KKKKKKK OIAsdasdda ELAAAA</p>
                 </div>
 
                 <div className='AirLine'>
