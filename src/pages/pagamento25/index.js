@@ -20,6 +20,8 @@ export default function Pagamento25(){
     const [id, setId] = useState();
     const [list, setList] = useState([]);
     const [Discount, setDiscount] = useState();
+    const [frete, setFrete] = useState([]);
+    const [cupom, setCupom] = useState([])
 
     const { idParam } = useParams()
     const navigate = useNavigate();
@@ -121,11 +123,11 @@ export default function Pagamento25(){
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>R${ } 0,00</p>
+                                    <p>R${ frete } </p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
-                                    <p>R${ } 0,00</p>
+                                    <p>R${ cupom } </p>
                                 </div>
                             </div>
                             <div className='total_pedido'>
