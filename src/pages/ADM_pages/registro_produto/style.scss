@@ -8,115 +8,132 @@
 
     .s {
         display: flex;
-        height: 150vh;
-
+        color: #fff ;
         .content2 {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 50px;
             width: 100%;
-            color: #fff;
+            border-radius: 15px;
+            background-color: #081820;
+            align-items: center;
 
             .Title {
-                display: flex;
-                flex-direction: column;
-                align-items: start;
+                color: #fff;
+                padding: 25px;
                 width: 100%;
-                margin: 15px;
             }
 
-            .inputs {
+            section {
                 display: flex;
-                justify-content: center;
-                flex-direction: column;
-                width: 85%;
+                width: 90%;
+                justify-content: space-between;
+                padding: 20px;
+                background-color: #1a3d4e;
+                border-radius: 10px;
 
-                input{
-                    border: solid 3px #40985E;
-                    background-color: #1c4124b9;
-                    padding: 10px;
-                    color: white;
-                    border-radius: 5px;
-                    margin: 5px 0 0 0;
-                    outline: none;
-                }
-
-                span {
+                .inputs {
                     display: flex;
                     flex-direction: column;
-                    padding: 15px;
+                    width: 100%;
 
-                }
-                    div {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-evenly;
-                        div{
-                            border: #88C070 solid;
-                            padding: 5px 25px;
-                            justify-content: space-between;
-                            a{
-                                margin: 0 25px;
-                                font-size: 15px;
-                            }
-                            button{
-                                background-color: transparent;
-                                color: #fff;
-                                font-size: 25px;
-                                border: none;
-                                cursor: pointer;
-                            }
-                        }
-                        select{
-                            padding: 15px 45px;
-                            font: 8.5px "flipFont";
-                            color: #fff;
-                            background-color: #1c4124b9;
-                            border: solid 3px #40985E;
-                            letter-spacing: 1px;
-                            margin: 0 0 0 10px;
-                            border-radius: 3px;
-                        }
-                    }
-                    .desc{
-                        textarea{
-                            background-color: #1c4124b9;
-                            border: solid 3px #40985E;
-                            border-radius: 4px;
-                            max-width: 100%;
-                            max-height: 200px;
-                            color: #fff;
-                        }
-                    }
-                    .ImageUpload{
+                    label {
                         display: flex;
                         flex-direction: column;
-                        span{
-                            background-color: #1c4124b9;    
-                            width: 320px;
+                        margin: 10px;
+
+
+                        input {
+                            border: solid 3px #40985E;
+                            background-color: #1c4124b9;
+                            padding: 10px;
+                            color: white;
+                            border-radius: 5px;
+                            margin: 5px 0 0 0;
+                            outline: none;
+                            width: 100%;
+                        }
+                    }
+
+                    .selects {
+                        select {
+
+                            padding: 5px 10px;
+                            font: 8.5px "flipFont";
+                            color: #fff;
+                            border: solid 3px #40985E;
+                            background-color: #1c4124b9;
+                            margin-top: 5px;
+                        }
+                    }
+
+                    textarea {
+                        padding: 5px 10px;
+                        font: 8.5px "flipFont";
+                        color: #fff;
+                        border: solid 3px #40985E;
+                        background-color: #1c4124b9;
+                        margin-top: 5px;
+                    }
+                }
+
+
+                .Imgs {
+                    display: flex;
+                    flex-direction: column;
+
+                    .Preview {
+                        display: flex;
+                        justify-content: center;
+                        background-color: #081820;
+                        height: 300px;
+                    }
+
+                    .InputsFiles {
+                        display: flex;
+
+                        span {
+                            display: flex;
+                            justify-content: center;
                             align-items: center;
-                            border: #88C070 solid;
-                            img{
-                                width: 160px;
+                            font-size: 20px;
+                            color: #084c6e;
+                            background-color: rgb(128, 199, 166);
+                            width: 50px;
+                            height: 50px;
+                            margin: 20px;
+                            cursor: pointer;
+
+                            input {
+                                display: none;
                             }
                         }
+
+
                     }
-                    .btn{
+
+                    .button {
                         display: flex;
+                        position: relative;
+                        justify-content: center;
+                        margin-top: 70px;
                         align-items: center;
-                        width: 100%;
-                        margin: 20px;
-                        button{
-                            padding: 10px 45px;
-                            background-color: #40985E;
-                            border: #88C070 solid;
-                            color: #fff;
-                            font: 15px 'flipfont';
+                        cursor: pointer;
+                        padding: 35px;
+
+
+                        a {
+                            position: absolute;
+                            z-index: 1;
+                            letter-spacing: 1px;
+                            color: #0A1A2F;
+                        }
+
+                        svg {
+                            width: 220px;
                         }
                     }
+                }
             }
-
         }
     }
 }
