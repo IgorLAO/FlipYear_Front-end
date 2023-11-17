@@ -9,7 +9,7 @@
     position: fixed;
     transition: all 2s ease-in-out;
     animation: Slidebats 2s infinite;
-    z-index: 5;
+    z-index: 4 ;
     background-color: #000;
     height: 100%;
 
@@ -26,23 +26,28 @@
             top: 20px;
         }
 
-        #bats3 {}
-
-        #bats4 {}
-
-        #bats5 {}
-
-        #bats6 {}
-
-        #bats7 {}
-
-        #bats8 {}
-
-        #bats9 {}
+       
 }
 
+#batsSlideFast{
+    display: flex;
+    animation: SpinbatsFast 500ms infinite;
+    background-color: #029c66;
+    position: absolute;
+    z-index: 7;
+}
 
 @keyframes Slidebats {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes SlidebatsFast {
     from {
         width: 0;
     }

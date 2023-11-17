@@ -151,18 +151,22 @@ export default function Castlevania() {
 
     return (
         <>
-            <div id='batsSlide' style={{display: 'none'}}>
+            <div id='batsSlide' style={{ display: 'none' }}>
 
-                <img src={bat}  style={{margin:'50px'}} alt="" id='bats1' />
+                <img src={bat} style={{ margin: '50px' }} alt="" id='bats1' />
                 <img src={bat} alt="" id='bats2' />
                 <img src={bat} alt="" id='bats3' />
-                <img src={bat} alt="" id='bats4' />
-                <img src={bat} alt="" id='bats5' />
-                <img src={bat} alt="" id='bats6' />
-                <img src={bat} alt="" id='bats7' />
-                <img src={bat} alt="" id='bats8' />
-                <img src={bat} alt="" id='bats9' />
+
+             
+
             </div>
+            <div id='batsSlideFast' style={{ display: 'none' }}>
+
+<img src={bat} style={{ margin: '50px' }} alt="" id='bats1' />
+<img src={bat} alt="" id='bats2' />
+<img src={bat} alt="" id='bats3' />
+
+</div>
 
             <div className="Castlevania">
                 <NavBar />
@@ -269,7 +273,18 @@ export default function Castlevania() {
 
                         </div>
                         <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
-                            <button id="button-compra" style={{ border: 'solid #000' }} onClick={() => { document.getElementById('batsSlide').style.display = 'flex'; navigate('/')}}>Compre já</button>
+                            <button
+                                id="button-compra"
+                                style={{ border: 'solid #000' }}
+                                onClick={() => {
+                                    document.getElementById('batsSlide').style.display = 'flex';
+
+
+                                    setTimeout(() => {
+                                        navigate('/');
+                                    }, 1500);
+                                }}
+                            >Compre já</button>
                             <button style={{ backgroundColor: '#000' }} id="button-carrinho" onClick={''}> Adicionar ao Carrinho</button>
                         </div>
                     </div>

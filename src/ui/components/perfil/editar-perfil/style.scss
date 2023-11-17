@@ -11,10 +11,11 @@
 
     .EditFrame {
         padding: 5px 0;
-        background-color: rgb(215, 240, 227);
+        background-color: rgba(55, 104, 55, 0.89);
         width: 50%;
         border-radius: 10px;
         border: #000 solid;
+        padding: 5px;
 
         header {
             display: flex;
@@ -31,7 +32,8 @@
                     cursor: pointer;
                     transition: all 0.1s ease;
                     color: #000;
-                    &:hover{
+
+                    &:hover {
                         color: red;
                         transform: scale(1.1);
                     }
@@ -44,13 +46,14 @@
                 padding: 7px 20px;
                 border-radius: 12px;
                 cursor: pointer;
-                
+
                 transition: all 0.5s ease;
-                    &:hover{
-                        color: black;
-                        background-color: #fff;
-                        transform: scale(1.1);
-                    }
+
+                &:hover {
+                    color: black;
+                    background-color: #fff;
+                    transform: scale(1.1);
+                }
             }
         }
 
@@ -98,9 +101,8 @@
                         width: 120px;
                         top: -120px;
                         border-radius: 100%;
-                     
-                        input{
-                        }
+
+                        input {}
 
                         img {
                             width: 45px;
@@ -144,6 +146,28 @@
 
             }
 
+            .Av {
+                display: flex;
+                flex-direction: column;
+
+                .inputs2 {
+                    span {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 10px;
+                        border: green solid;padding: 5px;
+                        border-radius: 5px;
+                        input{
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                        }
+                    }
+                    .altSenha{
+                        background-color: rgb(16, 58, 45)727;
+                    }
+                }
+            }
         }
     }
 }
