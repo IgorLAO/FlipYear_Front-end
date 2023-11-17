@@ -8,13 +8,18 @@ import ListagemCarrinho from './ListagemCarrinho.js'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ConsultaCarrinho } from '../../../api/carrinho.js';
-
+import localStorage from 'local-storage';
 
 export default function PopUpCarrinho({ setPopUpCarro }) {
+
+    const estoragemLocal = localStorage('ADM_Logado')
+    const [idUser, setIdUser] = useState(estoragemLocal.data.Id);
 
 
     const [dataCarrinho, setDataCarrinho] = useState([]);
     const [total, SetTotal] = useState(0)
+
+    
 
     function mostrarCarrinho() {
 
@@ -25,7 +30,9 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
 
     async function PuxarCarrinho() {
         SetTotal(0);
-        let respCarrinho = await ConsultaCarrinho();
+        
+        let respCarrinho = await ConsultaCarrinho(idUser);
+        console.log(respCarrinho)
         setDataCarrinho(respCarrinho);
     }
 
@@ -55,11 +62,10 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
     useEffect(() => {
         PuxarCarrinho();
         CalcularTotal();
+
+       
     }, [dataCarrinho]);
 
-    function reverseString(str) {
-        return str.split('').reverse().join('');
-    }
 
     return (
         <div className='popUp-carrinho'>
@@ -91,7 +97,9 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
                     precoOriginal={item.VL_PRECO}
                     precoPromocional={item.VL_PRECO_PROMOCIONAL}
                     promocao={item.BT_PROMOCAO}
-                    idProduto={item.ID_PRODUTO}></ListagemCarrinho>
+                    idProduto={item.ID_PRODUTO}>
+                        
+                    </ListagemCarrinho>
 
             )}
 

@@ -158,7 +158,10 @@ export default function Catalogo() {
         filtroPromocaoSwitch, 
         filtroDestaqueSwitch, 
         filtroPreco,
-        filtroEmpresa]);
+        filtroEmpresa,
+        filtroAvaliacao,
+        filtroEstoque,
+        filtroEstado]);
 
 
         const indexUltimoProd = paginaAtual * prodPorPag;

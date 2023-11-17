@@ -13,10 +13,12 @@ import localStorage from 'local-storage';
 
 export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
-    const estoragemLocal = localStorage('ADM_Logado')
+    const estoragemLocal = localStorage('NORMAL_USER_Logado')
+
+    
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState(props.estoque);
-    const [idUser, setIdUser] = useState('');
+    const [idUser, setIdUser] = useState(estoragemLocal.data.Id);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
@@ -103,6 +105,8 @@ export default function CardProdutoCtlg(props) {
 
     useEffect(() => {
         NaoColecionadorCard();
+
+        
 
     }, [props])
 
