@@ -8,8 +8,15 @@ import ValoresFiltro from './valores/valores';
 
 export default function Filtro(props) {
 
-    const {setPopUpFiltro} = props;
-
+    const {setFiltroPreco, 
+        FiltroDestaque, 
+        FiltroColecionador, 
+        FiltroPromocao,
+        setFiltroEmpresa,
+        setFiltroEstado, 
+        setFiltroAvaliacao,
+        setFiltroEstoque,
+        setPopUpFiltro} = props;
     return (
         <>
 
@@ -73,7 +80,9 @@ export default function Filtro(props) {
                     </Butao>
                     </div>
 
-                    <ListaFiltro item={'Estado'}></ListaFiltro>
+                    <ListaFiltro 
+                    item={'Estado'}
+                    setFiltroEstado={setFiltroEstado}></ListaFiltro>
 
 
                 </div>
@@ -95,12 +104,15 @@ export default function Filtro(props) {
 
                     <ValoresFiltro
                         item={'Estoque'}
-                        inter={'???'}>
+                        inter={'???'}
+                        setFiltroEstoque={setFiltroEstoque}>
                     </ValoresFiltro>
 
                     <ValoresFiltro
                         item={'Avaliação'}
-                        inter={'?'}>
+                        inter={'?'}
+                        setFiltroAvaliacao={setFiltroAvaliacao}
+                        >
                     </ValoresFiltro>
 
 
