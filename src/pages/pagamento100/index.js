@@ -16,7 +16,7 @@ export default function Pagamento100() {
     const navigate = useNavigate();
 
 
-    function ConcluirCompra(){
+    async function ConcluirCompra(){
         
     }
     return (

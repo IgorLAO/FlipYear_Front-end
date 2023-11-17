@@ -19,10 +19,12 @@ import { useParams } from 'react-router-dom';
     export default function Pagamento75(props) {
         const [QtdProduto, setQtdProduto] = useState('');
         const [id, setId] = useState();
+        const navigate = useNavigate();
+
 
         async function ConcluirPedido(){
-            
-        }
+            navigate(`/pagamento100`)
+        }       
 
     return (
         <>
@@ -159,9 +161,9 @@ import { useParams } from 'react-router-dom';
                                 <p>R${ } 999,99</p>
                             </div>
                         </div>
-                        <div className='finalizar'>
+                        <div  onClick={ConcluirPedido} className='finalizar'>
                             <img src={CarrinhoBranco} />
-                            <p onClick={ConcluirPedido}>Finalizar</p>
+                            <p >Finalizar</p>
                         </div>
                     </div>
                 </div>

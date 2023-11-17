@@ -6,7 +6,7 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Seta from '../../ui/assets/images/progress_pag_assets/setabaixa.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonic-running.gif';
-
+import { useNavigate } from 'react-router-dom';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 import { useEffect, useState } from 'react';
@@ -17,9 +17,14 @@ export default function Pagamento() {
     const [isHideCartao, setIsHideCartao] = useState(false);
     const [vNumbers, setVNumbers] = useState(1)
 
-    const Hide = () => {
+    const navigate = useNavigate();
 
-    }
+    const Hide = () => {
+        navigate(`/pagamento75`);
+
+        }
+
+
 
     return (
         <>
@@ -151,7 +156,7 @@ export default function Pagamento() {
 
                         <div className='VoltarConcluir'>
                             <button id='but_voltar'>Voltar</button>
-                            <button id='but_concluir'>Concluir</button>
+                            <button id='but_concluir' onClick={Hide}>Concluir</button>
                         </div>
 
                     </div>
