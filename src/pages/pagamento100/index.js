@@ -18,7 +18,9 @@ export default function Pagamento100() {
 
     const navigate = useNavigate();
 
-
+    function navCtlg(){
+        navigate(`/catalogo`);
+    }
     async function ConcluirCompra(){
         const r = await ConsultarProdPorId
     }
@@ -65,7 +67,7 @@ export default function Pagamento100() {
 
                     <div style={{gap:"15px"}} className='opcoes_botoes'>
                         <a>Ver meus pedidos</a>
-                        <a id='navegar'>Continuar navegando</a>
+                        <a id='navegar' onClick={navCtlg}>Continuar navegando</a>
                     </div>
                         
                 </div>

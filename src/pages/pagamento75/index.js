@@ -25,7 +25,7 @@ export default function Pagamento75(props) {
 
 
     function Nav100() {
-        navigate(`/pagamento100/${idParam}`);
+        navigate(`/pagamento100`);
     }
 
     useEffect(() => {
@@ -177,7 +177,7 @@ export default function Pagamento75(props) {
                         </div>
                         <div onClick={Nav100} className='finalizar'>
                             <img src={CarrinhoBranco} />
-                            <p >Finalizar</p>
+                            <p>Finalizar</p>
                         </div>
                     </div>
                 </div>
