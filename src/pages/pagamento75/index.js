@@ -40,6 +40,7 @@ export default function Pagamento75(props) {
         setList(r);
     }
 
+
     return (
         <>
             <div className='container_pag75'>
@@ -134,7 +135,7 @@ export default function Pagamento75(props) {
                             <div className='produtos75'>
                                 <div>
                                     <img src={Atari} />
-                                    <p>{ }Não utilizado Nintendo Original Gameboy Console Game Boy do Japão</p>
+                                    <p>{list.NM_PRODUTO}</p>
                                 </div>
                                 <div className='qtd_preco75'>
                                     <div style={{ color: '#69FF8B' }}>
@@ -143,7 +144,7 @@ export default function Pagamento75(props) {
                                     </div>
                                     <div >
                                         <p>{ }1</p>
-                                        <p>{ }R$ {list.VL_PRECO}</p>
+                                        <p>{ }R$ {list.VL_PRECO} </p>
                                     </div>
                                 </div>
                             </div>

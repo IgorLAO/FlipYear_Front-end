@@ -23,7 +23,6 @@ export default function Pagamento() {
 
     const navigate = useNavigate();
 
-
     useEffect(() => {
         Hide()
     }, [])
@@ -36,9 +35,6 @@ export default function Pagamento() {
         function NavPag75(){
             navigate(`/pagamento75/${idParam}`);
         }
-
-
-
     return (
         <>
 
