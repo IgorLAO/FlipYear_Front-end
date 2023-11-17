@@ -52,6 +52,7 @@
           align-items: center;
           justify-content: center;
           margin-top: 5vh;
+          padding-right: 30vh;
 
 
           svg {
@@ -64,6 +65,7 @@
             background-color: #E0F8D0;
             border: none;
             font: 12px 'flipFont';
+            
 
 
           }
@@ -305,42 +307,52 @@
 
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .App {
     height: 80%;
     .s1 {
       margin-top: -10vh;
       .block {
-        width: 40vh;
+        width: 69.1vh;
         height: 65vh;
+        margin-top: 7vh;
         .texts {
           width: 100%;
           padding: 0;
+          padding-top: 10vh;
           h1 {
             font-size: 20px !important;
             width: 100%;
             text-align: center;
           }
+          .btnHome{
+            padding: 3vh 3vh;
+          }
         }
 
         .imgs {
           display: none;
+          img{
+            height: 23vh;
+            margin-top: -20vh;
+          }
+          
         }
       }
     }
    
     .s3 {
       h2{
-        width: 37vh;
-        margin: -7vh -5vh;
-
+        width: 100vh;
+        margin: 10vh -3vh;
       }
       .block2 {
-        width: 40vh;
-        margin-left: -8vh ;
+        width: 63.3vh;
+        margin: 0vh 0vh ;
         .texts {
           width: 100%;
           padding: 0;
+          
 
           h1 {
             font-size: 25px !important;
@@ -352,6 +364,10 @@
         .imgs {
           display: none;
         }
+      }
+      img{
+        display: flex;
+        margin-top: -200px;
       }
     }
   }
@@ -374,6 +390,77 @@
         .imgs {
           display: none;
         }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 414px) {
+  .App {
+    height: 80%;
+    .s1 {
+      margin-top: -10vh;
+      .block {
+        width: 33.4vh;
+        height: 70vh;
+        margin-top: 7vh;
+        .texts {
+          width: 100%;
+          padding: 0;
+          padding-top: 0vh;
+          h1 {
+            font-size: 20px !important;
+            width: 100%;
+            text-align: center;
+          }
+          .btnHome{
+            padding: 3vh 3vh;
+          }
+        }
+
+        .imgs {
+          display: none;
+          img{
+            height: 23vh;
+            margin-top: -20vh;
+            width: 100vh;
+            
+          }
+          
+        }
+      }
+    }
+   
+    .s3 {
+      h2{
+        width: 40vh;
+        margin: 10vh -8vh;
+      }
+      .block2 {
+        width: 37vh;
+        margin: 4px -7vh ;
+        .texts {
+          width: 100%;
+          padding: 0;
+          line-height: 27px;
+          
+
+          h1 {
+            font-size: 25px !important;
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+        .imgs {
+          display: none;
+        }
+      }
+      img{
+        display: flex;
+        width: 20vh;
+      
       }
     }
   }
