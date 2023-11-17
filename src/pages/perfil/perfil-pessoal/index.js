@@ -116,8 +116,6 @@ export default function PerfilPessoal() {
                                     {/* <Produtos
                                          /> */}
                                 </div>
-
-                               
                             </div>
                         </section>
                     </span>
