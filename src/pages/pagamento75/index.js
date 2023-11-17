@@ -14,17 +14,31 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-    import { AlterarProduto } from '../../api/produtos.js';
+import { AlterarProduto, ConsultarProdPorId } from '../../api/produtos.js';
 
-    export default function Pagamento75(props) {
-        const [QtdProduto, setQtdProduto] = useState('');
-        const [id, setId] = useState();
-        const navigate = useNavigate();
+export default function Pagamento75(props) {
+    const [QtdProduto, setQtdProduto] = useState('');
+    const [id, setId] = useState();
+    const [list, setList] = useState([]);
+
+    const  { idParam } = useParams();
 
 
-        async function ConcluirPedido(){
-            navigate(`/pagamento100`)
-        }       
+    function Nav100() {
+        navigate(`/pagamento100/${idParam}`);
+    }
+
+    useEffect(() => {
+        CarregarPedido();
+    }, []);
+    
+
+    const navigate = useNavigate();
+
+    async function CarregarPedido() {
+        const r = ConsultarProdPorId(idParam);
+        setList(r);
+    }
 
     return (
         <>
@@ -129,7 +143,7 @@ import { useParams } from 'react-router-dom';
                                     </div>
                                     <div >
                                         <p>{ }1</p>
-                                        <p>{ }R$ 999,99</p>
+                                        <p>{ }R$ {list.VL_PRECO}</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,23 +159,23 @@ import { useParams } from 'react-router-dom';
                             <div className='dados_pedido'>
                                 <div>
                                     <p>SUBTOTAL</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ list.VL_PRECO}</p>
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0</p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0</p>
                                 </div>
                             </div>
                             <div className='total_pedido'>
                                 <p>TOTAL</p>
-                                <p>R${ } 999,99</p>
+                                <p>R${ list.VL_PRECO }</p>
                             </div>
                         </div>
-                        <div  onClick={ConcluirPedido} className='finalizar'>
+                        <div onClick={Nav100} className='finalizar'>
                             <img src={CarrinhoBranco} />
                             <p >Finalizar</p>
                         </div>
