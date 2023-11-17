@@ -5,7 +5,6 @@ import EstrelasAvaliacao from './estrelas';
 import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
 import { useState } from 'react';
 import axios from 'axios';
-// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
