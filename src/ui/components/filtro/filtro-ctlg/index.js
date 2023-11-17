@@ -105,7 +105,9 @@ setFiltroEstado} = props;
 
 
 
-                    <ListaFiltro item={'Estado'}></ListaFiltro>
+                    <ListaFiltro 
+                    item={'Estado'}
+                    setFiltroEstado={setFiltroEstado}></ListaFiltro>
 
 
                 </div>
