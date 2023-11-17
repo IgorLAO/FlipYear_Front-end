@@ -1,6 +1,14 @@
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import moment from 'moment';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 
 import './index.scss'
 import axios from "axios";
@@ -18,7 +26,7 @@ import Produtos from '../../ui/components/produtos'
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -27,18 +35,76 @@ export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
-    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
     const [comments, setComments] = useState([]);
-    const [allComments, setAllComments] = useState([])
-    const [pageComments, setPageComments] = useState(1);
-    const [pageProducts, setPageProducts] = useState(1);
     const [allProducts, SetAllProducts] = useState([]);
     const [parcela, SetParcela] = useState(0)
     const [produto, setProduto] = useState({});
-    const [carrinho, setCarrinho] = useState([]);
     const { idParam } = useParams();
-    const [idproduto, SetIdproduto] = useState(0);
+    const [dateNow, setDateNow] = useState(moment(new Date).format('YYYY/MM/DD'))
+    const [commentContent, setCommentContent] = useState('')
+    const [commentLikes, setCommentLikes] = useState(0)
+    const [commentReport, setCommentReport] = useState(false)
+
+    const [commentsPagAtual, setCommentsPagAtual] = useState(1)
+    const [commentsPerPag, setCommentsPerPag] = useState(2)
+    const [setaAvancarComments, setSetaAvancarComments] = useState(true)
+    const [setaRetornarComments, setSetaRetornarComments] = useState(false)
+    const [commentsProd, setCommentsProd] = useState([])
+
+    const indexUltimoComment = commentsPagAtual * commentsPerPag;
+    const indexPrimeiroComments = indexUltimoComment - commentsPerPag;
+    const commentsAtuais = commentsProd.slice(indexPrimeiroComments, indexUltimoComment)
+    const numPagComments = []
+
+    for(let i = 1; i <= Math.ceil(commentsProd.length / commentsPerPag); i++){
+        numPagComments.push(i)
+    }
+
+
+    function sla() {
+        // Filtra os comentários que correspondem ao produto atual
+        const commentsForProduct = comments.filter(comment => comment.PRODUTO === idParam);
+      
+        // Define os comentários filtrados no estado
+        setCommentsProd(commentsForProduct);
+      }
+
+
+    useEffect(() => {
+
+        sla()
+
+        if (commentsPagAtual !== 1) {
+          setSetaRetornarComments(true);
+        } else {
+          setSetaRetornarComments(false);
+        }
+    
+        if (commentsAtuais === numPagComments.length) {
+          setSetaAvancarComments(false);
+        } else {
+          setSetaAvancarComments(true);
+        }
+      }, [commentsAtuais, numPagComments.length, comments, commentsPagAtual, commentsProd]);
+    
+      const paginaComments = (item) => {
+        setCommentsPagAtual(item);
+      };
+    
+      const AvancarComments = () => {
+        if (commentsPagAtual < numPagComments.length) {
+          setCommentsPagAtual((prevPag) => prevPag + 1);
+        }
+      };
+    
+      const RetornarComments = () => {
+        if (commentsPagAtual > 1) {
+          setCommentsPagAtual((prevPag) => prevPag - 1);
+        }
+      };
+
+
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
@@ -59,35 +125,21 @@ export default function InfProduto() {
     }
     //peguei o id_produto do catálogo e joguei aqui
 
-    async function GetComments() {
-        let res = await GetCmtsPage(pageComments);
-        //setComments(res.data);
-        SetIdproduto(res.data.PRODUTO)
-        console.log(comments)
-    }
 
     async function GetAllComments() {
         let res = await GetAllCmts();
         let t = (res.data);
 
         setComments(t)
-
-        let a = t.length
-
-        let c = a / comments.length
-        setAllComments(c);
     }
 
-    function nextPagComments() {
-        if (pageComments <= allComments) {
-            setPageComments(pageComments + 1)
-        }
-    }
+ 
+    async function InserirCommentarioEnter(e){
+        if(e.key == 'Enter'){
 
-    function prevPagComments() {
-        if (pageComments > 1) {
-            setPageComments(pageComments - 1)
-        }
+        let resp = await InsertComments( idParam, commentContent, dateNow, commentLikes, commentReport)
+        
+     }
     }
 
 
@@ -114,40 +166,44 @@ export default function InfProduto() {
     useEffect(() => {
         CarregarProdutos();
         parcelas()
-        GetComments()
         GetAllProduttc()
         GetAllComments()
-    }, [pageProducts, pageComments, parcela]);
+    }, [parcela]);
 
     return (
         <div className="pagina-produto">
             <NavBar />
             <div className="infos">
-                <div className="txt-img">
-                    <div className="imgs-produto">
-                        <div className="mini-imgs">
-                            <div className="mini-img">
-                                <img src={yum} alt="" />
-                            </div>
 
-                            <div className="mini-img">
-                                <img src={yum_costa} alt="" />
-                            </div>
-
-                            <div className="mini-img">
-                                <img id="fita" src={yum_fita} alt="" />
-                            </div>
-
-                            <div className="mini-img">
-                                <img src={yum} alt="" />
-                            </div>
-                        </div>
-                        <div className="div_imagem">
+                        
                             <div className="imagem">
+
+
+                                <Swiper navigation={true} slidesPerView={1} modules={[Navigation]} className="mySwiper2">
+
+                                <SwiperSlide>
                                 <img src={yum} alt="" />
-                            </div>
-                        </div>
-                    </div>
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+
+                                </Swiper>
+                                
                 </div>
 
                 <div className="compra">
@@ -239,10 +295,10 @@ export default function InfProduto() {
 
                 <div className="escrita">
                     <img src={Usuario} alt="" />
-                    <input type="text" placeholder="Deixe um comentário" />
+                    <input type="text" value={commentContent} onChange={e => setCommentContent(e.target.value)} onKeyDown={InserirCommentarioEnter} placeholder="Deixe um comentário" />
                 </div>
 
-            {
+            
                 <div>
                     {comments.map((item) =>
                         <Comments
@@ -256,11 +312,32 @@ export default function InfProduto() {
                     )}
                 </div>
                 
-            }              
+                          
             
                 <div className="setas">
-                    <h2 id="seta" onClick={prevPagComments} style={{ fontSize: 70 }} > {'<'} </h2>
-                    <h2 id="seta" onClick={nextPagComments} style={{ fontSize: 70 }} > {'>'} </h2>
+
+                        {
+                            (setaRetornarComments == true)
+
+                            ? <h2 id="seta" onClick={RetornarComments} style={{ fontSize: 70 }} > {'<'} </h2>
+                            :<></>
+                        }
+
+                        {numPagComments.map(item =>
+
+                            <p onClick={() => paginaComments(item)}>{item}</p>
+
+                        )}
+
+                        {
+                            (setaAvancarComments == true)
+                            ?<h2 id="seta" onClick={AvancarComments} style={{ fontSize: 70 }} > {'>'} </h2>
+                            :<></>
+                        }
+                   
+
+
+                    
                 </div>
             </div>
 

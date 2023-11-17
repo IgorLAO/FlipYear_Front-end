@@ -117,7 +117,7 @@ function App() {
             <a> Um simphony of the night classico...MAS VEIO DO JAPÃO!!!</a>
             <span>
 
-              <button> Confira </button>
+              <button onClick={() => navigate('/castlevania')}> Confira </button>
             </span>
           </span>
           <span className='imgs'>
