@@ -53,7 +53,7 @@ export default function CardProdutoCtlg(props) {
 
     async function AddNoCarrinho() {
         if (qtdProdutos >= 1) {
-            let resposta = await axios.post('http://localhost:5000/carrinho', {
+            let resposta = await axios.post('http://129.148.42.252:5010/carrinho', {
                 usuario: idUser,
                 produto: idProduto,
                 qtd: qtdProdutos
