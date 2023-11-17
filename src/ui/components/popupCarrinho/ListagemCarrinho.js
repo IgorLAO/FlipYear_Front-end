@@ -5,10 +5,13 @@ import localStorage from 'local-storage';
 import {  useNavigate } from 'react-router-dom';
  
 export default function ListagemCarrinho(props) {
+  const estoragemLocal = localStorage('ADM_Logado')
 
   const [border, setBorder] = useState('none');
   const [idProduto, setIdProduto] = useState(props.idProduto);
   const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
+  const [idUser, setIdUser] = useState(1);
+
   const [apagar, setApagar] = useState('');
 
   const Navigate = useNavigate();
@@ -25,7 +28,7 @@ export default function ListagemCarrinho(props) {
 
   const ExcluirProduto = async () => {
     try {
-      const r = await axios.delete(`http://localhost:5000/carrinho/produto/1/${idProduto}`);
+      const r = await axios.delete(`http://localhost:5000/carrinho/produto/` + `${idUser}` + '/' + `${idProduto}`)
         } catch (err) {
       throw new Error('Erro ao excluir produto:', err);
     }

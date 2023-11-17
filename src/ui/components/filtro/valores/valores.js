@@ -62,7 +62,7 @@ export default function ValoresFiltro(props){
         
 
 
-    }, [input1, input2, props])
+    }, [input1, input2, setFiltroPreco, setFiltroAvaliacao, setFiltroEstoque])
 
 
 

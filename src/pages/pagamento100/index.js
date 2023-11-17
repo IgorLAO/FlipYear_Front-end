@@ -9,15 +9,20 @@ import SonicEspera from '../../ui/assets/images/progress_pag_assets/sonic_espera
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 
 import { Navigate, useNavigate } from 'react-router-dom';
+import { ConsultarProdPorId } from '../../api/produtos';
 
+
+import { useParams } from 'react-router-dom';
 
 export default function Pagamento100() {
 
     const navigate = useNavigate();
 
-
-    function ConcluirCompra(){
-        
+    function navCtlg(){
+        navigate(`/catalogo`);
+    }
+    async function ConcluirCompra(){
+        const r = await ConsultarProdPorId
     }
     return (
         <>
@@ -62,7 +67,7 @@ export default function Pagamento100() {
 
                     <div style={{gap:"15px"}} className='opcoes_botoes'>
                         <a>Ver meus pedidos</a>
-                        <a id='navegar'>Continuar navegando</a>
+                        <a id='navegar' onClick={navCtlg}>Continuar navegando</a>
                     </div>
                         
                 </div>

@@ -22,6 +22,8 @@ export default function FiltroCtlg(props) {
     setFiltroEstoque,
 setFiltroEstado} = props;
 
+
+
     return (
 
 

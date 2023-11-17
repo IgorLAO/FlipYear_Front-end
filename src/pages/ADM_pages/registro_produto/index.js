@@ -31,18 +31,10 @@ export default function RegistroProdutos() {
     const [LadoEsq, setLadoEsq] = useState();
     const [Tras, setTras] = useState();
 
-    function aumentarQtd() {
-        setQtd(qtd + 1);
-    }
-
-    function diminuirQtd() {
-        if (qtd > 0) {
-            setQtd(qtd - 1);
-        }
-    }
-
 
     async function InsertImages() {
+        try {
+            
         const imgs = {
             Frente,
             LadoEsq,
@@ -51,15 +43,24 @@ export default function RegistroProdutos() {
         }
 
         const data1 = await InsertProdImages(imgs);
-        const insertedImageId = data1.InsertId;
+        const insertedImageId = data1.data.insertId;
+
         console.log(insertedImageId);
 
         await InsertProdInfos(insertedImageId);
+        return insertedImageId;
+        
+    } catch (err) {
+      console.log(err.message)       
+    }
     }
 
     let Idcategoria = 3
 
-    async function InsertProdInfos() {
+    async function InsertProdInfos(IdImg) {
+
+        try {
+            
         let d = await InsertProd({
             Idcategoria: categoriaId,
             IdImg: IdImg,
@@ -76,6 +77,10 @@ export default function RegistroProdutos() {
             estado: Estado,
             colecionador: Colecionador,
         });
+        
+    } catch (err) {
+     console.log(err.message)       
+    }
     }
 
     async function HandleCategoria() {
@@ -86,22 +91,22 @@ export default function RegistroProdutos() {
     }
 
 
-    function imagesPreview(){
+    function imagesPreview() {
         const imageUrl = URL.createObjectURL(Frente);
         return imageUrl
     }
 
-    function imgLadoEsq(){
+    function imgLadoEsq() {
         const imageUrl = URL.createObjectURL(LadoEsq);
         return imageUrl
     }
 
-    function imgLadoDir(){
+    function imgLadoDir() {
         const imageUrl = URL.createObjectURL(LadoDir);
         return imageUrl
     }
 
-    function imgTras(){
+    function imgTras() {
         const imageUrl = URL.createObjectURL(Tras);
         return imageUrl
     }
@@ -129,11 +134,11 @@ export default function RegistroProdutos() {
                                 <input type="text" onChange={e => setNome(e.target.value)} />
                             </label>
                             <span style={{ display: 'flex' }}>
-                                <label  style={{ marginRight: '15px', width: '100%' }}>
+                                <label style={{ marginRight: '15px', width: '100%' }}>
                                     <a>Preço</a>
                                     <input type="text" onChange={e => setPreco(e.target.value)} />
                                 </label>
-                                <label style={{  width: '100%'  }}>
+                                <label style={{ width: '100%' }}>
                                     <a>Preco Promocional</a>
                                     <input type="text" onChange={e => setPrecoPromo(e.target.value)} />
                                 </label>
@@ -144,11 +149,11 @@ export default function RegistroProdutos() {
                                 <input type="text" onChange={e => setFabricante(e.target.value)} />
                             </label>
                             <span style={{ display: 'flex', width: '100%' }}>
-                                <label style={{ marginRight: '15px',  width: '100%'  }}>
+                                <label style={{ marginRight: '15px', width: '100%' }}>
                                     <a> Estoque </a>
                                     <input type="number" onChange={e => setEstoque(e.target.value)} />
                                 </label>
-                                <label style={{  width: '100%'  }}>
+                                <label style={{ width: '100%' }}>
                                     <a>Avaliação</a>
                                     <input type="number" onChange={e => setAvaliacao(e.target.value)} />
                                 </label>
@@ -203,39 +208,39 @@ export default function RegistroProdutos() {
                         <div className="Imgs">
                             <div className="Preview">
                                 {Frente ?
-                                <img src={imagesPreview()} style={{objectFit: 'contain', maxWidth: '350px'}} /> 
-                                :
-                                <img src={camera} />
+                                    <img src={imagesPreview()} style={{ objectFit: 'contain', maxWidth: '350px' }} />
+                                    :
+                                    <img src={camera} />
                                 }
                             </div>
                             <div className="InputsFiles">
                                 <span className="img1" title="Frente" onClick={() => document.getElementById('img1').click()}>
-                                    <input type="file"  id="img1" onChange={(e) => setFrente(e.target.files[0])} />
+                                    <input type="file" id="img1" onChange={(e) => setFrente(e.target.files[0])} />
                                     <h1>+</h1>
                                 </span>
                                 <span className="img2" title="Traseira" onClick={() => document.getElementById('img2').click()}>
                                     <input type="file" id="img2" onChange={(e) => setTras(e.target.files[0])} />
                                     {Tras ?
-                                        <img src={imgTras()} style={{objectFit: 'contain', maxWidth: '50px'}} /> 
+                                        <img src={imgTras()} style={{ objectFit: 'contain', maxWidth: '50px' }} />
                                         :
-                                    <h1>+</h1>
+                                        <h1>+</h1>
                                     }
                                 </span>
                                 <span className="img3" title="Lado Direito" onClick={() => document.getElementById('img3').click()}>
-                                    <input type="file" id="img3"  onChange={(e) => setLadoDir(e.target.files[0])} />
+                                    <input type="file" id="img3" onChange={(e) => setLadoDir(e.target.files[0])} />
                                     {LadoDir ?
-                                    <img src={imgLadoDir()} style={{objectFit: 'contain', maxWidth: '50px'}} /> 
-                                    :
-                                    <h1>+</h1>
+                                        <img src={imgLadoDir()} style={{ objectFit: 'contain', maxWidth: '50px' }} />
+                                        :
+                                        <h1>+</h1>
                                     }
                                 </span>
                                 <span className="img4" title="Lado Esquerdo" onClick={() => document.getElementById('img4').click()}>
-                                    <input type="file" id="img4"  onChange={(e) => setLadoEsq(e.target.files[0])} />
-                                    {LadoEsq 
-                                    ?    
-                                    <img src={imgLadoEsq()} style={{objectFit: 'contain', maxWidth: '50px'}} /> 
-                                    :
-                                    <h1>+</h1>
+                                    <input type="file" id="img4" onChange={(e) => setLadoEsq(e.target.files[0])} />
+                                    {LadoEsq
+                                        ?
+                                        <img src={imgLadoEsq()} style={{ objectFit: 'contain', maxWidth: '50px' }} />
+                                        :
+                                        <h1>+</h1>
                                     }
                                 </span>
                             </div>

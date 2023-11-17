@@ -125,7 +125,7 @@ export default function Pagamento25(){
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0,00</p>
                                 </div>
                             </div>
                             <div className='total_pedido'>

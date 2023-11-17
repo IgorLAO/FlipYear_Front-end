@@ -5,7 +5,6 @@ import EstrelasAvaliacao from './estrelas';
 import Carrrinho from '../../assets/images/perfil-pessoal/image-removebg-preview (8) 2.png'
 import { useState } from 'react';
 import axios from 'axios';
-// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -14,9 +13,11 @@ import localStorage from 'local-storage';
 export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
     const estoragemLocal = localStorage('ADM_Logado')
+
+    
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState(props.estoque);
-    const [idUser, setIdUser] = useState('');
+    const [idUser, setIdUser] = useState(1);
     const [idProduto, setIdProduto] = useState(props.idProduto);
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
@@ -103,6 +104,8 @@ export default function CardProdutoCtlg(props) {
 
     useEffect(() => {
         NaoColecionadorCard();
+
+        
 
     }, [props])
 

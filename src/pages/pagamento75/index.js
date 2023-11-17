@@ -14,15 +14,32 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-    import { AlterarProduto } from '../../api/produtos.js';
+import { AlterarProduto, ConsultarProdPorId } from '../../api/produtos.js';
 
-    export default function Pagamento75(props) {
-        const [QtdProduto, setQtdProduto] = useState('');
-        const [id, setId] = useState();
+export default function Pagamento75(props) {
+    const [QtdProduto, setQtdProduto] = useState('');
+    const [id, setId] = useState();
+    const [list, setList] = useState([]);
 
-        async function ConcluirPedido(){
-            
-        }
+    const  { idParam } = useParams();
+
+
+    function Nav100() {
+        navigate(`/pagamento100`);
+    }
+
+    useEffect(() => {
+        CarregarPedido();
+    }, []);
+    
+
+    const navigate = useNavigate();
+
+    async function CarregarPedido() {
+        const r = ConsultarProdPorId(idParam);
+        setList(r);
+    }
+
 
     return (
         <>
@@ -118,7 +135,7 @@ import { useParams } from 'react-router-dom';
                             <div className='produtos75'>
                                 <div>
                                     <img src={Atari} />
-                                    <p>{ }Não utilizado Nintendo Original Gameboy Console Game Boy do Japão</p>
+                                    <p>{list.NM_PRODUTO}</p>
                                 </div>
                                 <div className='qtd_preco75'>
                                     <div style={{ color: '#69FF8B' }}>
@@ -127,7 +144,7 @@ import { useParams } from 'react-router-dom';
                                     </div>
                                     <div >
                                         <p>{ }1</p>
-                                        <p>{ }R$ 999,99</p>
+                                        <p>{ }R$ {list.VL_PRECO} </p>
                                     </div>
                                 </div>
                             </div>
@@ -143,25 +160,25 @@ import { useParams } from 'react-router-dom';
                             <div className='dados_pedido'>
                                 <div>
                                     <p>SUBTOTAL</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ list.VL_PRECO}</p>
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0</p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
-                                    <p>R${ } 999,99</p>
+                                    <p>R${ } 0</p>
                                 </div>
                             </div>
                             <div className='total_pedido'>
                                 <p>TOTAL</p>
-                                <p>R${ } 999,99</p>
+                                <p>R${ list.VL_PRECO }</p>
                             </div>
                         </div>
-                        <div className='finalizar'>
+                        <div onClick={Nav100} className='finalizar'>
                             <img src={CarrinhoBranco} />
-                            <p onClick={ConcluirPedido}>Finalizar</p>
+                            <p>Finalizar</p>
                         </div>
                     </div>
                 </div>
