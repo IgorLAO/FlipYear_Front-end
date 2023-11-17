@@ -13,7 +13,7 @@ import localStorage from 'local-storage';
 
 export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
-    const estoragemLocal = localStorage('NORMAL_USER_Logado')
+    const estoragemLocal = localStorage('ADM_Logado')
 
     
     const [qtdProdutos, SetQtdProdutos] = useState(0);

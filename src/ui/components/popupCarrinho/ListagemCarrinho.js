@@ -5,7 +5,7 @@ import localStorage from 'local-storage';
 import {  useNavigate } from 'react-router-dom';
  
 export default function ListagemCarrinho(props) {
-  const estoragemLocal = localStorage('NORMAL_USER_Logado')
+  const estoragemLocal = localStorage('ADM_Logado')
 
   const [border, setBorder] = useState('none');
   const [idProduto, setIdProduto] = useState(props.idProduto);
