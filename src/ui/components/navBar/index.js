@@ -226,11 +226,11 @@ setFiltroEstado} = props;
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
-                {
-                    (IshideNotFound == true)
-                        ? <SearchCard_NotFound />
-                        :
-                        <></>
+
+            {
+                    (IshideNotFound == true && tamanhoSearch > 0)
+                    ?<SearchCard_NotFound/>
+                    : <></>
                 }
 
                 {searchRes.slice(0, limit).map((i) => (

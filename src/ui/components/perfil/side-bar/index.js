@@ -10,6 +10,7 @@ import { useState } from 'react'
 
 export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
 
+    
 
     function logar() {
         setLogado(true);
