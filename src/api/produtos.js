@@ -48,3 +48,16 @@ export async function GetCmtsPage(pageComments) {
     const resp = await server.get(`/comentarios?pagina=${pageComments}`)
     return resp
 }
+
+export async function InsertComments(idUsuario, idProduto, comentario, data, likes, denuncia){
+    const resp = await server.post('/comentarios', {
+        idUsuario : idUsuario,
+        idProduto : idProduto,
+        comentario : comentario,
+        data : data,
+        likes : likes, 
+        denuncia : denuncia
+    });
+
+    return resp;
+}

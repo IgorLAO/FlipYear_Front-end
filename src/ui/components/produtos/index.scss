@@ -1,7 +1,7 @@
 .products{
 
     .swiper {
-        width: 95%;
+        
         height: 90%;
       }
       .swiper-button-prev{
@@ -21,6 +21,7 @@
         color: rgb(84, 197, 118);
     }
       .swiper-slide {
+        margin: 0px;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -1,6 +1,14 @@
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import moment from 'moment';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 
 import './index.scss'
 import axios from "axios";
@@ -18,7 +26,7 @@ import Produtos from '../../ui/components/produtos'
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 
 export default function InfProduto() {
@@ -27,16 +35,19 @@ export default function InfProduto() {
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
-    const [IsHideReportPopUp, setIsHideReportPopUp] = useState(false);
 
     const [comments, setComments] = useState([]);
     const [allProducts, SetAllProducts] = useState([]);
     const [parcela, SetParcela] = useState(0)
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
+    const [dateNow, setDateNow] = useState(moment(new Date).format('YYYY/MM/DD'))
+    const [commentContent, setCommentContent] = useState('')
+    const [commentLikes, setCommentLikes] = useState(0)
+    const [commentReport, setCommentReport] = useState(false)
 
     const [commentsPagAtual, setCommentsPagAtual] = useState(1)
-    const [commentsPerPag, setCommentsPerPag] = useState(4)
+    const [commentsPerPag, setCommentsPerPag] = useState(2)
     const [setaAvancarComments, setSetaAvancarComments] = useState(true)
     const [setaRetornarComments, setSetaRetornarComments] = useState(false)
     const [commentsProd, setCommentsProd] = useState([])
@@ -50,16 +61,19 @@ export default function InfProduto() {
         numPagComments.push(i)
     }
 
-    function sla(){
-        if(comments.PRODUTO === idParam){
-            setCommentsProd([...comments])
-        }
 
-    }
+    function sla() {
+        // Filtra os comentários que correspondem ao produto atual
+        const commentsForProduct = comments.filter(comment => comment.PRODUTO === idParam);
+      
+        // Define os comentários filtrados no estado
+        setCommentsProd(commentsForProduct);
+      }
+
 
     useEffect(() => {
-        sla()
 
+        sla()
 
         if (commentsPagAtual !== 1) {
           setSetaRetornarComments(true);
@@ -72,9 +86,9 @@ export default function InfProduto() {
         } else {
           setSetaAvancarComments(true);
         }
-      }, [commentsAtuais, numPagComments.length]);
+      }, [commentsAtuais, numPagComments.length, comments, commentsPagAtual, commentsProd]);
     
-      const paginarComments = (item) => {
+      const paginaComments = (item) => {
         setCommentsPagAtual(item);
       };
     
@@ -119,6 +133,15 @@ export default function InfProduto() {
         setComments(t)
     }
 
+ 
+    async function InserirCommentarioEnter(e){
+        if(e.key == 'Enter'){
+
+        let resp = await InsertComments( idParam, commentContent, dateNow, commentLikes, commentReport)
+        
+     }
+    }
+
 
     async function GetAllProduttc() {
         let res = await GetAllProd()
@@ -151,31 +174,36 @@ export default function InfProduto() {
         <div className="pagina-produto">
             <NavBar />
             <div className="infos">
-                <div className="txt-img">
-                    <div className="imgs-produto">
-                        <div className="mini-imgs">
-                            <div className="mini-img">
-                                <img src={yum} alt="" />
-                            </div>
 
-                            <div className="mini-img">
-                                <img src={yum_costa} alt="" />
-                            </div>
-
-                            <div className="mini-img">
-                                <img id="fita" src={yum_fita} alt="" />
-                            </div>
-
-                            <div className="mini-img">
-                                <img src={yum} alt="" />
-                            </div>
-                        </div>
-                        <div className="div_imagem">
+                        
                             <div className="imagem">
+
+
+                                <Swiper navigation={true} slidesPerView={1} modules={[Navigation]} className="mySwiper2">
+
+                                <SwiperSlide>
                                 <img src={yum} alt="" />
-                            </div>
-                        </div>
-                    </div>
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                <img src={yum} alt="" />
+                                </SwiperSlide>
+
+
+                                </Swiper>
+                                
                 </div>
 
                 <div className="compra">
@@ -267,7 +295,7 @@ export default function InfProduto() {
 
                 <div className="escrita">
                     <img src={Usuario} alt="" />
-                    <input type="text" placeholder="Deixe um comentário" />
+                    <input type="text" value={commentContent} onChange={e => setCommentContent(e.target.value)} onKeyDown={InserirCommentarioEnter} placeholder="Deixe um comentário" />
                 </div>
 
             
@@ -297,7 +325,7 @@ export default function InfProduto() {
 
                         {numPagComments.map(item =>
 
-                            <p onClick={() => paginarComments(item)}>{item}</p>
+                            <p onClick={() => paginaComments(item)}>{item}</p>
 
                         )}
 
