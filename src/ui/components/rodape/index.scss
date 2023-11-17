@@ -176,6 +176,11 @@
 @media (max-width: 414px) {
     .container_rodape{
         width: 100%;
+        .cert_seguranca{
+            img{
+                margin-left: -20px;
+            }
+        }
     }
 }
 
