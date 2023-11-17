@@ -24,7 +24,7 @@ import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
 import Menu from "../../assets/images/Vector.png";
 
-export default function NavBar() {
+export default function NavBar(props) {
     const navigate = useNavigate('');
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
@@ -115,6 +115,16 @@ export default function NavBar() {
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
 
+    const {setFiltroPreco, 
+        FiltroDestaque, 
+        FiltroColecionador, 
+        FiltroPromocao,
+        setFiltroEmpresa,
+    setFiltroAvaliacao,
+    setFiltroEstoque,
+setFiltroEstado} = props;
+
+
     return (
         <>
 
@@ -170,7 +180,16 @@ export default function NavBar() {
                         (popUpFiltro == true)
 
                             ? <FiltroCard
-                                popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
+                                popUpFiltro={popUpFiltro} 
+                                setPopUpFiltro={setPopUpFiltro}
+                                FiltroColecionador={FiltroColecionador}
+                                FiltroPromocao={FiltroPromocao}
+                                FiltroDestaque={FiltroDestaque}
+                                setFiltroPreco ={setFiltroPreco}
+                                setFiltroEmpresa={setFiltroEmpresa}
+                                setFiltroEstado={setFiltroEstado}
+                                setFiltroAvaliacao={setFiltroAvaliacao}
+                                setFiltroEstoque={setFiltroEstoque}></FiltroCard>
                             : <></>
 
                     }
