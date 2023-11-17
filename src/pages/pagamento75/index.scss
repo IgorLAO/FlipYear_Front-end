@@ -77,6 +77,10 @@
 
         width: 100%;
 
+        @media(max-width:864px){
+                flex-direction: column;
+        }
+
         .dados_pessoais_pag75 {
 
             display: flex;
@@ -223,6 +227,10 @@
             max-width: 32vh;
             width: 100%;
 
+            @media(max-width:864px){
+                max-width: 100%;
+                width: 100%;
+            }
             .valores_pedido {
 
                 background-color: #40985d4f;
@@ -312,3 +320,5 @@
     }
 
 }
+
+

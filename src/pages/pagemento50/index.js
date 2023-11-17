@@ -6,21 +6,35 @@ import Confirmacao from '../../ui/assets/images/progress_pag_assets/olho_progres
 import Concluir from '../../ui/assets/images/progress_pag_assets/confirm 1.png';
 import Seta from '../../ui/assets/images/progress_pag_assets/setabaixa.png';
 import Sonic from '../../ui/assets/images/progress_pag_assets/sonic-running.gif';
-
+    import { useNavigate, useParams } from 'react-router-dom';
 import CabecalhoVazio from '../../ui/components/cabecalhoSimples';
 import Rodape from '../../ui/components/rodape';
 import { useEffect, useState } from 'react';
+import { ConsultarProdPorId } from '../../api/produtos';
 
 export default function Pagamento() {
     const [isHidePix, setPix] = useState(true);
     const [isHideBoleto, setIsHideBoleto] = useState(false);
     const [isHideCartao, setIsHideCartao] = useState(false);
     const [vNumbers, setVNumbers] = useState(1)
+    const { idParam } = useParams();
+    const [ list, setList] = useState([])
+
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        Hide()
+    }, [])
 
     const Hide = () => {
-
-    }
-
+        const r = ConsultarProdPorId(idParam);
+        setList(r);
+        }
+        
+        function NavPag75(){
+            navigate(`/pagamento75/${idParam}`);
+        }
     return (
         <>
 
@@ -151,7 +165,7 @@ export default function Pagamento() {
 
                         <div className='VoltarConcluir'>
                             <button id='but_voltar'>Voltar</button>
-                            <button id='but_concluir'>Concluir</button>
+                            <button id='but_concluir' onClick={NavPag75}>Concluir</button>
                         </div>
 
                     </div>
