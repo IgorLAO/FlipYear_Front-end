@@ -210,7 +210,15 @@ export default function Catalogo() {
 
     return (
         <>
-                <NavBar />
+                <NavBar 
+                    FiltroColecionador={FiltroColecionador}
+                    FiltroPromocao={FiltroPromocao}
+                    FiltroDestaque={FiltroDestaque}
+                    setFiltroPreco ={setFiltroPreco}
+                    setFiltroEmpresa={setFiltroEmpresa}
+                    setFiltroEstado={setFiltroEstado}
+                    setFiltroAvaliacao={setFiltroAvaliacao}
+                    setFiltroEstoque={setFiltroEstoque}/>
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
