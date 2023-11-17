@@ -48,7 +48,7 @@ const Cadastro = () => {
 
             const data = await InsertUsuario({
                 Id_endereco: id_endereco,
-                Id_Img: idImage,
+                Id_Img: 1,
                 Nome: Nome,
                 Telefone: Telefone,
                 CPF: CPF,
