@@ -13,7 +13,7 @@ import localStorage from 'local-storage';
 export default function PopUpCarrinho({ setPopUpCarro }) {
 
     const estoragemLocal = localStorage('ADM_Logado')
-    const [idUser, setIdUser] = useState(estoragemLocal.data.Id);
+    const [idUser, setIdUser] = useState(1);
 
 
     const [dataCarrinho, setDataCarrinho] = useState([]);

@@ -10,7 +10,7 @@ export default function ListagemCarrinho(props) {
   const [border, setBorder] = useState('none');
   const [idProduto, setIdProduto] = useState(props.idProduto);
   const [qtdProdutos, SetQtdProdutos] = useState(props.QTD_PRODUTO_CARRINHO);
-  const [idUser, setIdUser] = useState(estoragemLocal.data.Id);
+  const [idUser, setIdUser] = useState(1);
 
   const [apagar, setApagar] = useState('');
 
