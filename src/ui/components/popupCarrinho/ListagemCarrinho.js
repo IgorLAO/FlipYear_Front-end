@@ -28,7 +28,7 @@ export default function ListagemCarrinho(props) {
 
   const ExcluirProduto = async () => {
     try {
-      const r = await axios.delete(`http://localhost:5000/carrinho/produto/` + `${idUser}` + '/' + `${idProduto}`)
+      const r = await axios.delete(`http://129.148.42.252:5010/carrinho/produto/` + `${idUser}` + '/' + `${idProduto}`)
         } catch (err) {
       throw new Error('Erro ao excluir produto:', err);
     }
