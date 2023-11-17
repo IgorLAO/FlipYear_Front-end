@@ -8,7 +8,8 @@
 
     .s {
         display: flex;
-        color: #fff ;
+        color: #fff;
+
         .content2 {
             display: flex;
             flex-direction: column;
@@ -135,5 +136,11 @@
                 }
             }
         }
+    }
+
+}
+@media (max-width: 900px) {
+    .MainRegistroADM .s .content2 section {
+        flex-direction: column;
     }
 }
