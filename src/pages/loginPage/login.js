@@ -1,9 +1,10 @@
+import './login.scss';
+
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import localStorage from 'local-storage';
 import { RecupararSenha } from '../../ui/components/recuperarSenhaComponets/recuperar_senha';
-import './login.scss';
 
 import googleLogo from '../../ui/assets/images/imagesLogin/google 1.png';
 import FacebookeLogo from '../../ui/assets/images/imagesLogin/face 1.png';
@@ -47,8 +48,7 @@ function Login(props2) {
       }
 
     } catch (err) {
-        setErro(err.response)
-      
+        setErro(err.response);
     }
   }
 
@@ -62,9 +62,9 @@ function Login(props2) {
           navigate('/ADM');
         } else if (res.data.Tier === "NORMAL_USERS") {
           localStorage('NORMAL_USER_Logado', res);
-
           localStorage('ADM_Logado', res)
           navigate('/ADM');
+
         } else if (res.data.Tier === "NORMAL_USERS") {
           localStorage('NORMAL_USER_Logado', res)
 
@@ -129,11 +129,7 @@ function Login(props2) {
                 <span className='linha'></span>
 
                 <div className='entrarCom'>
-                  <p>Acesse com:</p>
-                  <div className='redes'>
-                    <img src={FacebookeLogo} alt="" />
-                    <img src={googleLogo} alt="" />
-                  </div>
+              
                   <h6>Ainda não tem uma conta? <Link to='/cadastro'> <a >Cadastre-se</a></Link> </h6>
                   <a style={{ color: "red", display: "flex", marginTop: 20 }}> {Erro} </a>
                 </div>

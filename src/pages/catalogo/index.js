@@ -173,7 +173,6 @@ export default function Catalogo() {
 
 
         useEffect(() => {
-            // Lógica a ser executada após a atualização de estados
             if (paginaAtual !== 1) {
               setSetaRetornar(true);
             } else {
@@ -210,7 +209,15 @@ export default function Catalogo() {
 
     return (
         <>
-                <NavBar />
+                <NavBar 
+                    FiltroColecionador={FiltroColecionador}
+                    FiltroPromocao={FiltroPromocao}
+                    FiltroDestaque={FiltroDestaque}
+                    setFiltroPreco ={setFiltroPreco}
+                    setFiltroEmpresa={setFiltroEmpresa}
+                    setFiltroEstado={setFiltroEstado}
+                    setFiltroAvaliacao={setFiltroAvaliacao}
+                    setFiltroEstoque={setFiltroEstoque}/>
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>

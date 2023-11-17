@@ -1,6 +1,5 @@
 import "./index.scss";
 
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +24,7 @@ import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
 import Menu from "../../assets/images/Vector.png";
 
-export default function NavBar() {
+export default function NavBar(props) {
     const navigate = useNavigate('');
     const [menuLateralHidden, setMenuLateralHidden] = useState();
     const [logado, setLogado] = useState(false);
@@ -44,8 +43,9 @@ export default function NavBar() {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
             setLogado(true);
         }
-        else
+        else {
             setMenuLateralHidden(true);
+        }
     }
 
     function mostrarCarrinho() {
@@ -53,22 +53,17 @@ export default function NavBar() {
     }
 
     function MostrarFiltro() {
-
         setPopUpFiltro((current) => !current);
-
 
     }
 
     const GetSearchRes = async (e) => {
         setSearchValue(e.target.value);
-        setTamanhoSearch(e.target.value.length)
+        setTamanhoSearch(e.target.value.length);
 
-
-    
-        }
+    }
 
     const NavTo = (e) => {
-
         if (e.key === 'Enter' && tamanhoSearch > 0) {
             navigate('/search');
             localStorage('SearchValue', SearchValue);
@@ -87,7 +82,7 @@ export default function NavBar() {
     }
 
     function Navsuport() {
-        navigate('/Suporte')
+        navigate('/Suporte');
     }
 
     useEffect(() => {
@@ -95,41 +90,74 @@ export default function NavBar() {
             if (tamanhoSearch > 0) {
                 let res = await GetSearchProd(SearchValue);
                 if (res !== 'nada') {
-                  SetSearchRes(res.data);
-                  document.getElementById('sR').style.display = 'flex';
-                  setIshideNotFound(false)
+                    SetSearchRes(res.data);
+                    document.getElementById('sR').style.display = 'flex';
+                    setIshideNotFound(false);
+
                 } else {
-                  setIshideNotFound(true);
-                  console.log(IshideNotFound + 'pinto')
-                  SetSearchRes([]);
+                    setIshideNotFound(true);
+                    console.log(IshideNotFound + 'pinto')
+                    SetSearchRes([]);
                 }
-      
+
             }
 
-            else if(tamanhoSearch == 0){
+            else if (tamanhoSearch == 0) {
                 setIshideNotFound(false);
                 SetSearchRes([]);
                 document.getElementById('sR').style.display = 'none'
 
             }
-          };
-      
-          fetchData();
-        
+        };
+
+        fetchData();
+
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
+
+
+    const {setFiltroPreco, 
+        FiltroDestaque, 
+        FiltroColecionador, 
+        FiltroPromocao,
+        setFiltroEmpresa,
+    setFiltroAvaliacao,
+    setFiltroEstoque,
+setFiltroEstado} = props;
 
 
     return (
         <>
 
             <div className="Nav">
+                <header className="">
+                    <div onClick={NavToHome} className="Logo">
+                        <img src={LogoArcade} />
+                        <h3> Flip-Year
+                            <h1>2000</h1>
+                        </h3>
+                    </div>
+                    <span className="Options">
+                        {
+                            (!logado)
+                                ? <h3 style={{ color: '#fff' }}>faça o login {'>'}</h3>
+                                :
+                                <></>
+                        }
+                        <img id="menu" src={Menu} onClick={() => {
+                            const element = document.getElementById('respOP');
+                            const elementMenu = document.getElementById('menu');
+                            if (element.style.display == 'flex') { element.style.display = 'none'; elementMenu.classList.add = 'mostrar' }
+                            else { element.style.display = 'flex' }
 
-                <div onClick={NavToHome} className="Logo">
-                    <img src={LogoArcade} />
-                    <h3> Flip-Year
-                        <h1>2000</h1>
-                    </h3>
-                </div>
+                        }} />
+                        <span id="respOP" style={{ display: 'none' }}>
+                            <img src={Usuario} onClick={Mostrar} />
+                            <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                            <img onClick={Navsuport} src={Suporte} />
+                        </span>
+                    </span>
+
+                </header>
 
                 <span className="SearchBox">
                     <span className="boxInput">
@@ -152,45 +180,49 @@ export default function NavBar() {
                         (popUpFiltro == true)
 
                             ? <FiltroCard
-                                popUpFiltro={popUpFiltro} setPopUpFiltro={setPopUpFiltro}></FiltroCard>
-
+                                popUpFiltro={popUpFiltro} 
+                                setPopUpFiltro={setPopUpFiltro}
+                                FiltroColecionador={FiltroColecionador}
+                                FiltroPromocao={FiltroPromocao}
+                                FiltroDestaque={FiltroDestaque}
+                                setFiltroPreco ={setFiltroPreco}
+                                setFiltroEmpresa={setFiltroEmpresa}
+                                setFiltroEstado={setFiltroEstado}
+                                setFiltroAvaliacao={setFiltroAvaliacao}
+                                setFiltroEstoque={setFiltroEstoque}></FiltroCard>
                             : <></>
-
-
 
                     }
                 </span>
-                <span className="Options">
+                <span id="op" className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <CartStatus mostrarCarrinho={mostrarCarrinho}/>
+                    <CartStatus mostrarCarrinho={mostrarCarrinho} />
                     <img onClick={Navsuport} src={Suporte} />
-                    <img id="menu" src={Menu}/>
                 </span>
 
 
                 {
                     (menuLateralHidden === true)
-                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarFazerConta>
+                        ? <SideBarFazerConta setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} />
                         : <></>
-
                 }
+
                 {
                     (logado === true)
-                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} ></SideBarLogado> : <></>
+                        ? <SideBarLogado setLogado={setLogado} setMenuLateralHidden={setMenuLateralHidden} /> : <></>
                 }
 
                 {
                     (popUpCarro === true)
-                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho> : <></>
+                        ? <PopUpCarrinho setPopUpCarro={setPopUpCarro} /> : <></>
                 }
 
                 {(popUpCarro == true) ?
-                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} ></PopUpCarrinho>
+                    <PopUpCarrinho setPopUpCarro={setPopUpCarro} />
                     :
                     <></>
-
-
                 }
+
             </div>
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
@@ -200,18 +232,11 @@ export default function NavBar() {
                     ?<SearchCard_NotFound/>
                     : <></>
                 }
-                
+
                 {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
                 ))}
-
-
-
-
-
             </div>
-
-
         </>
     )
 }

@@ -54,7 +54,7 @@ export default function EditarPerfil(props) {
     }
 
     function GetNewImage() {
-        
+
     }
 
     async function TESTES() {
@@ -96,7 +96,7 @@ export default function EditarPerfil(props) {
                         </header>
 
                         <section>
-                            <div className='ProfilePic' >
+                            {/* <div className='ProfilePic' >
                                 <div className='banner'
                                     style={{ backgroundColor: localStorage('color') }}
                                     onClick={() => document.getElementById('color').click()}>
@@ -124,14 +124,64 @@ export default function EditarPerfil(props) {
                                     </span>
                                 </span>
                             </div>
-                            <div className='inputs'>
-                                <input type='text' placeholder='Digite um novo Nome' />
-                            </div>
+                          
                             <div className='advancedOP'>
                                 <span>
                                     <a>Opções avançadas</a>  <a>{'>'}</a>
                                 </span>
                                 <p> Informações da sua conta, como endereços, email e alterar senha </p>
+                            </div> */}
+
+                            <div className='Av'>
+                                <span>
+                                    <h2>Configuraçoes avancadas</h2>
+                                    <hr />
+                                </span>
+                                <div className='inputs2' >
+                                    <span>
+                                        <a>Alterar Nome</a>
+                                        <input type='text' />
+                                    </span>
+
+                                    <span>
+                                        <a>Alterar Email</a>
+                                        <input type='text' />
+                                    </span>
+                                    <div>
+                                        <span>
+                                            <a>endereços</a>
+                                            <input type='text' onBlur={() => document.getElementById('ed').style.display = 'flex'} />
+                                        </span>
+
+                                        <span id='ed' style={{display:'none'}}>
+                                            <span>
+                                                <a>Cep</a>
+                                                <input type='text' />
+                                            </span>
+                                            <span>
+                                                <a>Numero</a>
+                                                <input type='text' />
+                                            </span>
+                                           
+                                            <span>
+                                                <a>Cidade</a>
+                                                <input type='text' />
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div className='altSenha' style={{ display: 'flex' }}>
+                                        ALterar senha
+                                        <span>
+                                            <a>Nova Senha</a>
+                                            <input type='text' />
+                                        </span>
+
+                                        <span>
+                                            <a>Senha Antiga</a>
+                                            <input type='text' />
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>

@@ -113,12 +113,12 @@
 
 @media (max-width: 768px){
     .container_sobrenos {
-        width: 82vh;
+        width: 100%;
         .conteudo {
             display: flex;
             flex-direction: column;
             margin: -130px -20px;
-            width:75.3vh;
+            width:78.7vh;
             height: 97vh;
 
             .descricao {
@@ -143,22 +143,22 @@
 
 @media (max-width: 414px) {
     .container_sobrenos {
-        width: 96%;
+        width: 100%;
         .conteudo {
-            width: 39vh;
+            width: 40vh;
             flex-direction: column;
             margin: -130px -25px;
-            height: 85vh;
+            height: 95vh;
 
             .descricao {
                 font-size: 10px;
                 width: 46vh;
-                margin: -90px 0px;
+                margin: -10px 0px;
             }
 
             .container_perfil{
                 .sw{
-                    margin-top: 50px;
+                    margin-top: -10px;
                     width: 37vh;
                 }
             }

@@ -5,12 +5,12 @@ export async function ConsultaCarrinho(){
     return resp.data
 }
 
-export async function ExcluirProduto(id){
-    const resp = await server.delete();
-    return resp
-}
+export async function InserirProdutoNoCarrinho(idProduto, idUser, qtdProduto){
+    const resp = await server.post(`http://localhost:5000/carrinho/`, {
+        idProduto:idProduto,
+        idUser:idUser,
+        qtdProduto:qtdProduto
+    }); 
 
-export async function InserirProdutoNoCarrinho(){
-    const resp = await server.post(`http://localhost:5000/carrinho`)
-    return resp
+    return resp;
 }

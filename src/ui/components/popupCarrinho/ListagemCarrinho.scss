@@ -21,9 +21,12 @@
         padding-top: 8px;
         padding-bottom: 8px;
         
-    
-    
-    
+    }
+
+    #nomeProduto:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: bold;
     }
 
 

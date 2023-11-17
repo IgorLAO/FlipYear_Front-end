@@ -8,23 +8,21 @@ import ValoresFiltro from './valores/valores';
 
 export default function Filtro(props) {
 
-    const {setPopUpFiltro} = props;
-
+    const {setFiltroPreco, 
+        FiltroDestaque, 
+        FiltroColecionador, 
+        FiltroPromocao,
+        setFiltroEmpresa,
+        setFiltroEstado, 
+        setFiltroAvaliacao,
+        setFiltroEstoque,
+        setPopUpFiltro} = props;
     return (
         <>
 
-            <div className='clicar-fora' onClick={() =>{ setPopUpFiltro(false) }}></div>
-        
+            <div className='clicar-fora' onClick={() =>{ setPopUpFiltro(false) }}></div>        
 
             <div className='card-filtro'>
-
-                <div className='titulo'>
-                    <div>
-                        <img src={filtro} className='filtro-card'></img>
-                        <h2>Ordenar Por</h2>
-                    </div>
-                    <div className='linha-preta'></div>
-                </div>
 
                 <div className='opc-selec'>
 
@@ -51,7 +49,9 @@ export default function Filtro(props) {
 
                     <Butao item={'Fliperamas'}></Butao>
 
-                    <ListaFiltro item={'Empresa'}></ListaFiltro>
+                    <ListaFiltro 
+                    item={'Empresa'}
+                    setFiltroEmpresa={setFiltroEmpresa}></ListaFiltro>
 
 
                 </div>
@@ -66,13 +66,23 @@ export default function Filtro(props) {
 
                 <div className='opc-selec'>
 
+                <div onClick={FiltroPromocao}>
                     <Butao item={'Promoção'}></Butao>
+                    </div>
 
+                    <div onClick={FiltroDestaque}>
                     <Butao item={'Destaque'}></Butao>
+                    </div>
 
-                    <Butao item={'Colecionador'}></Butao>
+                    <div onClick={FiltroColecionador}>
+                    <Butao 
+                    item={'Colecionador'}>
+                    </Butao>
+                    </div>
 
-                    <ListaFiltro item={'Estado'}></ListaFiltro>
+                    <ListaFiltro 
+                    item={'Estado'}
+                    setFiltroEstado={setFiltroEstado}></ListaFiltro>
 
 
                 </div>
@@ -89,16 +99,20 @@ export default function Filtro(props) {
                     <ValoresFiltro
                         item={'Preço'}
                         inter={'?????'}
+                        setFiltroPreco={setFiltroPreco}
                     ></ValoresFiltro>
 
                     <ValoresFiltro
                         item={'Estoque'}
-                        inter={'???'}>
+                        inter={'???'}
+                        setFiltroEstoque={setFiltroEstoque}>
                     </ValoresFiltro>
 
                     <ValoresFiltro
                         item={'Avaliação'}
-                        inter={'?'}>
+                        inter={'?'}
+                        setFiltroAvaliacao={setFiltroAvaliacao}
+                        >
                     </ValoresFiltro>
 
 

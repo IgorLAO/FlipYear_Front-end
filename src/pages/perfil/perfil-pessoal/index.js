@@ -9,6 +9,7 @@ import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
 import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2';
 import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
+import Produtos from '../../../ui/components/produtos';
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function PerfilPessoal() {
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
-        
+
     }, []);
 
     const sendProfileToS = (dados) => {
@@ -67,7 +68,7 @@ export default function PerfilPessoal() {
                     />
                 }
 
-                <span style={{display: 'none'}}>
+                <span style={{ display: 'none' }}>
                     <EditarPerfil
                         SendProfileToD={sendProfileToS}
                         SendColorToD={sendColorToS}
@@ -112,25 +113,9 @@ export default function PerfilPessoal() {
                                     <img src={filter} />
                                 </span>
                                 <div className='Items'>
-                                    <CardPedido2 />
-                                    <CardPedido2 />
-                                    <CardPedido2 />
-                                    <CardPedido2 />
-                                    <CardPedido2 />
+                                    {/* <Produtos
+                                         /> */}
                                 </div>
-
-                                <span className='pages'>
-                                    <a>1</a>
-                                    <a>2</a>
-                                    <a>3</a>
-                                    <a>4</a>
-                                    <a>5</a>
-                                    <a>6</a>
-                                    <a>7</a>
-                                    <a>8</a>
-                                    <a>9</a>
-                                    <a>{'>'}</a>
-                                </span>
                             </div>
                         </section>
                     </span>
