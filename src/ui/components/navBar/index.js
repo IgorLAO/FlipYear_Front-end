@@ -196,7 +196,7 @@ export default function NavBar() {
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
 
             {
-                    (IshideNotFound == true )
+                    (IshideNotFound == true && tamanhoSearch > 0)
                     ?<SearchCard_NotFound/>
                     : <></>
                 }
