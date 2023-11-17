@@ -173,7 +173,6 @@ export default function Catalogo() {
 
 
         useEffect(() => {
-            // Lógica a ser executada após a atualização de estados
             if (paginaAtual !== 1) {
               setSetaRetornar(true);
             } else {
