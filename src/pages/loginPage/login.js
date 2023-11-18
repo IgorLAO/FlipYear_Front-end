@@ -53,31 +53,27 @@ function Login(props2) {
   }
 
   const logarEnter = async (e) => {
-    if (e.key == 'Enter') {
-      try {
-        let res = await Login2(email, senha);
+    try {
+      let res = await Login2(email, senha);
+        if (e.key == 'Enter') {
     
         if (res.data.Tier == "ADM") {
           localStorage('ADM_Logado', res);
           navigate('/ADM');
-        } else if (res.data.Tier === "NORMAL_USERS") {
-          localStorage('NORMAL_USER_Logado', res);
-          localStorage('ADM_Logado', res)
-          navigate('/ADM');
-
+          
         } else if (res.data.Tier === "NORMAL_USERS") {
           localStorage('NORMAL_USER_Logado', res)
 
           navigate('/perfil-pessoal');
         }
 
+      }
       } catch (err) {
 
           console.log(err.response);
           // setErro(err.response.data.erro);
         
       }
-    }
   }
 
   const verify = () => {
