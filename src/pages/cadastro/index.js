@@ -21,7 +21,7 @@ const Cadastro = () => {
     const [Senha, setSenha] = useState('');
     const [confirmSenha, setConfirmSenha] = useState('');
 
-    const InsertUser = async () => {
+    const InsertUser = async (id_endereco) => {
         try {
 
             let infosEndereco = {
@@ -31,20 +31,11 @@ const Cadastro = () => {
                 Complemento: Complemento,
                 Numero: Numero
             }
+
             const respEndereco = await InsertEnderecos(infosEndereco);
 
-            const respImages = await axios.get('http://129.148.42.252:5010/images');
-
-            const id_endereco = respEndereco.data[0].insertId;
-
-            console.log(id_endereco);
-
-            const idImage = respImages.data[0].Id;
-
-  
-
-            if (Senha != confirmSenha) 
-            setErro("As senhas devem ser iguais!");
+            if (Senha != confirmSenha)
+                setErro("As senhas devem ser iguais!");
 
             const data = await InsertUsuario({
                 Id_endereco: id_endereco,
@@ -65,7 +56,6 @@ const Cadastro = () => {
     }
 
     async function end() {
-
         let infosEndereco = {
             CEP: CEP,
             Cidade: Cidade,
@@ -73,19 +63,23 @@ const Cadastro = () => {
             Complemento: Complemento,
             Numero: Numero
         }
+
         const respEndereco = await InsertEnderecos(infosEndereco);
 
-        const respImages = await axios.get('http://129.148.42.252:5010/images');
 
         const res = respEndereco.data[0].insertId;
 
-        console.log();
+        console.log(res);
+        return res
     }
 
     return (
         <div className="mainCad">
             <div className='Card'>
                 <div className='Banner'>
+                    <button onClick={end}>
+                        aaaaaa
+                    </button>
                     <img src={MarioGif} />
 
                 </div>
@@ -100,7 +94,7 @@ const Cadastro = () => {
                         <div className='boxInput'>
                             <span style={{ width: 45 + '%' }}>
                                 <a> Nome Completo* </a>
-                        
+
                                 <input
                                     type='text'
                                     style={{ width: 100 + '%' }}
@@ -206,7 +200,11 @@ const Cadastro = () => {
 
                     <span style={{ color: "red", fontSize: 15 }}> <a>{Erro}</a> </span>
 
-                    <div className='button' onClick={InsertUser}>
+
+                    <div className='button' onClick={async () => {
+                        let res = await end();
+                        InsertUser(res);
+                    }}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
