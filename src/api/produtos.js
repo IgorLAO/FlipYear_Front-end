@@ -83,6 +83,11 @@ export async function InsertProd(i) {
     return resp
 }
 
+export async function Delete(i) {
+    const resp = await server.delete( `/produtos/${i}`);
+    return resp
+}
+
 export async function Getcatego() {
     const resp = await server.get('/categoria');
     return resp

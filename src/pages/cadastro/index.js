@@ -23,7 +23,6 @@ const Cadastro = () => {
 
     const InsertUser = async (id_endereco) => {
         try {
-
             let infosEndereco = {
                 CEP: CEP,
                 Cidade: Cidade,
