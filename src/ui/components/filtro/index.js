@@ -16,6 +16,10 @@ export default function Filtro(props) {
         setFiltroEstado, 
         setFiltroAvaliacao,
         setFiltroEstoque,
+        FiltroConsole,
+        FiltroCD,
+        FiltroFita,
+        FiltroFliperama,
         setPopUpFiltro} = props;
     return (
         <>
@@ -41,13 +45,22 @@ export default function Filtro(props) {
 
                 <div className='opc-selec'>
 
+                <div onClick={FiltroCD}>
                     <Butao item={'Jogos de CD'}></Butao>
+                    </div>
 
+
+                    <div onClick={FiltroFita}>
                     <Butao item={'Jogos de Fita'}></Butao>
+                    </div>
 
+                    <div onClick={FiltroConsole}>
                     <Butao item={'Consoles'}></Butao>
-
+                    </div>
+                    
+                    <div onClick={FiltroFliperama}>
                     <Butao item={'Fliperamas'}></Butao>
+                    </div>
 
                     <ListaFiltro 
                     item={'Empresa'}

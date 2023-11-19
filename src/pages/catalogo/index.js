@@ -1,6 +1,8 @@
 import './index.scss';
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
+import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
+import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
 
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
@@ -20,6 +22,11 @@ export default function Catalogo() {
     const [filtroColecionadorSwitch, setFiltroColecionadorSwitch] = useState(false);
     const [filtroPromocaoSwitch, setFiltroPromocaoSwitch] = useState(false);
     const [filtroDestaqueSwitch, setFiltroDestaqueSwitch] = useState(false);
+    const [filtroConsoleSwitch, setFiltroConsoleSwitch] = useState(false);
+    const [filtroFliperamaSwitch, setFiltroFliperamaSwitch] = useState(false);
+    const [filtroFitaSwitch, setFiltroFitaSwitch] = useState(false);
+    const [filtroCDSwitch, setFiltroCDSwitch] = useState(false);
+
     const [filtroEmpresa, setFiltroEmpresa] = useState('Empresa');
     const [filtroEstado, setFiltroEstado] = useState('Estado')
     const [filtroPreco, setFiltroPreco] = useState({
@@ -52,6 +59,25 @@ export default function Catalogo() {
 
         if (filtroDestaqueSwitch){
             filtro = filtro.filter(item => item.BT_DESTAQUE == true)
+        }
+
+        //se n por no bd desse jeito eles n vao funcionar
+
+        if (filtroConsoleSwitch){
+            filtro = filtro.filter(item => item.NM_CATEGORIA == 'Console')           
+        }
+
+        if (filtroCDSwitch){
+            filtro = filtro.filter(item => item.NM_CATEGORIA == 'CD')
+        }
+
+        if (filtroFliperamaSwitch){
+            filtro = filtro.filter(item => item.NM_CATEGORIA == 'Fliperama')
+        }
+
+        if (filtroFitaSwitch){
+            filtro = filtro.filter(item => item.NM_CATEGORIA == 'Fita')
+            
         }
 
         if(filtroPreco.inicial !== '' && filtroPreco.final !== ''){
@@ -147,6 +173,22 @@ export default function Catalogo() {
         setFiltroDestaqueSwitch(!filtroDestaqueSwitch);
     }
 
+    function FiltroConsole(){
+        setFiltroConsoleSwitch(!filtroConsoleSwitch);
+    }
+
+    function FiltroCD(){
+        setFiltroCDSwitch(!filtroCDSwitch);
+    }
+
+    function FiltroFita(){
+        setFiltroFitaSwitch(!filtroFitaSwitch);
+    }
+
+    function FiltroFliperama(){
+        setFiltroFliperamaSwitch(!filtroFliperamaSwitch)
+    }
+
     
     useEffect(() => {
         GetProds();
@@ -161,7 +203,11 @@ export default function Catalogo() {
         filtroEmpresa,
         filtroAvaliacao,
         filtroEstoque,
-        filtroEstado]);
+        filtroEstado,
+        filtroConsoleSwitch,
+    filtroCDSwitch,
+filtroFitaSwitch,
+filtroFliperamaSwitch]);
 
 
         const indexUltimoProd = paginaAtual * prodPorPag;
@@ -181,13 +227,14 @@ export default function Catalogo() {
             } else {
               setSetaRetornar(false);
             }
+
         
-            if (paginaAtual === numPagina.length) {
+            if (paginaAtual === numPagina.length || prodsAtuais <= 0) {
               setSetaAvancar(false);
             } else {
               setSetaAvancar(true);
             }
-          }, [paginaAtual, numPagina.length]);
+          }, [paginaAtual, numPagina.length, prodsAtuais]);
         
           const paginar = (item) => {
             setPaginaAtual(item);
@@ -220,10 +267,16 @@ export default function Catalogo() {
                     setFiltroEmpresa={setFiltroEmpresa}
                     setFiltroEstado={setFiltroEstado}
                     setFiltroAvaliacao={setFiltroAvaliacao}
-                    setFiltroEstoque={setFiltroEstoque}/>
+                    setFiltroEstoque={setFiltroEstoque}
+                    FiltroConsole={FiltroConsole}
+                    FiltroCD={FiltroCD}
+                    FiltroFita={FiltroFita}
+                    FiltroFliperama={FiltroFliperama}
+                    />
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
+
 
                 <div className='resultados-ctlg'>
                 <FiltroCtlg 
@@ -239,9 +292,23 @@ export default function Catalogo() {
                     setFiltroEstado={setFiltroEstado}
                     setFiltroAvaliacao={setFiltroAvaliacao}
                     setFiltroEstoque={setFiltroEstoque}
-
+                    FiltroConsole={FiltroConsole}
+                    FiltroCD={FiltroCD}
+                    FiltroFita={FiltroFita}
+                    FiltroFliperama={FiltroFliperama}
                 >
                 </FiltroCtlg>
+
+                {
+                    (prodsAtuais.length <= 0)
+                    ?<div className='vazio'>
+                    <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
+                    <p>Nenhum Produto Encontrado :{`(`}</p>
+                    <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
+                </div>
+                    :<></>
+
+                }
 
                 <div className='produtos-result'>
                     {prodsAtuais.map((item) => <>

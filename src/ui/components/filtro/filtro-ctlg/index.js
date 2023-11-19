@@ -18,9 +18,13 @@ export default function FiltroCtlg(props) {
         OrdMelhoresAvaliados,
         OrdPioresAvaliados,
         setFiltroEmpresa,
-    setFiltroAvaliacao,
-    setFiltroEstoque,
-setFiltroEstado} = props;
+        setFiltroAvaliacao,
+        setFiltroEstoque,
+        setFiltroEstado,
+        FiltroConsole,
+        FiltroCD,
+        FiltroFita,
+        FiltroFliperama} = props;
 
 
 
@@ -63,14 +67,23 @@ setFiltroEstado} = props;
 
                 <div className='opc-selec'>
 
+                    <div onClick={FiltroCD}>
                     <Butao item={'Jogos de CD'}></Butao>
+                    </div>
 
+
+                    <div onClick={FiltroFita}>
                     <Butao item={'Jogos de Fita'}></Butao>
+                    </div>
 
+                    <div onClick={FiltroConsole}>
                     <Butao item={'Consoles'}></Butao>
-
+                    </div>
+                    
+                    <div onClick={FiltroFliperama}>
                     <Butao item={'Fliperamas'}></Butao>
-
+                    </div>
+                    
                     <ListaFiltro 
                     item={'Empresa'}
                     setFiltroEmpresa={setFiltroEmpresa}>    

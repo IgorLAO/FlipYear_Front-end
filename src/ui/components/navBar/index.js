@@ -119,10 +119,18 @@ export default function NavBar(props) {
         FiltroDestaque, 
         FiltroColecionador, 
         FiltroPromocao,
+        OrdMaioresPrecos,
+        OrdMenoresPrecos, 
+        OrdMelhoresAvaliados,
+        OrdPioresAvaliados,
         setFiltroEmpresa,
-    setFiltroAvaliacao,
-    setFiltroEstoque,
-setFiltroEstado} = props;
+        setFiltroAvaliacao,
+        setFiltroEstoque,
+        setFiltroEstado,
+        FiltroConsole,
+        FiltroCD,
+        FiltroFita,
+        FiltroFliperama} = props;
 
 
     return (
@@ -189,7 +197,11 @@ setFiltroEstado} = props;
                                 setFiltroEmpresa={setFiltroEmpresa}
                                 setFiltroEstado={setFiltroEstado}
                                 setFiltroAvaliacao={setFiltroAvaliacao}
-                                setFiltroEstoque={setFiltroEstoque}></FiltroCard>
+                                setFiltroEstoque={setFiltroEstoque}
+                                FiltroConsole={FiltroConsole}
+                                FiltroCD={FiltroCD}
+                                FiltroFita={FiltroFita}
+                                FiltroFliperama={FiltroFliperama}></FiltroCard>
                             : <></>
 
                     }
