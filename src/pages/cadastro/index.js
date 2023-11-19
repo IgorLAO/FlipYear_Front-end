@@ -1,13 +1,15 @@
 import './style.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
-import { InsertEnderecos, InsertUsuario } from '../../api/usuario';
+import { EnviarImagem, InsertEnderecos, InsertUsuario } from '../../api/usuario';
 
 const Cadastro = () => {
+    const navigate = useNavigate('')
+
     const [Erro, setErro] = useState('');
     const [Nome, setNome] = useState('');
     const [Telefone, setTelefone] = useState('');
@@ -21,6 +23,45 @@ const Cadastro = () => {
     const [Senha, setSenha] = useState('');
     const [confirmSenha, setConfirmSenha] = useState('');
 
+    const [UserDefaultFile, setUserDefaultFile] = useState(MarioGif);
+
+    async function end() {
+        let simulatedFile = {
+            name: 'profile.png',
+            lastModified: 1700346122253,
+            lastModifiedDate: new Date('Sat Nov 18 2023 19:22:02 GMT-0300 (Horário Padrão de Brasília)'),
+            webkitRelativePath: '',
+            size: 827,
+            type: 'image/png'
+        };
+    
+        const formData = new FormData();
+    
+        const buffer = new ArrayBuffer(simulatedFile.size);
+
+        const blob = new Blob([buffer], { type: simulatedFile.type });
+        const newFile = new File([blob], simulatedFile.name, {
+            lastModified: simulatedFile.lastModified,
+            lastModifiedDate: simulatedFile.lastModifiedDate
+        });
+    
+        formData.append('profile', newFile);
+        
+    
+        let binaryData = '';
+        for (let [key, value] of formData.entries()) {
+            binaryData += value;
+        }
+    
+        console.log(binaryData);
+    
+        let id = 2;
+        await EnviarImagem(id, binaryData);
+    }
+    
+
+
+
     const InsertUser = async (id_endereco) => {
         try {
             let infosEndereco = {
@@ -31,21 +72,25 @@ const Cadastro = () => {
                 Numero: Numero
             }
 
-            const respEndereco = await InsertEnderecos(infosEndereco);
+            await InsertEnderecos(infosEndereco);
 
             if (Senha != confirmSenha)
                 setErro("As senhas devem ser iguais!");
 
-            const data = await InsertUsuario({
+            let a = await EnviarImagem(end())
+            console.log(a)
+            let Id_img = 2
+
+            await InsertUsuario({
                 Id_endereco: id_endereco,
-                Id_Img: 1,
+                Id_img: Id_img,
                 Nome: Nome,
                 Telefone: Telefone,
                 CPF: CPF,
                 Email: Email,
                 Senha: Senha,
                 Tier: "NORMAL_USER"
-            });
+            }).then(() => navigate('/login'));
 
         } catch (err) {
             console.log(err.response.data);
@@ -54,31 +99,21 @@ const Cadastro = () => {
         }
     }
 
-    async function end() {
-        let infosEndereco = {
-            CEP: CEP,
-            Cidade: Cidade,
-            Rua: Rua,
-            Complemento: Complemento,
-            Numero: Numero
-        }
+    // class Person{
 
-        const respEndereco = await InsertEnderecos(infosEndereco);
+    //     constructor(nome, oii) {
+    //         this.nome = nome,
+    //         this.oii = oii
+    //     }
+    // }
 
-
-        const res = respEndereco.data[0].insertId;
-
-        console.log(res);
-        return res
-    }
 
     return (
         <div className="mainCad">
+
             <div className='Card'>
                 <div className='Banner'>
-                    <button onClick={end}>
-                        aaaaaa
-                    </button>
+
                     <img src={MarioGif} />
 
                 </div>
@@ -108,6 +143,12 @@ const Cadastro = () => {
                                     value={Telefone}
                                     onChange={e => setTelefone(e.target.value)} />
                             </span>
+
+                            <button onClick={end}>
+                                AAAAAAA
+                            </button>
+
+
                         </div>
 
                         <div className='boxInput'>

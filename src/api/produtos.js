@@ -49,14 +49,14 @@ export async function GetCmtsPage(pageComments) {
     return resp
 }
 
-export async function InsertComments(idUsuario, idProduto, comentario, data, likes, denuncia){
+export async function InsertComments(idUsuario, idProduto, comentario, data, likes, denuncia) {
     const resp = await server.post('/comentarios', {
-        idUsuario : idUsuario,
-        idProduto : idProduto,
-        comentario : comentario,
-        data : data,
-        likes : likes, 
-        denuncia : denuncia
+        idUsuario: idUsuario,
+        idProduto: idProduto,
+        comentario: comentario,
+        data: data,
+        likes: likes,
+        denuncia: denuncia
     });
 
     return resp;
@@ -79,12 +79,12 @@ export async function InsertProdImages(i) {
 
 export async function InsertProd(i) {
     const resp = await server.post('/produtos', i);
-    
+
     return resp
 }
 
 export async function Delete(i) {
-    const resp = await server.delete( `/produtos/${i}`);
+    const resp = await server.delete(`/produtos/${i}`);
     return resp
 }
 

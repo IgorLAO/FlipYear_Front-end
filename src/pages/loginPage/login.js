@@ -35,45 +35,45 @@ function Login(props2) {
   const logar = async (e) => {
     try {
       let r = await Login2(email, senha);
-      console.log(r.data.Tier);
-      
+
       if (r.data.Tier === "ADM") {
         localStorage('ADM_Logado', r)
         navigate('/ADM');
 
-      } else if (r.data.Tier === "NORMAL_USERS") {
+      } else if (r.data.Tier === "NORMAL_USER") {
         localStorage('NORMAL_USER_Logado', r);
         navigate('/perfil-pessoal');
 
       }
 
     } catch (err) {
-        setErro(err.response);
+      setErro(err.response);
     }
   }
 
   const logarEnter = async (e) => {
-    try {
-      let res = await Login2(email, senha);
-        if (e.key == 'Enter') {
-    
+    if (e.key === 'Enter') {
+      try {
+        let res = await Login2(email, senha);
+
         if (res.data.Tier == "ADM") {
           localStorage('ADM_Logado', res);
           navigate('/ADM');
-          
-        } else if (res.data.Tier === "NORMAL_USERS") {
-          localStorage('NORMAL_USER_Logado', res)
 
+        } else if (res.data.Tier === "NORMAL_USER") {
+          localStorage('NORMAL_USER_Logado', res)
           navigate('/perfil-pessoal');
         }
 
-      }
       } catch (err) {
+        console.log(err.response, 'aaa');
+        // setErro(err.response.data.erro);
 
-          console.log(err.response);
-          // setErro(err.response.data.erro);
-        
       }
+    }
+    else{
+      console.log('uii')
+    }
   }
 
   const verify = () => {
@@ -120,12 +120,12 @@ function Login(props2) {
                 </form>
                 <a
                   onClick={logar}
-                  className='entrarButton' style={{cursor: 'pointer'}}> APERTE PARA ENTRAR </a>
+                  className='entrarButton' style={{ cursor: 'pointer' }}> APERTE PARA ENTRAR </a>
 
                 <span className='linha'></span>
 
                 <div className='entrarCom'>
-              
+
                   <h6>Ainda não tem uma conta? <Link to='/cadastro'> <a >Cadastre-se</a></Link> </h6>
                   <a style={{ color: "red", display: "flex", marginTop: 20 }}> {Erro} </a>
                 </div>

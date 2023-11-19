@@ -33,20 +33,22 @@ export default function EditarPerfil(props) {
             }
             setIsHide(false);
 
-            window.location.reload();
+           
 
         } catch (err) {
             console.log({ Erro: err.message })
         }
-
-
     }
 
     async function GETImages() {
         let infos = localStorage('NORMAL_USER_Logado');
+        
         let id = infos.data.Id
+        
         let das = await GetUserById(id);
+
         let profile = GetProfileImage(das.data[0].ImageProfile);
+        console.log(profile)
 
         setCurrentProfilePic(profile);
 
@@ -69,6 +71,7 @@ export default function EditarPerfil(props) {
     // ---------****--------------****---------------****--------
     if (IsHide) {
         document.body.style.overflow = 'hidden';
+
     } else {
         document.body.style.overflow = 'auto';
     }
@@ -96,7 +99,7 @@ export default function EditarPerfil(props) {
                         </header>
 
                         <section>
-                            {/* <div className='ProfilePic' >
+                            <div className='ProfilePic' >
                                 <div className='banner'
                                     style={{ backgroundColor: localStorage('color') }}
                                     onClick={() => document.getElementById('color').click()}>
@@ -130,7 +133,7 @@ export default function EditarPerfil(props) {
                                     <a>Opções avançadas</a>  <a>{'>'}</a>
                                 </span>
                                 <p> Informações da sua conta, como endereços, email e alterar senha </p>
-                            </div> */}
+                            </div>
 
                             <div className='Av'>
                                 <span>

@@ -17,20 +17,17 @@ export async function GetUserById(id) {
 }
 
 export async function EnviarImagem(id, Profile) {
-    const formData = new FormData();
-    formData.append('profile', Profile);
-
-    const res = await server.put(`/usuario/${id}/ProfImage`, formData, {
-        headers: {
-            "Content-Type": "multipart/form-data"
-        },
-    }).then((formData) => console.log(formData))
-
-    return res;
+        const res = await server.put(`/usuario/${id}/ProfImage`, Profile, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            },
+        });
+        
+        return res.data;
 }
 
+
 export function GetProfileImage(ProfIMG) {
-    console.log(`${server.getUri()}/${ProfIMG}`);
     return `${server.getUri()}/${ProfIMG}`
 }
 
