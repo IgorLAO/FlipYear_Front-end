@@ -31,10 +31,8 @@ export default function EditarPerfil(props) {
             if (SendNewProfilePic) {
                 EnviarImagem(infos.data.Id, SendNewProfilePic);
             }
+
             setIsHide(false);
-
-           
-
         } catch (err) {
             console.log({ Erro: err.message })
         }
@@ -42,13 +40,13 @@ export default function EditarPerfil(props) {
 
     async function GETImages() {
         let infos = localStorage('NORMAL_USER_Logado');
-        
+
         let id = infos.data.Id
-        
+
         let das = await GetUserById(id);
 
         let profile = GetProfileImage(das.data[0].ImageProfile);
-        console.log(profile)
+        console.log(das.data[0].ImageProfile);
 
         setCurrentProfilePic(profile);
 
@@ -127,7 +125,7 @@ export default function EditarPerfil(props) {
                                     </span>
                                 </span>
                             </div>
-                          
+
                             <div className='advancedOP'>
                                 <span>
                                     <a>Opções avançadas</a>  <a>{'>'}</a>
@@ -156,7 +154,7 @@ export default function EditarPerfil(props) {
                                             <input type='text' onBlur={() => document.getElementById('ed').style.display = 'flex'} />
                                         </span>
 
-                                        <span id='ed' style={{display:'none'}}>
+                                        <span id='ed' style={{ display: 'none' }}>
                                             <span>
                                                 <a>Cep</a>
                                                 <input type='text' />
@@ -165,7 +163,7 @@ export default function EditarPerfil(props) {
                                                 <a>Numero</a>
                                                 <input type='text' />
                                             </span>
-                                           
+
                                             <span>
                                                 <a>Cidade</a>
                                                 <input type='text' />

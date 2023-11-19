@@ -5,7 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import MarioGif from '../../ui/assets/images/imagesCadastro/mariokkart.gif';
-import { EnviarImagem, InsertEnderecos, InsertUsuario } from '../../api/usuario';
+import { EnviarDefaultImagem, EnviarImagem, InsertEnderecos, InsertUsuario } from '../../api/usuario';
 
 const Cadastro = () => {
     const navigate = useNavigate('')
@@ -26,62 +26,33 @@ const Cadastro = () => {
     const [UserDefaultFile, setUserDefaultFile] = useState(MarioGif);
 
     async function end() {
-        let simulatedFile = {
-            name: 'profile.png',
-            lastModified: 1700346122253,
-            lastModifiedDate: new Date('Sat Nov 18 2023 19:22:02 GMT-0300 (Horário Padrão de Brasília)'),
-            webkitRelativePath: '',
-            size: 827,
-            type: 'image/png'
-        };
-    
-        const formData = new FormData();
-    
-        const buffer = new ArrayBuffer(simulatedFile.size);
-
-        const blob = new Blob([buffer], { type: simulatedFile.type });
-        const newFile = new File([blob], simulatedFile.name, {
-            lastModified: simulatedFile.lastModified,
-            lastModifiedDate: simulatedFile.lastModifiedDate
-        });
-    
-        formData.append('profile', newFile);
-        
-    
-        let binaryData = '';
-        for (let [key, value] of formData.entries()) {
-            binaryData += value;
-        }
-    
-        console.log(binaryData);
-    
-        let id = 2;
-        await EnviarImagem(id, binaryData);
+        const img = {img: "storage/images/profileImages/ef7cd7a13927904c12dfe940caf60f50"}
+        const i = await EnviarDefaultImagem(img);
+        return i.data.insertId
     }
-    
+
+    async function SetinfosEndereco() {
+        let infosEndereco = {
+            CEP: CEP,
+            Cidade: Cidade,
+            Rua: Rua,
+            Complemento: Complemento,
+            Numero: Numero
+        }
+
+        const i = await InsertEnderecos(infosEndereco);
+         console.log(i.data[0].insertId)
+        return i.data[0].insertId
+    }
 
 
 
-    const InsertUser = async (id_endereco) => {
+    const InsertUser = async () => {
         try {
-            let infosEndereco = {
-                CEP: CEP,
-                Cidade: Cidade,
-                Rua: Rua,
-                Complemento: Complemento,
-                Numero: Numero
-            }
+            let Id_img = await end();
+            let id_endereco = await SetinfosEndereco();
 
-            await InsertEnderecos(infosEndereco);
-
-            if (Senha != confirmSenha)
-                setErro("As senhas devem ser iguais!");
-
-            let a = await EnviarImagem(end())
-            console.log(a)
-            let Id_img = 2
-
-            await InsertUsuario({
+            let infosPessoa = {
                 Id_endereco: id_endereco,
                 Id_img: Id_img,
                 Nome: Nome,
@@ -89,13 +60,18 @@ const Cadastro = () => {
                 CPF: CPF,
                 Email: Email,
                 Senha: Senha,
-                Tier: "NORMAL_USER"
-            }).then(() => navigate('/login'));
+                Tier: "NORMAL_USER",
+            }
+
+            if (Senha !== confirmSenha)
+                throw new Error('As senhas devem ser iguais!');
+            
+
+            await InsertUsuario(infosPessoa).then(() => navigate('/login'));
 
         } catch (err) {
-            console.log(err.response.data);
-            console.log('err');
-            setErro(err.response.data);
+            console.log(err.response ? err.response.data : err.message);
+            setErro(err.response ? err.response.data : err.message);
         }
     }
 
@@ -241,10 +217,7 @@ const Cadastro = () => {
                     <span style={{ color: "red", fontSize: 15 }}> <a>{Erro}</a> </span>
 
 
-                    <div className='button' onClick={async () => {
-                        let res = await end();
-                        InsertUser(res);
-                    }}>
+                    <div className='button' onClick={InsertUser}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
