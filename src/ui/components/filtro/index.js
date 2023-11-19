@@ -38,6 +38,7 @@ export default function Filtro(props) {
 
                 <div className='titulo'>
                     <div>
+                        <img src={filtro}></img>
                         <h2>Tipo de Produto</h2>
                     </div>
         </div>
