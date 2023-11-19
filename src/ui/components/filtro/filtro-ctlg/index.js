@@ -3,9 +3,8 @@ import ListaFiltro from '../lista/lista'
 import OrdenaçãoAvaliados from '../lista/listaAvaliados'
 import OrdenacaoPreco from '../lista/listaPreco'
 import ValoresFiltro from '../valores/valores'
-import filtro from '../../../assets/images/NavBar_assets/filtro_logo.png'
+import filtro from '../../../assets/images/filtro/filtroBlanco.png'
 import './index.scss'
-import { useEffect } from 'react'
 
 export default function FiltroCtlg(props) {
 
