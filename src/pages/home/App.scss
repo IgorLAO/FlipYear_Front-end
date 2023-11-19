@@ -371,6 +371,14 @@
       }
     }
   }
+  .s4{
+    margin-left: 1vh;
+    .produtos{
+        margin-left: -5vh;
+        width: 107vh;
+        padding-left: 20px;
+    }
+  }
 
 }
 
@@ -461,6 +469,18 @@
         display: flex;
         width: 20vh;
       
+      }
+    }
+    .s4{
+      margin-left: 2vh;
+      h2{
+        width: 50vh;
+        margin-left: -3vh;
+      }
+      .produtos{
+          margin-left: -3vh;
+          width: 150vh;
+          padding-left: 20px;
       }
     }
   }
