@@ -62,11 +62,11 @@ export async function InsertComments(idUsuario, idProduto, comentario, data, lik
     return resp;
 }
 export async function InsertProdImages(i) {
-    const formData = new FormData();
-    formData.append('Frente', i.Frente);
-    formData.append('LadoEsq', i.LadoDir);
-    formData.append('LadoDir', i.LadoDir);
-    formData.append('Tras', i.Tras);
+     const  formData = new FormData();
+            formData.append('Frente', i.Frente);
+            formData.append('LadoEsq', i.LadoDir);
+            formData.append('LadoDir', i.LadoDir);
+            formData.append('Tras', i.Tras);
 
     const resp = await server.post(`/produtos/imagem`, formData, {
         headers: {

@@ -38,13 +38,14 @@ export default function InfProduto() {
 
     const [comments, setComments] = useState([]);
     const [allProducts, SetAllProducts] = useState([]);
-    let [parcela, SetParcela] = useState(0)
+    let [parcela, SetParcela] = useState(0);
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
     const [dateNow, setDateNow] = useState(moment(new Date).format('YYYY/MM/DD'))
     const [commentContent, setCommentContent] = useState('')
     const [commentLikes, setCommentLikes] = useState(0)
-    const [commentReport, setCommentReport] = useState(false)
+    const [commentReport, setCommentReport] = useState(false);
+
 
     const [commentsPagAtual, setCommentsPagAtual] = useState(1)
     const [commentsPerPag, setCommentsPerPag] = useState(2)
@@ -52,9 +53,7 @@ export default function InfProduto() {
     const [setaRetornarComments, setSetaRetornarComments] = useState(false)
     const [commentsProd, setCommentsProd] = useState([]);
     const [cep, setCep] = useState('');
-    const [endereco, setEndereco] = useState('');
-
-    const [PrecoTotal, SetPrecoTotal] = useState(0);
+    const [respCep, setRespCep] = useState('');
 
     const indexUltimoComment = commentsPagAtual * commentsPerPag;
     const indexPrimeiroComments = indexUltimoComment - commentsPerPag;
@@ -71,16 +70,6 @@ export default function InfProduto() {
       
         // Define os comentários filtrados no estado
         setCommentsProd(commentsForProduct);
-      }
-
-      async function ConsultarCep(){
-        try {
-            const resp = await axios.get(`viacep.com.br/ws/${cep}/json/`);
-            setEndereco(resp)
-            console.log(resp)     
-        } catch (err) {
-            throw new Error(`Não foi Possível Encontrar o cep`);
-        }
       }
 
     useEffect(() => {
@@ -116,22 +105,34 @@ export default function InfProduto() {
         }
       };
 
+      async function ConsultarCep() {
+        if(cep.length > 7){
+            try {
+                const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+                if (resp.status === 200) {
+                  setRespCep('Cep encontrado!');
+                }
+              } catch (err) {
+                setRespCep('Não encontrado');
+              }
+        }
+        else{
+            setRespCep('');
+        }
+        
+      }
+    
+      useEffect(() => {
 
+            ConsultarCep();
+      }, [cep]);
+      
+      console.log(respCep);
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
         
-    }
-
-    async function AlterarPrecoHermes(){
-        const resp = await ConsultarProdPorId(idParam);
-         SetPrecoTotal(parseInt(resp.VL_PRECO) + 15);
-    }
-
-        async function AlterarPrecoRedStart(){
-        const resp = await ConsultarProdPorId(idParam);
-         SetPrecoTotal(parseInt(resp.VL_PRECO) + 25);
     }
 
     // async function InserirProdutoNoCarrinho(){
@@ -140,12 +141,10 @@ export default function InfProduto() {
     // }
 
          function parcelas() {
-
-            const valorParcelas = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(PrecoTotal / 10);
+            const valorParcelas = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.VL_PRECO / 10);
             SetParcela(valorParcelas);
     }
     
-
     function processPag25() {
         navigate(`/pagamento25/${idParam}`);
     }
@@ -189,15 +188,16 @@ export default function InfProduto() {
         }
     }
 
-    useEffect(() => {
+    useEffect(() =>{
         parcelas();
-    }, [PrecoTotal]);
+    }, [produto]);
+
 
     useEffect(() => {
         CarregarProdutos();
-        AlterarPrecoHermes();
         GetAllProduttc();
         GetAllComments();
+
     },[]);    
     return (
         <div className="pagina-produto">
@@ -246,7 +246,7 @@ export default function InfProduto() {
                     </div>
 
                     <div className="preco">
-                        <h2>R${PrecoTotal}</h2>
+                        <h2>R${produto.VL_PRECO}</h2>
                         <p>Ou 10x de {parcela}</p>
                         <div></div>
                     </div>
@@ -255,9 +255,9 @@ export default function InfProduto() {
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
 
                         <div className="search-bar">
-                            <input id="CEP" type="number" placeholder="Digite seu CEP" value={cep} onChange={(e) => setCep(e.target.value)}/>
-                            <button onClick={ConsultarCep}>Verificar</button>
+                            <input id="CEP" type="cep" placeholder="Digite seu CEP" value={cep} onChange={(e) => setCep(e.target.value)}/>
                         </div>
+                        <p style={{padding: "7px"}}>{respCep}</p> 
                     </div>
 
 
@@ -271,7 +271,7 @@ export default function InfProduto() {
                             <>
                                 <div className="tipo-envio">
                                     <div className="env-hermes">
-                                        <button onClick={AlterarPrecoHermes}>
+                                        <button>
                                             <div>
                                                 <img src={hermes} alt="" />
                                                 <h4>Hermes Express</h4>
@@ -288,7 +288,7 @@ export default function InfProduto() {
                                     <div className="linha2"></div>
 
                                     <div className="env-star">
-                                        <button onClick={AlterarPrecoRedStart}>
+                                        <button>
                                             <div>
                                                 <img src={red_star} alt="" />
                                                 <h4>Red Star Company</h4>

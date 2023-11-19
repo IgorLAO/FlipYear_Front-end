@@ -1,4 +1,5 @@
 import './index.scss';
+
 import linhaAstersico from '../../assets/images/carrinho_assets/linhaAsterisco.png'
 import Logo from '../../assets/images/perfil-side-bar/arcade_Logo 21.png'
 import linhaAsteriscoMenor from '../../assets/images/carrinho_assets/linhaAsteriscoMenor.png'
