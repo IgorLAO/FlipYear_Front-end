@@ -21,7 +21,8 @@ export default function Pagamento25(){
     const [list, setList] = useState([]);
     const [Discount, setDiscount] = useState();
     const [frete, setFrete] = useState([]);
-    const [cupom, setCupom] = useState([])
+    const [cupom, setCupom] = useState([]);
+    const [total, setTotal] = useState(0);
 
     const { idParam } = useParams()
     const navigate = useNavigate();
@@ -30,6 +31,11 @@ export default function Pagamento25(){
         ListProduct();
     });
 
+    function CupomDesconto(){
+        if(CupomDesconto === true){
+            
+        }   
+    }
     async function ListProduct(){
         const resp = await ConsultarProdPorId(idParam);
         setList(resp);
@@ -38,6 +44,10 @@ export default function Pagamento25(){
     function processPag50(){
         navigate(`/pagamento50/${idParam}`);
     }
+
+    useEffect(() =>{
+
+    }, [])
     
     return (
         <>
@@ -93,9 +103,9 @@ export default function Pagamento25(){
                                             <tr>
                                               
                                                 <td>{list.NM_PRODUTO}</td>
-                                                <div>
-                                                    <td>{list.DS_DETALHES}</td>
-                                                    <td>{list.VL_PRECO}</td>
+                                                <div style={{display: "flex", justifyContent:"space-between", width: "25%"}}>
+                                                    <td>{1}</td>
+                                                    <td>{total}</td>
                                                 </div>
                                                 
                                             </tr>

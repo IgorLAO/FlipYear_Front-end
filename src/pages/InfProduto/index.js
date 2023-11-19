@@ -11,7 +11,6 @@ import 'swiper/css/navigation';
 
 
 import './index.scss'
-import axios from "axios";
 
 import Usuario from "../../ui/assets/images/NavBar_assets/usuario_logo.png";
 import yum from '../../ui/assets/images/imageExamples/super_famicon_yum.png'
@@ -28,6 +27,7 @@ import Rodape from "../../ui/components/rodape";
 
 import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
+import axios from "axios";
 
 export default function InfProduto() {
     const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function InfProduto() {
 
     const [comments, setComments] = useState([]);
     const [allProducts, SetAllProducts] = useState([]);
-    const [parcela, SetParcela] = useState(0)
+    let [parcela, SetParcela] = useState(0)
     const [produto, setProduto] = useState({});
     const { idParam } = useParams();
     const [dateNow, setDateNow] = useState(moment(new Date).format('YYYY/MM/DD'))
@@ -50,7 +50,11 @@ export default function InfProduto() {
     const [commentsPerPag, setCommentsPerPag] = useState(2)
     const [setaAvancarComments, setSetaAvancarComments] = useState(true)
     const [setaRetornarComments, setSetaRetornarComments] = useState(false)
-    const [commentsProd, setCommentsProd] = useState([])
+    const [commentsProd, setCommentsProd] = useState([]);
+    const [cep, setCep] = useState('');
+    const [endereco, setEndereco] = useState('');
+
+    const [PrecoTotal, SetPrecoTotal] = useState(0);
 
     const indexUltimoComment = commentsPagAtual * commentsPerPag;
     const indexPrimeiroComments = indexUltimoComment - commentsPerPag;
@@ -61,7 +65,6 @@ export default function InfProduto() {
         numPagComments.push(i)
     }
 
-
     function sla() {
         // Filtra os comentários que correspondem ao produto atual
         const commentsForProduct = comments.filter(comment => comment.PRODUTO === idParam);
@@ -70,6 +73,15 @@ export default function InfProduto() {
         setCommentsProd(commentsForProduct);
       }
 
+      async function ConsultarCep(){
+        try {
+            const resp = await axios.get(`viacep.com.br/ws/${cep}/json/`);
+            setEndereco(resp)
+            console.log(resp)     
+        } catch (err) {
+            throw new Error(`Não foi Possível Encontrar o cep`);
+        }
+      }
 
     useEffect(() => {
 
@@ -109,16 +121,30 @@ export default function InfProduto() {
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setProduto(resp);
+        
+    }
+
+    async function AlterarPrecoHermes(){
+        const resp = await ConsultarProdPorId(idParam);
+         SetPrecoTotal(parseInt(resp.VL_PRECO) + 15);
+    }
+
+        async function AlterarPrecoRedStart(){
+        const resp = await ConsultarProdPorId(idParam);
+         SetPrecoTotal(parseInt(resp.VL_PRECO) + 25);
     }
 
     // async function InserirProdutoNoCarrinho(){
     //     const resp = await InserirProdutoNoCarrinho(idproduto, idUser, qtdProduto);
 
     // }
-    function parcelas() {
-        const parcela = produto.VL_PRECO / 10
-        SetParcela(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(parcela));
+
+         function parcelas() {
+
+            const valorParcelas = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(PrecoTotal / 10);
+            SetParcela(valorParcelas);
     }
+    
 
     function processPag25() {
         navigate(`/pagamento25/${idParam}`);
@@ -164,12 +190,15 @@ export default function InfProduto() {
     }
 
     useEffect(() => {
-        CarregarProdutos();
-        parcelas()
-        GetAllProduttc()
-        GetAllComments()
-    }, [parcela]);
+        parcelas();
+    }, [PrecoTotal]);
 
+    useEffect(() => {
+        CarregarProdutos();
+        AlterarPrecoHermes();
+        GetAllProduttc();
+        GetAllComments();
+    },[]);    
     return (
         <div className="pagina-produto">
             <NavBar />
@@ -217,7 +246,7 @@ export default function InfProduto() {
                     </div>
 
                     <div className="preco">
-                        <h2>R${produto.VL_PRECO}</h2>
+                        <h2>R${PrecoTotal}</h2>
                         <p>Ou 10x de {parcela}</p>
                         <div></div>
                     </div>
@@ -226,7 +255,8 @@ export default function InfProduto() {
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
 
                         <div className="search-bar">
-                            <input id="CEP" type="text" placeholder="Digite seu CEP" />
+                            <input id="CEP" type="number" placeholder="Digite seu CEP" value={cep} onChange={(e) => setCep(e.target.value)}/>
+                            <button onClick={ConsultarCep}>Verificar</button>
                         </div>
                     </div>
 
@@ -241,7 +271,7 @@ export default function InfProduto() {
                             <>
                                 <div className="tipo-envio">
                                     <div className="env-hermes">
-                                        <button>
+                                        <button onClick={AlterarPrecoHermes}>
                                             <div>
                                                 <img src={hermes} alt="" />
                                                 <h4>Hermes Express</h4>
@@ -258,7 +288,7 @@ export default function InfProduto() {
                                     <div className="linha2"></div>
 
                                     <div className="env-star">
-                                        <button>
+                                        <button onClick={AlterarPrecoRedStart}>
                                             <div>
                                                 <img src={red_star} alt="" />
                                                 <h4>Red Star Company</h4>
