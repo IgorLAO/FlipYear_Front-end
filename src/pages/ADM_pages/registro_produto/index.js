@@ -34,25 +34,23 @@ export default function RegistroProdutos() {
 
     async function InsertImages() {
         try {
+
+            const imgs = {
+                Frente,
+                LadoEsq,
+                LadoDir,
+                Tras,
+            }
+
+            const data1 = await InsertProdImages(imgs);
+            const insertedImageId = data1.data.insertId;
             
-        const imgs = {
-            Frente,
-            LadoEsq,
-            LadoDir,
-            Tras,
+            await InsertProdInfos(insertedImageId);
+            return insertedImageId;
+
+        } catch (err) {
+            console.log(err.message)
         }
-
-        const data1 = await InsertProdImages(imgs);
-        const insertedImageId = data1.data.insertId;
-
-        console.log(insertedImageId);
-
-        await InsertProdInfos(insertedImageId);
-        return insertedImageId;
-        
-    } catch (err) {
-      console.log(err.message)       
-    }
     }
 
     let Idcategoria = 3
@@ -60,27 +58,27 @@ export default function RegistroProdutos() {
     async function InsertProdInfos(IdImg) {
 
         try {
-            
-        let d = await InsertProd({
-            Idcategoria: categoriaId,
-            IdImg: IdImg,
-            nome: nome,
-            preco: preco,
-            precoPromocao: precoPromo,
-            destaque: destaque,
-            promocao: Promo,
-            disponivel: disponivel,
-            estoque: estoque,
-            detalhes: detalhes,
-            avaliacao: avaliacao,
-            fabricante: fabricante,
-            estado: Estado,
-            colecionador: Colecionador,
-        });
-        
-    } catch (err) {
-     console.log(err.message)       
-    }
+
+            let d = await InsertProd({
+                Idcategoria: categoriaId,
+                IdImg: IdImg,
+                nome: nome,
+                preco: preco,
+                precoPromocao: precoPromo,
+                destaque: destaque,
+                promocao: Promo,
+                disponivel: disponivel,
+                estoque: estoque,
+                detalhes: detalhes,
+                avaliacao: avaliacao,
+                fabricante: fabricante,
+                estado: Estado,
+                colecionador: Colecionador,
+            });
+
+        } catch (err) {
+            console.log(err.message)
+        }
     }
 
     async function HandleCategoria() {
@@ -246,7 +244,7 @@ export default function RegistroProdutos() {
                             </div>
 
 
-                            <div className='button' onClick={() => { InsertImages(); InsertProdInfos() }}>
+                            <div className='button' onClick={() => { InsertImages(); }}>
                                 <span style={{ display: "flex", position: "absolute" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                         <g opacity="0.5">

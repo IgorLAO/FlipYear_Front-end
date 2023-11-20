@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import localStorage from 'local-storage';
+import { GetUrlImage } from '../../../api/produtos';
 
 export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
@@ -54,18 +55,27 @@ export default function CardProdutoCtlg(props) {
     }, [props])
 
 
+    async function imgFrente(){
+        let i = GetUrlImage(props.ImgFrente)
+        console.log(i)
+    }
+    
+    
+
+
     return (
         <>
-
+       <button onClick={imgFrente}>
+        aaaaa
+       </button>
             {/* <ToastContainer></ToastContainer> */}
-
             <div
                 className='card'
                 style={{ background: `${fundoBranco}` }}
 
             >
                 <span className='imgsProd'>
-                    <img id='ImgProduto' src={props.ImgFrente} onClick={processoCompra} />
+                    <img id='ImgProduto' src={GetUrlImage(props.ImgFrente)} onClick={processoCompra} />
 
                     <img id='ImgProduto' src={props.ImgLadoDir} onClick={processoCompra} />
                 </span>
