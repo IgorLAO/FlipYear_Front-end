@@ -32,6 +32,10 @@ import axios from "axios";
 export default function InfProduto() {
     const navigate = useNavigate();
 
+    const [qtdProdutos, SetQtdProdutos] = useState(0);
+    const [limiteQtd, setLimiteQtd] = useState();
+    const [idUser, setIdUser] = useState(1);
+
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
     const [hideBuyOptions, setHideBuyOptions] = useState('');
@@ -71,6 +75,58 @@ export default function InfProduto() {
         // Define os comentários filtrados no estado
         setCommentsProd(commentsForProduct);
       }
+
+      function AddQtdProduto() {
+        SetQtdProdutos(qtdProdutos + 1);
+        if (qtdProdutos >= limiteQtd) {
+            SetQtdProdutos(limiteQtd);
+
+        }
+    }
+
+    function ProdutoAdicionado() {
+        // toast.success("Produto Adicionado ao Carrinho!")
+
+    }
+
+    function ErroAdicionarProduto() {
+        // toast.error("Produto Não Adicionado ao Carrinho");
+
+    }
+
+    function MinusQtdProduto() {
+        SetQtdProdutos(qtdProdutos - 1);
+
+        if (qtdProdutos == 0) {
+            SetQtdProdutos(0);
+
+        }
+    }
+
+    async function AddNoCarrinho() {
+        if (qtdProdutos >= 1) {
+            let resposta = await axios.post('http://129.148.42.252:5010/carrinho', {
+                usuario: idUser,
+                produto: idParam,
+                qtd: qtdProdutos
+            });
+
+            let limite = limiteQtd - qtdProdutos;
+            setLimiteQtd(limiteQtd - qtdProdutos);
+
+            if (qtdProdutos > limite) {
+                SetQtdProdutos(limite);
+            }
+
+            ProdutoAdicionado();
+
+        }
+
+        else {
+            ErroAdicionarProduto();
+
+        }
+    }
 
     useEffect(() => {
 
@@ -127,10 +183,10 @@ export default function InfProduto() {
             ConsultarCep();
       }, [cep]);
       
-      console.log(respCep);
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
+        setLimiteQtd(limiteQtd);
         setProduto(resp);
         
     }
@@ -311,8 +367,17 @@ export default function InfProduto() {
                     </div>
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
                         <button id="button-compra" onClick={processPag25}>Compre já</button>
-                        <button id="button-carrinho" onClick={''}>Adicionar ao Carrinho</button>
+                        <div>
+                        <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho
+                        </button> 
+                        </div>
                     </div>
+
+                    <div className="contador">
+                        <p className='hover-opt' onClick={MinusQtdProduto}>-</p>
+                        <p >{qtdProdutos}</p>
+                        <p className='hover-opt' onClick={AddQtdProduto} >+</p>
+                        </div>
                 </div>
             </div>
 

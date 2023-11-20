@@ -53,56 +53,56 @@ export default function Catalogo() {
         if (filtroPromocaoSwitch)
             filtro = filtro.filter(item => item.BT_PROMOCAO == true);
 
-        if (filtroColecionadorSwitch){
+        if (filtroColecionadorSwitch) {
             filtro = filtro.filter(item => item.TP_COLECIONADOR == true);
         }
 
-        if (filtroDestaqueSwitch){
+        if (filtroDestaqueSwitch) {
             filtro = filtro.filter(item => item.BT_DESTAQUE == true)
         }
 
         //se n por no bd desse jeito eles n vao funcionar
 
-        if (filtroConsoleSwitch){
-            filtro = filtro.filter(item => item.NM_CATEGORIA == 'Console')           
+        if (filtroConsoleSwitch) {
+            filtro = filtro.filter(item => item.NM_CATEGORIA == 'Console')
         }
 
-        if (filtroCDSwitch){
+        if (filtroCDSwitch) {
             filtro = filtro.filter(item => item.NM_CATEGORIA == 'CD')
         }
 
-        if (filtroFliperamaSwitch){
+        if (filtroFliperamaSwitch) {
             filtro = filtro.filter(item => item.NM_CATEGORIA == 'Fliperama')
         }
 
-        if (filtroFitaSwitch){
+        if (filtroFitaSwitch) {
             filtro = filtro.filter(item => item.NM_CATEGORIA == 'Fita')
-            
+
         }
 
-        if(filtroPreco.inicial !== '' && filtroPreco.final !== ''){
-            filtro =  filtro.filter(item => item.BT_PROMOCAO == true && 
-                item.VL_PRECO_PROMOCIONAL >= filtroPreco.inicial && 
+        if (filtroPreco.inicial !== '' && filtroPreco.final !== '') {
+            filtro = filtro.filter(item => item.BT_PROMOCAO == true &&
+                item.VL_PRECO_PROMOCIONAL >= filtroPreco.inicial &&
                 item.VL_PRECO_PROMOCIONAL <= filtroPreco.final ||
-                item.BT_PROMOCAO == false && 
-                item.VL_PRECO >= filtroPreco.inicial && 
+                item.BT_PROMOCAO == false &&
+                item.VL_PRECO >= filtroPreco.inicial &&
                 item.VL_PRECO <= filtroPreco.final)
-                
+
         }
 
-        if(filtroAvaliacao.inicial !== '' && filtroAvaliacao.final !== ''){
+        if (filtroAvaliacao.inicial !== '' && filtroAvaliacao.final !== '') {
             filtro = filtro.filter(item => item.VL_AVALIACAO >= filtroAvaliacao.inicial && item.VL_AVALIACAO <= filtroAvaliacao.final)
         }
 
-        if(filtroEstoque.inicial !== '' && filtroEstoque.final !== ""){
+        if (filtroEstoque.inicial !== '' && filtroEstoque.final !== "") {
             filtro = filtro.filter(item => item.QTD_ESTOQUE >= filtroEstoque.inicial && item.QTD_ESTOQUE <= filtroEstoque.final)
         }
 
-        if(filtroEmpresa !== 'Empresa'){
+        if (filtroEmpresa !== 'Empresa') {
             filtro = filtro.filter(item => item.NM_FABRICANTE == filtroEmpresa)
         }
 
-        if (filtroEstado !== 'Estado'){
+        if (filtroEstado !== 'Estado') {
             filtro = filtro.filter(item => item.TP_ESTADO == filtroEstado)
         }
 
@@ -114,30 +114,31 @@ export default function Catalogo() {
 
     const GetProds = async () => {
         let res = await GetAllProd();
+        console.log(res, 'oii')
         setList(res.data);
         setBackupArr(res.data);
     }
 
-    function OrdMelhoresAvaliados(){
-        const melhoresAval = [...list].sort((a,b) => a.VL_AVALIACAO - b.VL_AVALIACAO);
+    function OrdMelhoresAvaliados() {
+        const melhoresAval = [...list].sort((a, b) => a.VL_AVALIACAO - b.VL_AVALIACAO);
         setList(melhoresAval);
 
     }
 
-    function OrdPioresAvaliados(){
-        const pioresAval = [...list].sort((a,b) => b.VL_AVALIACAO - a.VL_AVALIACAO);
+    function OrdPioresAvaliados() {
+        const pioresAval = [...list].sort((a, b) => b.VL_AVALIACAO - a.VL_AVALIACAO);
         setList(pioresAval);
 
     }
 
 
-    function OrdMaioresPrecos(){
+    function OrdMaioresPrecos() {
 
-        const maioresPrecos = [...list].sort((a,b) => {
-            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO_PROMOCIONAL
-            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO
-            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return a.VL_PRECO - b.VL_PRECO_PROMOCIONAL
-            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return a.VL_PRECO - b.VL_PRECO
+        const maioresPrecos = [...list].sort((a, b) => {
+            if (a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO_PROMOCIONAL
+            if (a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return a.VL_PRECO_PROMOCIONAL - b.VL_PRECO
+            if (a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return a.VL_PRECO - b.VL_PRECO_PROMOCIONAL
+            if (a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return a.VL_PRECO - b.VL_PRECO
 
 
         });
@@ -145,21 +146,21 @@ export default function Catalogo() {
 
     }
 
-    function OrdMenoresPrecos(){
+    function OrdMenoresPrecos() {
 
 
-        const menoresPrecos = [...list].sort((a,b) => {
-            
-            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL
-            if(a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO_PROMOCIONAL
-            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO
-            if(a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO
+        const menoresPrecos = [...list].sort((a, b) => {
+
+            if (a.BT_PROMOCAO == true && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO_PROMOCIONAL
+            if (a.BT_PROMOCAO == true && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO_PROMOCIONAL
+            if (a.BT_PROMOCAO == false && b.BT_PROMOCAO == true) return b.VL_PRECO_PROMOCIONAL - a.VL_PRECO
+            if (a.BT_PROMOCAO == false && b.BT_PROMOCAO == false) return b.VL_PRECO - a.VL_PRECO
 
         });
-        
+
         setList(menoresPrecos);
 
-    }   
+    }
 
 
     function FiltroColecionador() {
@@ -173,163 +174,164 @@ export default function Catalogo() {
         setFiltroDestaqueSwitch(!filtroDestaqueSwitch);
     }
 
-    function FiltroConsole(){
+    function FiltroConsole() {
         setFiltroConsoleSwitch(!filtroConsoleSwitch);
     }
 
-    function FiltroCD(){
+    function FiltroCD() {
         setFiltroCDSwitch(!filtroCDSwitch);
     }
 
-    function FiltroFita(){
+    function FiltroFita() {
         setFiltroFitaSwitch(!filtroFitaSwitch);
     }
 
-    function FiltroFliperama(){
+    function FiltroFliperama() {
         setFiltroFliperamaSwitch(!filtroFliperamaSwitch)
     }
 
-    
+
     useEffect(() => {
         GetProds();
     }, [])
 
     useEffect(() => {
         filtrarResultados();
-    }, [filtroColecionadorSwitch, 
-        filtroPromocaoSwitch, 
-        filtroDestaqueSwitch, 
+    }, [filtroColecionadorSwitch,
+        filtroPromocaoSwitch,
+        filtroDestaqueSwitch,
         filtroPreco,
         filtroEmpresa,
         filtroAvaliacao,
         filtroEstoque,
         filtroEstado,
         filtroConsoleSwitch,
-    filtroCDSwitch,
-filtroFitaSwitch,
-filtroFliperamaSwitch]);
+        filtroCDSwitch,
+        filtroFitaSwitch,
+        filtroFliperamaSwitch]);
 
 
-        const indexUltimoProd = paginaAtual * prodPorPag;
-        const indexPrimeiroProd = indexUltimoProd - prodPorPag;
-        const prodsAtuais =  list.slice(indexPrimeiroProd, indexUltimoProd);
-        const numPagina = [];
+    const indexUltimoProd = paginaAtual * prodPorPag;
+    const indexPrimeiroProd = indexUltimoProd - prodPorPag;
+    const prodsAtuais = list.slice(indexPrimeiroProd, indexUltimoProd);
+    const numPagina = [];
 
-        for(let i = 1; i <= Math.ceil(list.length / prodPorPag); i++){
-            numPagina.push(i)
+    for (let i = 1; i <= Math.ceil(list.length / prodPorPag); i++) {
+        numPagina.push(i)
+    }
+
+
+
+    useEffect(() => {
+        if (paginaAtual !== 1) {
+            setSetaRetornar(true);
+        } else {
+            setSetaRetornar(false);
         }
 
 
+        if (paginaAtual === numPagina.length || prodsAtuais <= 0) {
+            setSetaAvancar(false);
+        } else {
+            setSetaAvancar(true);
+        }
+    }, [paginaAtual, numPagina.length, prodsAtuais]);
 
-        useEffect(() => {
-            if (paginaAtual !== 1) {
-              setSetaRetornar(true);
-            } else {
-              setSetaRetornar(false);
-            }
+    const paginar = (item) => {
+        setPaginaAtual(item);
+    };
 
-        
-            if (paginaAtual === numPagina.length || prodsAtuais <= 0) {
-              setSetaAvancar(false);
-            } else {
-              setSetaAvancar(true);
-            }
-          }, [paginaAtual, numPagina.length, prodsAtuais]);
-        
-          const paginar = (item) => {
-            setPaginaAtual(item);
-          };
-        
-          const Avancar = () => {
-            if (paginaAtual < numPagina.length) {
-              setPaginaAtual((prevPagina) => prevPagina + 1);
-            }
-          };
-        
-          const Retornar = () => {
-            if (paginaAtual > 1) {
-              setPaginaAtual((prevPagina) => prevPagina - 1);
-            }
-          };
+    const Avancar = () => {
+        if (paginaAtual < numPagina.length) {
+            setPaginaAtual((prevPagina) => prevPagina + 1);
+        }
+    };
+
+    const Retornar = () => {
+        if (paginaAtual > 1) {
+            setPaginaAtual((prevPagina) => prevPagina - 1);
+        }
+    };
 
 
-      
+
 
 
 
     return (
         <>
-                <NavBar 
-                    FiltroColecionador={FiltroColecionador}
-                    FiltroPromocao={FiltroPromocao}
-                    FiltroDestaque={FiltroDestaque}
-                    setFiltroPreco ={setFiltroPreco}
-                    setFiltroEmpresa={setFiltroEmpresa}
-                    setFiltroEstado={setFiltroEstado}
-                    setFiltroAvaliacao={setFiltroAvaliacao}
-                    setFiltroEstoque={setFiltroEstoque}
-                    FiltroConsole={FiltroConsole}
-                    FiltroCD={FiltroCD}
-                    FiltroFita={FiltroFita}
-                    FiltroFliperama={FiltroFliperama}
-                    />
+            <NavBar
+                FiltroColecionador={FiltroColecionador}
+                FiltroPromocao={FiltroPromocao}
+                FiltroDestaque={FiltroDestaque}
+                setFiltroPreco={setFiltroPreco}
+                setFiltroEmpresa={setFiltroEmpresa}
+                setFiltroEstado={setFiltroEstado}
+                setFiltroAvaliacao={setFiltroAvaliacao}
+                setFiltroEstoque={setFiltroEstoque}
+                FiltroConsole={FiltroConsole}
+                FiltroCD={FiltroCD}
+                FiltroFita={FiltroFita}
+                FiltroFliperama={FiltroFliperama}
+            />
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
 
                 <div className='resultados-ctlg'>
-                <FiltroCtlg 
-                    OrdMelhoresAvaliados={OrdMelhoresAvaliados}
-                    OrdPioresAvaliados = {OrdPioresAvaliados}
-                    OrdMaioresPrecos={OrdMaioresPrecos}
-                    OrdMenoresPrecos={OrdMenoresPrecos}
-                    FiltroColecionador={FiltroColecionador}
-                    FiltroPromocao={FiltroPromocao}
-                    FiltroDestaque={FiltroDestaque}
-                    setFiltroPreco ={setFiltroPreco}
-                    setFiltroEmpresa={setFiltroEmpresa}
-                    setFiltroEstado={setFiltroEstado}
-                    setFiltroAvaliacao={setFiltroAvaliacao}
-                    setFiltroEstoque={setFiltroEstoque}
-                    FiltroConsole={FiltroConsole}
-                    FiltroCD={FiltroCD}
-                    FiltroFita={FiltroFita}
-                    FiltroFliperama={FiltroFliperama}
-                >
-                </FiltroCtlg>
+                    <FiltroCtlg
+                        OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                        OrdPioresAvaliados={OrdPioresAvaliados}
+                        OrdMaioresPrecos={OrdMaioresPrecos}
+                        OrdMenoresPrecos={OrdMenoresPrecos}
+                        FiltroColecionador={FiltroColecionador}
+                        FiltroPromocao={FiltroPromocao}
+                        FiltroDestaque={FiltroDestaque}
+                        setFiltroPreco={setFiltroPreco}
+                        setFiltroEmpresa={setFiltroEmpresa}
+                        setFiltroEstado={setFiltroEstado}
+                        setFiltroAvaliacao={setFiltroAvaliacao}
+                        setFiltroEstoque={setFiltroEstoque}
+                        FiltroConsole={FiltroConsole}
+                        FiltroCD={FiltroCD}
+                        FiltroFita={FiltroFita}
+                        FiltroFliperama={FiltroFliperama}
+                    >
+                    </FiltroCtlg>
 
-                {
-                    (prodsAtuais.length <= 0)
-                    ?<div className='vazio'>
-                    <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
-                    <p>Nenhum Produto Encontrado :{`(`}</p>
-                    <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
-                </div>
-                    :<></>
+                    {
+                        (prodsAtuais.length <= 0)
+                            ? <div className='vazio'>
+                                <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
+                                <p>Nenhum Produto Encontrado :{`(`}</p>
+                                <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
+                            </div>
+                            : <></>
 
-                }
+                    }
 
-                <div className='produtos-result'>
-                    {prodsAtuais.map((item) => <>
+                    <div className='produtos-result'>
+                        {prodsAtuais.map((item) => <>
+                            <CardProdutoCtlg
+                                preco={item.VL_PRECO}
+                                ImgLadoDir={item.LADO_DIRE}
+                                ImgFrente={item.FRENTE}
+                                nome={item.NM_PRODUTO}
+                                precoPromocao={item.VL_PRECO_PROMOCIONAL}
+                                promocao={item.BT_PROMOCAO}
+                                avaliacao={item.VL_AVALIACAO}
+                                fabricante={item.NM_FABRICANTE}
+                                estado={item.TP_ESTADO}
+                                estoque={item.QTD_ESTOQUE}
+                                idProduto={item.ID_PRODUTO}
+                                colecionador={item.TP_COLECIONADOR}
+                            />
 
-                        <CardProdutoCtlg
-                            preco={item.VL_PRECO}
-                            nome={item.NM_PRODUTO}
-                            precoPromocao={item.VL_PRECO_PROMOCIONAL}
-                            promocao={item.BT_PROMOCAO}
-                            avaliacao={item.VL_AVALIACAO}
-                            fabricante={item.NM_FABRICANTE}
-                            estado={item.TP_ESTADO}
-                            estoque={item.QTD_ESTOQUE}
-                            idProduto={item.ID_PRODUTO}
-                            colecionador={item.TP_COLECIONADOR}
-                        />
-
-                    </>)}
+                        </>)}
 
 
-                </div>
+                    </div>
 
                 </div>
 
@@ -338,11 +340,11 @@ filtroFliperamaSwitch]);
                     {
                         (setaRetornar == true)
 
-                        ?<p onClick={Retornar}> {"<"} </p>
-                        :<></>
+                            ? <p onClick={Retornar}> {"<"} </p>
+                            : <></>
 
                     }
-                
+
 
                     {numPagina.map(item =>
 
@@ -351,21 +353,21 @@ filtroFliperamaSwitch]);
 
                     {
                         (setaAvancar == true)
-                        ?<p onClick={Avancar}> {">"} </p>
-                        :<></>
+                            ? <p onClick={Avancar}> {">"} </p>
+                            : <></>
 
                     }
- 
-                   
-                   
 
-                </div>                
+
+
 
                 </div>
-                        
 
-                
-                <Rodape></Rodape>
+            </div>
+
+
+
+            <Rodape></Rodape>
 
         </>
     )

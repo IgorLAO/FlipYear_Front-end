@@ -40,6 +40,13 @@
 
             img {
                 margin-right: 10px;
+        
+                transition-duration: .3s;
+                transition-property: transform;
+                transition-timing-function: ease-out;
+                &:hover{
+                    transform: translateY(-4px);
+                }
             }
 
             color: aliceblue;
@@ -88,7 +95,7 @@
     }
 }
 
-.Options>img:hover {
+.Options > img:hover {
     cursor: pointer;
 }
 

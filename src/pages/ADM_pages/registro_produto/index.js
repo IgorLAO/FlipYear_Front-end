@@ -6,7 +6,7 @@ import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 
 import camera from "../../../ui/assets/images/adm_assets/camera_icon.png"
-import { Getcatego, InsertProd, InsertProdImages } from "../../../api/produtos";
+import { GetAllProd, Getcatego, InsertProd, InsertProdImages } from "../../../api/produtos";
 
 export default function RegistroProdutos() {
     const [qtd, setQtd] = useState(0);
@@ -34,25 +34,23 @@ export default function RegistroProdutos() {
 
     async function InsertImages() {
         try {
-            
-        const imgs = {
-            Frente,
-            LadoEsq,
-            LadoDir,
-            Tras,
+
+            const imgs = {
+                Frente,
+                LadoEsq,
+                LadoDir,
+                Tras,
+            }
+
+            const data1 = await InsertProdImages(imgs);
+            const insertedImageId = data1.data.insertId;
+
+            await InsertProdInfos(insertedImageId);
+            return insertedImageId;
+
+        } catch (err) {
+            console.log(err.message)
         }
-
-        const data1 = await InsertProdImages(imgs);
-        const insertedImageId = data1.data.insertId;
-
-        console.log(insertedImageId);
-
-        await InsertProdInfos(insertedImageId);
-        return insertedImageId;
-        
-    } catch (err) {
-      console.log(err.message)       
-    }
     }
 
     let Idcategoria = 3
@@ -60,27 +58,27 @@ export default function RegistroProdutos() {
     async function InsertProdInfos(IdImg) {
 
         try {
-            
-        let d = await InsertProd({
-            Idcategoria: categoriaId,
-            IdImg: IdImg,
-            nome: nome,
-            preco: preco,
-            precoPromocao: precoPromo,
-            destaque: destaque,
-            promocao: Promo,
-            disponivel: disponivel,
-            estoque: estoque,
-            detalhes: detalhes,
-            avaliacao: avaliacao,
-            fabricante: fabricante,
-            estado: Estado,
-            colecionador: Colecionador,
-        });
-        
-    } catch (err) {
-     console.log(err.message)       
-    }
+
+            let d = await InsertProd({
+                Idcategoria: categoriaId,
+                IdImg: IdImg,
+                nome: nome,
+                preco: preco,
+                precoPromocao: precoPromo,
+                destaque: destaque,
+                promocao: Promo,
+                disponivel: disponivel,
+                estoque: estoque,
+                detalhes: detalhes,
+                avaliacao: avaliacao,
+                fabricante: fabricante,
+                estado: Estado,
+                colecionador: Colecionador,
+            });
+
+        } catch (err) {
+            console.log(err.message)
+        }
     }
 
     async function HandleCategoria() {
@@ -89,7 +87,6 @@ export default function RegistroProdutos() {
         console.log(data)
 
     }
-
 
     function imagesPreview() {
         const imageUrl = URL.createObjectURL(Frente);
@@ -111,8 +108,14 @@ export default function RegistroProdutos() {
         return imageUrl
     }
 
+    async function a() {
+        let i = await GetAllProd();
+        console.log(i)
+    }
+
     useEffect(() => {
         HandleCategoria();
+
     }, []);
 
     return (
@@ -129,6 +132,10 @@ export default function RegistroProdutos() {
 
                     <section>
                         <div className="inputs">
+                            <button onClick={a}>
+                                aaaaaaaaaaaaaaaaaaaaaa
+
+                            </button>
                             <label>
                                 <a>Nome</a>
                                 <input type="text" onChange={e => setNome(e.target.value)} />
@@ -168,6 +175,7 @@ export default function RegistroProdutos() {
                                         <option> Quebrado </option>
                                     </select>
                                 </label>
+
                                 <label style={{ width: '100%' }}>
                                     <a>Categoria</a>
                                     <select onChange={e => setCategoriaId(e.target.selectedIndex)}>
@@ -176,7 +184,6 @@ export default function RegistroProdutos() {
                                             <option key={index}> {item.NM_CATEGORIA} </option>
                                         ))}
                                     </select>
-
                                 </label>
 
                             </span>
@@ -246,7 +253,7 @@ export default function RegistroProdutos() {
                             </div>
 
 
-                            <div className='button' onClick={() => { InsertImages(); InsertProdInfos() }}>
+                            <div className='button' onClick={() => { InsertImages(); }}>
                                 <span style={{ display: "flex", position: "absolute" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                         <g opacity="0.5">
