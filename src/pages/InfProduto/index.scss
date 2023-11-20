@@ -71,6 +71,17 @@
 
     .nome-produto {
         margin-bottom: 25px;
+        #tituloProd{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #linha{
+            width: 100%;
+            height: 1px;
+            background-color: #5DF4AC;
+        }
     }
 
     .nome-produto h1{
@@ -78,11 +89,7 @@
         width: 100%;
     }
 
-    .nome-produto div{
-        width: 100%;
-        height: 1px;
-        background-color: #5DF4AC;
-    }
+
 
     .estado{
         margin-bottom: 30px;
