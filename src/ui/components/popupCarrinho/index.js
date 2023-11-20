@@ -62,17 +62,18 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
         PuxarCarrinho();
         CalcularTotal();
 
-
     }, [dataCarrinho]);
 
 
     return (
         <div className='Main-PopUpKKart' >
-            <div className='backDrop' onClick={mostrarCarrinho}>
+            <div className='backDrop' onClick={() => {mostrarCarrinho(); 
+                                                        document.getElementById('car').classList.add('carSlide')}}>
                 </div>
-            <div className='popUp-carrinho'>
+            <div className='popUp-carrinho' id='car'>
 
-                <p className='x' onClick={mostrarCarrinho}>X</p>
+                <p className='x' onClick={() => {mostrarCarrinho();
+                                                        document.getElementById('car').classList.add('carSlide')}}>X</p>
 
                 <div className='puc-Logo'>
                     <img src={Logo}></img>

@@ -14,14 +14,16 @@ export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
     const estoragemLocal = localStorage('ADM_Logado')
 
-    
+
 
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
     const [fontePreta, setFontePreta] = useState('black ')
     const [fonteCinza, setFonteCinza] = useState('#252525')
 
-   
+    const [IsMouseEnter, setIsMouseEnter] = useState(false)
+
+
 
     //utilizei o id do produto para seguir para a pág de produto
     function processoCompra() {
@@ -33,12 +35,9 @@ export default function CardProdutoCtlg(props) {
     function NaoColecionadorCard() {
 
         if (props.colecionador == true) {
-
             setFonteCinza('');
             setFontePreta('');
             setFundoBranco('');
-
-
         }
 
         else {
@@ -52,21 +51,24 @@ export default function CardProdutoCtlg(props) {
     useEffect(() => {
         NaoColecionadorCard();
 
-        
-
     }, [props])
+
 
     return (
         <>
 
             {/* <ToastContainer></ToastContainer> */}
 
-            <div className='card' style={{ background: `${fundoBranco}` }}
-           >
+            <div
+                className='card'
+                style={{ background: `${fundoBranco}` }}
 
+            >
+                <span className='imgsProd'>
+                    <img id='ImgProduto' src={props.ImgFrente} onClick={processoCompra} />
 
-
-                <img id='ImgProduto' src={Atari}  onClick={processoCompra} />
+                    <img id='ImgProduto' src={props.ImgLadoDir} onClick={processoCompra} />
+                </span>
 
                 <p className='nm-produto' style={{ color: `${fontePreta}` }}> {props.nome} </p>
 
@@ -78,7 +80,7 @@ export default function CardProdutoCtlg(props) {
 
                 </div>
 
-                <svg className='linha' xmlns="http://www.w3.org/2000/svg"  height="2" viewBox="0 0 284 2" fill="none">
+                <svg className='linha' xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 284 2" fill="none">
                     <path d="M0.816406 1.22266H282.724" stroke="#0D3A3D" stroke-linecap="round" />
                 </svg>
                 {

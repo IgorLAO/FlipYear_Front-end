@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./index.scss";
 import localStorage from "local-storage";
 
 import CartStatus from "../CartStatus";
@@ -115,12 +114,12 @@ export default function NavBar(props) {
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
 
-    const {setFiltroPreco, 
-        FiltroDestaque, 
-        FiltroColecionador, 
+    const { setFiltroPreco,
+        FiltroDestaque,
+        FiltroColecionador,
         FiltroPromocao,
         OrdMaioresPrecos,
-        OrdMenoresPrecos, 
+        OrdMenoresPrecos,
         OrdMelhoresAvaliados,
         OrdPioresAvaliados,
         setFiltroEmpresa,
@@ -130,7 +129,7 @@ export default function NavBar(props) {
         FiltroConsole,
         FiltroCD,
         FiltroFita,
-        FiltroFliperama} = props;
+        FiltroFliperama } = props;
 
 
     return (
@@ -158,9 +157,12 @@ export default function NavBar(props) {
                             else { element.style.display = 'flex' }
 
                         }} />
+
                         <span id="respOP" style={{ display: 'none' }}>
                             <img src={Usuario} onClick={Mostrar} />
-                            <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                            <span style={{ cursor: 'pointer' }}>
+                                <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                            </span>
                             <img onClick={Navsuport} src={Suporte} />
                         </span>
                     </span>
@@ -188,12 +190,12 @@ export default function NavBar(props) {
                         (popUpFiltro == true)
 
                             ? <FiltroCard
-                                popUpFiltro={popUpFiltro} 
+                                popUpFiltro={popUpFiltro}
                                 setPopUpFiltro={setPopUpFiltro}
                                 FiltroColecionador={FiltroColecionador}
                                 FiltroPromocao={FiltroPromocao}
                                 FiltroDestaque={FiltroDestaque}
-                                setFiltroPreco ={setFiltroPreco}
+                                setFiltroPreco={setFiltroPreco}
                                 setFiltroEmpresa={setFiltroEmpresa}
                                 setFiltroEstado={setFiltroEstado}
                                 setFiltroAvaliacao={setFiltroAvaliacao}
@@ -208,7 +210,9 @@ export default function NavBar(props) {
                 </span>
                 <span id="op" className="Options">
                     <img src={Usuario} onClick={Mostrar} />
-                    <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                    <span style={{ cursor: 'pointer' }}>
+                        <CartStatus mostrarCarrinho={mostrarCarrinho} />
+                    </span>
                     <img onClick={Navsuport} src={Suporte} />
                 </span>
 
@@ -239,10 +243,10 @@ export default function NavBar(props) {
 
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
 
-            {
+                {
                     (IshideNotFound == true && tamanhoSearch > 0)
-                    ?<SearchCard_NotFound/>
-                    : <></>
+                        ? <SearchCard_NotFound />
+                        : <></>
                 }
 
                 {searchRes.slice(0, limit).map((i) => (
