@@ -29,10 +29,7 @@
 
     }
 
-    .card-prod-carrinho:hover {
-        cursor: pointer;
 
-    }
 
     .menu-add-cart {
 
@@ -46,10 +43,7 @@
         flex-direction: row;
         align-items: center;
 
-        .hover-opt:hover {
-            cursor: pointer;
 
-        }
 
         p {
             font-size: 10px !important;
@@ -67,6 +61,10 @@
 
     #cinza-pequeno {
         font-size: 8px;
+    }
+
+    #ImgProduto:hover{
+        cursor: pointer; 
     }
 
     .desc-info {
@@ -138,7 +136,7 @@
 }
 
 .card:hover{
-
+    cursor: default;
     position: relative;
     bottom: 15px;
     box-shadow: 5px 5px  rgb(41, 41, 41);

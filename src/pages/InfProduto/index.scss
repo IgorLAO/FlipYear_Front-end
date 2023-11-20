@@ -272,6 +272,7 @@
 
     #button-carrinho{
         font-family: flipfont;
+        font-size: 10px;
         padding: 15px;
         margin-top: 50px;
         background-color: #346856;
@@ -282,7 +283,31 @@
         transition: 0.2s;
 
         cursor: pointer;
+
+        display: flex;
+        flex-direction: row;
+
     }
+
+    
+    .contador{
+
+        display: flex;
+        flex-direction: row;
+        background-color: #081820;
+        margin-top: 40px;
+
+        p{
+            padding: 15px;
+        }
+
+        .hover-opt:hover{
+            cursor: pointer;
+        }
+
+    }
+
+
 
     #button-carrinho:hover{
         color: #000;

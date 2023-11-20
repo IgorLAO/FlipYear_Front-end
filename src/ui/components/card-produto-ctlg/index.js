@@ -15,66 +15,13 @@ export default function CardProdutoCtlg(props) {
     const estoragemLocal = localStorage('ADM_Logado')
 
     
-    const [qtdProdutos, SetQtdProdutos] = useState(0);
-    const [limiteQtd, setLimiteQtd] = useState(props.estoque);
-    const [idUser, setIdUser] = useState(1);
-    const [idProduto, setIdProduto] = useState(props.idProduto);
+
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
     const [fontePreta, setFontePreta] = useState('black ')
     const [fonteCinza, setFonteCinza] = useState('#252525')
 
-    function AddQtdProduto() {
-        SetQtdProdutos(qtdProdutos + 1);
-        if (qtdProdutos >= limiteQtd) {
-            SetQtdProdutos(limiteQtd);
-
-        }
-    }
-
-    function ProdutoAdicionado() {
-        // toast.success("Produto Adicionado ao Carrinho!")
-
-    }
-
-    function ErroAdicionarProduto() {
-        // toast.error("Produto Não Adicionado ao Carrinho");
-
-    }
-
-    function MinusQtdProduto() {
-        SetQtdProdutos(qtdProdutos - 1);
-
-        if (qtdProdutos == 0) {
-            SetQtdProdutos(0);
-
-        }
-    }
-
-    async function AddNoCarrinho() {
-        if (qtdProdutos >= 1) {
-            let resposta = await axios.post('http://129.148.42.252:5010/carrinho', {
-                usuario: idUser,
-                produto: idProduto,
-                qtd: qtdProdutos
-            });
-
-            let limite = limiteQtd - qtdProdutos;
-            setLimiteQtd(limiteQtd - qtdProdutos);
-
-            if (qtdProdutos > limite) {
-                SetQtdProdutos(limite);
-            }
-
-            ProdutoAdicionado();
-
-        }
-
-        else {
-            ErroAdicionarProduto();
-
-        }
-    }
+   
 
     //utilizei o id do produto para seguir para a pág de produto
     function processoCompra() {
@@ -114,19 +61,12 @@ export default function CardProdutoCtlg(props) {
 
             {/* <ToastContainer></ToastContainer> */}
 
-            <div className='card' style={{ background: `${fundoBranco}` }}>
+            <div className='card' style={{ background: `${fundoBranco}` }}
+           >
 
-                <div className='qtd-produtos'>
-                    <img src={Carrrinho} className='card-prod-carrinho' onClick={AddNoCarrinho}></img>
-                    <div className='menu-add-cart'>
 
-                        <p className='hover-opt' onClick={MinusQtdProduto} style={{ color: `${fontePreta}` }}>-</p>
-                        <p style={{ color: `${fontePreta}` }}>{qtdProdutos}</p>
-                        <p className='hover-opt' onClick={AddQtdProduto} style={{ color: `${fontePreta}` }}>+</p>
-                    </div>
-                </div>
 
-                <img onClick={processoCompra} id='ImgProduto' src={Atari} />
+                <img id='ImgProduto' src={Atari}  onClick={processoCompra} />
 
                 <p className='nm-produto' style={{ color: `${fontePreta}` }}> {props.nome} </p>
 
