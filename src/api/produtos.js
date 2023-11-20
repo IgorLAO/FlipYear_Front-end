@@ -67,9 +67,11 @@ export async function InsertProdImages(i) {
      const  formData = new FormData();
 
             formData.append('Frente', i.Frente);
-            formData.append('LadoEsq', i.LadoDir);
-            formData.append('LadoDir', i.LadoDir);
-            formData.append('Tras', i.Tras);
+             formData.append('LadoEsq', i.LadoDir);
+             formData.append('LadoDir', i.LadoDir);
+             formData.append('Tras', i.Tras);
+
+            console.log(i)
 
     const resp = await server.post(`/imagem/produto`, formData, {
         headers: {

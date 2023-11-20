@@ -58,7 +58,6 @@ export default function RegistroProdutos() {
     async function InsertProdInfos(IdImg) {
 
         try {
-
             let d = await InsertProd({
                 Idcategoria: categoriaId,
                 IdImg: IdImg,
@@ -109,8 +108,18 @@ export default function RegistroProdutos() {
     }
 
     async function a() {
-        let i = await GetAllProd();
-        console.log(i)
+        
+        const imgs = {
+            Frente,
+            LadoEsq,
+            LadoDir,
+            Tras,
+        }
+
+        const data1 = await InsertProdImages(Frente);
+        const insertedImageId = data1.data.insertId;
+    
+        console.log(data1)
     }
 
     useEffect(() => {
