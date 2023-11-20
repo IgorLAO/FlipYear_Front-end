@@ -39,19 +39,17 @@ function App() {
 
   function ResposiveCards() {
     const t = window.innerWidth
+    console.log(t)
+    if (t < 950) setCardResposiveLimit(1);
 
-    if (t < 650)
-      setCardResposiveLimit(1);
     else setCardResposiveLimit(5);
-    
-    
   }
 
 
   useEffect(() => {
     ResposiveCards();
     ConsultaDestaqueProdutos();
-    
+
   }, [])
 
 

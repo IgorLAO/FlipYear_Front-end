@@ -1,3 +1,4 @@
+import './index.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -5,7 +6,6 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import './index.scss'
 
 import CardProdutoCtlg from '../card-produto-ctlg';
 
@@ -14,7 +14,7 @@ export default function Produtos(props) {
     return (
         
         <div className="products">
-            <Swiper navigation={true} slidesPerView={4} modules={[Navigation]} className="mySwiper">
+            <Swiper navigation={true} slidesPerView={props.CardResposiveLimit} modules={[Navigation]} className="mySwiper">
                 {props.products.map((item) => (
                     <SwiperSlide><CardProdutoCtlg
                         preco={item.VL_PRECO}
