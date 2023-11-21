@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import moment from 'moment';
 
+import localStorage from "local-storage";
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -22,11 +24,13 @@ import seta from '../../ui/assets/images/compraPage_assets/seta.png'
 import NavBar from "../../ui/components/navBar"
 import Comments from "../../ui/components/comments";
 import Produtos from '../../ui/components/produtos'
+import Report from "../../ui/components/report";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments, ProdsImg } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
+import server from "../../api/server";
 import axios from "axios";
 
 export default function InfProduto() {
@@ -34,7 +38,7 @@ export default function InfProduto() {
 
     const [qtdProdutos, SetQtdProdutos] = useState(0);
     const [limiteQtd, setLimiteQtd] = useState();
-    const [idUser, setIdUser] = useState(1);
+    const [idUser, setIdUser] = useState();
 
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
@@ -49,7 +53,7 @@ export default function InfProduto() {
     const [commentContent, setCommentContent] = useState('')
     const [commentLikes, setCommentLikes] = useState(0)
     const [commentReport, setCommentReport] = useState(false);
-
+    const [CardResposiveLimit, setCardResposiveLimit] = useState(1);
 
     const [commentsPagAtual, setCommentsPagAtual] = useState(1)
     const [commentsPerPag, setCommentsPerPag] = useState(2)
@@ -58,6 +62,11 @@ export default function InfProduto() {
     const [commentsProd, setCommentsProd] = useState([]);
     const [cep, setCep] = useState('');
     const [respCep, setRespCep] = useState('');
+
+    const [Frente, setFrente] = useState('');
+    const [LadoDir, setLadoDir] = useState('');
+    const [LadoEsq, setLadoEsq] = useState('');
+    const [Tras, setTras] = useState('');
 
     const indexUltimoComment = commentsPagAtual * commentsPerPag;
     const indexPrimeiroComments = indexUltimoComment - commentsPerPag;
@@ -102,6 +111,15 @@ export default function InfProduto() {
 
         }
     }
+
+    function ResposiveCards() {
+        const t = window.innerWidth
+        console.log(t)
+        if (t < 950) setCardResposiveLimit(1);
+        else if (t < 1420) setCardResposiveLimit(3)
+    
+        else setCardResposiveLimit(5);
+      }
 
     async function AddNoCarrinho() {
         if (qtdProdutos >= 1) {
@@ -179,8 +197,7 @@ export default function InfProduto() {
       }
     
       useEffect(() => {
-
-            ConsultarCep();
+        ConsultarCep();
       }, [cep]);
       
 
@@ -204,7 +221,6 @@ export default function InfProduto() {
     function processPag25() {
         navigate(`/pagamento25/${idParam}`);
     }
-    //peguei o id_produto do catálogo e joguei aqui
 
 
     async function GetAllComments() {
@@ -214,22 +230,91 @@ export default function InfProduto() {
         setComments(t)
     }
 
- 
-    async function InserirCommentarioEnter(e){
-        if(e.key == 'Enter'){
-
-        let resp = await InsertComments( idParam, commentContent, dateNow, commentLikes, commentReport)
-        
-     }
-    }
-
-
     async function GetAllProduttc() {
         let res = await GetAllProd()
 
         let data = (res.data)
         SetAllProducts(data)
     }
+
+
+    async function GetUserById(){
+        if(localStorage('ADM_Logado')){
+            const a =localStorage('ADM_Logado')
+            setIdUser (a.data.Id)
+    
+        }   else if(localStorage('NORMAL_USER_Logado')){
+            const a = localStorage('NORMAL_USER_Logado')
+            setIdUser(a.data.Id)
+        }
+    
+    }
+
+ 
+    async function InserirCommentarioEnter(e){
+        if(e.key == 'Enter'){
+
+        let resp = await InsertComments(idUser ,idParam, commentContent, dateNow, commentLikes, commentReport)
+        window.location.reload()
+     }
+    }
+
+  
+    async function GetImgs(){
+        let res = await ProdsImg(idParam)
+        let data = res.data
+
+        setFrente(data[0].FRENTE)
+        setLadoDir(data[0].LADO_DIRE)
+        setLadoEsq(data[0].LADO_ESQ)
+        setTras(data[0].TRAS)
+
+    }
+
+  useEffect(() =>{
+    ResposiveCards()
+      GetImgs()
+      console.log(Frente)
+  }, [])
+
+
+  //  async function getBlobFromURL(filepath){
+  //      try {
+  //          if(!filepath){
+  //              throw new Error('URL da imagem n fornecida')
+  //          }
+//
+  //          const response = await fetch(filepath)
+//
+  //          if(!response.ok){
+  //              throw new Error(`Erro ao buscar o arquivo. Status: ${response.status}`)
+  //          }
+  //  
+  //          const buffer = await response.arrayBuffer();
+  //          const contentType = response.headers.get('content-type');
+  //          
+  //          if(!contentType){
+  //              throw new Error('Tipo de conteúdo da img não encontrado')
+  //          }
+  //          
+  //          const blob = new Blob([buffer], { type: contentType });
+  //          return blob;
+  //          
+  //      } catch (error) {
+  //          console.error(error)
+  //          throw error;
+  //      }
+  //     
+  //  }
+//
+  //  async function imagesPreview() {
+  //      const imagemBlob = await getBlobFromURL(Frente)
+  //      const imageUrl = URL.createObjectURL(imagemBlob);
+  //              
+  //      return imageUrl
+//
+  //  }
+
 
 
     function hideValid() {
@@ -245,8 +330,9 @@ export default function InfProduto() {
     }
 
     useEffect(() =>{
+        GetUserById()
         parcelas();
-    }, [produto]);
+    }, [produto, idUser]);
 
 
     useEffect(() => {
@@ -301,11 +387,21 @@ export default function InfProduto() {
                         <p>{produto.TP_ESTADO}</p>
                     </div>
 
-                    <div className="preco">
+                    {produto.BT_PROMOCAO == true
+
+                        ?<div className="preco">
+                        <h3>R${produto.VL_PRECO}</h3>
+                        <h2>R${produto.VL_PRECO_PROMOCIONAL}</h2>
+                        <p>Ou 10x de {parcela}</p>
+                        <div></div>
+                    </div>
+                    
+                        :<div className="preco">
                         <h2>R${produto.VL_PRECO}</h2>
                         <p>Ou 10x de {parcela}</p>
                         <div></div>
                     </div>
+                }
 
                     <div className="frete">
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
@@ -363,7 +459,7 @@ export default function InfProduto() {
                     </div>
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
                         <button id="button-compra" onClick={processPag25}>Compre já</button>
-                        <div>
+                        <div className="carrinho">
                         <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho
                         </button> 
                         </div>
@@ -446,7 +542,8 @@ export default function InfProduto() {
 
                 <div className="products">
 
-                    <Produtos products={allProducts} />
+                    <Produtos CardResposiveLimit={CardResposiveLimit}
+                    products={allProducts} />
 
 
                 </div>
