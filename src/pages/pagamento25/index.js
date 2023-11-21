@@ -23,13 +23,24 @@ export default function Pagamento25(){
     const [frete, setFrete] = useState([]);
     const [cupom, setCupom] = useState([]);
     const [total, setTotal] = useState(0);
+    const [quantidade, SetQuantidade] = useState(0);
 
-    const { idParam } = useParams()
+    const {selectedFrete} = useParams();
+    const { qtdProdutos } = useParams();
+    const { idParam } = useParams();
+    
+
     const navigate = useNavigate();
 
+  
     useEffect(() =>{
+        if (parseInt(qtdProdutos) === 0) {
+            SetQuantidade(1);
+          } else {
+            SetQuantidade(qtdProdutos);
+          }
         ListProduct();
-    });
+    }, [qtdProdutos]);
 
     function CupomDesconto(){
         if(CupomDesconto === true){
@@ -45,9 +56,14 @@ export default function Pagamento25(){
         navigate(`/pagamento50/${idParam}`);
     }
 
-    useEffect(() =>{
+     function PrecoCompra(){
+        const r = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(list.VL_PRECO * qtdProdutos);
+        setTotal(r);
+    } 
 
-    }, [])
+    useEffect(() =>{
+        PrecoCompra();
+    }, [list])
     
     return (
         <>
@@ -104,8 +120,8 @@ export default function Pagamento25(){
                                               
                                                 <td>{list.NM_PRODUTO}</td>
                                                 <div style={{display: "flex", justifyContent:"space-between", width: "25%"}}>
-                                                    <td>{1}</td>
-                                                    <td>{list.VL_PRECO}</td>
+                                                    <td>{quantidade}</td>
+                                                    <td>{total}</td>
                                                 </div>
                                                 
                                             </tr>
@@ -129,20 +145,20 @@ export default function Pagamento25(){
                             <div className='dados_pedido'>
                                 <div>
                                     <p>SUBTOTAL</p>
-                                    <p>R${list.VL_PRECO}</p>
+                                    <p>{total}</p>
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>R${ frete } </p>
+                                    <p>{ 0 } </p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
-                                    <p>R${ cupom } </p>
+                                    <p>{ cupom } </p>
                                 </div>
                             </div>
                             <div className='total_pedido'>
                                 <p>TOTAL</p>
-                                <p>R${list.VL_PRECO}</p>
+                                <p>{total}</p>
                             </div>
                             <div value={Discount} onChange={(e) => setDiscount(e.target.value)} 
                                 className='cupom_desconto'>

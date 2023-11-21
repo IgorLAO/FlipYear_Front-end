@@ -44,7 +44,7 @@ root.render(
         <Route path='/produto/:idParam' element={<InfProduto />} />
 
         <Route path='/pagamento25' element={<Pagamento25 />} />
-        <Route path='/pagamento25/:idParam' element={<Pagamento25 />} />
+        <Route path='/pagamento25/:idParam/:qtdProdutos/:selectedFrete' element={<Pagamento25 />} />
 
         <Route path='/pagamento50' element={<Pagamento50 />} />
         <Route path='/pagamento50/:idParam' element={<Pagamento50 />} />

@@ -62,6 +62,7 @@ export default function InfProduto() {
     const [commentsProd, setCommentsProd] = useState([]);
     const [cep, setCep] = useState('');
     const [respCep, setRespCep] = useState('');
+    const [selectedFrete, setSelectedFrete] = useState(null);
 
     const [Frente, setFrente] = useState('');
     const [LadoDir, setLadoDir] = useState('');
@@ -219,7 +220,12 @@ export default function InfProduto() {
     }
     
     function processPag25() {
-        navigate(`/pagamento25/${idParam}`);
+        if (selectedFrete) {
+            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
+        } else {
+            alert(`Tá achando q a vida é um morango? 
+coloca o frete aí amg`);
+        }
     }
 
 
@@ -317,17 +323,18 @@ export default function InfProduto() {
 
 
 
-    function hideValid() {
-        setIsHideOptions(true)
-        setHideBuyOptions('none')
-        setAng('90')
+  function hideValid(freteType) {
+    setIsHideOptions(true);
+    setHideBuyOptions('none');
+    setAng('90');
+    setSelectedFrete(freteType); 
 
-        if (isHideOptions) {
-            setIsHideOptions(false);
-            setHideBuyOptions('flex')
-            setAng('0')
-        }
+    if (isHideOptions) {
+        setIsHideOptions(false);
+        setHideBuyOptions('flex');
+        setAng('0');
     }
+}
 
     useEffect(() =>{
         GetUserById()
@@ -381,7 +388,6 @@ export default function InfProduto() {
                     <div className="nome-produto">
                         <div id="tituloProd">
                             <h1>{produto.NM_PRODUTO}</h1>
-                            <p>2x</p>
                         </div>
                         
                         <div id="linha"></div>
@@ -445,7 +451,7 @@ export default function InfProduto() {
 
                                     <div className="env-star">
                                         <button>
-                                            <div>
+                                            <div >
                                                 <img src={red_star} alt="" />
                                                 <h4>Red Star Company</h4>
                                             </div>
