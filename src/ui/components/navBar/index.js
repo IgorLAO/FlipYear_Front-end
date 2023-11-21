@@ -63,13 +63,11 @@ export default function NavBar(props) {
     }
 
     const NavTo = (e) => {
-        if (e.key === 'Enter' && tamanhoSearch > 0) {
-            navigate('/search');
+        if (e.key === 'Enter') {
+            navigate('/catalogo');
             localStorage('SearchValue', SearchValue);
             window.location.reload();
-        } else if (e.key === 'Enter' && tamanhoSearch == 0) {
-            navigate("/catalogo");
-        }
+        } 
     }
 
     function NavToHome() {
@@ -118,10 +116,6 @@ export default function NavBar(props) {
         FiltroDestaque,
         FiltroColecionador,
         FiltroPromocao,
-        OrdMaioresPrecos,
-        OrdMenoresPrecos,
-        OrdMelhoresAvaliados,
-        OrdPioresAvaliados,
         setFiltroEmpresa,
         setFiltroAvaliacao,
         setFiltroEstoque,
