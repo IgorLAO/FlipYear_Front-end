@@ -17,7 +17,8 @@ export async function GetUserById(id) {
 }
 
 export async function EnviarImagem(id, Profile) {
-    const formData = new FormData()
+    const formData = new FormData();
+    
     formData.append('profile', Profile)
 
     const res = await server.put(`/usuario/${id}/ProfImage`, formData, {

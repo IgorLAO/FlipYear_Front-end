@@ -379,8 +379,12 @@ export default function InfProduto() {
 
                 <div className="compra">
                     <div className="nome-produto">
-                        <h1>{produto.NM_PRODUTO}</h1>
-                        <div></div>
+                        <div id="tituloProd">
+                            <h1>{produto.NM_PRODUTO}</h1>
+                            <p>2x</p>
+                        </div>
+                        
+                        <div id="linha"></div>
                     </div>
 
                     <div className="estado">
