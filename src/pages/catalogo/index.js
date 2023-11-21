@@ -280,6 +280,8 @@ export default function Catalogo() {
 
 
                 <div className='resultados-ctlg'>
+                    <div className='filtro-opc'>
+
                     <FiltroCtlg
                         OrdMelhoresAvaliados={OrdMelhoresAvaliados}
                         OrdPioresAvaliados={OrdPioresAvaliados}
@@ -299,6 +301,7 @@ export default function Catalogo() {
                         FiltroFliperama={FiltroFliperama}
                     >
                     </FiltroCtlg>
+                    </div>
 
                     {
                         (prodsAtuais.length <= 0)

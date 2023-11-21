@@ -65,9 +65,7 @@
 
         return (
             <>
-        <button onClick={imgFrente}>
-            aaaaa
-        </button>
+
                 {/* <ToastContainer></ToastContainer> */}
                 <div
                     className='card'
