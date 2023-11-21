@@ -23,7 +23,6 @@ export default function SearchResults(props) {
         let res = await GetSearchProd(infos);
 
         setList(res.data);
-        console.log(props.SearchValue);
     }
 
 

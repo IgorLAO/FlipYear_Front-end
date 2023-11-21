@@ -56,6 +56,7 @@
     }
 
     .compra{
+        width: 25%;
         padding: 50px;
         display: flex;
         flex-direction: column;
@@ -102,6 +103,11 @@
 
     .preco h2{
         font-size: 24px;
+    }
+
+    .preco h3{ 
+        text-decoration: line-through; 
+        margin-bottom: 10px;
     }
 
     .preco p{
@@ -278,6 +284,8 @@
     }
 
     #button-carrinho{
+        text-align: center;
+        width: 100%;
         font-family: flipfont;
         font-size: 10px;
         padding: 15px;
@@ -291,14 +299,16 @@
 
         cursor: pointer;
 
-        display: flex;
-        flex-direction: row;
+    }
 
+    .carrinho{
+        display: flex;
+        justify-content: center;
     }
 
     
     .contador{
-
+        justify-content: center;
         display: flex;
         flex-direction: row;
         background-color: #081820;

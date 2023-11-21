@@ -3,15 +3,17 @@ import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
 import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
 import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
-
+import localStorage from 'local-storage';
 import { useEffect, useState } from 'react';
 import NavBar from '../../ui/components/navBar';
 import { GetAllProd } from '../../api/produtos';
+import { GetSearchProd } from '../../api/produtos';
 import FiltroCtlg from '../../ui/components/filtro/filtro-ctlg';
 
 export default function Catalogo() {
 
     const [list, setList] = useState([]);
+    const [ValueS, setValueS] = useState('');
     const [backupArr, setBackupArr] = useState([]);
     const [prodPorPag, setProdPorPag] = useState(18);
     const [paginaAtual, setPaginaAtual] = useState(1);
@@ -113,10 +115,23 @@ export default function Catalogo() {
 
 
     const GetProds = async () => {
-        let res = await GetAllProd();
-        console.log(res, 'oii')
-        setList(res.data);
-        setBackupArr(res.data);
+        let infos = localStorage('SearchValue');
+        setValueS(infos);
+
+        if(ValueS !== ''){
+            let res = await GetSearchProd(infos);
+            setList(res.data);
+            setBackupArr(res.data);
+
+        }
+
+        else{
+            let res = await GetAllProd();
+            setList(res.data);
+            setBackupArr(res.data);
+        }
+        
+
     }
 
     function OrdMelhoresAvaliados() {
@@ -193,7 +208,7 @@ export default function Catalogo() {
 
     useEffect(() => {
         GetProds();
-    }, [])
+    }, [ValueS])
 
     useEffect(() => {
         filtrarResultados();
@@ -254,10 +269,6 @@ export default function Catalogo() {
     };
 
 
-
-
-
-
     return (
         <>
             <NavBar
@@ -278,8 +289,16 @@ export default function Catalogo() {
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo</h1>
 
+                {
+                    (ValueS !== '')
+                    ? <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
+                    :<></>
+                }
+
 
                 <div className='resultados-ctlg'>
+                    <div className='filtro-opc'>
+
                     <FiltroCtlg
                         OrdMelhoresAvaliados={OrdMelhoresAvaliados}
                         OrdPioresAvaliados={OrdPioresAvaliados}
@@ -299,6 +318,7 @@ export default function Catalogo() {
                         FiltroFliperama={FiltroFliperama}
                     >
                     </FiltroCtlg>
+                    </div>
 
                     {
                         (prodsAtuais.length <= 0)

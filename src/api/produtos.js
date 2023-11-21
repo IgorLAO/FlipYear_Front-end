@@ -104,3 +104,8 @@ export async function Getcatego() {
     const resp = await server.get('/categoria');
     return resp
 }
+
+export async function ProdsImg(id){
+    const resp = await server.get('/produtosImg/' + id)
+    return resp;
+}
