@@ -16,6 +16,7 @@ import pixel_s2 from "../../ui/assets/images/Home_assets/pixel_block2.png";
 
 import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
+import consolesBlock1 from "../../ui/assets/images/Home_assets/consolesBlock1.png";
 import Produtos from '../../ui/components/produtos';
 
 function App() {
@@ -80,8 +81,8 @@ function App() {
             </span>
           </div>
           <span className='imgs'>
-            <img src={gameBoy} id='img2' />
-            <img src={nes} id='img1' />
+            <img src={consolesBlock1} id='l' />
+         
           </span>
         </div>
         <img style={{ width: 90 + '%', heigth: 100 }} src={block} />

@@ -65,9 +65,6 @@ export default function CardProdutoCtlg(props) {
 
     return (
         <>
-       <button onClick={imgFrente}>
-        aaaaa
-       </button>
             {/* <ToastContainer></ToastContainer> */}
             <div
                 className='card'
