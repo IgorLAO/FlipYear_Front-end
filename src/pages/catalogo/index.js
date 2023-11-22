@@ -14,6 +14,7 @@ export default function Catalogo() {
 
     const [list, setList] = useState([]);
     const [ValueS, setValueS] = useState('');
+    const [pesquisaSwitch, setPesquisaSwitch] = useState(false);
     const [backupArr, setBackupArr] = useState([]);
     const [prodPorPag, setProdPorPag] = useState(18);
     const [paginaAtual, setPaginaAtual] = useState(1);
@@ -129,6 +130,7 @@ export default function Catalogo() {
             let res = await GetAllProd();
             setList(res.data);
             setBackupArr(res.data);
+
         }
         
 
@@ -332,21 +334,22 @@ export default function Catalogo() {
                     }
 
                     <div className='produtos-result'>
+
+
                         {prodsAtuais.map((item) => <>
+
                             <CardProdutoCtlg
-                                preco={item.VL_PRECO}
-                                ImgLadoDir={item.LADO_DIRE}
-                                ImgFrente={item.FRENTE}
-                                nome={item.NM_PRODUTO}
-                                precoPromocao={item.VL_PRECO_PROMOCIONAL}
-                                promocao={item.BT_PROMOCAO}
-                                avaliacao={item.VL_AVALIACAO}
-                                fabricante={item.NM_FABRICANTE}
-                                estado={item.TP_ESTADO}
-                                estoque={item.QTD_ESTOQUE}
-                                idProduto={item.ID_PRODUTO}
-                                colecionador={item.TP_COLECIONADOR}
+                        preco={item.VL_PRECO}
+                        idProduto={item.ID_PRODUTO}
+                        nome={item.NM_PRODUTO}
+                        fabricante={item.NM_FABRICANTE}
+                        precoPromocao={item.VL_PRECO_PROMOCIONAL}
+                        estado={item.TP_ESTADO}
+                        promocao={item.BT_PROMOCAO}
+                        avaliacao={item.VL_AVALIACAO}
+                        colecionador={item.TP_COLECIONADOR}
                             />
+
 
                         </>)}
 
