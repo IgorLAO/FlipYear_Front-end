@@ -1,6 +1,8 @@
 import "./style.scss"
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Delete, GetAllProd, GetSearchProd } from "../../../api/produtos";
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
@@ -11,8 +13,16 @@ import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
 import Filter from "../../../ui/components/ADM_components/Filter";
 import MoreOP from "../../../ui/components/ADM_components/MoreOP";
 import penIcon from "../../../ui/assets/images/adm_assets/pen.png";
+import RegistroProdutos from "../registro_produto";
 
 export default function Produtos_ConsultaADM() {
+    const navigate = useNavigate('');
+
+    async function Alterar(item) {
+        navigate('/ADM_RegistroProd', { state: { itemToPass: item } });
+        <RegistroProdutos item={item} />
+    }
+
     const [listProdutos, setListProdutos] = useState([]);
     const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
     const [WidthDisplay, setWidthDisplay] = useState(0);
@@ -59,9 +69,9 @@ export default function Produtos_ConsultaADM() {
         console.log(i)
     }
 
+
     useEffect(() => {
         GetProducts();
-     
     }, []);
 
 
@@ -110,17 +120,17 @@ export default function Produtos_ConsultaADM() {
                             </thead>
                             <tbody>
                                 {listProdutos.map((item, i) => (
-                                    <tr key={item.id}>  
+                                    <tr key={item.id}>
                                         <td> {item.Id || item.ID_PRODUTO} </td>
-                                        <td>{item.Nome|| item.NM_PRODUTO}</td>
+                                        <td>{item.Nome || item.NM_PRODUTO}</td>
                                         <td>{item.Qtd_estq || item.QTD_ESTOQUE}</td>
                                         <td>{item.Categoria || item.NM_CATEGORIA}</td>
                                         <td> R${item.Preco || item.VL_PRECO}</td>
                                         <td>
                                             <span style={{ display: 'flex' }}>
-                                                <img style={{ width: '15px', objectFit: 'contain', marginRight: '15px' }} src={penIcon} id="pen" />
+                                                <img onClick={(item) => Alterar(item.Id)} style={{ width: '15px', objectFit: 'contain', marginRight: '15px' }} src={penIcon} id="pen" />
 
-                                                <h1 onClick={() => DeleteItem(item.ID_PRODUTO)} id="x" > X </h1>
+                                                <h1 onClick={() => DeleteItem(item.Id || item.ID_PRODUTO)} id="x" > X </h1>
                                             </span>
                                         </td>
 

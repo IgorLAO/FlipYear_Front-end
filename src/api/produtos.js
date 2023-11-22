@@ -1,7 +1,7 @@
 import server from "./server";
 
 export async function GetSearchProd(infos) {
-        const res = await server.get(`/produtos/busca?search=${infos}`);
+        const res = await server.get(`/produto/busca?search=${infos}`);
         return res.data;
 
 }
