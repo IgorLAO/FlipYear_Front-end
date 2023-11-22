@@ -27,7 +27,7 @@
       .texts {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 95%;
         color: #346856;
         padding: 50px;
 
@@ -73,23 +73,8 @@
       }
 
       .imgs {
-        width: 200px;
-
-        #img1 {
-          position: absolute;
-          right: 20px;
-          top: 250px;
-          width: 550px;
-
-        }
-
-        #img2 {
-          position: absolute;
-          width: 300px;
-          top: 370px;
-          right: 400px;
-
-        }
+        z-index: 2;
+       
       }
     }
   }
