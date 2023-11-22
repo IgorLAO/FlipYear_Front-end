@@ -11,7 +11,6 @@ export default function CartStatus({mostrarCarrinho}){
 
         const resp = await ConsultaCarrinho();
         setList(resp[0]);
-        console.log(resp[0]);
     }
 
     useEffect(() =>{

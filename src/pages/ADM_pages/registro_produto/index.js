@@ -7,8 +7,9 @@ import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 
 import camera from "../../../ui/assets/images/adm_assets/camera_icon.png"
 import { GetAllProd, Getcatego, InsertProd, InsertProdImages } from "../../../api/produtos";
+import { useLocation } from "react-router-dom";
 
-export default function RegistroProdutos() {
+export default function RegistroProdutos(props) {
     const [qtd, setQtd] = useState(0);
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState(0);
@@ -30,6 +31,9 @@ export default function RegistroProdutos() {
     const [LadoDir, setLadoDir] = useState();
     const [LadoEsq, setLadoEsq] = useState();
     const [Tras, setTras] = useState();
+
+
+    const location = useLocation();
 
 
     async function InsertImages() {
@@ -108,7 +112,7 @@ export default function RegistroProdutos() {
     }
 
     async function a() {
-        
+
         const imgs = {
             Frente,
             LadoEsq,
@@ -118,13 +122,19 @@ export default function RegistroProdutos() {
 
         const data1 = await InsertProdImages(Frente);
         const insertedImageId = data1.data.insertId;
-    
+
         console.log(data1)
     }
 
+    async function receiveAltData() {
+        const itemData = location.state?.itemToPass;
+        console.log(itemData, 'props')
+    }
+
+
     useEffect(() => {
         HandleCategoria();
-
+        receiveAltData()
     }, []);
 
     return (

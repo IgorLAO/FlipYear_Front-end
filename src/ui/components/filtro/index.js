@@ -22,7 +22,7 @@ export default function Filtro(props) {
         FiltroFliperama,
         setPopUpFiltro} = props;
     return (
-        <>
+        <div className='direcao'>
 
             <div className='clicar-fora' onClick={() =>{ setPopUpFiltro(false) }}></div>        
 
@@ -132,7 +132,7 @@ export default function Filtro(props) {
 
                 </div>
                 </div>
-        </>
+        </div>
 
 
 

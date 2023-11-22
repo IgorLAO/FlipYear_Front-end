@@ -1,13 +1,16 @@
 import server from "./server";
 
 export async function GetSearchProd(infos) {
-    let res = '';
-    try {
-        res = await server.get(`/produto/busca?search=${infos}`);
+    try {        
+        let res = await server.get(`/produto/busca?search=${infos}`);
+        console.log(res.data)
+        console.log('oie')
+        return res.data;
     } catch (error) {
-        res = 'nada';
+        return 'nada';
     }
-    return res;
+        
+
 }
 export async function ConsultarProdPorId(id) {
     const resp = await server.get(`/produtos/${id}`);
@@ -64,14 +67,14 @@ export async function InsertComments(idUsuario, idProduto, comentario, data, lik
 
 
 export async function InsertProdImages(i) {
-     const  formData = new FormData();
+    const formData = new FormData();
 
-            formData.append('Frente', i.Frente);
-             formData.append('LadoEsq', i.LadoDir);
-             formData.append('LadoDir', i.LadoDir);
-             formData.append('Tras', i.Tras);
+    formData.append('Frente', i.Frente);
+    formData.append('LadoEsq', i.LadoDir);
+    formData.append('LadoDir', i.LadoDir);
+    formData.append('Tras', i.Tras);
 
-            console.log(i)
+    console.log(i)
 
     const resp = await server.post(`/imagem/produto`, formData, {
         headers: {
@@ -82,7 +85,7 @@ export async function InsertProdImages(i) {
 }
 
 export function GetUrlImage(img) {
-    console.log(`${server.getUri()}/${img}`)
+    //console.log(`${server.getUri()}/${img}`)
     return `${server.getUri()}/${img}`
 }
 
@@ -105,7 +108,7 @@ export async function Getcatego() {
     return resp
 }
 
-export async function ProdsImg(id){
+export async function ProdsImg(id) {
     const resp = await server.get('/produtosImg/' + id)
     return resp;
 }

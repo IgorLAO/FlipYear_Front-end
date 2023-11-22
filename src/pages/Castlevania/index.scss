@@ -639,3 +639,79 @@
     }
 
 }
+@media (max-width: 768px) {
+    .Castlevania{
+        .infos{
+            flex-direction: row;
+            margin-left: -136px;
+            .txt-img{
+                .imgs-produto{
+                    .mini-imgs{
+                        margin-left: 12.5vh;
+                        margin-top:1vh;
+                        .mini-img{
+                            margin-left: 20px;
+                        }
+                        flex-direction: row;
+                    }
+                    flex-direction: column-reverse;
+                    .div_imagem{
+                        .imagem{
+                            span{
+                               img{
+                                    display: none;
+                               }  
+                            }
+                            width: 43vh;
+                            margin-left: -0px;
+                            top: -10px
+                            
+                        }
+                    }
+                }
+            }
+            .compra{
+                margin-left: -15vh;
+            }
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .Castlevania{
+        .infos{
+            flex-direction: column;
+            .txt-img{
+                .imgs-produto{
+                    .mini-imgs{
+                        margin-left: -20px;
+                        .mini-img{
+                            margin-left: 20px;
+                        }
+                        flex-direction: row;
+                    }
+                    flex-direction: column-reverse;
+                    .div_imagem{
+                        margin-left: 15vh;
+                        .imagem{
+                            
+                            span{
+                               img{
+                                    display: none;
+                               }  
+                            }
+                            width: 43vh;
+                            margin-left: -0px;
+                            top: -10px
+                            
+                        }
+                    }
+                }
+            }
+            .compra{
+                width: 40vh;
+                margin-left: 18vh;
+            }
+        }
+    }
+}

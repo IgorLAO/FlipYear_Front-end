@@ -63,17 +63,14 @@
         
 
 
-        return (
-            <>
-        <button onClick={imgFrente}>
-            aaaaa
-        </button>
-                {/* <ToastContainer></ToastContainer> */}
-                <div
-                    className='card'
-                    style={{ background: `${fundoBranco}` }}
+    return (
+        <>
 
-                >
+
+            {/* <ToastContainer></ToastContainer> */}
+            <div
+                className='card'
+                style={{ background: `${fundoBranco}` }}>
                     <span className='imgsProd'>
                         <img id='ImgProduto' src={GetUrlImage(props.ImgFrente)} onClick={processoCompra} />
 

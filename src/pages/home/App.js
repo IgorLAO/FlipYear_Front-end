@@ -16,6 +16,7 @@ import pixel_s2 from "../../ui/assets/images/Home_assets/pixel_block2.png";
 
 import morcegos from "../../ui/assets/images/Home_assets/pixel_bat.png";
 import alucard from "../../ui/assets/images/Home_assets/alucard2.png";
+import consolesBlock1 from "../../ui/assets/images/Home_assets/consolesBlock1.png";
 import Produtos from '../../ui/components/produtos';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
           <div className='texts'>
             <h1>Pra que máquina do tempo se existe Super Nintendo?</h1>
             <a>Relembrando a infância: gastar o troco em fliperama, inventar desculpa para a mãe, competir no Streets of Rage, nostalgia dos video games. Busque seu favorito no catálogo e volte a ser criança por um dia! Não se esqueça de assoprar a fita antes de jogar!</a>
+                <Link to='/catalogo'>
             <span className='btnHome'>
               <svg xmlns="http://www.w3.org/2000/svg" width="242" height="63" viewBox="0 0 242 63" fill="none">
                 <g opacity="0.5">
@@ -74,14 +76,15 @@ function App() {
 
               </svg>
               <button>
-                <Link to='/catalogo'> Catálogo </Link>
+                  <p>Catálogo</p>
 
               </button>
             </span>
+                </Link>
           </div>
           <span className='imgs'>
-            <img src={gameBoy} id='img2' />
-            <img src={nes} id='img1' />
+            <img src={consolesBlock1} id='l' />
+         
           </span>
         </div>
         <img style={{ width: 90 + '%', heigth: 100 }} src={block} />
