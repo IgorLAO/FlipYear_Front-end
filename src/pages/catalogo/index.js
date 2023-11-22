@@ -119,19 +119,19 @@ export default function Catalogo() {
         let infos = localStorage('SearchValue');
         setValueS(infos);
 
-        if(ValueS !== ''){
-            let res = await GetSearchProd(infos);
-            setList(res.data);
-            setBackupArr(res.data);
+        //if(ValueS !== ''){
+            //let res = await GetSearchProd(infos);
+            //setList(res.data);
+            //setBackupArr(res.data);
 
-        }
+        //}
 
-        else{
+        //else{
             let res = await GetAllProd();
             setList(res.data);
             setBackupArr(res.data);
 
-        }
+        //}
         
 
     }
@@ -338,7 +338,7 @@ export default function Catalogo() {
 
                         {prodsAtuais.map((item) => <>
 
-                            <CardProdutoCtlg
+                        <CardProdutoCtlg
                         preco={item.VL_PRECO}
                         idProduto={item.ID_PRODUTO}
                         nome={item.NM_PRODUTO}
