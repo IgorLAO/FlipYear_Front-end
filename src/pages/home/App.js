@@ -63,6 +63,7 @@ function App() {
           <div className='texts'>
             <h1>Pra que máquina do tempo se existe Super Nintendo?</h1>
             <a>Relembrando a infância: gastar o troco em fliperama, inventar desculpa para a mãe, competir no Streets of Rage, nostalgia dos video games. Busque seu favorito no catálogo e volte a ser criança por um dia! Não se esqueça de assoprar a fita antes de jogar!</a>
+                <Link to='/catalogo'>
             <span className='btnHome'>
               <svg xmlns="http://www.w3.org/2000/svg" width="242" height="63" viewBox="0 0 242 63" fill="none">
                 <g opacity="0.5">
@@ -75,10 +76,11 @@ function App() {
 
               </svg>
               <button>
-                <Link to='/catalogo'> Catálogo </Link>
+                  <p>Catálogo</p>
 
               </button>
             </span>
+                </Link>
           </div>
           <span className='imgs'>
             <img src={consolesBlock1} id='l' />

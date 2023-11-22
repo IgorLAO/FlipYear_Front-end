@@ -75,7 +75,11 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
         </Link>
 
         <div className='cadastro-op'>
+            
             <p> Cadastrar-se</p>
+        <Link to={'/cadastro'}>
+
+       
             <svg xmlns="http://www.w3.org/2000/svg" width="167" height="46" viewBox="0 0 167 46" fill="none">
                 <g filter="url(#filter0_d_1468_25)">
                     <rect x="13.2734" y="11.6641" width="141.249" height="22.7592" fill="#88C070" />
@@ -97,6 +101,7 @@ export default function SideBarFazerConta({ setLogado, setMenuLateralHidden }) {
                     </filter>
                 </defs>
             </svg>
+            </Link>
         </div>
 
         <div className='logo'>

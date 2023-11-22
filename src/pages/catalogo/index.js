@@ -119,19 +119,24 @@ export default function Catalogo() {
         let infos = localStorage('SearchValue');
         setValueS(infos);
 
-        //if(ValueS !== ''){
-            //let res = await GetSearchProd(infos);
-            //setList(res.data);
-            //setBackupArr(res.data);
+        if(ValueS !== ''){
+            
+            let res = await GetSearchProd(infos);
 
-        //}
 
-        //else{
+        }
+
+        else{
+
             let res = await GetAllProd();
             setList(res.data);
             setBackupArr(res.data);
 
-        //}
+
+        }
+
+        
+
         
 
     }

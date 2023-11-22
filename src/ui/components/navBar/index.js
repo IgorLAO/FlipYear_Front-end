@@ -23,6 +23,8 @@ import SearchResults from "../../../pages/SearchResultsPage";
 import { GetSearchProd } from "../../../api/produtos";
 import Menu from "../../assets/images/Vector.png";
 
+
+
 export default function NavBar(props) {
     const navigate = useNavigate('');
     const [menuLateralHidden, setMenuLateralHidden] = useState();
@@ -63,11 +65,12 @@ export default function NavBar(props) {
     }
 
     const NavTo = (e) => {
+        console.log(e.key)
         if (e.key === 'Enter') {
             navigate('/catalogo');
             localStorage('SearchValue', SearchValue);
             window.location.reload();
-        } 
+        }
     }
 
     function NavToHome() {
@@ -108,6 +111,7 @@ export default function NavBar(props) {
         };
 
         fetchData();
+        console.log(searchRes);
 
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
@@ -242,10 +246,9 @@ export default function NavBar(props) {
                         ? <SearchCard_NotFound />
                         : <></>
                 }
+                {/*{searchRes.slice(0, limit).map((i) => (
+                    <SearchCard i={i} />))}*/}
 
-                {searchRes.slice(0, limit).map((i) => (
-                    <SearchCard i={i} />
-                ))}
             </div>
         </>
     )
