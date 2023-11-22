@@ -39,6 +39,7 @@ export default function Users_Consulta() {
         const res2 = await ADMSearchUsers(searchText);
 
         console.log(res)
+        
         if (searchText != '')
             setlistUsuarios(res2.data);
 

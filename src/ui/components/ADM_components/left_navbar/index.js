@@ -37,7 +37,7 @@ export default function Adm_leftNavBar() {
 
                     <div className="Options">
                         <span className="">
-                            <div onClick={() => navigate('/')}>
+                            <div onClick={() => navigate('/ADM')}>
                                 <img src={Home} />
                                 <h4> Home </h4>
                             </div>
