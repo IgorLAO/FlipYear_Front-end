@@ -69,11 +69,16 @@
 
 
           }
+
+          button:hover{
+            cursor: pointer;
+          }
         }
+
       }
 
       .imgs {
-        z-index: 2;
+        z-index: 1;
        
       }
     }

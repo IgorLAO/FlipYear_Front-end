@@ -1,8 +1,15 @@
 import server from "./server";
 
 export async function GetSearchProd(infos) {
-        const res = await server.get(`/produto/busca?search=${infos}`);
+    try {        
+        let res = await server.get(`/produto/busca?search=${infos}`);
+        console.log(res.data)
+        console.log('oie')
         return res.data;
+    } catch (error) {
+        return 'nada';
+    }
+        
 
 }
 export async function ConsultarProdPorId(id) {
@@ -78,7 +85,7 @@ export async function InsertProdImages(i) {
 }
 
 export function GetUrlImage(img) {
-    console.log(`${server.getUri()}/${img}`)
+    //console.log(`${server.getUri()}/${img}`)
     return `${server.getUri()}/${img}`
 }
 
