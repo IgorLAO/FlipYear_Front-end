@@ -1,17 +1,18 @@
 .MainSide {
-
-
     .side-bar-logado {
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: fixed;
         justify-content: center;
 
         background-color: #081820;
         color: white;
         min-height: 100%;
+        
+        animation: SlideKart 0.3s linear;
+        transition: all 0.3s ease-in-out;
 
-        position: fixed;
         top: 5px;
         right: 0;
         z-index: 2;
@@ -295,12 +296,26 @@
 
         .side-bar-logado {
             width: 100%;
+            margin: 0;
 
             .fechar-sb {
                 bottom: 180px;
                 right: 235px;
+
             }
 
         }
+    }
+}
+
+@keyframes SlideKart {
+    from {
+        transform: translateX(100%);
+        height: 100%;
+    }
+
+    to {
+        transform: translateX(0%);
+        height: 100%;
     }
 }

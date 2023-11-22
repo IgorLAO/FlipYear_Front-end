@@ -70,9 +70,7 @@
             {/* <ToastContainer></ToastContainer> */}
             <div
                 className='card'
-                style={{ background: `${fundoBranco}` }}
-
-                >
+                style={{ background: `${fundoBranco}` }}>
                     <span className='imgsProd'>
                         <img id='ImgProduto' src={GetUrlImage(props.ImgFrente)} onClick={processoCompra} />
 
