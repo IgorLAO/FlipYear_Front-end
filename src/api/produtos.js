@@ -1,8 +1,14 @@
 import server from "./server";
 
 export async function GetSearchProd(infos) {
+    try {
         let res = await server.get(`/produto/busca?search=${infos}`);
-        return res.data;
+        let results = JSON.stringify(res.data);    
+        console.log(results)    
+        return results;        
+    } catch (error) {
+        return 'nada'
+    }
   
 
 }
@@ -12,7 +18,7 @@ export async function ConsultarProdPorId(id) {
 }
 
 export async function GetAllProd() {
-    const resp = await server.get(`/Allprodutos`);
+    const resp = await server.get(`/produtos`);
     return resp
 }
 
