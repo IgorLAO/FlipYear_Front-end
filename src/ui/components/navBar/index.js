@@ -89,14 +89,16 @@ export default function NavBar(props) {
         const fetchData = async () => {
             if (tamanhoSearch > 0) {
                 let res = await GetSearchProd(SearchValue);
+                
+                SetSearchRes(res.data);
+                console.log(res.data);
                 if (res !== 'nada') {
-                    SetSearchRes(res.data);
+                    
                     document.getElementById('sR').style.display = 'flex';
                     setIshideNotFound(false);
 
                 } else {
                     setIshideNotFound(true);
-                    console.log(IshideNotFound + 'pinto')
                     SetSearchRes([]);
                 }
 
@@ -111,7 +113,6 @@ export default function NavBar(props) {
         };
 
         fetchData();
-        console.log(searchRes);
 
     }, [SearchValue, tamanhoSearch, IshideNotFound]);
 
@@ -246,8 +247,8 @@ export default function NavBar(props) {
                         ? <SearchCard_NotFound />
                         : <></>
                 }
-                {/*{searchRes.slice(0, limit).map((i) => (
-                    <SearchCard i={i} />))}*/}
+                
+
 
             </div>
         </>
