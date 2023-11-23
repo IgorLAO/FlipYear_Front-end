@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { GetAllPedidos } from '../../api/pedidos';
 
 async function ConsultarPedidos(){
-    const resp = await GetAllPedidos(id);
+    //const resp = await GetAllPedidos(id);
 
 }
 
