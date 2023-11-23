@@ -63,7 +63,7 @@ export default function Pagamento75(props) {
                         </div>
                         <div>
                             <img src={Concluir} />
-                            <p>Concluir</p>
+                            <p>Selecionar</p>
                         </div>
                     </div>
                     <div className='pista'> </div>
