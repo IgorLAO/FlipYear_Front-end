@@ -82,14 +82,22 @@
         
         width: 100%;
         
+        align-items: center;
+        justify-content: center;
         .inform_prod{
             display: flex;
             flex-direction: column;
             justify-content:flex-start;
+        
+            @media  (max-width: 758px) {
+                justify-content: center;
+                
+            }
+
 
             color: #ffff;
             width: 100%;
-            
+           
             .container_lista{
                 display: flex;
                 flex-direction: column;
@@ -97,6 +105,9 @@
 
                 padding:    10px 0px;
                 
+                @media (max-width: 758px){
+                    max-width: 341px;
+                }
                 .lista_produtos{
 
                     .cabecalho_prod{
@@ -115,7 +126,7 @@
                         }
                         table{
                             
-                            max-width: 80vh;
+                            
                             width: 100%;
                         }
                         thead{
@@ -134,6 +145,10 @@
                                 padding: 10px;
                             div{
                                 gap: 60px;
+
+                                @media (max-width: 450px){
+                                    gap: 40px;
+                                }
                             }                          
                           }
                         }
@@ -147,9 +162,14 @@
                             tr{
                                 display: flex;
                                 justify-content: space-between;
-                                
+                                align-items: center; 
                                 width: 100%;
 
+                                @media (max-width:500px){
+                        
+                                    width:90%;
+                                    padding-right: 20px ;
+                                }
                             }
                         }
                     }
@@ -159,7 +179,7 @@
         }
         .resumo_pedido{
             width: 100%;
-            max-width: 55vh;
+            max-width: 60vh;
             
             .valores_pedido{
                 display: flex;
