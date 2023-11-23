@@ -24,11 +24,13 @@ export default function Pagamento25(){
     const [cupom, setCupom] = useState([]);
     const [total, setTotal] = useState(0);
     const [quantidade, SetQuantidade] = useState(0);
+    const [valorFrete, setValorFrete] = useState(0);
 
-    const {selectedFrete} = useParams();
+    const {FreteSelecionado} = useParams();
     const { qtdProdutos } = useParams();
     const { idParam } = useParams();
     
+        
 
     const navigate = useNavigate();
 
@@ -43,11 +45,13 @@ export default function Pagamento25(){
     }, [qtdProdutos]);
     
 
+
     function CupomDesconto(){
         if(CupomDesconto === "flipyear"){
             
         }   
     }
+    
     async function ListProduct(){
         const resp = await ConsultarProdPorId(idParam);
         setList(resp);
@@ -122,7 +126,7 @@ export default function Pagamento25(){
                                                 <td>{list.NM_PRODUTO}</td>
                                                 <div style={{display: "flex", justifyContent:"space-between", width: "25%"}}>
                                                     <td>{quantidade}</td>
-                                                    <td style={{padding: "0px"}}>{total}</td>
+                                                    <td style={{padding: "0px"}}>{list.VL_PRECO}</td>
                                                 </div>
                                                 
                                             </tr>
@@ -150,7 +154,7 @@ export default function Pagamento25(){
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>{ 0 } </p>
+                                    <p>{ FreteSelecionado } </p>
                                 </div>
                                 <div>
                                     <p>CUPOM</p>
