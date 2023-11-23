@@ -106,25 +106,23 @@ export default function NavBar(props) {
                         document.getElementById('sR').style.display = 'flex';
                         setIshideNotFound(false);
                     }
-                } else if (tamanhoSearch === 0) {
+                } else{
                     setIshideNotFound(false);
                     SetSearchRes([]);
                     document.getElementById('sR').style.display = 'none';
                 }
     
-                // O bloco 'then' é substituído pelo código após o bloco 'try' em uma função async
-                // Coloque aqui qualquer código que precisa ser executado após a busca
+                
             } catch (error) {
                 console.error('Erro ao buscar dados:', error);
-                // Trate os erros, se necessário
+                
             }
         };
     
-        fetchData(); // Chame a função async diretamente
+        fetchData(); 
     
-        // Pode remover o .then() no final do useEffect
     
-    }, [SearchValue, tamanhoSearch])
+    }, [SearchValue, tamanhoSearch, IshideNotFound])
 
 
     const { setFiltroPreco,
