@@ -90,8 +90,7 @@ export default function NavBar(props) {
             if (tamanhoSearch > 0) {
                 let res = await GetSearchProd(SearchValue);
 
-                SetSearchRes(res.data);
-                console.log(res.data);
+                SetSearchRes(res);
                 if (res !== 'nada') {
 
                     document.getElementById('sR').style.display = 'flex';
@@ -248,9 +247,9 @@ export default function NavBar(props) {
                         : <></>
                 }
 
-                {/*{searchRes.slice(0, limit).map((i) => (
+                {searchRes.slice(0, limit).map((i) => (
                     <SearchCard i={i} />
-                ))}*/}
+                ))}
 
 
 

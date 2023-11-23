@@ -14,7 +14,7 @@ export default function Catalogo() {
 
     const [list, setList] = useState([]);
     const [ValueS, setValueS] = useState('');
-    const [pesquisaSwitch, setPesquisaSwitch] = useState(false);
+    const [notfoundSwitch, setNotFoundSwitch] = useState(false);
     const [backupArr, setBackupArr] = useState([]);
     const [prodPorPag, setProdPorPag] = useState(18);
     const [paginaAtual, setPaginaAtual] = useState(1);
@@ -119,29 +119,38 @@ export default function Catalogo() {
         let infos = localStorage('SearchValue');
         setValueS(infos);
 
-        if(ValueS !== ''){
-            
+        if (ValueS !== '') {
+
             let res = await GetSearchProd(infos);
-            if(res.length > 0){
-                setList(res.data);
-                setBackupArr(res.data);
+
+
+            if (res !== 'nada') {
+                setList(res);
+                setBackupArr(res);
             }
+
+            else {
+                setNotFoundSwitch(true);
+            }
+
+
 
 
         }
 
-        else{
+        else {
 
             let res = await GetAllProd();
             setList(res.data);
             setBackupArr(res.data);
+            setNotFoundSwitch(false)
 
 
         }
 
-        
 
-        
+
+
 
     }
 
@@ -219,7 +228,7 @@ export default function Catalogo() {
 
     useEffect(() => {
         GetProds();
-    }, [ValueS])
+    }, [ValueS, notfoundSwitch])
 
     useEffect(() => {
         filtrarResultados();
@@ -302,70 +311,73 @@ export default function Catalogo() {
 
                 {
                     (ValueS !== '')
-                    ? <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
-                    :<></>
+                        ? <h1 className='exib'>Exibindo todos os resultados para "{ValueS}"</h1>
+                        : <></>
                 }
 
 
                 <div className='resultados-ctlg'>
                     <div className='filtro-opc'>
 
-                    <FiltroCtlg
-                        OrdMelhoresAvaliados={OrdMelhoresAvaliados}
-                        OrdPioresAvaliados={OrdPioresAvaliados}
-                        OrdMaioresPrecos={OrdMaioresPrecos}
-                        OrdMenoresPrecos={OrdMenoresPrecos}
-                        FiltroColecionador={FiltroColecionador}
-                        FiltroPromocao={FiltroPromocao}
-                        FiltroDestaque={FiltroDestaque}
-                        setFiltroPreco={setFiltroPreco}
-                        setFiltroEmpresa={setFiltroEmpresa}
-                        setFiltroEstado={setFiltroEstado}
-                        setFiltroAvaliacao={setFiltroAvaliacao}
-                        setFiltroEstoque={setFiltroEstoque}
-                        FiltroConsole={FiltroConsole}
-                        FiltroCD={FiltroCD}
-                        FiltroFita={FiltroFita}
-                        FiltroFliperama={FiltroFliperama}
-                    >
-                    </FiltroCtlg>
+                        <FiltroCtlg
+                            OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                            OrdPioresAvaliados={OrdPioresAvaliados}
+                            OrdMaioresPrecos={OrdMaioresPrecos}
+                            OrdMenoresPrecos={OrdMenoresPrecos}
+                            FiltroColecionador={FiltroColecionador}
+                            FiltroPromocao={FiltroPromocao}
+                            FiltroDestaque={FiltroDestaque}
+                            setFiltroPreco={setFiltroPreco}
+                            setFiltroEmpresa={setFiltroEmpresa}
+                            setFiltroEstado={setFiltroEstado}
+                            setFiltroAvaliacao={setFiltroAvaliacao}
+                            setFiltroEstoque={setFiltroEstoque}
+                            FiltroConsole={FiltroConsole}
+                            FiltroCD={FiltroCD}
+                            FiltroFita={FiltroFita}
+                            FiltroFliperama={FiltroFliperama}
+                        >
+                        </FiltroCtlg>
                     </div>
 
                     {
-                        (prodsAtuais.length <= 0)
+                        (notfoundSwitch == true)
                             ? <div className='vazio'>
                                 <img src={Fantasma2} className='fantasma2' alt='fantasma2'></img>
                                 <p>Nenhum Produto Encontrado :{`(`}</p>
                                 <img src={Fantasma1} className='fantasma1' alt='fantasma1'></img>
                             </div>
-                            : <></>
+                            : <>
+                                <div className='produtos-result'>
 
+
+                                    {prodsAtuais.map((item) => <>
+
+                                        <CardProdutoCtlg
+                                            preco={item.VL_PRECO}
+                                            idProduto={item.ID_PRODUTO}
+                                            nome={item.NM_PRODUTO}
+                                            fabricante={item.NM_FABRICANTE}
+                                            precoPromocao={item.VL_PRECO_PROMOCIONAL}
+                                            estado={item.TP_ESTADO}
+                                            promocao={item.BT_PROMOCAO}
+                                            avaliacao={item.VL_AVALIACAO}
+                                            colecionador={item.TP_COLECIONADOR}
+                                        />
+
+
+                                    </>)}
+
+
+                                </div></>
                     }
 
-                    <div className='produtos-result'>
 
 
-                        {prodsAtuais.map((item) => <>
 
-                        <CardProdutoCtlg
-                        preco={item.VL_PRECO}
-                        idProduto={item.ID_PRODUTO}
-                        nome={item.NM_PRODUTO}
-                        fabricante={item.NM_FABRICANTE}
-                        precoPromocao={item.VL_PRECO_PROMOCIONAL}
-                        estado={item.TP_ESTADO}
-                        promocao={item.BT_PROMOCAO}
-                        avaliacao={item.VL_AVALIACAO}
-                        colecionador={item.TP_COLECIONADOR}
-                            />
-
-
-                        </>)}
-
-
-                    </div>
 
                 </div>
+
 
                 <div className='paginacao'>
 
