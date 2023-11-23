@@ -8,9 +8,9 @@ import localStorage from "local-storage";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
+
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 
 import './index.scss'
 
@@ -36,7 +36,7 @@ import axios from "axios";
 export default function InfProduto() {
     const navigate = useNavigate();
 
-    const [qtdProdutos, SetQtdProdutos] = useState(0);
+    const [qtdProdutos, SetQtdProdutos] = useState(1);
     const [limiteQtd, setLimiteQtd] = useState();
     const [idUser, setIdUser] = useState();
 
@@ -62,10 +62,7 @@ export default function InfProduto() {
     const [commentsProd, setCommentsProd] = useState([]);
     const [cep, setCep] = useState('');
     const [respCep, setRespCep] = useState('');
-    const [selectedFrete, setSelectedFrete] = useState(null);
-    const [FreteHermes, setFreteHermes] = useState(0);
-    const [FreteRedStart, setFreteRedStart] = useState(0);
-
+    const [selectedFrete, setSelectedFrete] = useState(0);
 
     const [Frente, setFrente] = useState('');
     const [LadoDir, setLadoDir] = useState('');
@@ -110,8 +107,8 @@ export default function InfProduto() {
     function MinusQtdProduto() {
         SetQtdProdutos(qtdProdutos - 1);
 
-        if (qtdProdutos == 0) {
-            SetQtdProdutos(0);
+        if (qtdProdutos == 1) {
+            SetQtdProdutos(1);
 
         }
     }
@@ -223,24 +220,23 @@ export default function InfProduto() {
     }
 
     function processPag25() {
-        if (selectedFrete) {
-            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
+        if (selectedFrete != 0) {
+
+            const selectedFreteString = JSON.stringify(selectedFrete);
+            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFreteString}`);
         } else {
             alert(`Tá achando q a vida é um morango? 
 coloca o frete aí amg`);
         }
     }
 
-    function IdentificarFrete() {
-        if(onclick === FreteHermes){
-            setSelectedFrete(15)
-        }
-        else if(onclick === FreteRedStart){
-            selectedFrete(25)
-        }
+    function FreteHermes() {
+        setSelectedFrete(15);
     }
-    console.log(selectedFrete)
 
+    function FreteRedStart() {
+        setSelectedFrete(25);
+    }
 
     async function GetAllComments() {
         let res = await GetAllCmts();
@@ -447,9 +443,7 @@ coloca o frete aí amg`);
                                 <div className="tipo-envio">
                                     <div className="env-hermes">
                                         <button
-                                            onClick={IdentificarFrete}
-                                            value={FreteHermes}
-                                            onChange={(e) => setFreteHermes(e.target.value)}>
+                                            onClick={FreteHermes}>
                                             <div>
                                                 <img src={hermes} alt="" />
                                                 <h4>Hermes Express</h4>
@@ -467,9 +461,7 @@ coloca o frete aí amg`);
 
                                     <div className="env-star">
                                         <button
-                                            onClick={IdentificarFrete}
-                                            value={FreteRedStart}
-                                            onChange={(e) => setFreteRedStart(e.target.value)}>
+                                            onClick={FreteRedStart}>
                                             <div >
                                                 <img src={red_star} alt="" />
                                                 <h4>Red Star Company</h4>

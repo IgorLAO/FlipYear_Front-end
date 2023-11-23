@@ -72,13 +72,15 @@
         width: 90%;
         background-color: #346856;
         padding: 20px 20px;
+        align-items: center;
+        justify-content: space-around;
 
         
         h1 {
             font-size: 40px;
             font-weight: 300;
             min-width: 100%;
-            border: #081820 solid;
+            padding-bottom: 30px;
         }
 
         .opcoes_pag {
@@ -92,7 +94,7 @@
                 justify-content: center;
 
                 background-color: #96BB7C;
-                width: 40vh;
+                width: 50vh;
                 box-shadow: 0px 2px 10px black;
                 margin: 15px;
                 padding: 15px 0px;
@@ -128,6 +130,7 @@
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
+
 
             color: #fff;
             padding: 20px 0px 0px 0px;
@@ -176,10 +179,12 @@
 
         .VoltarConcluir {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-
-            max-width: 70vh;
-            width: 100%;
+            width: 80%;
+            
+            
+            
 
             #but_voltar {
                 color: #7EB56D;
@@ -205,6 +210,14 @@
                 padding: 10px 60px;
                 font-size: 15px;
             }
+
+        }
+
+        .contents{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
         }
     }

@@ -41,9 +41,10 @@ export default function Pagamento25(){
           }
         ListProduct();
     }, [qtdProdutos]);
+    
 
     function CupomDesconto(){
-        if(CupomDesconto === true){
+        if(CupomDesconto === "flipyear"){
             
         }   
     }

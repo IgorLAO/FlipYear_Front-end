@@ -84,32 +84,7 @@
     }
 }
 
-@media (max-width: 1280px) {
-    .container_sobrenos {
-        width: 137.7vh;
-        .conteudo {
-            display: flex;
-            flex-direction: row;
-            margin-top: -130px;
-            width: 130vh;
-            margin-left: -15px;
-            height: 87vh;
-            
 
-            .descricao {
-                font-size: 15px;
-                width: 50vh;
-            }
-
-            .container_perfil{
-                .sw{
-                    margin-top: -70px;
-                    width: 400px;
-                }
-            }
-        }
-    }
-}
 
 @media (max-width: 768px){
     .container_sobrenos {
