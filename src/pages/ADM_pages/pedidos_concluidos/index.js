@@ -30,10 +30,6 @@ export default function ADM_pedidos() {
         }
     }
 
-    function addId(i) {
-
-    }
-
     useEffect(() => {
         GetPedidos();
     }, []);

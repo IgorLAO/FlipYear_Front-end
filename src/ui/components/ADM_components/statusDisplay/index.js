@@ -8,33 +8,33 @@ export default function StatusDisplay(props) {
 
     const [Situacao, SetSituacao] = useState('');
 
-
     async function HandleSituacao() {
-        const data = await PutPedidos(props.id, Situacao);
+        let id = Number(props.id)
+        const data = await PutPedidos(id, Situacao);
         console.log(Situacao)
     }
 
     async function HandleSituacaoAguarda() {
         SetSituacao('Aguardando Pagamento')
-        const data = await PutPedidos(props.id, Situacao);
+        const data = await PutPedidos(props.id, {Situacao: "Aguardando Pagamento"});
     }
     async function HandleSituacaoConcluído() {
         SetSituacao('Concluído')
-        const data = await PutPedidos(props.id, Situacao);
+        const data = await PutPedidos(props.id, {Situacao: "Concluido"});
     }
     async function HandleSituacaoEmTran() {
-        SetSituacao(' Em Trânsito')
-        const data = await PutPedidos(props.id, Situacao);
+        SetSituacao('Em transito')
+        const data = await PutPedidos(props.id, {Situacao: 'Em transito'});
     }
 
     async function HandleSituacaoProcess() {
         SetSituacao('processando')
-        const data = await PutPedidos(props.id, Situacao);
+        const data = await PutPedidos(props.id, {Situacao: "processando"});
     }
 
     async function HandleSituacaoEntregue() {
         SetSituacao('Entregue')
-        const data = await PutPedidos(props.id, Situacao);
+        const data = await PutPedidos(props.id, {Situacao: "Entregue"});
     }
 
     
