@@ -71,7 +71,7 @@ function Login(props2) {
 
       }
     }
-    else{
+    else {
       console.log('uii')
     }
   }
@@ -102,10 +102,10 @@ function Login(props2) {
 
   return (
     <>
-    <div className='main'>
-      <div className='vol'>
-        <a onClick={voltar}> {'<'} voltar </a>
-      </div>
+      <div className='main'>
+        <div className='vol'>
+          <a onClick={voltar}> {'<'} voltar </a>
+        </div>
         <div className='Frame'>
 
           <div className='DetailsInside'>

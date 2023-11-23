@@ -123,8 +123,13 @@
         }
 
     }
-
-    @media (max-width: 768px) {
+}
+    
+@media (max-width: 768px) {
+    .mainCad{
+        .vol{
+            margin-left: 0vh;
+        }
         .Card  {
             .Banner{
                 display: none;
@@ -134,8 +139,13 @@
             }
         }
     }
+}
 
-    @media (max-width: 414px) {
+@media (max-width: 414px) {
+    .mainCad{
+        .vol{
+            margin-left: 0vh;
+        }
         .Card  {
             .Banner{
                 display: none;
@@ -172,3 +182,6 @@
         }
     }
 }
+
+
+        
