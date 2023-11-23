@@ -4,11 +4,13 @@
     background-color: #D9D9D9;
     box-shadow: 5px 5px 0 0px rgba(0, 0, 0, 0.5);
     position: relative;
+    position: fixed;
     margin: 5px;
     width: 35%;
     height: 60px;
     padding: 5px 10px;
     justify-content: space-between;
+    z-index: 1;
 
     #grande{
         width: 12%;
