@@ -38,7 +38,7 @@ export default function NavBar(props) {
     const [SearchValue, setSearchValue] = useState('');
     const [Erro, setErro] = useState('');
     const [limit, setLimit] = useState(5);
-    const [IshideNotFound, setIshideNotFound] = useState(true);
+    const [IshideNotFound, setIshideNotFound] = useState(false);
 
     const Mostrar = () => {
         if (localStorage("ADM_Logado") || localStorage("NORMAL_USER_Logado")) {
@@ -77,6 +77,12 @@ export default function NavBar(props) {
         navigate('/');
     }
 
+    function processoCompra(item) {
+        navigate(`/produto/${item.i.Id}`)
+        window.location.reload();
+        window.scrollTo(0, 0);
+    }
+
     function HandleHide() {
         document.getElementById("sR").style.display = "none"
     }
@@ -87,33 +93,38 @@ export default function NavBar(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            if (tamanhoSearch > 0) {
-                let res = await GetSearchProd(SearchValue);
+            try {
+                if (tamanhoSearch > 0) {
+                    let res = await GetSearchProd(SearchValue);
+                    SetSearchRes(res);
+                    if (res === 'nada') {
+                        setIshideNotFound(true);
+                        document.getElementById('sR').style.display = 'flex';
 
-                SetSearchRes(res);
-                if (res !== 'nada') {
-
-                    document.getElementById('sR').style.display = 'flex';
+                    }
+                    if (res !== 'nada') {
+                        document.getElementById('sR').style.display = 'flex';
+                        setIshideNotFound(false);
+                    }
+                } else if (tamanhoSearch === 0) {
                     setIshideNotFound(false);
-
-                } else {
-                    setIshideNotFound(true);
                     SetSearchRes([]);
+                    document.getElementById('sR').style.display = 'none';
                 }
-
-            }
-
-            else if (tamanhoSearch == 0) {
-                setIshideNotFound(false);
-                SetSearchRes([]);
-                document.getElementById('sR').style.display = 'none'
-
+    
+                // O bloco 'then' é substituído pelo código após o bloco 'try' em uma função async
+                // Coloque aqui qualquer código que precisa ser executado após a busca
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+                // Trate os erros, se necessário
             }
         };
-
-        fetchData();
-
-    }, [SearchValue, tamanhoSearch, IshideNotFound]);
+    
+        fetchData(); // Chame a função async diretamente
+    
+        // Pode remover o .then() no final do useEffect
+    
+    }, [SearchValue, tamanhoSearch])
 
 
     const { setFiltroPreco,
@@ -242,14 +253,16 @@ export default function NavBar(props) {
             <div className="searchResults" id="sR" style={{ display: 'none' }}>
 
                 {
-                    (IshideNotFound == true && tamanhoSearch > 0)
+                    (IshideNotFound == true)
                         ? <SearchCard_NotFound />
-                        : <></>
+                        : <>
+                                        {searchRes.slice(0, limit).map((i) => 
+                (
+                        <SearchCard i={i}/>
+                ))}</>
                 }
 
-                {searchRes.slice(0, limit).map((i) => (
-                    <SearchCard i={i} />
-                ))}
+
 
 
 

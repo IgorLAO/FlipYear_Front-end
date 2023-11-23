@@ -129,6 +129,32 @@
             }
             .CardCad{
                 width: 100%;
+                .inputs{
+                    .boxInput{
+                        .tel{
+                           margin-top: 17px;
+                        }
+
+                        button{
+                            margin-top: 32px;
+                        }
+                    }
+                    .bottomInputs{
+                        div{
+                            .senha{
+                                margin-top: 18px;
+                            }
+                        }
+                        div{
+                            .digite{
+                                input{
+                                    width: 19vh;
+                                }
+                            }
+                        }
+                    }
+                    margin-left: -25px;
+                }
             }
         }
     }

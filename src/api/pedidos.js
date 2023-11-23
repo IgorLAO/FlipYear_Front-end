@@ -6,6 +6,7 @@ export async function GetAllPedidos() {
 }
 
 export async function PutPedidos(id, DS_SITUACAO) {
-    const resp = await server.put(`/pedidos/${id}`, DS_SITUACAO);
+    JSON.stringify(DS_SITUACAO)
+    const resp = await server.put(`/pedidos/${id}`, {DS_SITUACAO});
     return resp.data
 }

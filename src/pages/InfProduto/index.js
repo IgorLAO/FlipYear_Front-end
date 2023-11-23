@@ -229,8 +229,7 @@ export default function InfProduto() {
             navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
         } else {
 
-            alert(`Tá achando q a vida é um morango? 
-coloca o frete aí amg`);
+            alert(`insira o frete`);
         }
     }
 
