@@ -8,7 +8,7 @@ const SearchCard = (props) => {
 
            <span className='Texts' style={{display: 'flex', flexDirection: 'column'}}>
             <b> {props.i.NM_PRODUTO} </b>
-            <a style={{display: 'flex'}}> {props.i.TP_ESTADO} - {props.i.Fabricante} </a>
+            <a style={{display: 'flex'}}> {props.i.TP_ESTADO} - {props.i.NM_FABRICANTE} </a>
            </span>
 
            <span className='Prices' style={{display: 'flex', flexDirection: 'column'}}>

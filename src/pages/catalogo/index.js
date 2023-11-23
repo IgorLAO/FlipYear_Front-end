@@ -122,6 +122,8 @@ export default function Catalogo() {
         if(ValueS !== ''){
             
             let res = await GetSearchProd(infos);
+            setList(res.data);
+            setBackupArr(res.data);
 
 
         }
