@@ -225,8 +225,7 @@ export default function InfProduto() {
             const selectedFreteString = JSON.stringify(selectedFrete);
             navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFreteString}`);
         } else {
-            alert(`Tá achando q a vida é um morango? 
-coloca o frete aí amg`);
+            alert(`insira o frete`);
         }
     }
 
