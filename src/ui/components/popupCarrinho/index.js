@@ -8,6 +8,7 @@ import Fantasma1 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho
 import Fantasma2 from '../../assets/images/carrinho_assets/fantasmapopupcarrinho2.png'
 import ListagemCarrinho from './ListagemCarrinho.js'
 
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { ConsultaCarrinho } from '../../../api/carrinho.js';
 import localStorage from 'local-storage';
@@ -139,7 +140,9 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
                         ********************************************************************
                     </span>
                 </div>
+                <Link to='/pagamento25'>
 
+                
                 <div className='puc-btn-finalizar'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="185" height="56" viewBox="0 0 185 56" fill="none">
                         <g opacity="0.5">
@@ -173,6 +176,7 @@ export default function PopUpCarrinho({ setPopUpCarro }) {
                     <p>Finalizar</p>
 
                 </div>
+                </Link>
             </div>
         </div>
     )
