@@ -1,15 +1,9 @@
 import server from "./server";
 
 export async function GetSearchProd(infos) {
-    try {        
         let res = await server.get(`/produto/busca?search=${infos}`);
-        console.log(res.data)
-        console.log('oie')
         return res.data;
-    } catch (error) {
-        return 'nada';
-    }
-        
+  
 
 }
 export async function ConsultarProdPorId(id) {

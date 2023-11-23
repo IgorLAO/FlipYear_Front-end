@@ -63,6 +63,9 @@ export default function InfProduto() {
     const [cep, setCep] = useState('');
     const [respCep, setRespCep] = useState('');
     const [selectedFrete, setSelectedFrete] = useState(null);
+    const [FreteHermes, setFreteHermes] = useState(0);
+    const [FreteRedStart, setFreteRedStart] = useState(0);
+
 
     const [Frente, setFrente] = useState('');
     const [LadoDir, setLadoDir] = useState('');
@@ -74,19 +77,19 @@ export default function InfProduto() {
     const commentsAtuais = commentsProd.slice(indexPrimeiroComments, indexUltimoComment)
     const numPagComments = []
 
-    for(let i = 1; i <= Math.ceil(commentsProd.length / commentsPerPag); i++){
+    for (let i = 1; i <= Math.ceil(commentsProd.length / commentsPerPag); i++) {
         numPagComments.push(i)
     }
 
     function sla() {
         // Filtra os comentários que correspondem ao produto atual
         const commentsForProduct = comments.filter(comment => comment.PRODUTO === idParam);
-      
+
         // Define os comentários filtrados no estado
         setCommentsProd(commentsForProduct);
-      }
+    }
 
-      function AddQtdProduto() {
+    function AddQtdProduto() {
         SetQtdProdutos(qtdProdutos + 1);
         if (qtdProdutos >= limiteQtd) {
             SetQtdProdutos(limiteQtd);
@@ -118,9 +121,9 @@ export default function InfProduto() {
         console.log(t)
         if (t < 950) setCardResposiveLimit(1);
         else if (t < 1420) setCardResposiveLimit(3)
-    
+
         else setCardResposiveLimit(5);
-      }
+    }
 
     async function AddNoCarrinho() {
         if (qtdProdutos >= 1) {
@@ -152,61 +155,61 @@ export default function InfProduto() {
         sla()
 
         if (commentsPagAtual !== 1) {
-          setSetaRetornarComments(true);
+            setSetaRetornarComments(true);
         } else {
-          setSetaRetornarComments(false);
+            setSetaRetornarComments(false);
         }
-    
-        if (commentsAtuais === numPagComments.length) {
-          setSetaAvancarComments(false);
-        } else {
-          setSetaAvancarComments(true);
-        }
-      }, [commentsAtuais, numPagComments.length, comments, commentsPagAtual, commentsProd]);
-    
-      const paginaComments = (item) => {
-        setCommentsPagAtual(item);
-      };
-    
-      const AvancarComments = () => {
-        if (commentsPagAtual < numPagComments.length) {
-          setCommentsPagAtual((prevPag) => prevPag + 1);
-        }
-      };
-    
-      const RetornarComments = () => {
-        if (commentsPagAtual > 1) {
-          setCommentsPagAtual((prevPag) => prevPag - 1);
-        }
-      };
 
-      async function ConsultarCep() {
-        if(cep.length > 7){
+        if (commentsAtuais === numPagComments.length) {
+            setSetaAvancarComments(false);
+        } else {
+            setSetaAvancarComments(true);
+        }
+    }, [commentsAtuais, numPagComments.length, comments, commentsPagAtual, commentsProd]);
+
+    const paginaComments = (item) => {
+        setCommentsPagAtual(item);
+    };
+
+    const AvancarComments = () => {
+        if (commentsPagAtual < numPagComments.length) {
+            setCommentsPagAtual((prevPag) => prevPag + 1);
+        }
+    };
+
+    const RetornarComments = () => {
+        if (commentsPagAtual > 1) {
+            setCommentsPagAtual((prevPag) => prevPag - 1);
+        }
+    };
+
+    async function ConsultarCep() {
+        if (cep.length > 7) {
             try {
                 const resp = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
                 if (resp.status === 200) {
-                  setRespCep('Cep encontrado!');
+                    setRespCep('Cep encontrado!');
                 }
-              } catch (err) {
+            } catch (err) {
                 setRespCep('Não encontrado');
-              }
+            }
         }
-        else{
+        else {
             setRespCep('');
         }
-        
-      }
-    
-      useEffect(() => {
+
+    }
+
+    useEffect(() => {
         ConsultarCep();
-      }, [cep]);
-      
+    }, [cep]);
+
 
     async function CarregarProdutos() {
         const resp = await ConsultarProdPorId(idParam);
         setLimiteQtd(limiteQtd);
         setProduto(resp);
-        
+
     }
 
     // async function InserirProdutoNoCarrinho(){
@@ -214,11 +217,11 @@ export default function InfProduto() {
 
     // }
 
-         function parcelas() {
-            const valorParcelas = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.VL_PRECO / 10);
-            SetParcela(valorParcelas);
+    function parcelas() {
+        const valorParcelas = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.VL_PRECO / 10);
+        SetParcela(valorParcelas);
     }
-    
+
     function processPag25() {
         if (selectedFrete) {
             navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
@@ -227,6 +230,16 @@ export default function InfProduto() {
 coloca o frete aí amg`);
         }
     }
+
+    function IdentificarFrete() {
+        if(onclick === FreteHermes){
+            setSelectedFrete(15)
+        }
+        else if(onclick === FreteRedStart){
+            selectedFrete(25)
+        }
+    }
+    console.log(selectedFrete)
 
 
     async function GetAllComments() {
@@ -244,29 +257,29 @@ coloca o frete aí amg`);
     }
 
 
-    async function GetUserById(){
-        if(localStorage('ADM_Logado')){
-            const a =localStorage('ADM_Logado')
-            setIdUser (a.data.Id)
-    
-        }   else if(localStorage('NORMAL_USER_Logado')){
+    async function GetUserById() {
+        if (localStorage('ADM_Logado')) {
+            const a = localStorage('ADM_Logado')
+            setIdUser(a.data.Id)
+
+        } else if (localStorage('NORMAL_USER_Logado')) {
             const a = localStorage('NORMAL_USER_Logado')
             setIdUser(a.data.Id)
         }
-    
+
     }
 
- 
-    async function InserirCommentarioEnter(e){
-        if(e.key == 'Enter'){
 
-        let resp = await InsertComments(idUser ,idParam, commentContent, dateNow, commentLikes, commentReport)
-        window.location.reload()
-     }
+    async function InserirCommentarioEnter(e) {
+        if (e.key == 'Enter') {
+
+            let resp = await InsertComments(idUser, idParam, commentContent, dateNow, commentLikes, commentReport)
+            window.location.reload()
+        }
     }
 
-  
-    async function GetImgs(){
+
+    async function GetImgs() {
         let res = await ProdsImg(idParam)
         let data = res.data
 
@@ -277,66 +290,66 @@ coloca o frete aí amg`);
 
     }
 
-  useEffect(() =>{
-    ResposiveCards()
-      GetImgs()
-      console.log(Frente)
-  }, [])
+    useEffect(() => {
+        ResposiveCards()
+        GetImgs()
+        console.log(Frente)
+    }, [])
 
 
-  //  async function getBlobFromURL(filepath){
-  //      try {
-  //          if(!filepath){
-  //              throw new Error('URL da imagem n fornecida')
-  //          }
-//
-  //          const response = await fetch(filepath)
-//
-  //          if(!response.ok){
-  //              throw new Error(`Erro ao buscar o arquivo. Status: ${response.status}`)
-  //          }
-  //  
-  //          const buffer = await response.arrayBuffer();
-  //          const contentType = response.headers.get('content-type');
-  //          
-  //          if(!contentType){
-  //              throw new Error('Tipo de conteúdo da img não encontrado')
-  //          }
-  //          
-  //          const blob = new Blob([buffer], { type: contentType });
-  //          return blob;
-  //          
-  //      } catch (error) {
-  //          console.error(error)
-  //          throw error;
-  //      }
-  //     
-  //  }
-//
-  //  async function imagesPreview() {
-  //      const imagemBlob = await getBlobFromURL(Frente)
-  //      const imageUrl = URL.createObjectURL(imagemBlob);
-  //              
-  //      return imageUrl
-//
-  //  }
+    //  async function getBlobFromURL(filepath){
+    //      try {
+    //          if(!filepath){
+    //              throw new Error('URL da imagem n fornecida')
+    //          }
+    //
+    //          const response = await fetch(filepath)
+    //
+    //          if(!response.ok){
+    //              throw new Error(`Erro ao buscar o arquivo. Status: ${response.status}`)
+    //          }
+    //  
+    //          const buffer = await response.arrayBuffer();
+    //          const contentType = response.headers.get('content-type');
+    //          
+    //          if(!contentType){
+    //              throw new Error('Tipo de conteúdo da img não encontrado')
+    //          }
+    //          
+    //          const blob = new Blob([buffer], { type: contentType });
+    //          return blob;
+    //          
+    //      } catch (error) {
+    //          console.error(error)
+    //          throw error;
+    //      }
+    //     
+    //  }
+    //
+    //  async function imagesPreview() {
+    //      const imagemBlob = await getBlobFromURL(Frente)
+    //      const imageUrl = URL.createObjectURL(imagemBlob);
+    //              
+    //      return imageUrl
+    //
+    //  }
 
 
 
-  function hideValid(freteType) {
-    setIsHideOptions(true);
-    setHideBuyOptions('none');
-    setAng('90');
-    setSelectedFrete(freteType); 
+    function hideValid(freteType) {
+        setIsHideOptions(true);
+        setHideBuyOptions('none');
+        setAng('90');
+        setSelectedFrete(freteType);
 
-    if (isHideOptions) {
-        setIsHideOptions(false);
-        setHideBuyOptions('flex');
-        setAng('0');
+        if (isHideOptions) {
+            setIsHideOptions(false);
+            setHideBuyOptions('flex');
+            setAng('0');
+        }
     }
-}
 
-    useEffect(() =>{
+    useEffect(() => {
         GetUserById()
         parcelas();
     }, [produto, idUser]);
@@ -347,41 +360,41 @@ coloca o frete aí amg`);
         GetAllProduttc();
         GetAllComments();
 
-    },[]);    
+    }, []);
     return (
         <div className="pagina-produto">
             <NavBar />
             <div className="infos">
 
-                        
-                            <div className="imagem">
+
+                <div className="imagem">
 
 
-                                <Swiper navigation={true} slidesPerView={1} modules={[Navigation]} className="mySwiper2">
+                    <Swiper navigation={true} slidesPerView={1} modules={[Navigation]} className="mySwiper2">
 
-                                <SwiperSlide>
-                                <img src={yum} alt="" />
-                                </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={yum} alt="" />
+                        </SwiperSlide>
 
-                                <SwiperSlide>
-                                <img src={yum} alt="" />
-                                </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={yum} alt="" />
+                        </SwiperSlide>
 
-                                <SwiperSlide>
-                                <img src={yum} alt="" />
-                                </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={yum} alt="" />
+                        </SwiperSlide>
 
-                                <SwiperSlide>
-                                <img src={yum} alt="" />
-                                </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={yum} alt="" />
+                        </SwiperSlide>
 
-                                <SwiperSlide>
-                                <img src={yum} alt="" />
-                                </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={yum} alt="" />
+                        </SwiperSlide>
 
 
-                                </Swiper>
-                                
+                    </Swiper>
+
                 </div>
 
                 <div className="compra">
@@ -389,7 +402,7 @@ coloca o frete aí amg`);
                         <div id="tituloProd">
                             <h1>{produto.NM_PRODUTO}</h1>
                         </div>
-                        
+
                         <div id="linha"></div>
                     </div>
 
@@ -399,27 +412,27 @@ coloca o frete aí amg`);
 
                     {produto.BT_PROMOCAO == true
 
-                        ?<div className="preco">
-                        <h3>R${produto.VL_PRECO}</h3>
-                        <h2>R${produto.VL_PRECO_PROMOCIONAL}</h2>
-                        <p>Ou 10x de {parcela}</p>
-                        <div></div>
-                    </div>
-                    
-                        :<div className="preco">
-                        <h2>R${produto.VL_PRECO}</h2>
-                        <p>Ou 10x de {parcela}</p>
-                        <div></div>
-                    </div>
-                }
+                        ? <div className="preco">
+                            <h3>R${produto.VL_PRECO}</h3>
+                            <h2>R${produto.VL_PRECO_PROMOCIONAL}</h2>
+                            <p>Ou 10x de {parcela}</p>
+                            <div></div>
+                        </div>
+
+                        : <div className="preco">
+                            <h2>R${produto.VL_PRECO}</h2>
+                            <p>Ou 10x de {parcela}</p>
+                            <div></div>
+                        </div>
+                    }
 
                     <div className="frete">
                         <label for="CEP"> <h4>Onde entregar?</h4> </label>
 
                         <div className="search-bar">
-                            <input id="CEP" type="cep" placeholder="Digite seu CEP" value={cep} onChange={(e) => setCep(e.target.value)}/>
+                            <input id="CEP" type="cep" placeholder="Digite seu CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
                         </div>
-                        <p style={{padding: "7px"}}>{respCep}</p> 
+                        <p style={{ padding: "7px" }}>{respCep}</p>
                     </div>
 
 
@@ -433,7 +446,10 @@ coloca o frete aí amg`);
                             <>
                                 <div className="tipo-envio">
                                     <div className="env-hermes">
-                                        <button>
+                                        <button
+                                            onClick={IdentificarFrete}
+                                            value={FreteHermes}
+                                            onChange={(e) => setFreteHermes(e.target.value)}>
                                             <div>
                                                 <img src={hermes} alt="" />
                                                 <h4>Hermes Express</h4>
@@ -450,7 +466,10 @@ coloca o frete aí amg`);
                                     <div className="linha2"></div>
 
                                     <div className="env-star">
-                                        <button>
+                                        <button
+                                            onClick={IdentificarFrete}
+                                            value={FreteRedStart}
+                                            onChange={(e) => setFreteRedStart(e.target.value)}>
                                             <div >
                                                 <img src={red_star} alt="" />
                                                 <h4>Red Star Company</h4>
@@ -470,8 +489,8 @@ coloca o frete aí amg`);
                     <div className="buttons" style={{ display: `${hideBuyOptions}` }}>
                         <button id="button-compra" onClick={processPag25}>Compre já</button>
                         <div className="carrinho">
-                        <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho
-                        </button> 
+                            <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho
+                            </button>
                         </div>
                     </div>
 
@@ -479,7 +498,7 @@ coloca o frete aí amg`);
                         <p className='hover-opt' onClick={MinusQtdProduto}>-</p>
                         <p >{qtdProdutos}</p>
                         <p className='hover-opt' onClick={AddQtdProduto} >+</p>
-                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -499,7 +518,7 @@ coloca o frete aí amg`);
                     <input type="text" value={commentContent} onChange={e => setCommentContent(e.target.value)} onKeyDown={InserirCommentarioEnter} placeholder="Deixe um comentário" />
                 </div>
 
-            
+
                 <div>
                     {comments.map((item) =>
                         <Comments
@@ -512,33 +531,33 @@ coloca o frete aí amg`);
                         />
                     )}
                 </div>
-                
-                          
-            
+
+
+
                 <div className="setas">
 
-                        {
-                            (setaRetornarComments == true)
+                    {
+                        (setaRetornarComments == true)
 
                             ? <h2 id="seta" onClick={RetornarComments} style={{ fontSize: 70 }} > {'<'} </h2>
-                            :<></>
-                        }
+                            : <></>
+                    }
 
-                        {numPagComments.map(item =>
+                    {numPagComments.map(item =>
 
-                            <p onClick={() => paginaComments(item)}>{item}</p>
+                        <p onClick={() => paginaComments(item)}>{item}</p>
 
-                        )}
+                    )}
 
-                        {
-                            (setaAvancarComments == true)
-                            ?<h2 id="seta" onClick={AvancarComments} style={{ fontSize: 70 }} > {'>'} </h2>
-                            :<></>
-                        }
-                   
+                    {
+                        (setaAvancarComments == true)
+                            ? <h2 id="seta" onClick={AvancarComments} style={{ fontSize: 70 }} > {'>'} </h2>
+                            : <></>
+                    }
 
 
-                    
+
+
                 </div>
             </div>
 
@@ -553,7 +572,7 @@ coloca o frete aí amg`);
                 <div className="products">
 
                     <Produtos CardResposiveLimit={CardResposiveLimit}
-                    products={allProducts} />
+                        products={allProducts} />
 
 
                 </div>
