@@ -73,6 +73,12 @@ const Cadastro = () => {
             console.log(err.response ? err.response.data : err.message);
             setErro(err.response ? err.response.data : err.message);
         }
+
+       
+    }
+
+    function voltar() {
+        navigate('/')
     }
 
     // class Person{
@@ -86,6 +92,9 @@ const Cadastro = () => {
 
     return (
         <div className="mainCad">
+            <div className='vol'>
+                <a onClick={voltar}> {'<'} voltar </a>
+            </div>
 
             <div className='Card'>
                 <div className='Banner'>

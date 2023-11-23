@@ -92,13 +92,20 @@ function Login(props2) {
 
   }
 
+  function voltar() {
+    navigate('/')
+  }
+
   useEffect(() => {
     verify();
   }, []);
 
   return (
     <>
-      <div className='main'>
+    <div className='main'>
+      <div className='vol'>
+        <a onClick={voltar}> {'<'} voltar </a>
+      </div>
         <div className='Frame'>
 
           <div className='DetailsInside'>
