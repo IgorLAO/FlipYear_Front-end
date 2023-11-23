@@ -88,6 +88,7 @@
                         border: 5px #fff solid;
                         border-radius: 100%;
                         object-fit: cover;
+                        max-width: 120px;
                     }
 
                     .blockCam {
@@ -146,6 +147,7 @@
 
             }
 
+        }
             .Av {
                 display: flex;
                 flex-direction: column;
@@ -168,6 +170,5 @@
                     }
                 }
             }
-        }
     }
 }

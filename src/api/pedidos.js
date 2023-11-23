@@ -5,7 +5,7 @@ export async function GetAllPedidos() {
     return res
 }
 
-export async function PutPedidos(id, situacao) {
-    let resp = await server.put(`/pedidos/${id}`, situacao);
+export async function PutPedidos(id, DS_SITUACAO) {
+    const resp = await server.put(`/pedidos/${id}`, DS_SITUACAO);
     return resp.data
 }

@@ -13,6 +13,7 @@ import Filter from "../../../ui/components/ADM_components/Filter";
 
 export default function ADM_pedidos() {
     const [IsHideFilterMenu, setIsHideFilterMenu] = useState(false);
+    const [IdSelect, setIdSelect] = useState();
     const [ListPedidos, setListPedidos] = useState([]);
 
     async function GetPedidos() {
@@ -29,20 +30,26 @@ export default function ADM_pedidos() {
         }
     }
 
+    function addId(i) {
+
+    }
+
     useEffect(() => {
         GetPedidos();
     }, []);
 
     return (
         <>
-            <StatusDisplay />
+            <span id="dp" style={{ display: 'none' }}>
+                <StatusDisplay id={IdSelect} />
+            </span>
+
             <div className="ADM_usersConsulta">
                 <AdmTopNavBar />
                 <div className="s">
                     <Adm_leftNavBar />
                     <div className="content">
                         <h1> Buscar Pedidos </h1>
-
 
                         <span style={{ display: "flex", justifyContent: "center" }}>
                             <span className='searchBox'>
@@ -89,7 +96,7 @@ export default function ADM_pedidos() {
                                         <td> x69 </td>
                                         <td> {i.PARCELAS}x </td>
                                         <td> {i.Nota} </td>
-                                        <td> <button> ... </button> </td>
+                                        <td> <button onClick={() => { setIdSelect(i.Id); document.getElementById('dp').style.display = 'flex'; console.log(IdSelect) }}> ... </button> </td>
                                     </tr>
                                 )}
 

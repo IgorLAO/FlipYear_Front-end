@@ -87,11 +87,16 @@ export default function PerfilPessoal() {
                         <SideBarUsers />
                         <section className='PerfilDetails'>
                             <div className='Perfil'>
-                                <span className='InfoP'>
+                                <span className='InfoP'  style={{
+                                        height: '150px',
+                                        width: '100%',
+                                        maxWidth: '150px',
+                                    }}>
                                     <img src={ReceivedProfile} style={{
                                         height: '150px',
                                         width: '100%',
                                         maxWidth: '150px',
+                                        maxHeight: '150px',
                                         objectFit: 'cover'
                                     }} />
 

@@ -96,7 +96,7 @@ export default function EditarPerfil(props) {
                             <a className='SaveBtn' onClick={Save}>SAVE</a>
                         </header>
 
-                        <section>
+                        <section id='edit'>
                             <div className='ProfilePic' >
                                 <div className='banner'
                                     style={{ backgroundColor: localStorage('color') }}
@@ -112,9 +112,11 @@ export default function EditarPerfil(props) {
 
                                 </div>
 
-                                <span className='perfil' onClick={() => document.getElementById('fileProfile').click()}>
+                                <span className='perfil'  onClick={() => document.getElementById('fileProfile').click()}
+                                >
                                     {!NewProfilePic ?
-                                        (<img className='foto' src={CurrentProfilePic} alt='imagem antiga' />)
+                                        (<img className='foto' src={CurrentProfilePic} alt='imagem antiga'
+                                         />)
                                         :
                                         (<img className='foto' src={NewProfilePic} alt='nova imagem de perfil' />)}
 
@@ -126,14 +128,15 @@ export default function EditarPerfil(props) {
                                 </span>
                             </div>
 
-                            <div className='advancedOP'>
+                            <div className='advancedOP' onClick={() => (document.getElementById('av').style.display = 'flex', document.getElementById('edit').style.display = 'none')}>
                                 <span>
                                     <a>Opções avançadas</a>  <a>{'>'}</a>
                                 </span>
                                 <p> Informações da sua conta, como endereços, email e alterar senha </p>
                             </div>
+                            </section>
 
-                            <div className='Av'>
+                            <div className='Av' id='av' style={{display: 'none'}}>
                                 <span>
                                     <h2>Configuraçoes avancadas</h2>
                                     <hr />
@@ -184,7 +187,7 @@ export default function EditarPerfil(props) {
                                     </div>
                                 </div>
                             </div>
-                        </section>
+               
                     </div>
                 </div>
             }

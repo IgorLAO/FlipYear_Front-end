@@ -1,19 +1,46 @@
 import { PutPedidos } from '../../../../api/pedidos';
 import './style.scss';
 
-import react, { useState } from 'react'
+import react, { useEffect, useState } from 'react'
 
-export default function StatusDisplay() {
+export default function StatusDisplay(props) {
     const [PorcentProgess, setPorcentProgess] = useState(0);
 
     const [Situacao, SetSituacao] = useState('');
 
 
     async function HandleSituacao() {
-        const data = await PutPedidos(Situacao);
-        
+        const data = await PutPedidos(props.id, Situacao);
+        console.log(Situacao)
     }
 
+    async function HandleSituacaoAguarda() {
+        SetSituacao('Aguardando Pagamento')
+        const data = await PutPedidos(props.id, Situacao);
+    }
+    async function HandleSituacaoConcluído() {
+        SetSituacao('Concluído')
+        const data = await PutPedidos(props.id, Situacao);
+    }
+    async function HandleSituacaoEmTran() {
+        SetSituacao(' Em Trânsito')
+        const data = await PutPedidos(props.id, Situacao);
+    }
+
+    async function HandleSituacaoProcess() {
+        SetSituacao('processando')
+        const data = await PutPedidos(props.id, Situacao);
+    }
+
+    async function HandleSituacaoEntregue() {
+        SetSituacao('Entregue')
+        const data = await PutPedidos(props.id, Situacao);
+    }
+
+    
+    useEffect(() => {
+        console.log(Situacao); 
+    }, [Situacao]);
 
     return (
         <main className='Main_StatusDisplay'>
@@ -27,7 +54,7 @@ export default function StatusDisplay() {
                 </header>
                 <div className='carProgress' style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                     <a className='destino'>
-                        <h5 style={{marginBottom: '5px'}}>Destino</h5>
+                        <h5 style={{ marginBottom: '5px' }}>Destino</h5>
                         <span>
                             Rua da silva medeiro campos, n23
                         </span>
@@ -51,7 +78,7 @@ export default function StatusDisplay() {
 
                 <div className='btns'>
 
-                    <div className='button' onClick={() => {setPorcentProgess(20); SetSituacao('Aguardando Pagamento'); HandleSituacao()}}>
+                    <div className='button' onClick={HandleSituacaoAguarda}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
@@ -86,7 +113,7 @@ export default function StatusDisplay() {
                         </a>
                     </div>
 
-                    <div className='button' onClick={()  => {setPorcentProgess(40); SetSituacao('Processando'); HandleSituacao()}}  >
+                    <div className='button' onClick={HandleSituacaoProcess}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
@@ -121,7 +148,7 @@ export default function StatusDisplay() {
                         </a>
                     </div>
 
-                    <div className='button' onClick={() => {setPorcentProgess(60); SetSituacao('Em Trânsito'); HandleSituacao()}}>
+                    <div className='button' onClick={HandleSituacaoEmTran}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
@@ -156,7 +183,7 @@ export default function StatusDisplay() {
                         </a>
                     </div>
 
-                    <div className='button' onClick={()  => {setPorcentProgess(80); SetSituacao('Entregue'); HandleSituacao()}}>
+                    <div className='button' onClick={HandleSituacaoEntregue}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">
@@ -192,7 +219,7 @@ export default function StatusDisplay() {
                         </a>
                     </div>
 
-                    <div className='button' onClick={()  => {setPorcentProgess(60); SetSituacao('Concluído'); HandleSituacao()}}>
+                    <div className='button' onClick={HandleSituacaoConcluído}>
                         <span style={{ display: "flex", position: "absolute" }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                 <g opacity="0.5">

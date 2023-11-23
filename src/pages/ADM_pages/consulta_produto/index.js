@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Delete, GetAllProd, GetSearchProd } from "../../../api/produtos";
+
 import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
-
 
 import searchIcon from '../../../ui/assets/images/NavBar_assets/lupa.png';
 import filter from '../../../ui/assets/images/adm_assets/filter_icon 1.svg';
@@ -44,7 +44,6 @@ export default function Produtos_ConsultaADM() {
         try {
             const res = await GetAllProd();
             const res2 = await GetSearchProd(SrchParams);
-
 
             if (SrchParams != '') {
                 setListProdutos(res2);

@@ -18,7 +18,7 @@ export async function ConsultarProdPorId(id) {
 }
 
 export async function GetAllProd() {
-    const resp = await server.get(`/produtos`);
+    const resp = await server.get(`/Allprodutos`);
     return resp
 }
 
