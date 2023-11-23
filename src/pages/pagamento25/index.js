@@ -121,7 +121,7 @@ export default function Pagamento25(){
                                                 <td>{list.NM_PRODUTO}</td>
                                                 <div style={{display: "flex", justifyContent:"space-between", width: "25%"}}>
                                                     <td>{quantidade}</td>
-                                                    <td>{total}</td>
+                                                    <td style={{padding: "0px"}}>{total}</td>
                                                 </div>
                                                 
                                             </tr>

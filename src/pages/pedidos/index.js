@@ -1,4 +1,5 @@
 import './index.scss';
+import axios from 'axios';
 
 import produto from '../../ui/assets/images/imageExamples/yum game_tras 1.png'
 import certo from '../../ui/assets/images/pedido/certo.png';
@@ -6,14 +7,17 @@ import errado from '../../ui/assets/images/pedido/errado.png'
 import voltar from '../../ui/assets/images/pedido/voltar.png';
 
 import { useNavigate } from 'react-router-dom';
+import { GetAllPedidos } from '../../api/pedidos';
 
+async function ConsultarPedidos(){
+    const resp = await GetAllPedidos(id);
 
-
+}
 
 export default function MeusPedidos(){
 
     const navigate = useNavigate();
-    
+        
     return(
         <>
             <div className="container-meupedido">

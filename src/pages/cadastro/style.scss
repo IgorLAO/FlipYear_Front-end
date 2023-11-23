@@ -121,4 +121,15 @@
             }
         }
     }
+
+    @media (max-width: 414px) {
+        .Card  {
+            .Banner{
+                display: none;
+            }
+            .CardCad{
+                width: 100%;
+            }
+        }
+    }
 }
