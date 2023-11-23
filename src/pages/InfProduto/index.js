@@ -32,6 +32,8 @@ import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments
 import { GetUserById } from "../../api/usuario";
 import server from "../../api/server";
 import axios from "axios";
+import { Toastify } from "toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function InfProduto() {
     const navigate = useNavigate();
@@ -116,10 +118,11 @@ export default function InfProduto() {
     function ResposiveCards() {
         const t = window.innerWidth
         console.log(t)
-        if (t < 950) setCardResposiveLimit(1);
+        if(t< 700) setCardResposiveLimit(1)
+        else if (t < 950) setCardResposiveLimit(2);
         else if (t < 1420) setCardResposiveLimit(3)
 
-        else setCardResposiveLimit(5);
+        else setCardResposiveLimit(4);
     }
 
     async function AddNoCarrinho() {
@@ -222,9 +225,10 @@ export default function InfProduto() {
     function processPag25() {
         if (selectedFrete != 0) {
 
-            const selectedFreteString = JSON.stringify(selectedFrete);
-            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFreteString}`);
+            
+            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
         } else {
+
             alert(`Tá achando q a vida é um morango? 
 coloca o frete aí amg`);
         }
@@ -275,20 +279,20 @@ coloca o frete aí amg`);
     }
 
 
-    async function GetImgs() {
-        let res = await ProdsImg(idParam)
-        let data = res.data
-
-        setFrente(data[0].FRENTE)
-        setLadoDir(data[0].LADO_DIRE)
-        setLadoEsq(data[0].LADO_ESQ)
-        setTras(data[0].TRAS)
-
-    }
+    //async function GetImgs() {
+    //    let res = await ProdsImg(idParam)
+    //    let data = res.data
+//
+    //    setFrente(data[0].FRENTE)
+    //    setLadoDir(data[0].LADO_DIRE)
+    //    setLadoEsq(data[0].LADO_ESQ)
+    //    setTras(data[0].TRAS)
+//
+    //}
 
     useEffect(() => {
         ResposiveCards()
-        GetImgs()
+        //GetImgs()
         console.log(Frente)
     }, [])
 
