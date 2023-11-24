@@ -144,3 +144,9 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 700px) {
+    .MainRegistroADM .s .content2 section {
+        flex-direction: column;
+    }
+}

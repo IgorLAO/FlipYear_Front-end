@@ -6,7 +6,7 @@ import Adm_leftNavBar from "../../../ui/components/ADM_components/left_navbar";
 import AdmTopNavBar from "../../../ui/components/ADM_components/topNavBar";
 
 import camera from "../../../ui/assets/images/adm_assets/camera_icon.png"
-import { GetAllProd, Getcatego, InsertProd, InsertProdImages } from "../../../api/produtos";
+import { ConsultarProdPorId, GetAllProd, Getcatego, InsertProd, InsertProdImages } from "../../../api/produtos";
 import { useLocation } from "react-router-dom";
 
 export default function RegistroProdutos(props) {
@@ -18,6 +18,9 @@ export default function RegistroProdutos(props) {
     const [Promo, setPromo] = useState(false);
     const [destaque, setDestaque] = useState(false);
     const [categoria, setCategoria] = useState([]);
+    
+    const [AltData, setAltData] = useState([]);
+
     const [categoriaId, setCategoriaId] = useState();
     const [disponivel, setDisponivel] = useState(false)
     const [Colecionador, setColecionador] = useState(false)
@@ -33,30 +36,7 @@ export default function RegistroProdutos(props) {
     const [Tras, setTras] = useState();
 
 
-    const location = useLocation();
-
-
-    async function InsertImages() {
-        try {
-
-            const imgs = {
-                Frente,
-                LadoEsq,
-                LadoDir,
-                Tras,
-            }
-
-            const data1 = await InsertProdImages(imgs);
-            const insertedImageId = data1.data.insertId;
-
-            await InsertProdInfos(insertedImageId);
-            return insertedImageId;
-
-        } catch (err) {
-            console.log(err.message)
-        }
-    }
-
+    
     let Idcategoria = 3
 
     async function InsertProdInfos(IdImg) {
@@ -123,18 +103,16 @@ export default function RegistroProdutos(props) {
         const data1 = await InsertProdImages(Frente);
         const insertedImageId = data1.data.insertId;
 
-        console.log(data1)
+        console.log(ConsultarProdPorId( localStorage('idAlt')) )
     }
-
-    async function receiveAltData() {
-        const itemData = location.state?.itemToPass;
-        console.log(itemData, 'props')
-    }
+        // console.log(data1)
+        // setAltData(data);
 
 
+    
     useEffect(() => {
         HandleCategoria();
-        receiveAltData()
+        // receiveAltData();
     }, []);
 
     return (
@@ -269,7 +247,7 @@ export default function RegistroProdutos(props) {
                             </div>
 
 
-                            <div className='button' onClick={() => { InsertImages(); }}>
+                            <div className='button' onClick={() => { InsertProdImages(); }}>
                                 <span style={{ display: "flex", position: "absolute" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                         <g opacity="0.5">
