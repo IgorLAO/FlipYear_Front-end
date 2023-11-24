@@ -119,28 +119,26 @@ export default function Catalogo() {
         let infos = localStorage('SearchValue');
         setValueS(infos);
 
-        if (ValueS !== '') {
+   
 
             let res = await GetSearchProd(infos);
 
 
             if (res !== 'nada') {
-                setList(res);
-                setBackupArr(res);
+                setList(res.data);
+                setBackupArr(res.data);
+                
             }
 
             else {
                 setNotFoundSwitch(true);
             }
-        }
+        
 
-        else {
-            let res = await GetAllProd();
-            setList(res.data);
-            setBackupArr(res.data);
-            setNotFoundSwitch(false)
+        
 
-        }
+
+        
     }
 
     function OrdMelhoresAvaliados() {

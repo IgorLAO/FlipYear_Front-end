@@ -96,7 +96,7 @@ export default function NavBar(props) {
             try {
                 if (tamanhoSearch > 0) {
                     let res = await GetSearchProd(SearchValue);
-                    SetSearchRes(res);
+                    SetSearchRes(res.data);
                     if (res === 'nada') {
                         setIshideNotFound(true);
                         document.getElementById('sR').style.display = 'flex';
