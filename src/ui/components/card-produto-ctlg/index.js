@@ -54,13 +54,12 @@ export default function CardProdutoCtlg(props) {
 
     async function imgFrente(IMG) {
         setFrente(GetUrlImage(IMG));
-        console.log(props.imgs.ImgFrente);
+
     }
 
     async function imgLado(IMG) {
         setLado(GetUrlImage(IMG));
         
-        console.log(props.imgs.ImgFrente);
     }
 
     async function ListImagesById(){
@@ -70,7 +69,6 @@ export default function CardProdutoCtlg(props) {
 
         imgFrente(i.FRENTE);
         imgLado(i.LADO_DIRE);
-        console.log(i, 'alibid')
         
     }
 

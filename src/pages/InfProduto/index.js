@@ -326,6 +326,21 @@ export default function InfProduto() {
 //
     //}
 
+//    <div className="other-products">
+//    <div className="ot-tittle">
+//        <h1>Outros Produtos</h1>
+//    </div>
+//
+//
+//    <div className="products">
+//
+//        <Produtos CardResposiveLimit={CardResposiveLimit}
+//            products={allProducts}/>
+//
+//
+//    </div>
+//</div>
+
     useEffect(() => {
         ResposiveCards()
     }, [])
@@ -353,7 +368,7 @@ export default function InfProduto() {
 
     useEffect(() => {
         CarregarProdutos();
-        GetAllProduttc();
+        //GetAllProduttc();
         GetAllComments();
 
     }, []);
@@ -559,20 +574,7 @@ export default function InfProduto() {
 
 
 
-            <div className="other-products">
-                <div className="ot-tittle">
-                    <h1>Outros Produtos</h1>
-                </div>
 
-
-                <div className="products">
-
-                    <Produtos CardResposiveLimit={CardResposiveLimit}
-                        products={allProducts} />
-
-
-                </div>
-            </div>
             <Rodape />
         </div>
     )
