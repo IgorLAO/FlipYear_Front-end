@@ -1,7 +1,7 @@
 import './index.scss';
 import Rodape from '../../ui/components/rodape/index.js';
 import CardProdutoCtlg from '../../ui/components/card-produto-ctlg';
-import Fantasma1 from '../../ui/assets/images/perfil-side-bar/fantasma 2.png'
+import Fantasma1 from '../../ui/assets/images/catalogo_assets/ghost 1.png'
 import Fantasma2 from '../../ui/assets/images/perfil-side-bar/fantasma4.png'
 import localStorage from 'local-storage';
 import { useEffect, useState } from 'react';
@@ -318,25 +318,31 @@ aaaaaaaaaa
                 <div className='resultados-ctlg'>
                     <div className='filtro-opc'>
 
-                        <FiltroCtlg
-                            OrdMelhoresAvaliados={OrdMelhoresAvaliados}
-                            OrdPioresAvaliados={OrdPioresAvaliados}
-                            OrdMaioresPrecos={OrdMaioresPrecos}
-                            OrdMenoresPrecos={OrdMenoresPrecos}
-                            FiltroColecionador={FiltroColecionador}
-                            FiltroPromocao={FiltroPromocao}
-                            FiltroDestaque={FiltroDestaque}
-                            setFiltroPreco={setFiltroPreco}
-                            setFiltroEmpresa={setFiltroEmpresa}
-                            setFiltroEstado={setFiltroEstado}
-                            setFiltroAvaliacao={setFiltroAvaliacao}
-                            setFiltroEstoque={setFiltroEstoque}
-                            FiltroConsole={FiltroConsole}
-                            FiltroCD={FiltroCD}
-                            FiltroFita={FiltroFita}
-                            FiltroFliperama={FiltroFliperama}
-                        >
-                        </FiltroCtlg>
+                        {(notfoundSwitch == false)
+                        
+                        ?<FiltroCtlg
+                        OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                        OrdPioresAvaliados={OrdPioresAvaliados}
+                        OrdMaioresPrecos={OrdMaioresPrecos}
+                        OrdMenoresPrecos={OrdMenoresPrecos}
+                        FiltroColecionador={FiltroColecionador}
+                        FiltroPromocao={FiltroPromocao}
+                        FiltroDestaque={FiltroDestaque}
+                        setFiltroPreco={setFiltroPreco}
+                        setFiltroEmpresa={setFiltroEmpresa}
+                        setFiltroEstado={setFiltroEstado}
+                        setFiltroAvaliacao={setFiltroAvaliacao}
+                        setFiltroEstoque={setFiltroEstoque}
+                        FiltroConsole={FiltroConsole}
+                        FiltroCD={FiltroCD}
+                        FiltroFita={FiltroFita}
+                        FiltroFliperama={FiltroFliperama}
+                    >
+                    </FiltroCtlg>
+                        :<></>
+                        }
+
+                        
                     </div>
 
                     {
@@ -396,8 +402,12 @@ aaaaaaaaaa
 
 
                     {numPagina.map(item =>
+                        (numPagina == paginaAtual)
 
-                        <p onClick={() => paginar(item)}>{item}</p>
+                        ?<p onClick={() => paginar(item)} style={{color: '#00FF57'}}>{item}</p>
+                        :<p onClick={() => paginar(item)}>{item}</p>
+
+                        
                     )}
 
                     {

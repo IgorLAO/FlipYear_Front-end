@@ -64,7 +64,7 @@ export default function InfProduto() {
     const [commentsProd, setCommentsProd] = useState([]);
     const [cep, setCep] = useState('');
     const [respCep, setRespCep] = useState('');
-    const [selectedFrete, setSelectedFrete] = useState(0);
+    const [FreteSelecionado, setFreteSelecionado] = useState([]);
 
     const [Frente, setFrente] = useState('');
     const [LadoDir, setLadoDir] = useState('');
@@ -200,6 +200,7 @@ export default function InfProduto() {
 
     }
 
+
     useEffect(() => {
         ConsultarCep();
     }, [cep]);
@@ -222,23 +223,22 @@ export default function InfProduto() {
         SetParcela(valorParcelas);
     }
 
-    function processPag25() {
-        if (selectedFrete != 0) {
-
-            
-            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${selectedFrete}`);
+      function processPag25(Frete) {
+        Frete = FreteSelecionado
+        if (Frete != 0 && respCep === 'Cep encontrado!'){
+            navigate(`/pagamento25/${idParam}/${qtdProdutos}/${Frete}`);
         } else {
-
-            alert(`insira o frete`);
+            alert(`Preencha os campos`);
         }
+        
     }
 
     function FreteHermes() {
-        setSelectedFrete(15);
+        setFreteSelecionado(15);
     }
 
     function FreteRedStart() {
-        setSelectedFrete(25);
+        setFreteSelecionado(25);
     }
 
     async function GetAllComments() {
@@ -339,7 +339,6 @@ export default function InfProduto() {
         setIsHideOptions(true);
         setHideBuyOptions('none');
         setAng('90');
-        setSelectedFrete(freteType);
 
         if (isHideOptions) {
             setIsHideOptions(false);

@@ -127,9 +127,6 @@ const Cadastro = () => {
                                     onChange={e => setTelefone(e.target.value)} />
                             </span>
 
-                            <button onClick={end}>
-                                AAAAAAA
-                            </button>
 
 
                         </div>

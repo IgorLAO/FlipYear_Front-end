@@ -46,6 +46,10 @@ function App() {
     else setCardResposiveLimit(5);
   }
 
+  function LimparPesquisa(){
+    localStorage('SearchValue', '');
+  }
+
 
   useEffect(() => {
     ResposiveCards();
@@ -64,7 +68,7 @@ function App() {
             <h1>Pra que máquina do tempo se existe Super Nintendo?</h1>
             <a>Relembrando a infância: gastar o troco em fliperama, inventar desculpa para a mãe, competir no Streets of Rage, nostalgia dos video games. Busque seu favorito no catálogo e volte a ser criança por um dia! Não se esqueça de assoprar a fita antes de jogar!</a>
                 <Link to='/catalogo'>
-            <span className='btnHome'>
+            <span className='btnHome' onClick={LimparPesquisa}>
               <svg xmlns="http://www.w3.org/2000/svg" width="242" height="63" viewBox="0 0 242 63" fill="none">
                 <g opacity="0.5">
                   <rect x="4.56641" y="5.03906" width="234.748" height="53.2617" fill="#E0F8D0" />
