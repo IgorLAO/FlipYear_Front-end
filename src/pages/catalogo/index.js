@@ -353,11 +353,10 @@ export default function Catalogo() {
                             : <>
                                 <div className='produtos-result'>
 
-
                                     {prodsAtuais.map((item) => <>
                                         <CardProdutoCtlg
-                                            preco={item.VL_PRECO}
                                             idProduto={item.ID_PRODUTO}
+                                            preco={item.VL_PRECO}
                                             nome={item.NM_PRODUTO}
                                             fabricante={item.NM_FABRICANTE}
                                             precoPromocao={item.VL_PRECO_PROMOCIONAL}
