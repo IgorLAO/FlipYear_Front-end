@@ -89,9 +89,7 @@ export default function CardProdutoCtlg(props) {
             <div
                 className='card'
                 style={{ background: `${fundoBranco}` }}>
-          <button onClick={ListImagesById}>
-aaaaaaaaaaaaa
-                </button>
+
                 <span className='imgsProd'>
                     <img id='ImgProduto' src={Frente} onClick={processoCompra} />
 
