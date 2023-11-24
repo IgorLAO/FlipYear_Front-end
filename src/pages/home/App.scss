@@ -254,24 +254,25 @@
         justify-content: end;
 
         width: 50%;
-        object-fit: cover;
+        object-fit: contain;
 
         .alucard {
-          width: 400px;
           margin-top: -150px;
+          margin-right: 56px;
+          object-fit: contain;
+          width: 50%;
         }
 
         .morcegos {
-          position: absolute;
-          top: 1100px;
-          right: 250px;
+          position: relative;
+          top: -250px;
+          right: -760px;
           transform: rotate(190deg);
         }
 
         .morcegos1 {
-          position: absolute;
-          top: 1550px;
-          right: 250px;
+          position: relative;
+          
           transform: rotate(-190deg);
         }
 
@@ -369,6 +370,22 @@
 
 
 @media (max-width: 700px) {
+  .App {
+
+    .s1 {
+   
+      .block {
+        img{
+          display: none;
+        }
+        .texts {
+          
+        }
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
   .App {
 
     .s1 {

@@ -46,7 +46,7 @@ function App() {
     else setCardResposiveLimit(5);
   }
 
-  function LimparPesquisa(){
+  function LimparPesquisa() {
     localStorage('SearchValue', '');
   }
 
@@ -67,33 +67,39 @@ function App() {
           <div className='texts'>
             <h1>Pra que máquina do tempo se existe Super Nintendo?</h1>
             <a>Relembrando a infância: gastar o troco em fliperama, inventar desculpa para a mãe, competir no Streets of Rage, nostalgia dos video games. Busque seu favorito no catálogo e volte a ser criança por um dia! Não se esqueça de assoprar a fita antes de jogar!</a>
-                <Link to='/catalogo'>
-            <span className='btnHome' onClick={LimparPesquisa}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="242" height="63" viewBox="0 0 242 63" fill="none">
-                <g opacity="0.5">
-                  <rect x="4.56641" y="5.03906" width="234.748" height="53.2617" fill="#E0F8D0" />
-                  <rect y="7.42188" width="4.56604" height="49.3479" fill="#E0F8D0" />
-                  <rect x="11.3867" width="223.02" height="7.46053" fill="#E0F8D0" />
-                  <rect x="234.48" y="7.42188" width="7.52053" height="47.9866" fill="#E0F8D0" />
-                  <rect x="11.3867" y="55.5391" width="223.02" height="7.46053" fill="#E0F8D0" />
-                </g>
+            <Link to='/catalogo'>
+              <span className='btnHome' onClick={LimparPesquisa}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="242" height="63" viewBox="0 0 242 63" fill="none">
+                  <g opacity="0.5">
+                    <rect x="4.56641" y="5.03906" width="234.748" height="53.2617" fill="#E0F8D0" />
+                    <rect y="7.42188" width="4.56604" height="49.3479" fill="#E0F8D0" />
+                    <rect x="11.3867" width="223.02" height="7.46053" fill="#E0F8D0" />
+                    <rect x="234.48" y="7.42188" width="7.52053" height="47.9866" fill="#E0F8D0" />
+                    <rect x="11.3867" y="55.5391" width="223.02" height="7.46053" fill="#E0F8D0" />
+                  </g>
 
-              </svg>
-              <button>
+                </svg>
+                <button>
                   <p>Catálogo</p>
 
-              </button>
-            </span>
-                </Link>
+                </button>
+              </span>
+            </Link>
           </div>
           <span className='imgs'>
             <img src={consolesBlock1} id='l' />
-         
+
           </span>
         </div>
         <img style={{ width: 90 + '%', heigth: 100 }} src={block} />
       </section>
+      <div>
+    <h4 style={{color: "#fff", fontSize: '20px', marginLeft: '45px'}}> Nossos Melhores Produtos </h4>
+        <Produtos
+          CardResposiveLimit={CardResposiveLimit}
+          products={mostrarDestaques} />
 
+      </div>
       {/* <section className='s2'>
         <span className='cover1' id='covers'>
           <a>Os melhores preços!</a>
