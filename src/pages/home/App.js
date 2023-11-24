@@ -46,6 +46,10 @@ function App() {
     else setCardResposiveLimit(5);
   }
 
+  function LimparPesquisa(){
+    localStorage('SearchValue', '');
+  }
+
 
   useEffect(() => {
     ResposiveCards();
