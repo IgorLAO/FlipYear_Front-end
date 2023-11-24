@@ -12,6 +12,34 @@
 
     }
 
+    .vazio{
+        
+        color: white;
+        font-size: 20px;
+        margin-top: 100px;
+
+            p{
+
+                margin: 25px;
+
+        
+            }
+
+            .fantasma2{
+                position: relative;
+                right: 150px;
+
+            }
+
+            .fantasma1{
+
+                position: relative;
+                left: 550px;
+
+            }
+        
+    }
+
     .bloco-filtro-ctlg{
         display: flex;
         justify-content: center;
@@ -163,6 +191,8 @@
 }
 
 @media (max-width: 768px){
+    .container-ctlg{
+        justify-content: center;
 
         .filtro-opc{
             display: none;
@@ -171,6 +201,46 @@
         .produtos-result{
             justify-content: center;
         }
+
+        .vazio{
+        
+            color: white;
+            font-size: 20px;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+    
+                p{
+    
+                    margin: 15px;
+    
+            
+                }
+    
+                .fantasma2{
+                    position: relative;
+                    right: 150px;
+                    width: 60px;
+    
+                }
+    
+                .fantasma1{
+    
+                    position: relative;
+                    left: 150px;
+                    width: 60px;
+    
+                }
+            
+        }
+
+
+
+    }
+
+        
 
 
 
