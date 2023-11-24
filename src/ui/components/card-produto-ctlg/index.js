@@ -83,9 +83,9 @@ export default function CardProdutoCtlg(props) {
                 style={{ background: `${fundoBranco}` }}>
 
                 <span className='imgsProd'>
-                    {/* <img id='ImgProduto' src={Frente} onClick={processoCompra} />
+                    <img id='ImgProduto' src={Frente} onClick={processoCompra} />
 
-                    <img id='Img2Produto' src={Lado} onClick={processoCompra} /> */}
+                    <img id='Img2Produto' src={Lado} onClick={processoCompra} /> 
                 </span>
 
                 <p className='nm-produto' style={{ color: `${fontePreta}` }}> {props.nome} </p>
