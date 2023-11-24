@@ -14,62 +14,81 @@ import { set } from 'local-storage';
 import { useHref, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-import { ConsultarProdPorId } from '../../api/produtos';    
+import { ConsultarProdPorId } from '../../api/produtos';
 
-export default function Pagamento25(){
+export default function Pagamento25() {
     const [id, setId] = useState();
     const [list, setList] = useState([]);
-    const [Discount, setDiscount] = useState();
+    const [Discount, setDiscount] = useState('');
     const [frete, setFrete] = useState([]);
     const [cupom, setCupom] = useState([]);
     const [total, setTotal] = useState(0);
     const [quantidade, SetQuantidade] = useState(0);
-    const [valorFrete, setValorFrete] = useState(0);
+    const [TotalCompra, setTotalCompra] = useState(0);
+    const [cupomAplicado, setCupomAplicado] = useState(false);
 
-    const {FreteSelecionado} = useParams();
+    const { FreteSelecionado } = useParams();
     const { qtdProdutos } = useParams();
     const { idParam } = useParams();
-    
-        
 
     const navigate = useNavigate();
 
-  
-    useEffect(() =>{
+    useEffect(() => {
         if (parseInt(qtdProdutos) === 0) {
             SetQuantidade(1);
-          } else {
+        } else {
             SetQuantidade(qtdProdutos);
-          }
+        }
         ListProduct();
     }, [qtdProdutos]);
-    
 
-
-    function CupomDesconto(){
-        if(CupomDesconto === "flipyear"){
-            
-        }   
-    }
-    
-    async function ListProduct(){
+    async function ListProduct() {
         const resp = await ConsultarProdPorId(idParam);
         setList(resp);
     }
 
-    function processPag50(){
+    function processPag50() {
         navigate(`/pagamento50/${idParam}`);
     }
 
-     function PrecoCompra(){
-        const r = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(list.VL_PRECO * qtdProdutos);
-        setTotal(r);
-    } 
+    function PrecoCompra() {
 
-    useEffect(() =>{
+        const valorProduto = list.VL_PRECO * qtdProdutos;
+        const r = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorProduto);
+        const valorFrete = Number(FreteSelecionado.replace(/[^0-9,-]+/g, ""));
+
+        const resultado = valorFrete + valorProduto;
+
+        const totalCompraFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(resultado);
+
+        setTotal(r);
+        setTotalCompra(totalCompraFormatado);
+        setFrete(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorFrete));
+    }
+
+    function CupomDesconto() {
+
+        if (!cupomAplicado) {
+            const valorNumerico = parseFloat(TotalCompra.replace(/[^0-9,-]+/g, '').replace(',', '.'));
+
+            if (Discount === "flipyear") {
+                const desconto = (valorNumerico * 10) / 100;
+                const totalComDesconto = valorNumerico - desconto;
+
+                setTotalCompra(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalComDesconto));
+
+                setCupomAplicado(true);
+            } else {
+
+                setTotalCompra(TotalCompra);
+            }
+        }
+    }
+    
+    useEffect(() => {
         PrecoCompra();
     }, [list])
-    
+
     return (
         <>
             <CabecalhoSimples />
@@ -118,18 +137,18 @@ export default function Pagamento25(){
                                                     <th>Qtd</th>
                                                     <th>Preço</th>
                                                 </div>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                              
+
                                                 <td>{list.NM_PRODUTO}</td>
-                                                <div style={{display: "flex", justifyContent:"space-between", width: "25%"}}>
+                                                <div style={{ display: "flex", justifyContent: "space-between", width: "25%" }}>
                                                     <td>{quantidade}</td>
-                                                    <td style={{padding: "0px"}}>{list.VL_PRECO}</td>
+                                                    <td style={{ padding: "0px" }}>{list.VL_PRECO}</td>
                                                 </div>
-                                                
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -155,21 +174,20 @@ export default function Pagamento25(){
                                 </div>
                                 <div>
                                     <p>FRETE</p>
-                                    <p>{ FreteSelecionado } </p>
-                                </div>
-                                <div>
-                                    <p>CUPOM</p>
-                                    <p>{ cupom } </p>
+                                    <p>{frete} </p>
                                 </div>
                             </div>
                             <div className='total_pedido'>
                                 <p>TOTAL</p>
-                                <p>{total}</p>
+                                <p>{TotalCompra}</p>
                             </div>
-                            <div value={Discount} onChange={(e) => setDiscount(e.target.value)} 
+                            <div value={Discount}
+                                onChange={(e) => setDiscount(e.target.value)}
+
                                 className='cupom_desconto'>
                                 <input type="text" placeholder='Cupom de desconto' />
-                                <a>Aplicar</a>
+                                <a style={{cursor: 'pointer'}} 
+                                onClick={CupomDesconto}>Aplicar</a>
                             </div>
                         </div>
                         <div onClick={processPag50} className='finalizar'>

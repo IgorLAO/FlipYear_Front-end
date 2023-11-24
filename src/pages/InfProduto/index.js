@@ -200,6 +200,7 @@ export default function InfProduto() {
 
     }
 
+
     useEffect(() => {
         ConsultarCep();
     }, [cep]);
@@ -224,12 +225,12 @@ export default function InfProduto() {
 
       function processPag25(Frete) {
         Frete = FreteSelecionado
-        if (Frete != 0)     {
+        if (Frete != 0 && respCep === 'Cep encontrado!'){
             navigate(`/pagamento25/${idParam}/${qtdProdutos}/${Frete}`);
         } else {
-
-            alert(`insira o frete`);
+            alert(`Preencha os campos`);
         }
+        
     }
 
     function FreteHermes() {
