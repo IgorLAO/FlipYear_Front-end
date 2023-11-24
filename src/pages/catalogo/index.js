@@ -133,26 +133,15 @@ export default function Catalogo() {
             else {
                 setNotFoundSwitch(true);
             }
-
-
-
-
         }
 
         else {
-
             let res = await GetAllProd();
             setList(res.data);
             setBackupArr(res.data);
             setNotFoundSwitch(false)
 
-
         }
-
-
-
-
-
     }
 
     function OrdMelhoresAvaliados() {
@@ -229,6 +218,7 @@ export default function Catalogo() {
 
     useEffect(() => {
         GetProds();
+        
     }, [ValueS, notfoundSwitch])
 
     useEffect(() => {
@@ -289,6 +279,11 @@ export default function Catalogo() {
         }
     };
 
+    async function aa(){
+        let res = await GetAllProd();
+        console.log(res)
+    }
+
 
     return (
         <>
@@ -308,7 +303,11 @@ export default function Catalogo() {
             />
 
             <div className="container-ctlg">
-                <h1 className='ctlg'>Catálogo</h1>
+                <h1 className='ctlg'>Catálogo
+                <button onClick={aa}>
+aaaaaaaaaa
+                </button>
+                </h1>
 
                 {
                     (ValueS !== '')
@@ -359,7 +358,6 @@ export default function Catalogo() {
 
 
                                     {prodsAtuais.map((item) => <>
-
                                         <CardProdutoCtlg
                                             preco={item.VL_PRECO}
                                             idProduto={item.ID_PRODUTO}
@@ -370,6 +368,13 @@ export default function Catalogo() {
                                             promocao={item.BT_PROMOCAO}
                                             avaliacao={item.VL_AVALIACAO}
                                             colecionador={item.TP_COLECIONADOR}
+                                            imgs={{
+                                                ImgFrente: item.FRENTE,
+                                                ImgTras: item.TRAS,
+                                                ImgLadoDir: item.LADO_DIREI,
+                                                ImgLadoEsq: item.LADO_ESQ,
+                                            }}
+                                          
                                         />
 
 

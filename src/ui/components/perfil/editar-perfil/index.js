@@ -26,10 +26,12 @@ export default function EditarPerfil(props) {
     async function Save() {
         try {
             const infos = localStorage("NORMAL_USER_Logado");
+            
             console.log(SendNewProfilePic);
-            let das = await GetUserById(infos.data.Id);
+            
             if (SendNewProfilePic) {
                 EnviarImagem(infos.data.Id, SendNewProfilePic);
+                alert('foi')
             }
 
             setIsHide(false);
@@ -41,7 +43,7 @@ export default function EditarPerfil(props) {
     async function GETImages() {
         let infos = localStorage('NORMAL_USER_Logado');
 
-        let id = infos.data.Id
+        let id = infos.data.Id;
 
         let das = await GetUserById(id);
 
