@@ -136,10 +136,18 @@
                 }
 
                 #respOP {
-                    position: absolute;
                     position: fixed;
                     animation: slide 0.5s linear;
-                    background-color: #E0F8D0;
+                    background-color: #081820;
+                    top: 40px;
+                    left: -5px;
+                    width: 100%;
+                    align-items: center;
+                    img{
+                        object-fit: contain;
+                        width: 10%;
+                        border: red solid;
+                    }
                 }
 
                 #menu.mostrar {
