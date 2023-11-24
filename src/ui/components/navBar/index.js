@@ -166,11 +166,14 @@ export default function NavBar(props) {
                         }} />
 
                         <span id="respOP" style={{ display: 'none' }}>
+                            <span>
+
                             <img src={Usuario} onClick={Mostrar} />
                             <span style={{ cursor: 'pointer' }}>
                                 <CartStatus mostrarCarrinho={mostrarCarrinho} />
                             </span>
                             <img onClick={Navsuport} src={Suporte} />
+                            </span>
                         </span>
                     </span>
 

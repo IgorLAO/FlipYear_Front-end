@@ -14,9 +14,10 @@ export default function Produtos(props) {
     return (
         
         <div className="products">
-            <Swiper navigation={true} slidesPerView={props.CardResposiveLimit} modules={[Navigation]} className="mySwiper">
+            <Swiper navigation={true} slidesPerView={props.CardResposiveLimit} modules={[Navigation]} className="mySwiper" data-swiper-autoplay="2000">
                 {props.products.map((item) => (
-                    <SwiperSlide><CardProdutoCtlg
+                    <SwiperSlide>
+                        <CardProdutoCtlg
                         preco={item.VL_PRECO}
                         idProduto={item.ID_PRODUTO}
                         nome={item.NM_PRODUTO}
