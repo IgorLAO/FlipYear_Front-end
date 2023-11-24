@@ -15,7 +15,7 @@ const SearchCard = (props) => {
            <img src={console}/>
 
            <span className='Texts' style={{display: 'flex', flexDirection: 'column'}}>
-            <b> {props.i.Nome} </b>
+            <b> {props.i.NM_PRODUTO} </b>
             <a style={{display: 'flex'}}> {props.i.TP_ESTADO} - {props.i.NM_FABRICANTE} </a>
            </span>
 
