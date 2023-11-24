@@ -15,8 +15,6 @@ export default function CardProdutoCtlg(props) {
     const navigate = useNavigate();
     const estoragemLocal = localStorage('ADM_Logado')
 
-
-
     const [colecionador, setColecionador] = useState(props.colecionador);
     const [fundoBranco, setFundoBranco] = useState('white ')
     const [fontePreta, setFontePreta] = useState('black ')
