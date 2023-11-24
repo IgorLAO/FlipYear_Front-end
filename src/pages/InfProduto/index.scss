@@ -56,14 +56,14 @@
     }
 
     .compra{
-        width: 30%;
+        
         padding: 50px;
         display: flex;
         flex-direction: column;
 
-        height: 100%;
         
-        margin-right: 8%;
+        
+
 
         background-color: #04373B;
         border-radius: 15px;
@@ -299,24 +299,39 @@
 
         cursor: pointer;
 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .carrinho{
         display: flex;
         justify-content: center;
+        height: 100px;
     }
 
     
     .contador{
         justify-content: center;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         background-color: #081820;
-        margin-top: 40px;
-
+        margin-top: 46px;
+        margin-bottom: -3px;
+        
+        
+        
         p{
-            padding: 15px;
+
+            padding-left: 7px;
+            padding-right: 7px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+
         }
+       
+
+
 
         .hover-opt:hover{
             cursor: pointer;
