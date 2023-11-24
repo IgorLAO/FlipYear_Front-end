@@ -4,7 +4,7 @@ export async function GetSearchProd(infos) {
     try {
         let res = await server.get(`/produto/busca?search=${infos}`);
 
-        return res.data;        
+        return res;        
     } catch (error) {
         return 'nada'
     }

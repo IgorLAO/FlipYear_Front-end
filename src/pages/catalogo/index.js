@@ -125,8 +125,9 @@ export default function Catalogo() {
 
 
             if (res !== 'nada') {
-                setList(res);
-                setBackupArr(res);
+                setList(res.data);
+                setBackupArr(res.data);
+                
             }
 
             else {
