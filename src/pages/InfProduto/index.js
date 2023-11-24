@@ -242,10 +242,17 @@ export default function InfProduto() {
     }
 
     async function GetAllComments() {
-        let res = await GetAllCmts();
-        let t = (res.data);
 
-        setComments(t)
+        try {
+            let res = await GetAllCmts();
+            let t = (res.data);
+    
+            setComments(t)
+            
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     async function GetAllProduttc() {
