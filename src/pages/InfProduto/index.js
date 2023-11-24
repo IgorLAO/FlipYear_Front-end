@@ -28,7 +28,7 @@ import Report from "../../ui/components/report";
 import CardProdutoCtlg from "../../ui/components/card-produto-ctlg";
 import Rodape from "../../ui/components/rodape";
 
-import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments, ProdsImg } from "../../api/produtos";
+import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments, ProdsImg, GetUrlImage } from "../../api/produtos";
 import { GetUserById } from "../../api/usuario";
 import server from "../../api/server";
 import axios from "axios";
@@ -113,6 +113,34 @@ export default function InfProduto() {
             SetQtdProdutos(1);
 
         }
+    }
+
+    async function imgFrente(IMG) {
+        setFrente(GetUrlImage(IMG));
+    }
+
+    async function imgLadoDir(IMG) {
+        setLadoDir(GetUrlImage(IMG));
+    }
+
+    async function imgLadoEsq(IMG) {
+        setLadoEsq(GetUrlImage(IMG));
+    }
+
+    async function imgTras(IMG) {
+        setTras(GetUrlImage(IMG));
+    }
+
+    async function ListImagesById(){
+        let J = Number(idParam)
+
+        let i = await ConsultarProdPorId(J)
+
+        imgFrente(i.FRENTE);
+        imgLadoDir(i.LADO_DIRE);
+        imgLadoEsq(i.LADO_ESQ)
+        imgTras(i.TRAS)
+        
     }
 
     function ResposiveCards() {
@@ -203,6 +231,7 @@ export default function InfProduto() {
 
     useEffect(() => {
         ConsultarCep();
+        ListImagesById()
     }, [cep]);
 
 
@@ -260,6 +289,7 @@ export default function InfProduto() {
 
         let data = (res.data)
         SetAllProducts(data)
+        console.log(allProducts)
     }
 
 
@@ -298,47 +328,8 @@ export default function InfProduto() {
 
     useEffect(() => {
         ResposiveCards()
-        //GetImgs()
-        console.log(Frente)
     }, [])
 
-
-    //  async function getBlobFromURL(filepath){
-    //      try {
-    //          if(!filepath){
-    //              throw new Error('URL da imagem n fornecida')
-    //          }
-    //
-    //          const response = await fetch(filepath)
-    //
-    //          if(!response.ok){
-    //              throw new Error(`Erro ao buscar o arquivo. Status: ${response.status}`)
-    //          }
-    //  
-    //          const buffer = await response.arrayBuffer();
-    //          const contentType = response.headers.get('content-type');
-    //          
-    //          if(!contentType){
-    //              throw new Error('Tipo de conteúdo da img não encontrado')
-    //          }
-    //          
-    //          const blob = new Blob([buffer], { type: contentType });
-    //          return blob;
-    //          
-    //      } catch (error) {
-    //          console.error(error)
-    //          throw error;
-    //      }
-    //     
-    //  }
-    //
-    //  async function imagesPreview() {
-    //      const imagemBlob = await getBlobFromURL(Frente)
-    //      const imageUrl = URL.createObjectURL(imagemBlob);
-    //              
-    //      return imageUrl
-    //
-    //  }
 
 
 
@@ -378,25 +369,28 @@ export default function InfProduto() {
                     <Swiper navigation={true} slidesPerView={1} modules={[Navigation]} className="mySwiper2">
 
                         <SwiperSlide>
-                            <img src={yum} alt="" />
+                            <div className="a">
+                            <img src={Frente} alt="" />
+                            </div>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <img src={yum} alt="" />
+                            <div className="a">
+                            <img src={Tras} alt="" />
+                            </div>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <img src={yum} alt="" />
+                            <div className="a">
+                            <img src={LadoDir} alt="" />
+                            </div>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <img src={yum} alt="" />
+                            <div className="a">
+                            <img src={LadoEsq} alt="" />
+                            </div>
                         </SwiperSlide>
-
-                        <SwiperSlide>
-                            <img src={yum} alt="" />
-                        </SwiperSlide>
-
 
                     </Swiper>
 
