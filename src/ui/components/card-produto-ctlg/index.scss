@@ -25,11 +25,18 @@
     .imgsProd {
         display: flex;
         align-items: center;
+        border: #ff0000 solid;
+        padding: 5px;
+        min-height: 200px;
+        max-height: 400px;
+        max-width: 200px;
+        
         img{
             object-fit: contain;
             max-width: 150px;
             min-width: 150px;
         }
+
         &:hover {
             #ImgProduto {
                 display: none;
@@ -38,7 +45,7 @@
 
             #Img2Produto {
                 display: flex;
-                animation: HideReveal 0.3s linear;
+                animation: HideReveal 0.7s linear;
             }
         }
 

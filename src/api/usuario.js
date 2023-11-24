@@ -19,9 +19,9 @@ export async function GetUserById(id) {
 export async function EnviarImagem(id, Profile) {
     const formData = new FormData();
     
-    formData.append('profile', Profile)
+    formData.append('user', Profile)
 
-    const res = await server.put(`/usuario/${id}/ProfImage`, formData, {
+    const res = await server.put(`/imagem/usuario/${id}`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
@@ -42,7 +42,6 @@ export function GetProfileImage(ProfIMG) {
     console.log(ProfIMG, 'aa')
     return `${server.getUri()}/${ProfIMG}`
 }
-
 
 export async function InsertEnderecos(infosEndereco) {
     const respEndereco = await server.post('/enderecos', infosEndereco);

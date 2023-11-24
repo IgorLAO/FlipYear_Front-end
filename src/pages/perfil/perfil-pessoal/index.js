@@ -10,6 +10,7 @@ import SideBarUsers from '../../../ui/components/perfil/lateral_menu_Perfil';
 import CardPedido2 from '../../../ui/components/perfil/card-pedido2';
 import EditarPerfil from '../../../ui/components/perfil/editar-perfil';
 import Produtos from '../../../ui/components/produtos';
+import { GetProfileImage, GetUserById } from '../../../api/usuario';
 
 export default function PerfilPessoal() {
     const navigate = useNavigate();
@@ -30,8 +31,19 @@ export default function PerfilPessoal() {
             setNomeUser(infos.data.Nome);
             setInfos(infos);
         }
+        
 
     }, []);
+
+
+    async function GETuserImage() {
+        let infos = localStorage('NORMAL_USER_Logado');
+        let id = infos.data.Id;
+        let das = await GetUserById(id);
+
+        console.log(das);
+       
+    }
 
     const sendProfileToS = (dados) => {
         setReceivedProfile(dados);
@@ -56,6 +68,8 @@ export default function PerfilPessoal() {
         HideDisplay();
     }, []);
 
+    
+
     document.body.style.overflow = 'auto';
     return (
         <>
@@ -65,8 +79,7 @@ export default function PerfilPessoal() {
                         SendProfileToD={sendProfileToS}
                         SendColorToD={sendColorToS}
                         DisplayHide={DisplayHide}
-                    />
-                }
+                    />}
 
                 <span style={{ display: 'none' }}>
                     <EditarPerfil
@@ -74,7 +87,9 @@ export default function PerfilPessoal() {
                         SendColorToD={sendColorToS}
                     />
                 </span>
-
+                <button onClick={GETuserImage}>
+                    aaa
+                </button>
                 <div className='perfil-pag'>
                     <div src={ReceivedBanner} style={{
                         width: '100%',

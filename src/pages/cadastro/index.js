@@ -67,14 +67,12 @@ const Cadastro = () => {
                 throw new Error('As senhas devem ser iguais!');
             
 
-            await InsertUsuario(infosPessoa).then(() => navigate('/login'));
+            await InsertUsuario(infosPessoa);
 
         } catch (err) {
             console.log(err.response ? err.response.data : err.message);
             setErro(err.response ? err.response.data : err.message);
         }
-
-       
     }
 
     function voltar() {

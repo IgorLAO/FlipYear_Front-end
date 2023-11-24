@@ -32,8 +32,8 @@ import { ConsultarProdPorId, GetAllCmts, GetAllProd, GetCmtsPage, InsertComments
 import { GetUserById } from "../../api/usuario";
 import server from "../../api/server";
 import axios from "axios";
-import { Toastify } from "toastify";
-import { ToastContainer } from "react-toastify";
+// import { Toastify } from "toastify";
+// import { ToastContainer } from "react-toastify";
 
 export default function InfProduto() {
     const navigate = useNavigate();
