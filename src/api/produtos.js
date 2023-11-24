@@ -84,7 +84,7 @@ export async function InsertProdImages(i) {
 }
 
 export function GetUrlImage(img) {
-    //console.log(`${server.getUri()}/${img}`)
+    console.log(`${server.getUri()}/${img}`)
     return `${server.getUri()}/${img}`
 }
 
