@@ -486,9 +486,9 @@ export default function InfProduto() {
                             <button id="button-carrinho" onClick={AddNoCarrinho}>Adicionar ao Carrinho
                             </button>
                             <div className="contador">
-                        <p className='hover-opt' onClick={AddQtdProduto} style={{rotate: '-90deg'}}>{'>'}</p>
+                        <p className='hover-opt' onClick={AddQtdProduto} style={{rotate: '-90deg', fontSize: '14px'}}>{'>'}</p>
                         <p >{qtdProdutos}</p>
-                        <p className='hover-opt' onClick={MinusQtdProduto} style={{ rotate:  '90deg'}}>{'>'}</p>
+                        <p className='hover-opt' onClick={MinusQtdProduto} style={{ rotate:  '90deg', fontSize: '14px'}}>{'>'}</p>
                     </div>
                 </div>
                         </div>
