@@ -26,6 +26,12 @@ export default function Produtos(props) {
                         promocao={item.BT_PROMOCAO}
                         avaliacao={item.VL_AVALIACAO}
                         colecionador={item.TP_COLECIONADOR}
+                        imgs={{
+                            ImgFrente: item.FRENTE,
+                            ImgTras: item.TRAS,
+                            ImgLadoDir: item.LADO_DIREI,
+                            ImgLadoEsq: item.LADO_ESQ,
+                        }}
                        
                     /></SwiperSlide>
                 ))
