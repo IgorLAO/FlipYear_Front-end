@@ -151,10 +151,7 @@ export default function RegistroProdutos(props) {
 
                     <section>
                         <div className="inputs">
-                            <button onClick={a}>
-                                aaaaaaaaaaaaaaaaaaaaaa
-
-                            </button>
+                   
                             <label>
                                 <a>Nome</a>
                                 <input type="text" onChange={e => setNome(e.target.value)} />
@@ -236,7 +233,7 @@ export default function RegistroProdutos(props) {
                                 {Frente ?
                                     <img src={imagesPreview()} style={{ objectFit: 'contain', maxWidth: '350px' }} />
                                     :
-                                    <img src={camera} />
+                                    <img src={camera} style={{objectFit: 'contain'}}/>
                                 }
                             </div>
                             <div className="InputsFiles">

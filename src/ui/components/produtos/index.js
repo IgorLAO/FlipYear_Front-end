@@ -26,6 +26,7 @@ export default function Produtos(props) {
                         promocao={item.BT_PROMOCAO}
                         avaliacao={item.VL_AVALIACAO}
                         colecionador={item.TP_COLECIONADOR}
+                       
                     /></SwiperSlide>
                 ))
                 }

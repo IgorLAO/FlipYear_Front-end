@@ -119,26 +119,26 @@ export default function Catalogo() {
         let infos = localStorage('SearchValue');
         setValueS(infos);
 
-   
-
-            let res = await GetSearchProd(infos);
 
 
-            if (res !== 'nada') {
-                setList(res.data);
-                setBackupArr(res.data);
-                
-            }
-
-            else {
-                setNotFoundSwitch(true);
-            }
-        
-
-        
+        let res = await GetSearchProd(infos);
 
 
-        
+        if (res !== 'nada') {
+            setList(res.data);
+            setBackupArr(res.data);
+
+        }
+
+        else {
+            setNotFoundSwitch(true);
+        }
+
+
+
+
+
+
     }
 
     function OrdMelhoresAvaliados() {
@@ -215,7 +215,7 @@ export default function Catalogo() {
 
     useEffect(() => {
         GetProds();
-        
+
     }, [ValueS, notfoundSwitch])
 
     useEffect(() => {
@@ -276,7 +276,7 @@ export default function Catalogo() {
         }
     };
 
-    async function aa(){
+    async function aa() {
         let res = await GetAllProd();
         console.log(res)
     }
@@ -301,9 +301,9 @@ export default function Catalogo() {
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo
-                <button onClick={aa}>
-aaaaaaaaaa
-                </button>
+                    <button onClick={aa}>
+                        aaaaaaaaaa
+                    </button>
                 </h1>
 
                 {
@@ -317,30 +317,30 @@ aaaaaaaaaa
                     <div className='filtro-opc'>
 
                         {(notfoundSwitch == false)
-                        
-                        ?<FiltroCtlg
-                        OrdMelhoresAvaliados={OrdMelhoresAvaliados}
-                        OrdPioresAvaliados={OrdPioresAvaliados}
-                        OrdMaioresPrecos={OrdMaioresPrecos}
-                        OrdMenoresPrecos={OrdMenoresPrecos}
-                        FiltroColecionador={FiltroColecionador}
-                        FiltroPromocao={FiltroPromocao}
-                        FiltroDestaque={FiltroDestaque}
-                        setFiltroPreco={setFiltroPreco}
-                        setFiltroEmpresa={setFiltroEmpresa}
-                        setFiltroEstado={setFiltroEstado}
-                        setFiltroAvaliacao={setFiltroAvaliacao}
-                        setFiltroEstoque={setFiltroEstoque}
-                        FiltroConsole={FiltroConsole}
-                        FiltroCD={FiltroCD}
-                        FiltroFita={FiltroFita}
-                        FiltroFliperama={FiltroFliperama}
-                    >
-                    </FiltroCtlg>
-                        :<></>
+
+                            ? <FiltroCtlg
+                                OrdMelhoresAvaliados={OrdMelhoresAvaliados}
+                                OrdPioresAvaliados={OrdPioresAvaliados}
+                                OrdMaioresPrecos={OrdMaioresPrecos}
+                                OrdMenoresPrecos={OrdMenoresPrecos}
+                                FiltroColecionador={FiltroColecionador}
+                                FiltroPromocao={FiltroPromocao}
+                                FiltroDestaque={FiltroDestaque}
+                                setFiltroPreco={setFiltroPreco}
+                                setFiltroEmpresa={setFiltroEmpresa}
+                                setFiltroEstado={setFiltroEstado}
+                                setFiltroAvaliacao={setFiltroAvaliacao}
+                                setFiltroEstoque={setFiltroEstoque}
+                                FiltroConsole={FiltroConsole}
+                                FiltroCD={FiltroCD}
+                                FiltroFita={FiltroFita}
+                                FiltroFliperama={FiltroFliperama}
+                            >
+                            </FiltroCtlg>
+                            : <></>
                         }
 
-                        
+
                     </div>
 
                     {
@@ -371,20 +371,10 @@ aaaaaaaaaa
                                                 ImgLadoDir: item.LADO_DIREI,
                                                 ImgLadoEsq: item.LADO_ESQ,
                                             }}
-                                          
                                         />
-
-
                                     </>)}
-
-
                                 </div></>
                     }
-
-
-
-
-
                 </div>
 
 
@@ -402,10 +392,10 @@ aaaaaaaaaa
                     {numPagina.map(item =>
                         (numPagina == paginaAtual)
 
-                        ?<p onClick={() => paginar(item)} style={{color: '#00FF57'}}>{item}</p>
-                        :<p onClick={() => paginar(item)}>{item}</p>
+                            ? <p onClick={() => paginar(item)} style={{ color: '#00FF57' }}>{item}</p>
+                            : <p onClick={() => paginar(item)}>{item}</p>
 
-                        
+
                     )}
 
                     {
