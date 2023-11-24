@@ -301,9 +301,7 @@ export default function Catalogo() {
 
             <div className="container-ctlg">
                 <h1 className='ctlg'>Catálogo
-                    <button onClick={aa}>
-                        aaaaaaaaaa
-                    </button>
+
                 </h1>
 
                 {
