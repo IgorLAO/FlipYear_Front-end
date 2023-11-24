@@ -1,10 +1,15 @@
+.tudo{
+    display: flex;
+    justify-content: center;
+    background-color: #081820;
+}
 .container_pag75 {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     padding: 10px 35px 180px 35px;
-    background-color: #081820;
+
 
     .estado_pag {
         display: flex;

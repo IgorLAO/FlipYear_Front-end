@@ -43,8 +43,10 @@ export default function Pagamento75(props) {
 
     return (
         <>
-            <div className='container_pag75'>
+        
                 <CabecalhoVazio />
+        <div className='tudo'>
+            <div className='container_pag75'>
                 <div className='estado_pag'>
                     <div className='icons_pag'>
                         <div>
@@ -183,6 +185,7 @@ export default function Pagamento75(props) {
                     </div>
                 </div>
             </div>
+        </div>
             <Rodape />
         </>
     )

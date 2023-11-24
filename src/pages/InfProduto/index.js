@@ -225,7 +225,6 @@ export default function InfProduto() {
       function processPag25(Frete) {
         Frete = FreteSelecionado
         if (Frete != 0)     {
-            console.log(Frete);
             navigate(`/pagamento25/${idParam}/${qtdProdutos}/${Frete}`);
         } else {
 
