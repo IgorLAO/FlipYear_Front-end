@@ -6,7 +6,7 @@
 
   background: rgb(26, 100, 78);
   background: linear-gradient(180deg, rgba(26, 100, 78, 1) 34%, rgba(8, 24, 32, 1) 54%);
-
+  width: 100vw;
 
   .s1 {
     display: flex;
@@ -258,7 +258,7 @@
 
         .alucard {
           margin-top: -150px;
-          margin-right: 56px;
+          margin-right: 0px;
           object-fit: contain;
           width: 50%;
         }
@@ -272,7 +272,7 @@
 
         .morcegos1 {
           position: relative;
-          
+  
           transform: rotate(-190deg);
         }
 
@@ -401,3 +401,5 @@
     }
   }
 }
+
+    

@@ -10,6 +10,8 @@ import JaoCard from '../../ui/components/sobreNos/JaoCard';
 import DenzCard from '../../ui/components/sobreNos/DenzCard';
 
 import IgoCard from '../../ui/components/sobreNos/IgoCard';
+import DaviCard from '../../ui/components/sobreNos/DavidCard'
+import ItaloCard from '../../ui/components/sobreNos/ItaloCard'
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -38,6 +40,8 @@ export default function SobreNos() {
                                 <SwiperSlide> <DenzCard /></SwiperSlide>
                                 <SwiperSlide> <JaoCard /></SwiperSlide>
                                 <SwiperSlide> <IgoCard /></SwiperSlide>
+                                <SwiperSlide> <DaviCard /></SwiperSlide>
+                                <SwiperSlide> <ItaloCard /></SwiperSlide>
                             </Swiper>
                         </div>
 

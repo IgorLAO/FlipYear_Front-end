@@ -91,7 +91,7 @@ export default function RegistroProdutos(props) {
         return imageUrl
     }
 
-    async function a() {
+    async function insertA() {
 
         const imgs = {
             Frente,
@@ -100,8 +100,10 @@ export default function RegistroProdutos(props) {
             Tras,
         }
 
-        const data1 = await InsertProdImages(Frente);
+        const data1 = await InsertProdImages(imgs);
         const insertedImageId = data1.data.insertId;
+
+        await InsertProdInfos(insertedImageId);
 
         console.log(ConsultarProdPorId( localStorage('idAlt')) )
     }
@@ -113,6 +115,7 @@ export default function RegistroProdutos(props) {
     useEffect(() => {
         HandleCategoria();
         // receiveAltData();
+   
     }, []);
 
     return (
@@ -247,7 +250,7 @@ export default function RegistroProdutos(props) {
                             </div>
 
 
-                            <div className='button' onClick={() => { InsertProdImages(); }}>
+                            <div className='button' onClick={insertA}>
                                 <span style={{ display: "flex", position: "absolute" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="255" height="71" viewBox="0 0 255 71" fill="none">
                                         <g opacity="0.5">

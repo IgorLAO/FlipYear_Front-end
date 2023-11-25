@@ -87,9 +87,7 @@ export default function PerfilPessoal() {
                         SendColorToD={sendColorToS}
                     />
                 </span>
-                <button onClick={GETuserImage}>
-                    aaa
-                </button>
+             
                 <div className='perfil-pag'>
                     <div src={ReceivedBanner} style={{
                         width: '100%',
@@ -114,8 +112,8 @@ export default function PerfilPessoal() {
                                         maxHeight: '150px',
                                         objectFit: 'cover'
                                     }} />
-
                                     <a> {NomeUser} </a>
+
                                 </span>
                                 <span>
                                     <a className='EditBtn' style={{ cursor: 'pointer' }} onClick={() => setDisplayHide(true)}>

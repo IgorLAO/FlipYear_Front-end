@@ -70,16 +70,7 @@ export default function Comments(props) {
                                 </div>
 
                                 <div className="resposta-area">
-                                    <div className="likes-button">
-                                        <img src={estrela} alt="" />
-                                        <h4>X{props.Likes}</h4>
-                                        <button>Responder</button>
-                                    </div>
 
-                                    <div className="show-answers">
-                                        <a>  {'>'} </a>
-                                        <a>2 Respostas</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

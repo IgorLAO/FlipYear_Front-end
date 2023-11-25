@@ -24,7 +24,7 @@
         z-index: 3;
     
         overflow: hidden;
-        width: 22%;
+        width: 25%;
         animation: SlideKart 0.3s linear;
         transition: all 0.3s ease-in-out    ;
 
@@ -34,8 +34,8 @@
             flex-direction: column;
             align-items: center;
 
-            margin-top: 100px;
-            margin-bottom: 100px;
+            margin-top: 30px;
+            margin-bottom: 30px;
 
             .puc-fantasma1 {
 
@@ -117,8 +117,8 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            margin-top: 30px;
-            margin-bottom: 50px;
+            margin-top: 10px;
+            margin-bottom: 20px;
 
             .titulo {
 
@@ -133,28 +133,8 @@
         }
 
 
-        .puc-btn-finalizar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
 
-            p {
-                color: white;
-                position: relative;
-                bottom: 35px;
-
-            }
-
-            :hover {
-                cursor: pointer;
-
-
-            }
-        }
     }
-
 
 }
 

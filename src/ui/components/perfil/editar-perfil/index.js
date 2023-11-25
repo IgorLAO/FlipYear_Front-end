@@ -29,10 +29,9 @@ export default function EditarPerfil(props) {
             
             console.log(SendNewProfilePic);
             
-            if (SendNewProfilePic) {
+            if (SendNewProfilePic) 
                 EnviarImagem(infos.data.Id, SendNewProfilePic);
-                alert('foi')
-            }
+            
 
             setIsHide(false);
         } catch (err) {

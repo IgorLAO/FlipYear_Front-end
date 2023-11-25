@@ -40,7 +40,7 @@ export default function InfProduto() {
 
     const [qtdProdutos, SetQtdProdutos] = useState(1);
     const [limiteQtd, setLimiteQtd] = useState();
-    const [idUser, setIdUser] = useState();
+    const [idUser, setIdUser] = useState(1);
 
     const [isHideOptions, setIsHideOptions] = useState(false);
     const [ang, setAng] = useState('0');
@@ -193,7 +193,7 @@ export default function InfProduto() {
         } else {
             setSetaAvancarComments(true);
         }
-    }, [commentsAtuais, numPagComments.length, comments, commentsPagAtual, commentsProd]);
+    }, []);
 
     const paginaComments = (item) => {
         setCommentsPagAtual(item);
@@ -289,21 +289,8 @@ export default function InfProduto() {
 
         let data = (res.data)
         SetAllProducts(data)
-        console.log(allProducts)
     }
 
-
-    async function GetUserById() {
-        if (localStorage('ADM_Logado')) {
-            const a = localStorage('ADM_Logado')
-            setIdUser(a.data.Id)
-
-        } else if (localStorage('NORMAL_USER_Logado')) {
-            const a = localStorage('NORMAL_USER_Logado')
-            setIdUser(a.data.Id)
-        }
-
-    }
 
 
     async function InserirCommentarioEnter(e) {
@@ -326,6 +313,21 @@ export default function InfProduto() {
 //
     //}
 
+//    <div className="other-products">
+//    <div className="ot-tittle">
+//        <h1>Outros Produtos</h1>
+//    </div>
+//
+//
+//    <div className="products">
+//
+//        <Produtos CardResposiveLimit={CardResposiveLimit}
+//            products={allProducts}/>
+//
+//
+//    </div>
+//</div>
+
     useEffect(() => {
         ResposiveCards()
     }, [])
@@ -345,15 +347,11 @@ export default function InfProduto() {
         }
     }
 
-    useEffect(() => {
-        GetUserById()
-        parcelas();
-    }, [produto, idUser]);
 
 
     useEffect(() => {
         CarregarProdutos();
-        GetAllProduttc();
+        //GetAllProduttc();
         GetAllComments();
 
     }, []);
@@ -530,49 +528,12 @@ export default function InfProduto() {
 
 
 
-                <div className="setas">
-
-                    {
-                        (setaRetornarComments == true)
-
-                            ? <h2 id="seta" onClick={RetornarComments} style={{ fontSize: 70 }} > {'<'} </h2>
-                            : <></>
-                    }
-
-                    {numPagComments.map(item =>
-
-                        <p onClick={() => paginaComments(item)}>{item}</p>
-
-                    )}
-
-                    {
-                        (setaAvancarComments == true)
-                            ? <h2 id="seta" onClick={AvancarComments} style={{ fontSize: 70 }} > {'>'} </h2>
-                            : <></>
-                    }
-
-
-
-
-                </div>
+                
             </div>
 
 
 
-            <div className="other-products">
-                <div className="ot-tittle">
-                    <h1>Outros Produtos</h1>
-                </div>
 
-
-                <div className="products">
-
-                    <Produtos CardResposiveLimit={CardResposiveLimit}
-                        products={allProducts} />
-
-
-                </div>
-            </div>
             <Rodape />
         </div>
     )
